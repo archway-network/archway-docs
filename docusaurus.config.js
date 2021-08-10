@@ -92,7 +92,7 @@ module.exports = {
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/archway-network/archway-docs/edit/master/website/blog/',
+          editUrl: 'https://github.com/archway-network/archway-docs/edit/master/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
