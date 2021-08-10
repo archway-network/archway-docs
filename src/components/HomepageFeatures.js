@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('../../static/img/lk-2.svg').default,
     description: (
       <>
-        Welcome to the Universe, get ready to elevate your ecosystem. Learn more about the Archway community and ecosystem.
+        Enter the Universe and elevate your ecosystem. Learn more about the Archway community.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('../../static/img/lk-6.svg').default,
     description: (
       <>
-        Archway is built to support developers. Playground allows you to test writing contracts code without installing any tools.
+        Archway is built to support developers. Playground allows you to test writing contracts without installing any tools.
       </>
     ),
   },
