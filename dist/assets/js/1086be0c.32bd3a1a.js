@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkarchway_docs=self.webpackChunkarchway_docs||[]).push([[552],{2293:function(a){a.exports=JSON.parse('{"allTagsPath":"./dist/index.html/blog/tags","slug":"hola","name":"hola","count":1,"permalink":"./dist/index.html/blog/tags/hola"}')}}]);

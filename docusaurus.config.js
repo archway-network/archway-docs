@@ -6,7 +6,7 @@ module.exports = {
   title: 'Archway Network',
   tagline: 'Elevate your ecosystem',
   url: 'http://ec2-52-201-252-5.compute-1.amazonaws.com',
-  baseUrl: './dist/index.html/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',

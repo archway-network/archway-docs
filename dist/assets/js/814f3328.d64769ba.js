@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkarchway_docs=self.webpackChunkarchway_docs||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"./dist/index.html/blog/welcome"},{"title":"Hello","permalink":"./dist/index.html/blog/hello-world"},{"title":"Hola","permalink":"./dist/index.html/blog/hola"}]}')}}]);
