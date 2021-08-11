@@ -13,11 +13,11 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Knowledge Base',
+    title: 'Learning Center',
     Svg: require('../../static/img/lk-5.svg').default,
     description: (
       <>
-        Find your story arc. Knowledge Base has everything you need to get your dApp up and running quickly.
+        Find your story arc. Learning Center has everything you need to get your dApp up and running quickly.
       </>
     ),
   },
