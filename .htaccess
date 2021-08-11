@@ -1,7 +1,3 @@
-AuthType Basic
-AuthName ""
-AuthUserFile ../.htpasswd
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
