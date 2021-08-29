@@ -14,20 +14,6 @@ export default function Universe() {
               <strong>Your creation. Your rewards. Your success.</strong>
             </p>
           </div>
-
-          <div className="row-f">
-            <p>Archway is a blockchain ecosystem owned, operated, and governed by you—the developer community. As you build and launch impactful, highly used open-source dapps, you earn more. </p>
-
-            <div className="text--center">
-              <img src="../img/lk-5.svg" className={styles.featureSvg} />
-            </div>
-            
-            <p className={styles.center}>
-              <a href="#" className={styles.upcase}>Read The Litepaper</a>
-            </p>
-
-          </div>
-
         </div>
       </section>
 
@@ -49,6 +35,23 @@ export default function Universe() {
               <li>70% of all gas fees go to dapps</li>
               <li>30% goes to validators</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.features}>
+        <div className="container">
+          <div className="row-f">
+            <p>Archway is a blockchain ecosystem owned, operated, and governed by you—the developer community. As you build and launch impactful, highly used open-source dapps, you earn more. </p>
+
+            <div className="text--center">
+              <img src="../img/lk-5.svg" className={styles.featureSvg} />
+            </div>
+            
+            <p className={styles.center}>
+              <a href="#" className={styles.upcase}>Read The Litepaper</a>
+            </p>
+
           </div>
         </div>
       </section>
