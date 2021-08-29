@@ -14,8 +14,7 @@ export default function Universe() {
               <strong>Your creation. Your rewards. Your success.</strong>
             </p>
           </div>
-        </div>
-        <div className="container">
+          
           <div className="row-f">
             <p>
               <strong>Reach more users, gain more assets.</strong>
