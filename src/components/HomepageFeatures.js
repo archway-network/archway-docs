@@ -14,12 +14,12 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Learning Center',
+    title: 'Creator Center',
     Svg: require('../../static/img/lk-5.svg').default,
-    link: '/learn',
+    link: '/create',
     description: (
       <>
-        Find your story arc. Learning Center has everything you need to get your dApp up and running quickly.
+        Find your story arc. Creator Center has everything you need to get your dApp up and running quickly.
       </>
     ),
   },
