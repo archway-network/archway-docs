@@ -14,12 +14,12 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Creator Center',
+    title: 'Create',
     Svg: require('../../static/img/lk-5.svg').default,
     link: '/create',
     description: (
       <>
-        Find your story arc. Creator Center has everything you need to get your dApp up and running quickly.
+        Find your story arc. Our creator focused learning section has everything you need to get your dApp up and running quickly.
       </>
     ),
   },
