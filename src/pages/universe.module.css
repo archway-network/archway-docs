@@ -1,0 +1,64 @@
+.layout {
+  max-width: 1440px;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featuresm {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 2080px;
+  margin: auto;
+}
+
+.unstyledul {
+  list-style: none;
+  font-style: italic;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.upcase {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+a.upcase {
+  text-decoration: underline;
+}
+
+.featureSvg {
+  height: 250px;
+  width: auto;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.fdback {
+  width: 90%;
+  max-width: 1440px;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+.fdbackp {
+  display: block;
+  width: 100%;
+}
+
+.herop {
+  font-weight: bold;
+  width: 90%;
+  text-shadow: 0 2px 10px 0;
+}

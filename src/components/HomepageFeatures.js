@@ -6,6 +6,7 @@ const FeatureList = [
   {
     title: 'Universe',
     Svg: require('../../static/img/lk-2.svg').default,
+    link: '/universe',
     description: (
       <>
         Enter the Universe and elevate your ecosystem. Learn more about the Archway community.
@@ -15,6 +16,7 @@ const FeatureList = [
   {
     title: 'Learning Center',
     Svg: require('../../static/img/lk-5.svg').default,
+    link: '/learn',
     description: (
       <>
         Find your story arc. Learning Center has everything you need to get your dApp up and running quickly.
@@ -24,6 +26,7 @@ const FeatureList = [
   {
     title: 'Playground',
     Svg: require('../../static/img/lk-6.svg').default,
+    link: '/playground',
     description: (
       <>
         Archway is built to support developers. Playground allows you to test writing contracts without installing any tools.
@@ -32,18 +35,20 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+function Feature({Svg, title, description, link}) {
+    return (
+      <div className={clsx('col col--4')}>
+        <a href={link}>
+          <div className="text--center">
+            <Svg className={styles.featureSvg} alt={title} />
+          </div>
+        </a>
+        <div className="text--center padding-horiz--md">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default function HomepageFeatures() {
