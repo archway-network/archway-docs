@@ -14,7 +14,7 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Create',
+    title: 'Creator Hub',
     Svg: require('../../static/img/lk-5.svg').default,
     link: '/create',
     description: (
