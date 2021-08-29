@@ -19,7 +19,7 @@ export default function Universe() {
             <p>Archway is a blockchain ecosystem owned, operated, and governed by you—the developer community. As you build and launch impactful, highly used open-source dapps, you earn more. </p>
 
             <div className="text--center">
-              <img src="../../static/img/lk-5.svg" className={styles.featureSvg} />
+              <img src="static/img/lk-5.svg" className={styles.featureSvg} />
             </div>
             
             <p className={styles.center}>
@@ -55,7 +55,7 @@ export default function Universe() {
 
       <section className={styles.features}>
         <div className={styles.fdbackp}>
-          <img src="../../static/img/universe/the-virtuous-feedback-loop.jpg" className={styles.fdback} />
+          <img src="static/img/universe/the-virtuous-feedback-loop.jpg" className={styles.fdback} />
         </div>
       </section>
 
@@ -82,7 +82,7 @@ export default function Universe() {
 
       <section className={styles.features}>
         <div className={styles.fdbackp}>
-          <img src="../../static/img/universe/archway-universe.jpg" className={styles.fdback} />
+          <img src="static/img/universe/archway-universe.jpg" className={styles.fdback} />
         </div>
       </section>
 
@@ -99,7 +99,7 @@ export default function Universe() {
 
             <div className="row-f">
               <div className="text--center">
-                <img src="../../static/img/lk-6.svg" className={styles.featureSvg} />
+                <img src="static/img/lk-6.svg" className={styles.featureSvg} />
               </div>
             </div>
           </div>
