@@ -15,9 +15,6 @@ export default function Universe() {
             </p>
           </div>
         </div>
-      </section>
-
-      <section className={styles.features}>
         <div className="container">
           <div className="row-f">
             <p>
