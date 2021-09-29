@@ -42,7 +42,7 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'create/getting-started/install',
+              to: 'docs/create/getting-started/install',
             },
           ],
         },
