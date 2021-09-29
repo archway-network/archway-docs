@@ -22,7 +22,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          docId: 'overview/about',
+          docId: 'create/getting-started/install',
           position: 'left',
           label: 'Getting Started',
         },
@@ -42,7 +42,7 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/overview/about',
+              to: 'create/getting-started/install',
             },
           ],
         },
