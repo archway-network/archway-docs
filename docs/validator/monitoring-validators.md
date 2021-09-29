@@ -2,4 +2,4 @@
 sidebar_position: 4
 ---
 
-# Monitoring Validators
+# Monitoring a Validator
