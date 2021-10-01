@@ -6,25 +6,25 @@ sidebar_position: 3
 
 ## Developer CLI Overview
 
-### Installation:
+### Installation
 ```
 git clone git@github.com:archway-network/archway-cli.git
 cd archway-cli 
 npm install -g
 ```
 
-### Usage: 
+### Usage
 ```
 archway [command] [options]
 ```
 
-### Options:
+### Options
 ```
 -v, --version       output the current version
 -h, --help          display help for command
 ```
 
-### Commands:
+### Commands
 ```
 accounts [options]               List available wallets or add new wallet
 build                            Build current project
