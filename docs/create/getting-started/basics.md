@@ -6,13 +6,6 @@ sidebar_position: 3
 
 ## Developer CLI Overview
 
-### Installation
-```
-git clone git@github.com:archway-network/archway-cli.git
-cd archway-cli 
-npm install -g
-```
-
 ### Usage
 ```
 archway [command] [options]
