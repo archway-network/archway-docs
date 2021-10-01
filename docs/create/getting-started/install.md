@@ -23,9 +23,9 @@ To install Rust follow the instructions for your operating system at https://www
 
 ## Cargo
 
-Cargo is Rust's package manager, like `go get` for Golang or `npm` for JavaScript. It comes automatically bundled with Rust if you installed `rustc` using `rustup`. 
+Cargo is Rust's package manager, like `go get` for Golang or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`. 
 
-If you didn't install with `rustup` or don't have `cargo` in your command line path, check out the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
+If you didn't install with `rustup`, or don't have `cargo` in your command line path, see the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
 
 ## Wasmd
 
@@ -65,13 +65,11 @@ For more information on running `wasmd` with the `cosmwasm/wasmd` [Docker](https
 
 `npm` is a package manager for JavaScript and Node.js. In Archway it's used for installing and updating the developer CLI. 
 
-If you need to install Node and NPM follow the instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+For installing `node` and `npm` see instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ## Archway Developer CLI
 
-Provided you've got the above dependencies in your path, you have everything needed to install and run the Archway developer CLI. 
-
-It can be installed from the [GitHub repository](https://github.com/archway-network/archway-cli) using the following commands:
+The Archway developer CLI can be installed from the [GitHub repository](https://github.com/archway-network/archway-cli)
 
 ```
 git clone git@github.com:archway-network/archway-cli.git
