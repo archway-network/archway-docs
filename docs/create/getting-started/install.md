@@ -31,7 +31,7 @@ If you didn't install with `rustup` or don't have `cargo` in your command line p
 
 `wasmd` is the first implementation of a cosmos zone with `wasm` smart contracts enabled.
 
-`wasmd` was originally forked from the cosmos/gaia repository. It adds a new module called `x/wasm`, but the `wasmd` binary should otherwise function just like `gaiad`.
+`wasmd` was originally forked from the [cosmos/gaia repository](https://github.com/cosmos/gaia). It adds a new module called `x/wasm`, but the `wasmd` binary should otherwise function just like `gaiad`.
 
 To build `wasmd` you can either install it from source or using the `cosmwasm/wasmd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
