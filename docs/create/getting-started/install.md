@@ -6,7 +6,7 @@ sidebar_position: 1
 
 To get setup for developing for Archway Network, you'll first need to make sure you've installed and configured a few dependencies.
 
-## Prerequisites
+#### Prerequisites
 
 - [Rustc](https://www.rust-lang.org/tools/install "Install Rust")
 - [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html "Install Cargo")
@@ -15,19 +15,19 @@ To get setup for developing for Archway Network, you'll first need to make sure 
 - [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
 - [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install develolper CLI")
 
-### Rustc
+## Rustc
 
 `rustc` is the compiler for the Rust programming language, provided by the [Rust](https://www.rust-lang.org/ "Rust Homepage") project maintainers. It takes your Rust source code and produces binary code, either as a library or executable.
 
 To install Rust follow the instructions for your operating system at https://www.rust-lang.org/tools/install
 
-### Cargo
+## Cargo
 
 Cargo is Rust's package manager, like `go get` for Golang or `npm` for JavaScript. It comes automatically bundled with Rust if you installed `rustc` using `rustup`. 
 
 If you didn't install with `rustup` or don't have `cargo` in your command line path, check out the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
 
-### Wasmd
+## Wasmd
 
 `wasmd` is the first implementation of a cosmos zone with `wasm` smart contracts enabled.
 
@@ -35,7 +35,7 @@ If you didn't install with `rustup` or don't have `cargo` in your command line p
 
 To build `wasmd` you can either install it from source or using the `cosmwasm/wasmd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
-#### Install Wasmd From Source
+### Install Wasmd From Source
 
 ```
 # Get source code
@@ -52,7 +52,7 @@ make proto-gen
 
 For full installation and configuration parameters see: https://github.com/CosmWasm/wasmd#readme
 
-#### Install Wasmd Using Docker
+### Install Wasmd Using Docker
 
 ```
 docker build -t cosmwasm/wasmd:latest
@@ -61,13 +61,13 @@ docker build -t cosmwasm/wasmd:latest
 For more information on running `wasmd` with the `cosmwasm/wasmd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/CosmWasm/wasmd#dockerized
 
 
-### Npm
+## Npm
 
 `npm` is a package manager for JavaScript and Node.js. In Archway it's used for installing and updating the developer CLI. 
 
 If you need to install Node and NPM follow the instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
-### Archway Developer CLI
+## Archway Developer CLI
 
 Provided you've got the above dependencies in your path, you have everything needed to install and run the Archway developer CLI. 
 
