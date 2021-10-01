@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Installation
 
-To get setup for developing for Archway Network, you'll first need to make sure you've installed and configured a few dependencies.
+Make sure you've installed and configured a few dependencies.
 
-#### Prerequisites
+#### Dependencies
 
 - [Rustc](https://www.rust-lang.org/tools/install "Install Rust")
 - [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html "Install Cargo")
