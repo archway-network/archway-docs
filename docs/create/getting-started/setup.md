@@ -14,11 +14,13 @@ The `archway new` command starts a new project. You can press `enter` to accept 
 
 ```
 archway new
+```
 
-# Outputs: 
-# > Creating new Archway dApp...
-# > Configure environment (Y/N default: N)?:
-# > Use starter template (Y/N default: N)?:
+Outputs: 
+```
+> Creating new Archway dApp...
+> Configure environment (Y/N default: N)?:
+> Use starter template (Y/N default: N)?:
 ```
 
 ## Configuring a project
@@ -30,17 +32,19 @@ If this configuration isn't to your liking, you can modify it by editing the `co
 ```
 cd my-project
 archway configure
+```
 
-# Outputs:
-# > Printing environment settings...
-# > {
-# >   title: 'My Project',
-# >   version: '0.0.1',
-# >   network: {...},
-# >   developer: {...},
-# >   path: '/home/my-system-path/my-project',
-# >   type: 'Increment'
-# > } 
+Outputs:
+```
+> Printing environment settings...
+> {
+>   title: 'My Project',
+>   version: '0.0.1',
+>   network: {...},
+>   developer: {...},
+>   path: '/home/my-system-path/my-project',
+>   type: 'Increment'
+> } 
 ```
 
 The `type` parameter simply keeps track of which "starter template" you used during project creation.
@@ -57,14 +61,16 @@ To which network you're currently working on use the command `archway network`. 
 
 ```
 archway network
+```
 
-# Outputs:
-# > Printing network settings...
-# > 1. Testnet*
-# > 2. Localhost
-# > 3. Mainnet
-# > Migrate to another network (Y/N default: N)?:
-# > Ok!
+Outputs:
+```
+> Printing network settings...
+> 1. Testnet*
+> 2. Localhost
+> 3. Mainnet
+> Migrate to another network (Y/N default: N)?:
+> Ok!
 ```
 
 If you migrate between networks by answering `y` or `yes` to the migration question and following the additional questions, your previous deployments history and script customisations will remain in tact. 
