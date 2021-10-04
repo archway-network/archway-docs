@@ -46,7 +46,7 @@ make build install
 Initialize the `genesis.json` file that is required to establish a network.
 
 ```bash
-zoned init my-node --chain-id my-archway-chain
+archwayd init my-node --chain-id my-archway-chain
 ```
 
 ## Step 4 
@@ -54,7 +54,7 @@ zoned init my-node --chain-id my-archway-chain
 Create a key to hold your account. Once you run this command, your will be prompted with a password dialogue. Please enter a new password for your account.
 
 ```bash
-zoned keys add my-account
+archwayd keys add my-account
 ```
 
 After that you will see an output similar to the following:
@@ -86,7 +86,7 @@ Add that key into the genesis.app_state.accounts array in the genesis file.
 with the genesis.app_state.staking.params.bond_denom denom, the default is staking.
 
 ```bash
-zoned add-genesis-account $(zoned keys show my-account -a) 1000000000stake,1000000000validatortoken
+archwayd add-genesis-account $(archwayd keys show my-account -a) 1000000000stake,1000000000validatortoken
 ```
 
 ## Step 6
@@ -96,7 +96,7 @@ We need at least one validator in order to have our network running. Let's add i
 This command generates the transaction creating your validator.
 
 ```bash
-zoned gentx my-account 1000000000stake --chain-id my-archway-chain
+archwayd gentx my-account 1000000000stake --chain-id my-archway-chain
 ```
 
 ## Step 7
@@ -104,7 +104,7 @@ zoned gentx my-account 1000000000stake --chain-id my-archway-chain
 Add the generated bonding transaction to the genesis file
 
 ```bash
-zoned collect-gentxs
+archwayd collect-gentxs
 ```
 
 ## Step 8
@@ -112,11 +112,11 @@ zoned collect-gentxs
 Now we can start our node in the local archway network
 
 ```bash
-zoned start
+archwayd start
 ```
 
 Use the following command to get the status of the network
 
 ```bash
-zoned status
+archwayd status
 ```
