@@ -49,15 +49,15 @@ Printing environment settings...
 
 The `type` parameter simply keeps track of which "starter template" you used during project creation.
 
-The `network` parameter refers to environment specific settings for the network you're working. Supported network types are `mainnet`, `testnet` and `localhost`.
+The `network` parameter refers to environment specific settings for the network you're working on. Supported network types are `mainnet`, `testnet` and `localhost`. Additionally, there are 2 testnets options (`stable` and `nightly`).
 
-The `developer` object contains a history of your deployments. It also holds default and custom scripts for Archway commands for building, testing, optimizing and deploying your project. While the `scripts` parameter gives you granular control over how your project is compiled and executed, at the same time it already "just works" and doesn't require tinkering.
+The `developer` object contains a history of your deployments. It also holds commands for default and custom scripts for building, testing, optimizing and deploying your project. While the `scripts` of the `developer` object parameter gives you granular control over how your project is compiled and executed, it already "just works" without any tinkering.
 
 ## Network settings and migrating between networks
 
-During a project's development cycle you'll likely want to migrate or change your network settings. For example, switching from `testnet` to a `mainnet` deployment.
+During a project's development life cycle you'll want to migrate or change your network settings. For example, switching from `testnet` to a `mainnet` dApp deployment.
 
-To which network you're currently working on use the command `archway network`. This will print your network settings and give you the option to migrate to another network
+Migrate between networks using the command `archway network`. This will print your current settings and give the option to change networks.
 
 ```bash
 archway network
@@ -73,4 +73,4 @@ Migrate to another network (Y/N default: N)?:
 Ok!
 ```
 
-If you migrate between networks by answering `y` or `yes` to the migration question and following the additional questions, your previous deployments history and script customisations will remain in tact. 
+**Note: If you migrate between networks by answering `y` or `yes` to the migration question, and following the additional questions, your previous deployments history and script customisations will remain in tact.**
