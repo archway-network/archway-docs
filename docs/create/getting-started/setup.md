@@ -66,9 +66,9 @@ archway network
 Outputs:
 ```bash
 Printing network settings...
-1. Testnet*
+1. Testnet* [constantine, titus]
 2. Localhost
-3. Mainnet
+3. Mainnet [triomphe]
 Migrate to another network (Y/N default: N)?:
 Ok!
 ```
