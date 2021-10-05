@@ -27,7 +27,7 @@ Use starter template (Y/N default: N)?:
 
 When you've created a new project, navigate to the folder where the project was installed and print your config using the command `archway configure`. 
 
-If this configuration isn't to your liking, you can modify it by editing the `config.json` file in the root folder of the project.
+If this configuration isn't to your liking, you can always modify it by editing the `config.json` file in the root folder of the project. 
 
 ```bash
 cd my-project
