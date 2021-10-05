@@ -10,6 +10,7 @@ Make sure you've installed and configured a few dependencies.
 
 - [Rustc](https://www.rust-lang.org/tools/install "Install Rust")
 - [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html "Install Cargo")
+- [Cargo Generate](https://crates.io/crates/cargo-generate "Install Cargo Generate")
 - [Wasmd](https://github.com/CosmWasm/wasmd "Install Wasmd")
 - [Docker](https://docs.docker.com/get-docker "Install Docker")
 - [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
@@ -26,6 +27,17 @@ To install Rust follow the instructions for your operating system at https://www
 Cargo is Rust's package manager, like `go get` for Golang or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`. 
 
 If you didn't install with `rustup`, or don't have `cargo` in your command line path, see the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
+
+## Cargo Generate
+
+`cargo-generate` is a developer tool to help you get up and running quickly with a new Rust project by leveraging a pre-existing git repository as a template. 
+
+In Archway it's used to provide ready-made project templates for dApp development. 
+
+To install `cargo-generate` with `vendored-openssl` enabled, run the command: 
+```bash
+cargo install cargo-generate --features vendored-openssl
+```
 
 ## Wasmd
 

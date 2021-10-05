@@ -49,7 +49,7 @@ Printing environment settings...
 
 The `type` parameter simply keeps track of which "starter template" you used during project creation.
 
-The `network` parameter refers to environment specific settings for the network you're working on. Supported network types are `mainnet`, `testnet` and `localhost`. Additionally, there are 2 testnets options (`stable` and `nightly`).
+The `network` parameter refers to environment specific settings for the network you're working on. Supported network types are `mainnet`, `testnet` and `localhost`. Additionally, there are 2 testnets options (`stable [constantine]` and `nightly [titus]`).
 
 The `developer` object contains a history of your deployments. It also holds commands for default and custom scripts for building, testing, optimizing and deploying your project. While the `scripts` of the `developer` object parameter gives you granular control over how your project is compiled and executed, it already "just works" without any tinkering.
 
