@@ -34,7 +34,7 @@ Building project...
     Finished dev [unoptimized + debuginfo] target(s) in 31.42s
 ```
 
-Now we can test our build like this:
+Test your build like this:
 ```
 archway test
 ```
@@ -55,12 +55,29 @@ test contract::tests::reset ... ok
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ```
 
-**Note: Output of tests may differ a bit according to which starter code template used during project createion, or if you modified the unit tests from source.**
-
 ## Requesting Testnet funds
-Assuming you're working on a testnet, you'll probably want some testnet `ARC` for paying gas costs when it comes time to deploy your dApp contracts on chain.
+If you're working on a testnet you'll want testnet `ARC` for paying gas costs to deploy your dApp code on chain.
 
-Setting up a new project with `archway new`, and choosing a testnet, bootstraps all configuration parameters you'll need to request testnet funds for both the `stable [constantine]` and `nightly [titus]` testnets.
+Setting up a new project with `archway new` and choosing a testnet bootstraps all configuration parameters you'll need to request  funds for both `stable [constantine]` and `nightly [titus]` testnets.
+
+Request funds using the command:
+```bash
+archway faucet
+```
+
+Example output:
+```bash
+Enter an address to receive Testnet funds (e.g. "wasm1x35egm8883wzg2zwqkvcjp0j4g25p4hed4yjuv"; Or, hit <enter> to list accounts): wasm1x35egm8883wzg2zwqkvcjp0j4g25p4hed4yjuv
+Requesting faucet funds to account wasm1x35egm8883wzg2zwqkvcjp0j4g25p4hed4yjuv...
+
+Welcome to the faucet!
+
+Check the full status via the /status endpoint.
+You can get tokens from here by POSTing to /credit.
+See https://github.com/cosmos/cosmjs/tree/main/packages/faucet for all further information.
+
+Successfully requested funds to wasm1x35egm8883wzg2zwqkvcjp0j4g25p4hed4yjuv on network pebblenet-1 using faucet https://faucet.pebblenet.cosmwasm.com
+```
 
 ## Producing Wasm executables
 
@@ -91,7 +108,7 @@ Building wasm executable...
 
 **Note: use `archway deploy --dryrun` before doing an actual deployment. This helps to gauge whether the deployment will succeed. This is useful because of speed, as running `archway deploy` with `--dryrun` enabled is a lot faster.**
 
-### CosmWasm Wasm executables
+### CosmWasm executables
 
 CosmWasm executables are also optimized release targets, but they're optimized using the `cosmwasm/rust-optimizer` which produces a  smaller executable size. 
 
@@ -99,7 +116,7 @@ If you're coming from a C++ background, you can think of this process like build
 
 Producing CosmWasm executables is part of the deploy process and can be accessed by running the deploy command without the `--dryrun` flag.
 
-**Note: the Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started.**
+**Note: the Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started (Support for native `cosmwasm/rust-optimizer` bins coming soon).**
 
 ## Deploying your dApp on chain
 
@@ -126,7 +143,7 @@ let state = State {
 };
 ```
 
-[XXX TODO: put a video here in place of output]
+<!-- XXX TODO: put a video here in place of output -->
 
 `archway deploy` is a developer super command that produces huge output. Since we're running the command without `--dryrun`
 
@@ -166,7 +183,7 @@ Printing deployments...
 ]
 ```
 
-## Interacting with your deployed dApp
+## Interacting with your dApp
 
 Now it's possible to query and transact with your deployed instance. 
 
@@ -248,3 +265,19 @@ pub fn execute(
 ```
 
 **Note: `enum` attributes again are converted. `ExecuteMsg::Increment {}` becomes `{"increment":{}}` in the CLI.**
+
+Provided our `{"increment":{}}` transaction succeeded, if we query `count` again it will have increased by `1`:
+```bash
+archway query contract-state smart --args '{"get_count": {}}'
+```
+
+Now outputs:
+```bash
+Attempting query...
+
+{"data":{"count":1}}
+
+Ok!
+```
+
+#### Congrats, you made it to the end!
