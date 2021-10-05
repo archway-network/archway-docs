@@ -51,7 +51,7 @@ archwayd init my-node --chain-id my-chain
 
 ## Step 4 
 
-Create a key to hold your account. Once you run this command, your will be prompted with a password dialogue. Please enter a new password for your account.
+Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
 
 ```bash
 archwayd keys add my-account
