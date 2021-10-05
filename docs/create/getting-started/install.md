@@ -37,12 +37,14 @@ To build `wasmd` you can either install it from source or using the `cosmwasm/wa
 
 ### Install Wasmd From Source
 
-```
-# Get source code
+Get source code:
+```bash
 git clone git@github.com:CosmWasm/wasmd.git
 cd wasmd
+```
 
-# Install
+Build and install:
+```bash
 make install
 make test
 make proto-gen
@@ -54,7 +56,7 @@ For full installation and configuration parameters see: https://github.com/CosmW
 
 ### Install Wasmd Using Docker
 
-```
+```bash
 docker build -t cosmwasm/wasmd:latest
 ```
 
@@ -71,7 +73,7 @@ For installing `node` and `npm` see instructions for your operating system at: h
 
 The Archway developer CLI can be installed from the [GitHub repository](https://github.com/archway-network/archway-cli)
 
-```
+```bash
 git clone git@github.com:archway-network/archway-cli.git
 cd archway-cli 
 npm install -g

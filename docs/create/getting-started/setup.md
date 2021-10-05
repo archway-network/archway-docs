@@ -12,15 +12,15 @@ Let's setup a new project, using the [Archway developer CLI](https://github.com/
 
 The `archway new` command starts a new project. You can press `enter` to accept the default options for any of the project configuration questions.
 
-```
+```bash
 archway new
 ```
 
 Outputs: 
 ```
-> Creating new Archway dApp...
-> Configure environment (Y/N default: N)?:
-> Use starter template (Y/N default: N)?:
+Creating new Archway dApp...
+Configure environment (Y/N default: N)?:
+Use starter template (Y/N default: N)?:
 ```
 
 ## Configuring a project
@@ -29,22 +29,22 @@ When you've created a new project, navigate to the folder where the project was 
 
 If this configuration isn't to your liking, you can modify it by editing the `config.json` file in the root folder of the project.
 
-```
+```bash
 cd my-project
 archway configure
 ```
 
 Outputs:
-```
-> Printing environment settings...
-> {
->   title: 'My Project',
->   version: '0.0.1',
->   network: {...},
->   developer: {...},
->   path: '/home/my-system-path/my-project',
->   type: 'Increment'
-> } 
+```bash
+Printing environment settings...
+{
+  title: 'My Project',
+  version: '0.0.1',
+  network: {...},
+  developer: {...},
+  path: '/home/my-system-path/my-project',
+  type: 'Increment'
+} 
 ```
 
 The `type` parameter simply keeps track of which "starter template" you used during project creation.
@@ -59,18 +59,18 @@ During a project's development cycle you'll likely want to migrate or change you
 
 To which network you're currently working on use the command `archway network`. This will print your network settings and give you the option to migrate to another network
 
-```
+```bash
 archway network
 ```
 
 Outputs:
-```
-> Printing network settings...
-> 1. Testnet*
-> 2. Localhost
-> 3. Mainnet
-> Migrate to another network (Y/N default: N)?:
-> Ok!
+```bash
+Printing network settings...
+1. Testnet*
+2. Localhost
+3. Mainnet
+Migrate to another network (Y/N default: N)?:
+Ok!
 ```
 
 If you migrate between networks by answering `y` or `yes` to the migration question and following the additional questions, your previous deployments history and script customisations will remain in tact. 
