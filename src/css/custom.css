@@ -21,6 +21,7 @@
 html[data-theme='dark'] {
   --ifm-color-primary: #eeeeee;
   --ifm-color-primary-dark: #e5e5e5;
+  --ifm-font-color-base-inverse: #272727;
 }
 
 .docusaurus-highlight-code-line {
