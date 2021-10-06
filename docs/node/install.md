@@ -5,7 +5,8 @@ sidebar_position: 1
 # Installation
 
 
-## Prerequisite
+## Step 1: Prepare the prerequisite
+
 
 Make sure you have golang installed on your machine:
 
@@ -13,25 +14,23 @@ Make sure you have golang installed on your machine:
 - Ensure the Go environment variables are [set properly](https://golang.org/doc/gopath_code#GOPATH) on your system
 
 
-## Step 1
-
-Let's first cleanup our network in case you have setup an `archway` node before.
+<!-- Let's first cleanup our network in case you have setup an `archway` node before.
 
 ```bash
 rm -rf ~/.archway
 ```
 
 **Note**: This command will remove all data and configs you already set.
+ -->
 
-
-Then install `golangci-lint` via the following command
+install `golangci-lint` via the following command
 
 ```bash
 curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
 ```
 
 
-## Step 2
+## Step 2: Download the source code
 
 Clone the repo and build archway
 
@@ -41,7 +40,7 @@ cd archway
 make install
 ```
 
-## Step 3
+## Step 3: Initialize the node
 
 Initialize the `genesis.json` file that is required to establish a network.
 
@@ -49,9 +48,9 @@ Initialize the `genesis.json` file that is required to establish a network.
 archwayd init my-node --chain-id my-chain
 ```
 
-## Step 4 
+## Step 4: Prepare the account and keys
 
-Create a key to hold your account. Once you run this command, your will be prompted with a password dialogue. Please enter a new password for your account.
+Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
 
 ```bash
 archwayd keys add my-account
@@ -70,7 +69,7 @@ After that you will see an output similar to the following:
   pubkeys: []
 
 
-**Important** write this mnemonic phrase in a safe place.
+**Important:** Write this mnemonic phrase in a safe place.
 It is the only way to recover your account if you ever forget your password.
 
 resource regret any wet stable body alcohol spring horse valve ritual top music salad gesture can earn casino example drive surface mix senior flag
@@ -78,8 +77,7 @@ resource regret any wet stable body alcohol spring horse valve ritual top music 
 
 Here we can see our account details and in the bottom we see our mnemonic phrase which is very crucial to recover the account.
 
-
-## Notes
+## Step 5: Starting the node
 
 Now if we try to start the node, we will get this error since at least one validator is required for our network to be running.
 

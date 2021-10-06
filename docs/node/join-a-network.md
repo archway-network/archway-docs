@@ -5,7 +5,7 @@ sidebar_position: 4
 # Joining a Network
 
 
-## Step 1
+## Step 1: Cleanup
 
 Let's first cleanup our network. This is needed if you already have a genesis file.
 
@@ -16,7 +16,7 @@ rm -rf ~/.app
 
 **Note**: This command will remove all data and configs you already set.
 
-## Step 2
+## Step 2: Download the genesis file
 <!-- 
 Prepare 
 
@@ -45,7 +45,7 @@ wget https://github.com/.../genesis.json.gz
 gzip -d genesis.json.gz
 ```
 
-## Step 3
+## Step 3: Replace our local genesis file with the main one
 
 Move the downloaded genesis state to the archway directory:
 
@@ -55,12 +55,12 @@ Move the downloaded genesis state to the archway directory:
 mv genesis.json ~/.app/config/genesis.json
 ```
 
-## Step 4
+## Step 4: Join the network
 
 Start the archway and join the network
 
 ```sh
-archwayd start --p2p.seeds address1@public-seed.archway.something.network:xxxx,address2@public-seed.archway.something.network:xxxx,address3@public-seed.archway.something.network:xxxx,address4@public-seed.archway.something.network:xxxx --x-crisis-skip-assert-invariants
+archwayd start --p2p.seeds <Address1>@<Host_Name_OR_IP1>:<PORT1>,<Address2>@<Host_Name_OR_IP2>:<PORT2>,<Address3>@<Host_Name_OR_IP3>:<PORT3>, ...<AddressN>@<Host_Name_OR_IPN>:<PORTN> --x-crisis-skip-assert-invariants
 ```
 
 Expected output:
