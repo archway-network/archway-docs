@@ -15,16 +15,16 @@ Make sure you have golang installed on your machine:
 
 ## Step 1
 
-Let's first cleanup our network in case you have setup an `archway` node before.
+<!-- Let's first cleanup our network in case you have setup an `archway` node before.
 
 ```bash
 rm -rf ~/.archway
 ```
 
 **Note**: This command will remove all data and configs you already set.
+ -->
 
-
-Then install `golangci-lint` via the following command
+install `golangci-lint` via the following command
 
 ```bash
 curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
