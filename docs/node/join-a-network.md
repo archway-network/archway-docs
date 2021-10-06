@@ -60,7 +60,7 @@ mv genesis.json ~/.app/config/genesis.json
 Start the archway and join the network
 
 ```sh
-archwayd start --p2p.seeds address1@public-seed.archway.something.network:xxxx,address2@public-seed.archway.something.network:xxxx,address3@public-seed.archway.something.network:xxxx,address4@public-seed.archway.something.network:xxxx --x-crisis-skip-assert-invariants
+archwayd start --p2p.seeds <Address1>@<Host_Name_OR_IP1>:<PORT1>,<Address2>@<Host_Name_OR_IP2>:<PORT2>,<Address3>@<Host_Name_OR_IP3>:<PORT3>, ...<AddressN>@<Host_Name_OR_IPN>:<PORTN> --x-crisis-skip-assert-invariants
 ```
 
 Expected output:
