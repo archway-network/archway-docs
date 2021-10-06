@@ -122,7 +122,7 @@ So let's copy it from the main node and replace it on our genesis file.
 cp ./node-main/config/genesis.json ./node2/config/
 ```
 
-## Step 5: Find the addressed of the seeds
+## Step 5: Find the addresses of the seeds
 
 To join a p2p network we need the addresses of nodes that we are willing to connect to. 
 So let's find the address of the `main-node` via running the following command:
@@ -184,12 +184,11 @@ archwayd --home ./node2 start --p2p.seeds a118197af3c66781faa0299633cc59a1622d27
 
 Let's quickly install `Gex` to see the status of our node.
 
-``bash
+```bash
 go get -u github.com/cosmos/gex
 ```
 
 To launch a GEX in your terminal window, type:
-
 ```bash
 gex
 ```
