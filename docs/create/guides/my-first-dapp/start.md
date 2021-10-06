@@ -6,7 +6,7 @@ sidebar_position: 1
 
 In the [Setup](../../getting-started/setup.md) section we learned how to create and configure a new Archway project. 
 
-If you haven't created a project yet (or didn't choose the 'Increment' starter template) go there now [(link)](../../getting-started/setup.md) to complete this step. 
+If you haven't created a project yet, or didn't choose the 'Increment' starter template, go back to [Setup](../../getting-started/setup.md) [(link)](../../getting-started/setup.md) to complete this step. 
 
 Source code templates cloned with `archway new` are ready-made starter projects. 
 
