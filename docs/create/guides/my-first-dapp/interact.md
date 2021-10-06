@@ -12,7 +12,7 @@ Queries read from the blockchain. They don't modify anything stored on chain so 
 
 There are several types of queries we could do, but a common type we're interested in is `contract-state`, which we'll call in `smart` mode. This lets us run queries with arguments, as opposed to dumping the entire contract data.
 
-If we query the `count` before modifying any state, we get the value we set during deployment instatiation:
+If we query the `count` before modifying any state, we get the value we set during deployment instantiation:
 
 ```bash
 archway query contract-state smart --args '{"get_count": {}}'
