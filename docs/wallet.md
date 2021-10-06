@@ -8,13 +8,13 @@ This quick guid shows you how to setup a wallet and manage your tokens with it. 
 
 Let's install it.
 
-## Step 1
+## Step 1: Find Keplr extension page
 Open you _Google Chrome_ browser and head over to this website: https://wallet.keplr.app/ 
 
 If you have not already installed Keplr, it shows you a message box saying that you should click on it and install it.
 
 
-## Step 2
+## Step 2: Install Keplr
 Once you click on the message box, it redirects you to the chrome web store page to install the Keplr extension.
 Click on `Add to Chrome` and install the extension.
 
@@ -23,13 +23,13 @@ When the extension is installed, you should see the Keplr icon on your browser c
 ![](./assets/keplr01.png)
 
 
-## Step 3
+## Step 3: Open Keplr
 Click on the Keplr icon; then, you will see a screen like this:
 
 ![](./assets/keplr02.png)
 
 
-## Step 4
+## Step 4: Create new account
 Click on the `Create new account` to see the following form:
 
 ![](./assets/keplr03.png)
@@ -42,13 +42,13 @@ You can select either 12 or 24 words; both are good, but 24 is only more secure.
 
 Fill in an account name, write your password and click on the `Next` button.
 
-## Step 5
+## Step 5: Confirm the mnemonic phrase
 
 Once the following screen appears, you need to select the mnemonic phrase exactly as the same order of what we just saw in the previous screen.
 
 ![](./assets/keplr04.png)
 
-## Step 6
+## Step 6: Register
 
 When all the words are put in the right order, click on the `Register` button and we are all set.
 
