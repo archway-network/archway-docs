@@ -75,6 +75,11 @@ nav.navbar--fixed-top {
   text-align: center;
 }
 
+nav.navbar--fixed-top .navbar__inner {
+  max-width: 90rem;
+  margin: auto;
+}
+
 .hero__title {
   font-family: Helvetica Neue;
   font-size: 6rem;
@@ -91,7 +96,6 @@ html[data-theme='dark'] .footer-bottom__row,
 html[data-theme='dark'] .footer-bottom__line,
 html[data-theme='dark'] .footer-bottom__item, 
 html[data-theme='dark'] .footer-bottom__item a {
-  /* color:var(--ifm-color-primary); */
   color: #FFFFFF;
   border-color: rgba(255,255,255,0.25) !important;
 }
