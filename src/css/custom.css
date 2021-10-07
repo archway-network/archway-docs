@@ -14,7 +14,7 @@
   --ifm-color-primary-light: #BCBCBC;
   --ifm-color-primary-lighter: #D6D6D6;
   --ifm-color-primary-lightest: #F6F6F6;
-  --ifm-font-color-base-inverse: #FFFFFF;
+  --ifm-font-color-base-inverse: #EAE5E1;
   --ifm-color-secondary: #EAE5E1;
   --ifm-background-color: #EAE5E1;
   --ifm-navbar-background-color: #EAE5E1;
@@ -84,7 +84,6 @@ nav.navbar--fixed-top .navbar__inner {
   font-family: Helvetica Neue;
   font-size: 6rem;
   font-weight: normal;
-  color:var(--ifm-color-primary);
 }
 
 footer {
