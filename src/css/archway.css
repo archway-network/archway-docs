@@ -584,7 +584,7 @@ button::-moz-focus-inner {
   line-height: 1.14436575;
   line-height: var(--line-height-title-6);
 }
-.tm-rf7 {
+.tm-rf7, .hero__title {
   font-size: calc(1.640625rem + 5.979166666666667vw);
   font-size: var(--font-size-7);
 }
@@ -592,7 +592,7 @@ button::-moz-focus-inner {
   font-weight: 778;
   font-weight: var(--font-weight-bold-7);
 }
-.tm-rf7.tm-lh-title {
+.tm-rf7.tm-lh-title .hero__title {
   line-height: 1.1338875;
   line-height: var(--line-height-title-7);
 }
