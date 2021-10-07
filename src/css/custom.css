@@ -7,7 +7,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #272727;
+  --ifm-color-primary: #000000;
   --ifm-color-primary-dark: #4D4D4D;
   --ifm-color-primary-darker: #767676;
   --ifm-color-primary-darkest: #9B9B9B;
@@ -52,4 +52,9 @@ a:hover, a:active, a:focus {
 
 a:active, a:focus {
   border: 2px dotted #AB3A1A;
+}
+
+.hero__title {
+  font-family: Helvetica Neue;
+  font-size: 6rem;
 }
