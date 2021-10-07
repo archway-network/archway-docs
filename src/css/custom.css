@@ -98,6 +98,7 @@ html[data-theme='dark'] .footer-bottom__item a {
 
 aside, .docs-wrapper {
   padding-bottom: 7em;
+  min-height: 90vh;
 }
 
 .pagination-nav__item {
