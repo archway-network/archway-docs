@@ -15,13 +15,19 @@
   --ifm-color-primary-lighter: #D6D6D6;
   --ifm-color-primary-lightest: #F6F6F6;
   --ifm-font-color-base-inverse: #FFFFFF;
+  --ifm-background-color:  #EAE5E1;
+  --ifm-navbar-background-color: #EAE5E1;
+  --ifm-footer-background-color: #EAE5E1;
   --ifm-code-font-size: 95%;
 }
 
 html[data-theme='dark'] {
-  --ifm-color-primary: #eeeeee;
-  --ifm-color-primary-dark: #e5e5e5;
-  --ifm-font-color-base-inverse: #272727;
+  --ifm-color-primary: #EAE5E1;
+  --ifm-color-primary-dark: #EAE5E1;
+  --ifm-font-color-base-inverse: #000000;
+  --ifm-background-color:  #000000;
+  --ifm-navbar-background-color: #000000;
+  --ifm-footer-background-color: #000000;
 }
 
 .docusaurus-highlight-code-line {
@@ -33,4 +39,17 @@ html[data-theme='dark'] {
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+body, html {
+  font-family: Helvetica Neue;
+}
+
+a:hover, a:active, a:focus {
+  color: #AB3A1A !important;
+  opacity: 1 !important;
+}
+
+a:active, a:focus {
+  border: 2px dotted #AB3A1A;
 }

@@ -14,10 +14,11 @@ module.exports = {
   projectName: 'archway-docs',          // Repository name.
   themeConfig: {
     navbar: {
-      title: 'Archway Network',
+      // title: 'Archway Network',
       logo: {
         alt: 'Archway is the passage for dApp developers to receive long-term value for their creativity and contributions',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-dt.svg'
       },
       items: [
         {
@@ -34,47 +35,47 @@ module.exports = {
         },
       ],
     },
-    footer: {
-      style: 'light',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Getting Started',
-              to: 'docs/create/getting-started/install',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/cosmwasm',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/CosmWasm',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/archway-network',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Archway Network.`,
-    },
+    // footer: {
+    //   style: 'light',
+    //   links: [
+    //     {
+    //       title: 'Docs',
+    //       items: [
+    //         {
+    //           label: 'Getting Started',
+    //           to: 'docs/create/getting-started/install',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Community',
+    //       items: [
+    //         {
+    //           label: 'Stack Overflow',
+    //           href: 'https://stackoverflow.com/questions/tagged/cosmwasm',
+    //         },
+    //         {
+    //           label: 'Twitter',
+    //           href: 'https://twitter.com/CosmWasm',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: 'More',
+    //       items: [
+    //         {
+    //           label: 'Blog',
+    //           to: '/blog',
+    //         },
+    //         {
+    //           label: 'GitHub',
+    //           href: 'https://github.com/archway-network',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   copyright: `Copyright © ${new Date().getFullYear()} Archway Network.`,
+    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,

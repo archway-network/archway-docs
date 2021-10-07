@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <Layout
       title="Home"
-      description="Description will go into a meta tag in <head />">
+      description="Arch into Cosmos">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
