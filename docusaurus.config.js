@@ -94,7 +94,7 @@ module.exports = {
           editUrl: 'https://github.com/archway-network/archway-docs/edit/main/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [require.resolve('./src/css/archway.css'),require.resolve('./src/css/custom.css')]
         },
       },
     ],

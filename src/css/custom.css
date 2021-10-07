@@ -15,7 +15,8 @@
   --ifm-color-primary-lighter: #D6D6D6;
   --ifm-color-primary-lightest: #F6F6F6;
   --ifm-font-color-base-inverse: #FFFFFF;
-  --ifm-background-color:  #EAE5E1;
+  --ifm-color-secondary: #EAE5E1;
+  --ifm-background-color: #EAE5E1;
   --ifm-navbar-background-color: #EAE5E1;
   --ifm-footer-background-color: #EAE5E1;
   --ifm-code-font-size: 95%;
@@ -37,6 +38,13 @@ html[data-theme='dark'] {
   padding: 0 var(--ifm-pre-padding);
 }
 
+html[data-theme='dark'],
+html[data-theme='dark'] body, 
+html[data-theme='dark'] .main-wrapper{
+  background: #000000;
+  color:var(--ifm-color-primary)
+}
+
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -54,7 +62,33 @@ a:active, a:focus {
   border: 2px dotted #AB3A1A;
 }
 
+nav, .navbar__item {
+  text-transform: uppercase;
+  height: 21px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 130%;
+  text-align: center;
+}
+
 .hero__title {
   font-family: Helvetica Neue;
   font-size: 6rem;
+}
+
+footer {
+  padding: 0 !important;
+  color:var(--ifm-color-primary);
+  border-color:var(--ifm-color-primary);
+}
+
+html[data-theme='dark'] .footer-bottom,
+html[data-theme='dark'] .footer-bottom__row,
+html[data-theme='dark'] .footer-bottom__line,
+html[data-theme='dark'] .footer-bottom__item, 
+html[data-theme='dark'] .footer-bottom__item a {
+  /* color:var(--ifm-color-primary); */
+  color: #FFFFFF;
+  border-color: rgba(255,255,255,0.25) !important;
 }

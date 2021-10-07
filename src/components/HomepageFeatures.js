@@ -16,28 +16,28 @@ const FeatureList = [
   {
     title: 'Creator Hub',
     Svg: require('../../static/img/lk-5.svg').default,
-    link: '/create',
+    link: '/docs/create/getting-started/install',
     description: (
       <>
         Find your story arc. Our creator focused learning section has everything you need to get your dApp up and running quickly.
       </>
     ),
   },
-  {
-    title: 'Playground',
-    Svg: require('../../static/img/lk-6.svg').default,
-    link: '/playground',
-    description: (
-      <>
-        Archway is built to support developers. Playground allows you to test writing contracts without installing any tools.
-      </>
-    ),
-  },
+  // {
+  //   title: 'Playground',
+  //   Svg: require('../../static/img/lk-6.svg').default,
+  //   link: '/playground',
+  //   description: (
+  //     <>
+  //       Archway is built to support developers. Playground allows you to test writing contracts without installing any tools.
+  //     </>
+  //   ),
+  // },
 ];
 
 function Feature({Svg, title, description, link}) {
     return (
-      <div className={clsx('col col--4')}>
+      <div className={clsx('col col--6')}>
         <a href={link}>
           <div className="text--center">
             <Svg className={styles.featureSvg} alt={title} />
