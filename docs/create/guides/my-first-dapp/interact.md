@@ -42,7 +42,7 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
 
 ## Transacting
 
-Transactions write to the blockchain and cost gas a fee for modifying a contract's state securely.
+Transactions write to the blockchain and cost a gas fee for modifying a contract's state securely.
 
 By default gas estimatation mode is `auto`, but you've got granular control. To modify gas settings edit the `gas` values inside the `network` object of your `config.json`. However, for most cases the default gas settings are preferable.
 
