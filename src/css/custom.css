@@ -42,7 +42,7 @@ html[data-theme='dark'],
 html[data-theme='dark'] body, 
 html[data-theme='dark'] .main-wrapper{
   background: #000000;
-  color:var(--ifm-color-primary)
+  color:var(--ifm-color-primary);
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
@@ -83,7 +83,8 @@ nav.navbar--fixed-top .navbar__inner {
 .hero__title {
   font-family: Helvetica Neue;
   font-size: 6rem;
-  font-weight: normal
+  font-weight: normal;
+  color:var(--ifm-color-primary);
 }
 
 footer {
