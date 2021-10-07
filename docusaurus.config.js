@@ -27,7 +27,12 @@ module.exports = {
           position: 'left',
           label: 'Getting Started',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          to: 'https://blog.archway.io/', 
+          label: 'Blog', 
+          position: 'left',
+          target: '_blank'
+        },
         {
           href: 'https://github.com/archway-network/archway-docs/',
           label: 'GitHub',
@@ -35,47 +40,7 @@ module.exports = {
         },
       ],
     },
-    // footer: {
-    //   style: 'light',
-    //   links: [
-    //     {
-    //       title: 'Docs',
-    //       items: [
-    //         {
-    //           label: 'Getting Started',
-    //           to: 'docs/create/getting-started/install',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: 'Community',
-    //       items: [
-    //         {
-    //           label: 'Stack Overflow',
-    //           href: 'https://stackoverflow.com/questions/tagged/cosmwasm',
-    //         },
-    //         {
-    //           label: 'Twitter',
-    //           href: 'https://twitter.com/CosmWasm',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       title: 'More',
-    //       items: [
-    //         {
-    //           label: 'Blog',
-    //           to: '/blog',
-    //         },
-    //         {
-    //           label: 'GitHub',
-    //           href: 'https://github.com/archway-network',
-    //         },
-    //       ],
-    //     },
-    //   ],
-    //   copyright: `Copyright © ${new Date().getFullYear()} Archway Network.`,
-    // },
+    footer: {},
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,

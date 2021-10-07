@@ -63,12 +63,15 @@ a:active, a:focus {
 }
 
 nav, .navbar__item {
-  text-transform: uppercase;
   height: 21px;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 130%;
+}
+
+nav.navbar--fixed-top {
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -91,4 +94,14 @@ html[data-theme='dark'] .footer-bottom__item a {
   /* color:var(--ifm-color-primary); */
   color: #FFFFFF;
   border-color: rgba(255,255,255,0.25) !important;
+}
+
+aside, .docs-wrapper {
+  padding-bottom: 7em;
+}
+
+.pagination-nav__item {
+  flex-direction: column;
+  height: 75px;
+  text-align: center;
 }
