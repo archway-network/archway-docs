@@ -592,7 +592,7 @@ button::-moz-focus-inner {
   font-weight: 778;
   font-weight: var(--font-weight-bold-7);
 }
-.tm-rf7.tm-lh-title .hero__title {
+.tm-rf7.tm-lh-title, .hero__title {
   line-height: 1.1338875;
   line-height: var(--line-height-title-7);
 }
@@ -3650,7 +3650,7 @@ svg[data-v-71e9e103] {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
 }
 .tm-button__variant__outlined .tm-button__content[data-v-17ec6de6] span {
   display: block;
@@ -3659,7 +3659,7 @@ svg[data-v-71e9e103] {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
 }
 .tm-button__variant__outlined[data-v-17ec6de6]:hover::after,
 .tm-button__variant__outlined[data-v-17ec6de6]:active::after {
@@ -3686,6 +3686,7 @@ svg[data-v-71e9e103] {
   color: initial;
   background: transparent none repeat 0 0 / auto auto padding-box border-box scroll;
   background: initial;
+  background-clip: initial;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
 }
@@ -3696,6 +3697,7 @@ svg[data-v-71e9e103] {
   color: initial;
   background: transparent none repeat 0 0 / auto auto padding-box border-box scroll;
   background: initial;
+  background-clip: initial;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
 }
