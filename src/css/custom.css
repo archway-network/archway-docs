@@ -53,7 +53,12 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 body, html {
   font-family: Helvetica Neue;
-  font-size: 1.15rem;
+}
+
+@media (min-width:1025px) {
+  body, html {
+    font-size: 1.15rem;
+  }
 }
 
 a:hover, a:active, a:focus {
