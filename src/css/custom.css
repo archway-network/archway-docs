@@ -117,15 +117,6 @@ aside, .docs-wrapper {
   min-height: 90vh;
 }
 
-/* aside, .docs-wrapper {
-  border-color: rgba(0,0,0,0.25);
-}
-
-html[data-theme='dark'] aside, 
-html[data-theme='dark'] .docs-wrapper {
-  border-color: rgba(255,255,255,0.25) !important;
-} */
-
 .docs-wrapper {
   padding-bottom: 7em;
 }
@@ -136,6 +127,12 @@ html[data-theme='dark'] .docs-wrapper {
   text-align: center;
 }
 
-.tm-link:hover {
+.tm-link:hover, .updt-sgn:hover {
   text-decoration: none;
+}
+
+html[data-theme='dark'] footer .bg-dark, 
+html[data-theme='dark'] footer .bg-dark a {
+  background-color: #EAE5E1;
+  color: #000000;
 }
