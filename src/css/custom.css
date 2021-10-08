@@ -109,6 +109,10 @@ html[data-theme='dark'] .footer-bottom__item a {
   border-color: rgba(255,255,255,0.25) !important;
 }
 
+html[data-theme='dark'] .token {
+  text-shadow: 0 0 black;
+}
+
 aside, .docs-wrapper {
   min-height: 90vh;
 }
