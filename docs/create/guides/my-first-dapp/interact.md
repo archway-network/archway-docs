@@ -4,15 +4,15 @@ sidebar_position: 5
 
 # Interacting with your dApp
 
-Now it's possible to query and transact with your deployed instance. 
+Now that it's possible, let's try querying and transacting with our deployed instance.
 
 ## Querying
 
 Queries read from the blockchain. They don't modify anything stored on chain so they don't cost a fee.
 
-There are several types of queries we could do, but a common type we're interested in is `contract-state`, which we'll call in `smart` mode. This lets us run queries with arguments, as opposed to dumping the entire contract data.
+There are several types of queries we could do, but a common type we're interested in is `contract-state`, which we'll call in `smart` mode. This lets us run queries with arguments, as opposed to dumping the entire contract data or metadata.
 
-If we query the `count` before modifying any state, we get the value we set during deployment instantiation:
+If we query the `count` before modifying any state, we get the value we set during instantiation:
 
 ```bash
 archway query contract-state smart --args '{"get_count": {}}'
@@ -68,7 +68,9 @@ confirm transaction before signing and broadcasting [y/N]: y
 Ok!
 ```
 
-To understand why the argument is `'{"increment":{}}'`, if we open `src/contract.rs` and inspect `pub fn execute` we'll see the case matching statement that matches our JSON argument:
+Why is the argument `'{"increment":{}}'`?
+
+If we open `src/contract.rs` and inspect `pub fn execute` we'll see a case matching statement that matches our JSON argument:
 ```javascript
 pub fn execute(
   deps: DepsMut,
@@ -85,7 +87,7 @@ pub fn execute(
 
 **Note: `enum` attributes again are converted. `ExecuteMsg::Increment {}` becomes `{"increment":{}}` in the CLI.**
 
-Provided our `{"increment":{}}` transaction succeeded, if we query `count` again it will have increased by `1`:
+If our `{"increment":{}}` transaction succeeded and we query `count` again, it will have increased by `1`:
 ```bash
 archway query contract-state smart --args '{"get_count": {}}'
 ```

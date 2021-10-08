@@ -8,9 +8,7 @@ In the [Setup](../../getting-started/setup.md) section we learned how to create 
 
 If you haven't created a project yet, or didn't choose the 'Increment' starter template, go back to [Setup](../../getting-started/setup.md) to complete this step. 
 
-Source code templates cloned with `archway new` are ready-made starter projects. 
-
-Later we'll add code and modify existing behavior, but to get acquainted let's build and test the boilerplate code we have now.
+Projects created with `archway new` are ready-made project templates. Later we'll add code and modify existing behavior, but to get acquainted let's build and test the boilerplate code we have now.
 
 ## Building and running tests
 

@@ -24,17 +24,17 @@ To install Rust follow the instructions for your operating system at https://www
 
 ## Cargo
 
-Cargo is Rust's package manager, like `go get` for Golang or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`. 
+Cargo is Rust's package manager, like `go get` for Golang, or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`. 
 
 If you didn't install with `rustup`, or don't have `cargo` in your command line path, see the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
 
 ## Cargo Generate
 
-`cargo-generate` is a developer tool to help you get up and running quickly with a new Rust project by leveraging a pre-existing git repository as a template. 
+`cargo-generate` is a tool that creates a new Rust project quickly by leveraging a pre-existing code base. 
 
-In Archway it's used to provide ready-made project templates for dApp development. 
+In Archway it's used to provide project templates for dApp development. 
 
-To install `cargo-generate` with `vendored-openssl` enabled, run the command: 
+To install `cargo-generate` with `vendored-openssl` run the command: 
 ```bash
 cargo install cargo-generate --features vendored-openssl
 ```
@@ -77,7 +77,9 @@ For more information on running `wasmd` with the `cosmwasm/wasmd` [Docker](https
 
 ## Npm
 
-`npm` is a package manager for JavaScript and Node.js. In Archway it's used for installing and updating the developer CLI. 
+`npm` is a package manager for JavaScript and Node.js. 
+
+In Archway it's used for installing and updating the developer CLI. 
 
 For installing `node` and `npm` see instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
