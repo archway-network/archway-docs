@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Troubleshooting Validators Issues
+# Validator Troubleshooting
 
 Here we walk through a number of common issues that you might encounter when you are running a validator node.
 
@@ -12,14 +12,14 @@ If your validator has `0` voting power, your validator has become auto-unbonded.
 
 To return the voting power back to your validator:
 
-### Step 1: Running the Archway
+### Run Archway
  If `archwayd` is not running, restart it:
 
   ```bash
   archwayd start
   ```
 
-### Step 2: Unjail the Validator
+### Unjail the Validator
  Wait for your full node to reach the latest block, and run:
 
   ```bash
@@ -35,7 +35,7 @@ where
   **Warning**: 
   If you don't wait for `archwayd` to sync before running `unjail`, an error message will inform you that your validator is still jailed.
 
-### Step 3: Confirm if the validator is back
+### Confirm if the validator is back
  Check your validator again to see if your voting power is back:
 
   ```bash
@@ -44,11 +44,11 @@ where
 
 If your voting power is less than it was previously, it's less because you were slashed for downtime.
 
-## `archwayd` crashes due to having too many files opened
+## Too many files open and Archwayd crashes
 
 The default number of files Linux can open per process is `1024`. `archwayd` is known to open more than this amount, causing the process to crash. To fix this problem:
 
-### Step 1: Increase the number of open files
+### Increase the number of open files
 
 Run
  
@@ -56,14 +56,16 @@ Run
  ulimit -n 4096
  ```
 
-### Step 2: Restart the process
+### Restart the process
 Run
  
  ```bash
     archwayd start
 ```
 
-## Any other issues?
+## Other issues
+
+Having another issue?
 
 Please reach out through the following channels:
 
