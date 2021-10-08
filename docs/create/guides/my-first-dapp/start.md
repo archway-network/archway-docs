@@ -6,12 +6,12 @@ sidebar_position: 1
 
 This guide follows the below workflow:
 
-1. Create a new project
-2. Build and test our code
-3. Request testnet $ARC
-4. Produce _default_ and _CosmWasm_ `wasm` binaries
-5. Deploy to a testnet
-6. Query and transact with a deployed contract
+1. [Create a new project](#creating-a-project)
+2. [Build and test our code](#building-and-running-tests)
+3. [Request testnet $ARC](./faucet.md)
+4. [Produce _default_ and _CosmWasm_ `wasm` binaries](./wasm.md)
+5. [Deploy to a testnet](./deploy.md)
+6. [Query and transact with a deployed contract](./interact.md)
 
 
 ## Creating a project
