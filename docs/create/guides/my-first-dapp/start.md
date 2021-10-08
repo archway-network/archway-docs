@@ -4,6 +4,16 @@ sidebar_position: 1
 
 # Starting out
 
+This guide follows the below workflow:
+
+1. Create a new project
+2. Build and test our code
+3. Request testnet $ARC
+4. Produce _default_ and _CosmWasm_ `wasm` binaries
+5. Deploy to a testnet
+6. Query and transact with a deployed contract
+
+
 ## Creating a project
 
 In the [Setup](../../getting-started/setup.md) section we learned how to create and configure a new Archway project. 
