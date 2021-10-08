@@ -53,6 +53,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 body, html {
   font-family: Helvetica Neue;
+  font-size: 1.15rem;
 }
 
 a:hover, a:active, a:focus {
@@ -138,4 +139,9 @@ html[data-theme='dark'] footer .bg-dark,
 html[data-theme='dark'] footer .bg-dark a {
   background-color: #EAE5E1;
   color: #000000;
+}
+
+.feature_src-components-HomepageFeatures-module {
+  border-top: 1px solid var(--ifm-toc-border-color);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
