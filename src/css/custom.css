@@ -88,6 +88,10 @@ nav.navbar--fixed-top .navbar__inner {
   margin: auto;
 }
 
+.pagination-nav__link {
+  border-color: var(--ifm-toc-border-color);
+}
+
 .hero__title {
   font-family: Helvetica Neue;
   font-weight: normal;
