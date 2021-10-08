@@ -5,7 +5,7 @@ sidebar_position: 1
 # Installation
 
 
-## Step 1: Prepare the prerequisite
+## Prerequisites
 
 
 Make sure you have golang installed on your machine:
@@ -30,7 +30,7 @@ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/insta
 ```
 
 
-## Step 2: Download the source code
+## Download the Archway source code
 
 Clone the repo and build archway
 
@@ -40,7 +40,7 @@ cd archway
 make install
 ```
 
-## Step 3: Initialize the node
+## Initialize the node
 
 Initialize the `genesis.json` file that is required to establish a network.
 
@@ -48,7 +48,7 @@ Initialize the `genesis.json` file that is required to establish a network.
 archwayd init my-node --chain-id my-chain
 ```
 
-## Step 4: Prepare the account and keys
+## Prepare the account and keys
 
 Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
 
@@ -77,7 +77,7 @@ resource regret any wet stable body alcohol spring horse valve ritual top music 
 
 Here we can see our account details and in the bottom we see our mnemonic phrase which is very crucial to recover the account.
 
-## Step 5: Starting the node
+## Starting the node
 
 Now if we try to start the node, we will get this error since at least one validator is required for our network to be running.
 
