@@ -63,10 +63,11 @@ Run
     archwayd start
 ```
 
-## Some other troubles?
+## Any other issues?
 
-Please contact us through the following channels:
+Please reach out through the following channels:
 
-- xxx
-- xxx
-- xxx
+- [Medium Blog](https://medium.com/archwayhq)
+- [Twitter](https://twitter.com/archwayhq) 
+- [Discord Invite Link](https://discord.gg/-5FVvx3WGfa)
+- [Github](https://github.com/archway-network)
