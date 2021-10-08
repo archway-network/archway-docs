@@ -6,7 +6,7 @@ sidebar_position: 3
 
 This guide shows how to setup a validator node in simple steps.
 
-## Step 1: Initializing the node
+## Initialize node
 
 First let's create a directory to store all node's data and config.
 
@@ -21,7 +21,7 @@ archwayd init my-validator --chain-id my-chain --home ./my-validator
 
 **Note:** Please note that, we use `--home ./my-validator` flag in almost all commands in order to tell `archwayd` that we need to work on that specific directory.
 
-## Step 2: Initialize the account
+## Initialize account
 
 Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
 
@@ -38,7 +38,7 @@ with the genesis.app_state.staking.params.bond_denom denom, the default is staki
 archwayd add-genesis-account $(archwayd keys show my-validator-account -a --home ./my-validator) 1000000000stake,1000000000validatortoken --home ./my-validator
 ```
 
-## Step 3: Generating transaction
+## Create validator transaction
 
 We need to generate a transaction creating the validator.
 
@@ -46,7 +46,7 @@ We need to generate a transaction creating the validator.
 archwayd gentx my-validator-account 1000000000stake --chain-id my-chain --home ./my-validator
 ```
 
-## Step 4: Adding the transaction to the genesis file
+## Add transaction to genesis file
 
 Add the generated bonding transaction to the genesis file
 
@@ -54,7 +54,7 @@ Add the generated bonding transaction to the genesis file
 archwayd collect-gentxs --home ./my-validator
 ```
 
-## Step 5: Starting the validator node
+## Start validator node
 
 Now we can start our validator node in the local archway network
 

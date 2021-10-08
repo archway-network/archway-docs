@@ -6,7 +6,7 @@ sidebar_position: 3
 
 To have a working network we need at least one validator node. So, let's create a validator node.
 
-## Step 1: Initialize the validator node
+## Initialize the validator node
 Let's first crate a directory to keep all nodes data in it.
 
 ```bash
@@ -52,7 +52,7 @@ Now let's start the validator node.
 archwayd start --home ./node-main
 ```
 
-## Step 2: Initialize the second node
+## Initialize the second node
 
 Create a directory for the second node 
 ```bash
@@ -65,7 +65,7 @@ Initiate the node with the chain name.
 archwayd init node2 --chain-id my-chain --home ./node2
 ```
 
-## Step 3: Fix the port conflicts
+## Fix port conflicts
 Since, in this guide, we run both nodes on the same machine, there will be some port conflicts. 
 Let's fix them before starting the node.
 
@@ -113,7 +113,7 @@ laddr = "tcp://0.0.0.0:26656"
 
 And change it to: `laddr = "tcp://0.0.0.0:20002"`
 
-## Step 4: Copying the genesis file
+## Copy the genesis file
 
 In order to join the local test network, we need to use the same genesis file of that network. 
 So let's copy it from the main node and replace it on our genesis file.
@@ -122,7 +122,7 @@ So let's copy it from the main node and replace it on our genesis file.
 cp ./node-main/config/genesis.json ./node2/config/
 ```
 
-## Step 5: Find the addresses of the seeds
+## Find addresses of the seeds
 
 To join a p2p network we need the addresses of nodes that we are willing to connect to. 
 So let's find the address of the `main-node` via running the following command:
@@ -167,7 +167,7 @@ All we need is
 - The `id` which in our example is `a118197af3c66781faa0299633cc59a1622d27e3` 
 - The host name and its listening port (`listen_addr`) which here is: `tcp://0.0.0.0:26656`
 
-## Step 6: Join the network
+## Join the network
 
 Since we are running it on our local machine, the Ip address is `0.0.0.0` which refers to `localhost` we can use either `localhost` or `127.0.0.1`. For me even `0.0.0.0` worked!
 
@@ -177,7 +177,7 @@ Now let's run the following command to join the network:
 archwayd --home ./node2 start --p2p.seeds a118197af3c66781faa0299633cc59a1622d27e3@localhost:26656
 ```
 
-## Using `Gex` tool to visualize the network status
+## Using `Gex` to visualize the network status
 
 `GEX` is a real time in-terminal explorer for Cosmos SDK blockchains. Gex displays blocks, transactions, validator, network status, and more information. Use the GEX block explorer to see the status of peers, connection, version, and other useful information to have a quick peek into your own node.
 

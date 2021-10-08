@@ -13,12 +13,12 @@ There is a [Grafana](https://grafana.com/) dashboard compatible with all the [co
 
 Let's set it up for our network.
 
-## Step 1: Prerequisites
+## Prerequisites
 
 First install [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/) on your machine.
 
 
-## Step 2: Enable Tendermint Metrics
+## Enable Tendermint Metrics
 
 ```bash
 sed -i 's/prometheus = false/prometheus = true/g' <YOUR-NODE-HOMEDIR>/config/config.toml
@@ -26,7 +26,7 @@ sed -i 's/prometheus = false/prometheus = true/g' <YOUR-NODE-HOMEDIR>/config/con
 
 After restarting your node, you should be able to access the `tendermint` metrics(default port is 26660): <http://localhost:26660>
 
-## Step 3: Configure Prometheus Targets
+## Configure Prometheus Targets
 
 Find `prometheus.yml` file and append the following `job` under the `scrape_configs`:
 
@@ -40,11 +40,11 @@ Find `prometheus.yml` file and append the following `job` under the `scrape_conf
 
 **Note:** On linux machines this file can be found under this path: `/etc/prometheus/prometheus.yml`
 
-## Step 4: Resolve port conflict
+## Resolving Port Conflicts
 
 If you run your `archway` network and `Prometheus` on the same machine, you will see one of them cannot run due to a port conflict. Let's resolve it.
 
-### Open the `./node-main/config/app.toml` file and look for
+**Open the `./node-main/config/app.toml` file and look for**
 
 ```toml
 [grpc]
@@ -58,7 +58,7 @@ Then change the port to something else like this:
 address = "0.0.0.0:9095"
 ``` 
 
-## Step 5: Restart prometheus config
+## Restart Prometheus
 
 ```bash
 sudo service prometheus restart
@@ -83,7 +83,7 @@ If you see some output like this, it means it is running without an issue:
              └─457917 /usr/bin/prometheus
 ```
 
-## Step 6: Configure Grafana
+## Configure Grafana
 
 if you have grafana installed on your machine, you can access it via navigating to this address: <http://localhost:3000>
 
@@ -102,7 +102,7 @@ Click on `Save & test` to make sure everything is alright.
 
 ![](../assets/grafana03.png)
 
-## Step 7: Import Grafana Dashboard
+## Import Grafana Dashboard
 
 Copy and paste the [Grafana Dashboard ID](https://grafana.com/grafana/dashboards/11036) `11036` and click on `Load` to complete importing.
 

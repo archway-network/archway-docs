@@ -1,16 +1,10 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
 import React from 'react';
-import clsx from 'clsx';
+// import clsx from 'clsx';
+// import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import isInternalUrl from '@docusaurus/isInternalUrl';
-import styles from './styles.module.css';
 import ThemedImage from '@theme/ThemedImage';
 import IconExternalLink from '@theme/IconExternalLink';
 
@@ -65,7 +59,7 @@ function Footer() {
           <div className="footer-top__container" data-v-57399fcf>
             <div className="tm-rf7 tm-lh-title" data-v-57399fcf>Arch into Cosmos</div>
             <div className="mt-7" data-v-57399fcf>
-              <a href="/updates" className="tm-rf1 tm-button tm-button__size__m tm-button__variant__underlined tm-lh-title tm-medium  tm-rf0" data-v-17ec6de6 data-v-57399fcf>
+              <a href="/updates" className="updt-sgn tm-rf1 tm-button tm-button__size__m tm-button__variant__underlined tm-lh-title tm-medium  tm-rf0" data-v-17ec6de6 data-v-57399fcf>
                 <span className="tm-button__content" data-v-17ec6de6>SIGN UP FOR UPDATES</span>
               </a>
             </div>
