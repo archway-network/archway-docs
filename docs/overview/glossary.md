@@ -4,7 +4,6 @@ sidebar_position: 6
 
 # Glossary
 
-- $ARC — Archway’s native token used for fees, staking, and governance.
 - CosmWasm — a framework that allows developers to write multi-chain smart contracts using any programming language, including Rust, which compiles to Wasm.
 - dApp —  a decentralized application built on Archway that combines a smart contract and a frontend user interface.
 - Inter-Blockchain Communication protocol (IBC) — a generalized cross-chain communication protocol for transferring value and data between independent networks.
