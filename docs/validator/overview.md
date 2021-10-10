@@ -29,4 +29,4 @@ Set up a dedicated validator's website and signal your intention to become a val
 
 ## Community
 
-To learn more about become a validaotr, please join our [Discord](https://discord.gg/5FVvx3WGfa) community
+To learn more about become a validator, please join our [Discord](https://discord.gg/5FVvx3WGfa) community
