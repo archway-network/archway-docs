@@ -55,9 +55,9 @@ body, html {
   font-family: Helvetica Neue;
 }
 
-@media (min-width:1025px) {
+@media (min-width:1600px) {
   body, html {
-    font-size: 1.15rem;
+    font-size: 1.125rem;
   }
 }
 
