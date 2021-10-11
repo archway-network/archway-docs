@@ -1,4 +1,9 @@
-/* stylelint-disable docusaurus/copyright-header */
+.feature {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+}
 
 .features {
   display: flex;
@@ -10,6 +15,18 @@
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.featurePrimary {
+  width: 100vw;
+  /* max-width: 90rem;
+  margin: auto; */
+  height: auto;
+  min-height: 55vh !important;
+  background-image: url("../../static/img/prim.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .linkf {

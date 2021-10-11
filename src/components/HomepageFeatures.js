@@ -2,6 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
 
+// const FeaturePrimary = {
+//   src: require('../../static/img/prim.png').default
+// };
+
 const FeatureList = [
   {
     title: 'Universe',
@@ -63,5 +67,13 @@ export default function HomepageFeatures() {
   //     </div>
   //   </section>
   // );
-  return '';
+  
+  
+  return (
+    <section className={styles.feature}>
+      <div className={styles.featurePrimary}></div>
+    </section>
+  );
+
+  // return '';
 }

@@ -55,6 +55,12 @@ body, html {
   font-family: Helvetica Neue;
 }
 
+@media (min-width:1600px) {
+  body, html {
+    font-size: 1.125rem;
+  }
+}
+
 a:hover, a:active, a:focus {
   color: #AB3A1A !important;
   opacity: 1 !important;
@@ -86,6 +92,10 @@ nav.navbar--fixed-top {
 nav.navbar--fixed-top .navbar__inner {
   max-width: 90rem;
   margin: auto;
+}
+
+.pagination-nav__link {
+  border-color: var(--ifm-toc-border-color);
 }
 
 .hero__title {
@@ -134,4 +144,9 @@ html[data-theme='dark'] footer .bg-dark,
 html[data-theme='dark'] footer .bg-dark a {
   background-color: #EAE5E1;
   color: #000000;
+}
+
+.feature_src-components-HomepageFeatures-module {
+  border-top: 1px solid var(--ifm-toc-border-color);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
