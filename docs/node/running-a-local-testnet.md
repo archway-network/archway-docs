@@ -206,3 +206,31 @@ As you can see the number of peers is zero. Now we run execute the join network 
 ![](../assets/Gex02.png)
 
 So now we successfully joined a running network.
+
+# Running a Local Testnet with docker
+
+Dokcer allows us to have a running a single node local test net in an easy way.
+First download the repository:
+
+```bash
+git clone git@github.com:archway-network/archway.git
+cd archway
+```
+
+Then run the following command to build the docker image:
+
+```bash
+sudo make build-docker
+```
+
+Once the docker image is built successfully, run the following command:
+
+```bash
+sudo docker-compose up
+```
+
+If you want to hide the terminal output, just use flag `-d` like this:
+
+```bash
+sudo docker-compose up -d
+```
