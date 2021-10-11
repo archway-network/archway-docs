@@ -209,7 +209,7 @@ So now we successfully joined a running network.
 
 # Running a Local Testnet with docker
 
-Dokcer allows us to have a running a single node local test net in an easy way.
+Docker allows us to have a running a single node local test net in an easy way.
 First download the repository:
 
 ```bash
