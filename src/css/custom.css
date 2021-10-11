@@ -56,7 +56,8 @@ body, html {
 }
 
 a {
-  outline: 1px solid transparent;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
 }
 
 @media (min-width:1600px) {
