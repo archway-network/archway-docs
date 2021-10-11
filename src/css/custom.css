@@ -60,6 +60,10 @@ a {
   outline: 2px solid transparent;
 }
 
+html[data-theme='dark'] a {
+  filter: brightness(1.5);
+}
+
 @media (min-width:1600px) {
   body, html {
     font-size: 1.15rem;
