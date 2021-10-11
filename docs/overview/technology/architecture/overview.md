@@ -10,7 +10,7 @@ We aim to create a cosmos-sdk based chain with support for wasm smart contract e
 Desired Functionalities to achieve above objective:
 - [Fee reward to the developers](../economics/overview.md)
 - [Gas rebate to end users](../economics/gas-rebates.md)
-- [Smart contract premium fee](../economics.smart-contracts-fees.md)
+- [Smart contract premium fee](../economics/smart-contracts-fees.md)
 - [Inflation rewards](../economics/inflation.md)
 
 ## Smart Contracts
