@@ -2,10 +2,17 @@
 sidebar_position: 9
 ---
 
-# Participate in Staking (Delegation)
+# Participate in Staking (Delegation) using Keplr
 
-Intro to staking: invest in the network's security and get rewards
+The Archway network is a Proof-Of-Stake (PoS) blockchain, meaning that the weight of validators is determined by the amount of staking tokens (ARCHs) bonded as collateral. These ARCHs can be self-delegated directly by the validator or delegated to them by other ARCH holders.
 
+Any user in the system can declare their intention to become a validator by sending a `create-validator` transaction. From there, they become validator candidates.
+
+The weight (i.e. voting power) of a validator determines whether or not they are an active validator
+
+Delegators are ARCH holders who cannot, or do not want to run a validator themselves. ARCH holders can delegate ARCHs to a validator and obtain a part of their revenue in exchange.
+
+Now let's see how we can delegate some tokens to a validator.
 
 ## Staking
 
