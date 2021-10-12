@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Install a Wallet
+# Install a Wallet (Keplr)
 
 This quick guid shows you how to setup a wallet and manage your tokens with it. One of the widely used wallets for Cosmos based coins is `Keplr` which is similar to [MetaMask](https://metamask.io/).
 
@@ -84,3 +84,183 @@ If you click on the account icon on top right corner, you will see this screen.
 Here you can manage your account and even see the mnemonic phrase in case you have not saved it yet.
 
 ![](./assets/keplr10.png)
+
+
+## CLI Wallet
+
+First we need to have our node running one validator, so please set it up here: [Running a Validator Node](./validator/running-a-validator-node.md).
+
+
+### Creating a wallet
+
+Now let's create an account, basically we can refer it as a wallet.
+
+```bash
+archwayd keys add my-wallet
+```
+
+You will see an output like this:
+
+```
+- name: my-wallet
+  type: local
+  address: archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l
+  pubkey: archwaypub1addwnpepqgj66w9ala672zptcjxhl4rugyzh2ykzf0svamvewql70zklxd9e67vqcem
+  mnemonic: ""
+  threshold: 0
+  pubkeys: []
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+hair awful wet dry virus stay badge chunk shiver exercise hold suffer talk citizen brief expect middle result million energy job lunch move clump
+```
+
+### Querying the balance of the wallet
+
+Now let's see the balance of our wallet. 
+We can query any account with the following command:
+
+```bash
+archwayd query bank balances <Wallet_Address>
+```
+
+If we forget our wallet address we can retrieve its details via this command:
+
+```bash
+archwayd keys show my-wallet
+```
+
+So in our example we can see the balance of our wallet by running this command:
+
+```bash
+archwayd query bank balances $(archwayd keys show my-wallet -a)
+```
+
+### Transferring ARCH tokens to our wallet
+
+Now let's transfer some `ARCH` tokens from our validator account to our newly created wallet.
+
+
+```bash
+archwayd tx send $(archwayd keys show my-validator-account -a) $(archwayd keys show my-wallet -a) 12ARCH --fees 0.1ARCH --chain-id my-chain
+```
+
+Then, you should be prompted with the following confirmation question:
+
+```json
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.bank.v1beta1.MsgSend",
+        "from_address": "archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz",
+        "to_address": "archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l",
+        "amount": [
+          {
+            "denom": "ARCH",
+            "amount": "12"
+          }
+        ]
+      }
+    ],
+    "memo": "",
+    "timeout_height": "0",
+    "extension_options": [
+      
+    ],
+    "non_critical_extension_options": [
+      
+    ]
+  },
+  "auth_info": {
+    "signer_infos": [
+      
+    ],
+    "fee": {
+      "amount": [
+        {
+          "denom": "ARCH",
+          "amount": "0"
+        }
+      ],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    
+  ]
+}
+
+confirm transaction before signing and broadcasting [y/N]: y
+```
+
+Enter `y` and hit the enter key.
+
+Then we need to wait few moments for our transaction to go through. If things go well, we will see an output like this:
+
+```json
+{
+  "height": "609",
+  "txhash": "4F7AA2832D5190B68C5E4F2ABDC41B732BCCA582DCD27B0FD11898A3CBF48310",
+  "data": "0A060A0473656E64",
+  "raw_log": "[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"send\"},{\"key\":\"sender\",\"value\":\"archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz\"},{\"key\":\"module\",\"value\":\"bank\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l\"},{\"key\":\"sender\",\"value\":\"archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz\"},{\"key\":\"amount\",\"value\":\"12ARCH\"}]}]}]",
+  "logs": [
+    {
+      "events": [
+        {
+          "type": "message",
+          "attributes": [
+            {
+              "key": "action",
+              "value": "send"
+            },
+            {
+              "key": "sender",
+              "value": "archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz"
+            },
+            {
+              "key": "module",
+              "value": "bank"
+            }
+          ]
+        },
+        {
+          "type": "transfer",
+          "attributes": [
+            {
+              "key": "recipient",
+              "value": "archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l"
+            },
+            {
+              "key": "sender",
+              "value": "archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz"
+            },
+            {
+              "key": "amount",
+              "value": "12ARCH"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gas_wanted": "200000",
+  "gas_used": "61028"
+}
+```
+
+Now let's check again the balance of our wallet:
+
+```bash
+archwayd query bank balances $(archwayd keys show my-wallet -a)
+```
+```yml
+balances:
+- amount: "12"
+  denom: ARCH
+pagination: {}
+```
