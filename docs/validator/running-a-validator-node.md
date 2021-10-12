@@ -43,7 +43,12 @@ archwayd add-genesis-account $(archwayd keys show my-validator-account -a) 10000
 We need to generate a transaction creating the validator.
 
 ```bash
-archwayd gentx my-validator-account 1000000000stake --chain-id my-chain
+archwayd gentx my-validator-account 1000000000stake \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey $(archwayd tendermint show-validator) \
+  --chain-id my-chain
 ```
 
 ## Add transaction to genesis file
