@@ -56,13 +56,6 @@ We must set the default value for the node we are connecting to
 archwayd config node <host>:<port>
 ```
 
-then let us set the default value for `trust-node`flag: 
-
-```sh
-archwayd config trust-node false
-# Set to true if you run a light-client node, false otherwise
-```
-
 Finally let's set up the chain ID of the network we want to interact with
 
 ```sh
