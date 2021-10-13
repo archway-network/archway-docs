@@ -6,6 +6,8 @@ sidebar_position: 1
 
 Make sure you've installed and configured a few dependencies.
 
+**IMPORTANT:** If on your machine, you need root access to run `docker`, make sure to follow all the steps with `root` access. Otherwise, there will be some conflicts and confusions on the deployment process which will ask for a root permission.
+
 #### Dependencies
 
 - [Rustc](https://www.rust-lang.org/tools/install "Install Rust")
