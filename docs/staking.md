@@ -33,7 +33,7 @@ In order to delegate your stake you have to either [run your node](./node/join-a
 
 Malicious operator could return incorrect query results or censor your transactions. However, they will never be able to steal your funds, as your private keys are stored locally on your computer or ledger device. Possible options of full-node operators include validators, wallet providers or exchanges.
 
-in order to connect to the network we must 
+<!-- in order to connect to the network we must 
 
 ##### Config CLI
 We must set the default value for the node we are connecting to
@@ -52,7 +52,7 @@ Finally let's set up the chain ID of the network we want to interact with
 
 ```
 archwayd config chain-id constantinople
-```
+``` -->
 
 #### Send funds
 In order to delegate we need to send a delegate transaction to a validator
