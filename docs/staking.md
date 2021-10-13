@@ -58,8 +58,39 @@ archwayd config chain-id constantinople
 In order to delegate we need to send a delegate transaction to a validator
 
 ```
-archwayd tx staking delegate <validatorAddress> <amountToBond> --from <yourKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
+archwayd tx staking delegate <validatorOperatorAddress> <amountToBond> --from <yourKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
 ```
+
+#### Find Validator's Operator Address
+
+We can query all the validators and pick the one we want to delegate tokens to it.
+
+```bash
+archwayd query staking validators
+```
+```yml
+pagination: {}
+validators:
+- commission:
+    commission_rates:
+      max_change_rate: "0.100000000000000000"
+      max_rate: "0.100000000000000000"
+      rate: "0.010000000000000000"
+    update_time: "2021-10-12T20:15:35.967858491Z"
+  consensus_pubkey:
+    '@type': /cosmos.crypto.ed25519.PubKey
+    key: X1LGMAY8dToCgBuMIMpctn20Fwenim2YTGoY9Y2J+To=
+  delegator_shares: "1000000000.000000000000000000"
+  description:
+    moniker: my-validator
+  min_self_delegation: "1"
+  operator_address: archwayvaloper14gxqxpxulxssv7pr4kltr9tl5dujtestxvjhkp
+  status: BOND_STATUS_BONDED
+  tokens: "1000000000"
+  unbonding_time: "1970-01-01T00:00:00Z"
+```
+
+As we can see in our example we have one validator and its operator address is `archwayvaloper14gxqxpxulxssv7pr4kltr9tl5dujtestxvjhkp`.
 
 ### Keplr
 
