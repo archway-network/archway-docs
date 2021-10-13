@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Archway Network',
   tagline: 'Elevate your ecosystem',
-  url: 'http://ec2-52-201-252-5.compute-1.amazonaws.com',
+  url: 'https://archway-docs.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
