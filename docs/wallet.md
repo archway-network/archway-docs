@@ -2,11 +2,55 @@
 sidebar_position: 10
 ---
 
-# Install a Wallet
+# CLI
+
+## Installation
+The first thing we need to in order to delegate our stake is to install the archwya CLI, you can find how to do this in our [installation guide](./create/getting-started/install.md)
+
+## Create Account
+### Using a ledger device
+When you initialize your ledger, a 24-word mnemonic is generated and stored in the device. This mnemonic is compatible with Cosmos and Cosmos accounts can be derived from it. Therefore, all you have to do is make your ledger compatible with gaiad. To do so, you need to go through the following steps:
+
+1- Download the Ledger Live app here (opens new window).
+2- Connect your ledger via USB and update to the latest firmware
+3- Go to the ledger live app store, and download the "Cosmos" application (this can take a while). Note: You may have to enable Dev Mode in the Settings of Ledger Live to be able to download the "Cosmos" application.
+4- Navigate to the Cosmos app on your ledger device
+5- To create an account, use the following command:
+```
+archwayd keys add <yourAccountName> --ledger
+```
+
+- `<yourKeyName>` is the name of the account. it is a reference to the account number used to derive the key pair from the mnemonic. You will use this name to identify your account when you want to send a transaction.
+- You can add the optional `--account` flag to specify the path (0, 1, 2, ...) you want to use to generate your account. By default, account 0 is generated.
+
+#### Warning
+This process will only work while the Ledger is plugged in and unlocked.
+
+### Computer 
+To generate an account, use the following command:
+
+```
+archwayd keys add <yourKeyName>
+```
+
+The command will generate a 24-words mnemonic and save the private and public keys for account 0 at the same time. Each time you want to send a transaction, you will need to unlock your system's credentials store. If you lose access to your credentials storage, you can always recover the private key with the mnemonic.
+
+- `<yourKeyName>` is the name of the account. it is a reference to the account number used to derive the key pair from the mnemonic. You will use this name to identify your account when you want to send a transaction.
+- You can add the optional `--account` flag to specify the path (0, 1, 2, ...) you want to use to generate your account. By default, account 0 is generated.
+
+### Warning
+After securing your mnemonic, you can delete your bash history to ensure no one can retrieve it
+```
+history -c
+rm -rf ~/.bash_history`
+```
+
+# Keplr
 
 This quick start guide helps you set up a wallet and manage your tokens with it. A popular wallets for Cosmos-based coins is `Keplr`, a wallet that is similar to [MetaMask](https://metamask.io/).
 
-## Install Keplr
+## Install 
+Open you _Google Chrome_ browser and head over to this website: https://wallet.keplr.app/ 
 
 Open a _Google Chrome_  webbrowser and navigate to https://wallet.keplr.app/.
 
@@ -84,3 +128,183 @@ Select the `Cosmos` dropdown on top of the window to switch the view to other Co
 To manage your account, select the account icon. You can also view the mnemonic phrase in your account.
 
 ![](./assets/keplr10.png)
+
+
+## CLI Wallet
+
+First we need to have our node running one validator, so please set it up here: [Running a Validator Node](./validator/running-a-validator-node.md).
+
+
+### Creating a wallet
+
+Now let's create an account, basically we can refer it as a wallet.
+
+```bash
+archwayd keys add my-wallet
+```
+
+You will see an output like this:
+
+```
+- name: my-wallet
+  type: local
+  address: archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l
+  pubkey: archwaypub1addwnpepqgj66w9ala672zptcjxhl4rugyzh2ykzf0svamvewql70zklxd9e67vqcem
+  mnemonic: ""
+  threshold: 0
+  pubkeys: []
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+hair awful wet dry virus stay badge chunk shiver exercise hold suffer talk citizen brief expect middle result million energy job lunch move clump
+```
+
+### Querying the balance of the wallet
+
+Now let's see the balance of our wallet. 
+We can query any account with the following command:
+
+```bash
+archwayd query bank balances <Wallet_Address>
+```
+
+If we forget our wallet address we can retrieve its details via this command:
+
+```bash
+archwayd keys show my-wallet
+```
+
+So in our example we can see the balance of our wallet by running this command:
+
+```bash
+archwayd query bank balances $(archwayd keys show my-wallet -a)
+```
+
+### Transferring ARCH tokens to our wallet
+
+Now let's transfer some `ARCH` tokens from our validator account to our newly created wallet.
+
+
+```bash
+archwayd tx send $(archwayd keys show my-validator-account -a) $(archwayd keys show my-wallet -a) 12ARCH --fees 0.1ARCH --chain-id my-chain
+```
+
+Then, you should be prompted with the following confirmation question:
+
+```json
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.bank.v1beta1.MsgSend",
+        "from_address": "archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz",
+        "to_address": "archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l",
+        "amount": [
+          {
+            "denom": "ARCH",
+            "amount": "12"
+          }
+        ]
+      }
+    ],
+    "memo": "",
+    "timeout_height": "0",
+    "extension_options": [
+      
+    ],
+    "non_critical_extension_options": [
+      
+    ]
+  },
+  "auth_info": {
+    "signer_infos": [
+      
+    ],
+    "fee": {
+      "amount": [
+        {
+          "denom": "ARCH",
+          "amount": "0"
+        }
+      ],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    
+  ]
+}
+
+confirm transaction before signing and broadcasting [y/N]: y
+```
+
+Enter `y` and hit the enter key.
+
+Then we need to wait few moments for our transaction to go through. If things go well, we will see an output like this:
+
+```json
+{
+  "height": "609",
+  "txhash": "4F7AA2832D5190B68C5E4F2ABDC41B732BCCA582DCD27B0FD11898A3CBF48310",
+  "data": "0A060A0473656E64",
+  "raw_log": "[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"send\"},{\"key\":\"sender\",\"value\":\"archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz\"},{\"key\":\"module\",\"value\":\"bank\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l\"},{\"key\":\"sender\",\"value\":\"archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz\"},{\"key\":\"amount\",\"value\":\"12ARCH\"}]}]}]",
+  "logs": [
+    {
+      "events": [
+        {
+          "type": "message",
+          "attributes": [
+            {
+              "key": "action",
+              "value": "send"
+            },
+            {
+              "key": "sender",
+              "value": "archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz"
+            },
+            {
+              "key": "module",
+              "value": "bank"
+            }
+          ]
+        },
+        {
+          "type": "transfer",
+          "attributes": [
+            {
+              "key": "recipient",
+              "value": "archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l"
+            },
+            {
+              "key": "sender",
+              "value": "archway1gjllda936w6hu983pcy39m2gegfa29h6tyaezz"
+            },
+            {
+              "key": "amount",
+              "value": "12ARCH"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gas_wanted": "200000",
+  "gas_used": "61028"
+}
+```
+
+Now let's check again the balance of our wallet:
+
+```bash
+archwayd query bank balances $(archwayd keys show my-wallet -a)
+```
+```yml
+balances:
+- amount: "12"
+  denom: ARCH
+pagination: {}
+```
