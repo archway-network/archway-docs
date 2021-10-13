@@ -3,7 +3,15 @@ sidebar_position: 9
 ---
 
 # Staking
-Archway uses a PoS(Proof of Stake) algorithim as its consensus mechanism. This system encourages ARCH holders to bond their tokens and earn rewards while doing so.
+The Archway network is a Proof-Of-Stake (PoS) blockchain, meaning that the weight of validators is determined by the amount of staking tokens (ARCHs) bonded as collateral. These ARCHs can be self-delegated directly by the validator or delegated to them by other ARCH holders.
+
+Any user in the system can declare their intention to become a validator by sending a `create-validator` transaction. From there, they become validator candidates.
+
+The weight (i.e. voting power) of a validator determines whether or not they are an active validator
+
+Delegators are ARCH holders who cannot, or do not want to run a validator themselves. ARCH holders can delegate ARCHs to a validator and obtain a part of their revenue in exchange.
+
+Now let's see how we can delegate some tokens to a validator.
 
 You can stake by:
 - [Runing a validator](./validator/running-a-validator-node.md)
@@ -16,27 +24,9 @@ This allows ARCH holders that don't have the skills or desire to run a validator
 
 ### CLI
 
-#### Installation
-The first thing we need to in order to delegate our stake is to install the archwya CLI, you can find how to do this in our [installation guide](./create/getting-started/install.md)
-
-#### Create Account
-To generate an account, use the following command:
-
-```
-archwayd keys add <yourKeyName>
-```
-
-The command will generate a 24-words mnemonic and save the private and public keys for account 0 at the same time. Each time you want to send a transaction, you will need to unlock your system's credentials store. If you lose access to your credentials storage, you can always recover the private key with the mnemonic.
-
-- `<yourKeyName>` is the name of the account. it is a reference to the account number used to derive the key pair from the mnemonic. You will use this name to identify your account when you want to send a transaction.
-- You can add the optional `--account` flag to specify the path (0, 1, 2, ...) you want to use to generate your account. By default, account 0 is generated.
-
-##### Warning
-After securing your mnemonic, you can delete your bash history to ensure no one can retrieve it
-```
-history -c
-rm -rf ~/.bash_history`
-```
+#### Requirements
+- [Installation](./wallet.md#CLI)
+- [Create an account](./wallet.md#CLI)
 
 #### Connecting to the network
 In order to delegate your stake you have to either [run your node](./node/join-a-network.md) or you can connect to a trustworthy operator.
@@ -72,48 +62,8 @@ In order to delegate we need to send a delegate transaction to a validator
 archway tx staking delegate <validatorAddress> <amountToBond> --from <yourKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
 ```
 
-##### Useful Commands
-Delegators might find 
-```
-// Bond a certain amount of tokens to a given validator
-// ex value for flags: <validatorAddress>=archway18thamkhnj9wz8pa4nhnp9rldprgant57pk2m8s, <amountToBound>=10000000uatom, <gasPrice>=0.0025uatom
-
-archwayd tx staking delegate <validatorAddress> <amountToBond> --from <delegatorKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
-
-
-// Redelegate a certain amount of tokens from a validator to another
-// Can only be used if already bonded to a validator
-// Redelegation takes effect immediately, there is no waiting period to redelegate
-// After a redelegation, no other redelegation can be made from the account for the next 3 weeks
-// ex value for flags: <stcValidatorAddress>=archway18thamkhnj9wz8pa4nhnp9rldprgant57pk2m8s, <amountToRedelegate>=100000000uatom, <gasPrice>=0.0025uatom
-
-archwayd tx staking redelegate <srcValidatorAddress> <destValidatorAddress> <amountToRedelegate> --from <delegatorKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
-
-// Withdraw all rewards
-// ex value for flag: <gasPrice>=0.0025uatom
-
-archwayd tx distribution withdraw-all-rewards --from <delegatorKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
-
-
-// Unbond a certain amount of tokens from a given validator
-// You will have to wait 3 weeks before your tokens are fully unbonded and transferrable
-// ex value for flags: <validatorAddress>=archway18thamkhnj9wz8pa4nhnp9rldprgant57pk2m8s, <amountToUnbound>=10000000uatom, <gasPrice>=0.0025uatom
-
-archwayd tx staking unbond <validatorAddress> <amountToUnbond> --from <delegatorKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
-
-```
-
 ### Keplr
 
-The Archway network is a Proof-Of-Stake (PoS) blockchain, meaning that the weight of validators is determined by the amount of staking tokens (ARCHs) bonded as collateral. These ARCHs can be self-delegated directly by the validator or delegated to them by other ARCH holders.
-
-Any user in the system can declare their intention to become a validator by sending a `create-validator` transaction. From there, they become validator candidates.
-
-The weight (i.e. voting power) of a validator determines whether or not they are an active validator
-
-Delegators are ARCH holders who cannot, or do not want to run a validator themselves. ARCH holders can delegate ARCHs to a validator and obtain a part of their revenue in exchange.
-
-Now let's see how we can delegate some tokens to a validator.
 
 #### Staking
 
