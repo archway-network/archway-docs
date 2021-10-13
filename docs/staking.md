@@ -37,28 +37,42 @@ Malicious operator could return incorrect query results or censor your transacti
 in order to connect to the network we must 
 
 ##### Config CLI
-We must set the default value for the node we are connecting to
+
+First create the client config file:
+
+```bash
+touch ~/.archway/config/client.toml
 ```
+
+If the home directory for your node is different, please use the following:
+
+```bash
+touch <YOUR_NODES_HOME_DIR>/config/client.toml
+```
+
+We must set the default value for the node we are connecting to
+
+```sh
 archwayd config node <host>:<port>
 ```
+
 then let us set the default value for `trust-node`flag: 
 
-```
+```sh
 archwayd config trust-node false
-
-// Set to true if you run a light-client node, false otherwise
+# Set to true if you run a light-client node, false otherwise
 ```
 
 Finally let's set up the chain ID of the network we want to interact with
 
-```
+```sh
 archwayd config chain-id constantinople
 ```
 
 #### Send funds
 In order to delegate we need to send a delegate transaction to a validator
 
-```
+```sh
 archwayd tx staking delegate <validatorOperatorAddress> <amountToBond> --from <yourKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
 ```
 
