@@ -38,6 +38,7 @@ with the genesis.app_state.staking.params.bond_denom denom, the default is staki
 
 ```bash
 archwayd add-genesis-account $(archwayd keys show node-main-account -a) 1000000000stake,1000000000validatortoken --home ./node-main
+```
 
 We need to generate a transaction creating the validator.
 
