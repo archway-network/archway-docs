@@ -133,33 +133,6 @@ Here you can manage your account and even see the mnemonic phrase in case you ha
 
 First we need to have our node running one validator, so please set it up here: [Running a Validator Node](./validator/running-a-validator-node.md).
 
-
-### Creating a wallet
-
-Now let's create an account, basically we can refer it as a wallet.
-
-```bash
-archwayd keys add my-wallet
-```
-
-You will see an output like this:
-
-```
-- name: my-wallet
-  type: local
-  address: archway12zjz75hq3gmhc75pmcs9klc26mrhyvkueghy2l
-  pubkey: archwaypub1addwnpepqgj66w9ala672zptcjxhl4rugyzh2ykzf0svamvewql70zklxd9e67vqcem
-  mnemonic: ""
-  threshold: 0
-  pubkeys: []
-
-
-**Important** write this mnemonic phrase in a safe place.
-It is the only way to recover your account if you ever forget your password.
-
-hair awful wet dry virus stay badge chunk shiver exercise hold suffer talk citizen brief expect middle result million energy job lunch move clump
-```
-
 ### Querying the balance of the wallet
 
 Now let's see the balance of our wallet. 
