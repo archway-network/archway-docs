@@ -46,7 +46,6 @@ then let us set the default value for `trust-node`flag:
 archwayd config trust-node false
 
 // Set to true if you run a light-client node, false otherwise
-
 ```
 
 Finally let's set up the chain ID of the network we want to interact with
