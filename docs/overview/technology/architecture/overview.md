@@ -3,11 +3,12 @@ sidebar_position: 1
 ---
 
 # Architectural Overview
+
 The network starts with a vanilla Proof-of-Stake (PoS) network, with modified Minting, CosmWasm, Distribution, Staking, Group, and Governance Cosmos modules that manage the Archway inflation and rewards system. 
 
-We aim to create a cosmos-sdk based chain with support for wasm smart contract execution which rewards developers for the usage of said smart contracts deployed.
+Archway creates a Cosmos SDK-based chain with support for WASM smart contract execution that rewards developers for the usage of said smart contracts deployed.
 
-Desired Functionalities to achieve above objective:
+Desired functionalities to achieve above objective:
 - [Fee reward to the developers](../economics/overview.md)
 - [Gas rebate to end users](../economics/gas-rebates.md)
 - [Smart contract premium fee](../economics/smart-contracts-fees.md)

@@ -4,83 +4,83 @@ sidebar_position: 10
 
 # Install a Wallet
 
-This quick guid shows you how to setup a wallet and manage your tokens with it. One of the widely used wallets for Cosmos based coins is `Keplr` which is similar to [MetaMask](https://metamask.io/).
-
-Let's install it.
+This quick start guide helps you set up a wallet and manage your tokens with it. A popular wallets for Cosmos-based coins is `Keplr`, a wallet that is similar to [MetaMask](https://metamask.io/).
 
 ## Install Keplr
-Open you _Google Chrome_ browser and head over to this website: https://wallet.keplr.app/ 
 
-If you have not already installed Keplr, it shows you a message box saying that you should click on it and install it.
+Open a _Google Chrome_  webbrowser and navigate to https://wallet.keplr.app/.
 
-Once you click on the message box, it redirects you to the chrome web store page to install the Keplr extension.
-Click on `Add to Chrome` and install the extension.
+If you have not already installed Keplr, select the message box to install it.
 
-When the extension is installed, you should see the Keplr icon on your browser corner. 
+You are redirected to the page where you can to install the Keplr extension. 
+Select `Add to Chrome` and install the extension.
+
+When the Keplr extension is installed, the Keplr icon shows on your web browser. 
 
 ![](./assets/keplr01.png)
 
 
 ## Open Keplr
-Click on the Keplr icon; then, you will see a screen like this:
+
+Select the Keplr icon on your web browser. You see a screen like this:
 
 ![](./assets/keplr02.png)
 
 
-## Create account
-Click on the `Create new account` to see the following form:
+## Create an Account
+
+Select `Create new account` to see the following form:
 
 ![](./assets/keplr03.png)
 
-Here you can see a `Mnemonic Seed` phrase that is generated specifically for your account which is used to recover your account in case you loose your extension or forget your password.
+You see a `Mnemonic Seed` phrase that is generated specifically for your account. You may use this phrase to recover your account in case you install your Keplr extension or forget your password.
 
-**Attention**: Make sure to write it down, print it or make several copies of it and keep them in a safe place.
+**Attention**: Make sure to write the mnemonic phrase down, print it, or make several copies of it and keep them in a safe place.
 
-You can select either 12 or 24 words; both are good, but 24 is only more secure.
+You can select a 12- or 24-words mnemonic phrase. Either option is fine, the 24-word mnemonic is more secure.
 
-Fill in an account name, write your password and click on the `Next` button.
+Enter an account name, write down your password, and select `Next`.
 
-## Confirm mnemonic phrase
+## Confirm Mnemonic Phrase
 
-Once the following screen appears, you need to select the mnemonic phrase exactly as the same order of what we just saw in the previous screen.
+After the following screen appears, select the mnemonic phrase exactly in the same order that you saw in the previous screen.
 
 ![](./assets/keplr04.png)
 
 ## Register
 
-When all the words are put in the right order, click on the `Register` button and we are all set.
+When all the words are put in the right order, select the `Register` button and you are all set.
 
 ![](./assets/keplr05.png)
 
 ## Working with Keplr
 
-When we click on the Keplr icon, since we have an account this time, this window is shown.
+The next time you select the Keplr extension icon, you see this window since you have an account.
 
 ![](./assets/keplr06.png)
 
-In this window we can see our total balance in the middle and we are able to do multiple actions with our account.
+In this window, you can view your total balance and perform multiple actions with our account.
 
-### Our wallet address
+### Your Wallet Address
 
-If we hover the mouse pointer on the text starting with `cosmos`, we can see and copy our so called wallet address. We need to share this address with the people who wants to transfer some tokens to our account.
+To view and copy your wallet address, hover over the text starting with `cosmos`. You can share this address with the people who want to transfer tokens to your account.
 
 ![](./assets/keplr07.png)
 
 ### Make a Deposit
 
-If you click on the `Deposit` button, the wallet address is shown in a [QR Code](https://en.wikipedia.org/wiki/QR_code) format. If a person wants to transfer some crypto to your wallet, they can simply scan this QR code.
+Select the `Deposit` button. The wallet address is shown in a [QR Code](https://en.wikipedia.org/wiki/QR_code) format. You can let a person scan the QR code when they want to transfer some crypto to your wallet.
 
 ![](./assets/keplr08.png)
 
-### Other Cosmos tokens
+### Other Cosmos Tokens
 
-If you click on the `Cosmos` dropdown on top of the window, you can switch to other Cosmos based cryptos.
+Select the `Cosmos` dropdown on top of the window to switch the view to other Cosmos-based crypto tokens.
 
 ![](./assets/keplr09.png)
 
-### Account management
+### Account Management
 
-If you click on the account icon on top right corner, you will see this screen. 
-Here you can manage your account and even see the mnemonic phrase in case you have not saved it yet.
+To manage your account, select the account icon. You can also view the mnemonic phrase in your account.
 
 ![](./assets/keplr10.png)

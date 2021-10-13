@@ -6,85 +6,84 @@ sidebar_position: 9
 
 Intro to staking: invest in the network's security and get rewards
 
-
 ## Staking
 
 First open your `keplr` browser extension and click on the `Stake` button.
 
-**Note:** Make sure to deposit some tokens beforehand.
+**Prerequisite:** Make sure to deposit some tokens beforehand.
 
 ![](./assets/staking01.png)
 
-Once you click on the `Stake` button, the `keplr` extension opens the `keplr web wallet`. 
-Here you can see a list of validators, choose the one you want and click on `Manege >`.
+After you click the `Stake` button, the `keplr` extension opens the `keplr web wallet`. 
+In the list of validators, select the one you want and then select `Manage`.
 
-**Warning:** Please do a proper research about the validator before staking any tokens to them.
+**Warning:** Conduct proper research about the validator before staking your tokens with them.
 
 ![](./assets/staking02.png)
 
-Let's pick one.
+Pick a validator.
 
 ![](./assets/staking03.png)
 
 A window opens showing the website of the validator with some extra information.
-Click on the `Delegate` button.
+Select the `Delegate` button.
 
 ![](./assets/staking04.png)
 
-Write the amount of tokens that you want to stake.
+Enter the amount of tokens that you want to stake.
 
 **Note:** Since there is a transaction fee, make sure not to delegate all your tokens.
 
 ![](./assets/staking05.png)
 
-Once we click on the `Delegate` button, we see the following window. 
-Here we can select the transaction fees, if we want our transaction to be processed faster we can offer a higher fee.
+After you select the `Delegate` button, another window allows you to select the transaction fees. If you want your transaction to be processed faster, you can offer a higher fee.
+
 ![](./assets/staking06.png)
 
-Let's click on the `Set Fee` button.
+Now, select the `Set Fee` button.
 
-Now the following page is shown.
-Here we need to make sure the validator address is correct before approving it.
+On the following page, make sure the validator address is correct.
 
 ![](./assets/staking07.png)
 
-We can see the validator address in their website. Now we see the address is correct, so let's approve it.
+The validator address shows on their website. Now that you see the address is correct, you can approve it.
+
 ![](./assets/staking08.png)
 
-It takes a few moments for the transaction to get through. After that we can open our `keplr` extension to see the updates on our account.
+It takes a few moments for the transaction to get through. Open the `keplr` extension to see the updates on your account.
 
 ![](./assets/staking09.png)
 
 ## Claiming the Staking Reward
 
-After some time, we can see the staking reward to be claimed.
+After some time, you can see the staking reward to be claimed.
 
 ![](./assets/staking10.png)
 
-In order to claim a reward, click on the `Claim` button. 
-The following page is shown. 
-Again we just select a fee for the transaction and click on the `Set Fee` button.
+To claim a reward, select the `Claim` button. 
+Select a fee for the transaction and select the `Set Fee` button.
 
 ![](./assets/staking11.png)
 
-After few moments, we can see the updates on our account.
+After a few moments, you ycan see the updates on our account.
 
 ![](./assets/staking12.png)
 
-**Note:** Since there is a transaction fee, it is recommended to claim the reward once in a while.
+**Note:** Since there is a transaction fee, it is recommended to periodically claim the reward.
 
-## Un-delegate and Re-delegate
+## Undelegate and Redelegate
 
-To undelegate our staked tokens, we can click on the validator from the list of validators in our `keplr web wallet` and click on the `Undelegate` button.
-**Note:** Please note that in cosmos based networks, we need to wait `21` days for our tokens to be released.
+To undelegate your staked tokens, select the validator from the list of validators in your `keplr web wallet` and then select the `Undelegate` button.
+
+**Note:** The unbonding period in Cosmos-based networks is `21` days. 
 
 ![](./assets/staking13.png)
 
-If we want to redelegate our tokens to another validator, we can simply click on the `Redelegate` button from the drop down.
+To redelegate your tokens to another validator, select `Redelegate` from the menu.
 
 ![](./assets/staking14.png)
 
-Then select another validator from the list and the rest of the process is just like normal delegation.
+Then you can select another validator from the list.
 
 ![](./assets/staking15.png)
 ![](./assets/staking16.png)
