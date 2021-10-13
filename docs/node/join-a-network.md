@@ -50,9 +50,9 @@ gzip -d genesis.json.gz
 Move the downloaded genesis state to the archway directory:
 
 ```sh
-# mkdir -p ~/.app
-# mkdir -p ~/.app/config
-mv genesis.json ~/.app/config/genesis.json
+# mkdir -p ~/.archway
+# mkdir -p ~/.archway/config
+mv genesis.json ~/.archway/config/genesis.json
 ```
 
 ## Join the network
