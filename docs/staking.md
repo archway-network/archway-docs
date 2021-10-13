@@ -58,7 +58,7 @@ archwayd config chain-id constantinople
 In order to delegate we need to send a delegate transaction to a validator
 
 ```
-archway tx staking delegate <validatorAddress> <amountToBond> --from <yourKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
+archwayd tx staking delegate <validatorAddress> <amountToBond> --from <yourKeyName> --gas auto --gas-adjustment 1.5 --gas-prices <gasPrice>
 ```
 
 ### Keplr
