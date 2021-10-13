@@ -62,7 +62,3 @@ Start the archway and join the network
 ```sh
 archwayd start --p2p.seeds <Address1>@<Host_Name_OR_IP1>:<PORT1>,<Address2>@<Host_Name_OR_IP2>:<PORT2>,<Address3>@<Host_Name_OR_IP3>:<PORT3>, ...<AddressN>@<Host_Name_OR_IPN>:<PORTN> --x-crisis-skip-assert-invariants
 ```
-
-Expected output:
-
-**TODO:** _We need to have some nodes and actually run these commands to see what happens next._
