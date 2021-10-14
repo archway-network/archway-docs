@@ -53,7 +53,7 @@ The planned launch for the Archway is sometime in mid-2022.
 - Macedonia
 - Moldova
 - Serbia
-- Sommalia
+- Somalia
 - Sudan
 - South Sudan
 - Syria
