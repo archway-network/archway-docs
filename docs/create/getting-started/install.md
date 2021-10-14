@@ -69,7 +69,7 @@ For full installation and configuration parameters see: https://github.com/CosmW
 ### Install Wasmd Using Docker
 
 ```bash
-docker build -t cosmwasm/wasmd:latest
+docker build . -t cosmwasm/wasmd:latest
 ```
 
 For more information on running `wasmd` with the `cosmwasm/wasmd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/CosmWasm/wasmd#dockerized
