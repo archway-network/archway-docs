@@ -10,7 +10,9 @@ Archway is a self-sovereign blockchain network that allows developers to express
 
 ## The Archway Mission
 
-Archway makes it easy to develop decentralized applications and services. By empowering developers and sharing part of the network growth, incentivized innovation grows the network.
+Archway makes it easy to develop decentralized applications and services. By empowering developers and sharing part of the network growth, incentivized innovation grows the network. 
+
+The overarching goal of Archway is to foster an arrary of diverse and sustaibable applications by empowering and rewarding developers that build on Archway network with baked in incentives and rewards.  
 
 ## Archway Mission Statement
 
