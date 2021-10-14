@@ -27,3 +27,36 @@ Early contributors and adopters of the protocol want to be rewarded. An airdrop 
 ## When will Archway launch?
 
 The planned launch for the Archway is sometime in mid-2022. 
+
+## ARCH tokens will not be offered in the following prohibited jurisdictions:
+
+- United States of America 
+- China
+- Albania
+- Belarus
+- Bosnia
+- Burma
+- Central African Republic
+- Democratic Republic of Congo
+- Democratic People’s Republic of Korea
+- Cote D’Ivoire
+- the Crimea region of Ukraine
+- Croatia
+- Cuba
+- Herzegovina
+- Iran
+- Iraq
+- Kosovo
+- Lebanon
+- Liberia
+- Libya
+- Macedonia
+- Moldova
+- Serbia
+- Sommalia
+- Sudan
+- South Sudan
+- Syria
+- Venezuela
+- Yemen
+- Zimbabwe
