@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Setup
 
-A new Archway project is a Rust project that will compile to `wasm` using the `wasmd` binary, which is an implementation of a cosmos zone with `wasm` smart contracts enabled.
+A new Archway project is a Rust project that will compile to `wasm` using the `archwayd` binary, which is an implementation of a cosmos zone with `wasm` smart contracts enabled.
 
 Let's setup a new project, using the [Archway developer CLI](https://github.com/archway-network/archway-cli)
 
