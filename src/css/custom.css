@@ -159,3 +159,15 @@ html[data-theme='dark'] footer .bg-dark a {
   border-top: 1px solid var(--ifm-toc-border-color);
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
+
+.back-to-top,
+.back-to-top:active,
+.back-to-top:focus,
+.back-to-top a,
+.back-to-top a:active,
+.back-to-top a:focus,
+.back-to-top a span,
+.back-to-top a span:active,
+.back-to-top a span:focus {
+  border-color: transparent;
+}
