@@ -12,7 +12,7 @@ Archway seeks to provide three potential funding sources for dApps:
 - Share of inflationary rewards
 - Smart contract fees (optional)
 
-Archway allows each dApp developer and their communitiy to configure how the rewards are managed and distributed. When a contract is instantiated, the dApp creator specifies an `owner` address where all fees and rewards are automatically deposited. This target address can be their own, a multisig, or controlled by a separate custom contract. Ownership can then be transferred to a new address as needed, only requiring the signature of the previous owner. 
+Archway allows each dApp developer and their community to configure how the rewards are managed and distributed. When a contract is instantiated, the dApp creator specifies an `owner` address where all fees and rewards are automatically deposited. This target address can be their own, a multisig, or controlled by a separate custom contract. Ownership can then be transferred to a new address as needed, only requiring the signature of the previous owner. 
 
 
 
