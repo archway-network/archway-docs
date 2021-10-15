@@ -187,3 +187,8 @@ html[data-theme='dark'] .no-bd {
   border-color: transparent !important;
   color: #FFFFFF;
 }
+
+.announcementBar_3WsW,
+.announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
+  border-color: var(--ifm-toc-border-color) !important;
+}
