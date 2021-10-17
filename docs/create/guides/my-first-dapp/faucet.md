@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # Requesting Testnet funds
-If you're working on a testnet you'll want testnet `$ARC` for paying gas costs to deploy your dApp code on chain.
+If you're working on a testnet you'll want testnet `$ARCH` for paying gas costs to deploy your dApp code on chain.
 
 Setting up a new project with `archway new`, and choosing a testnet, bootstraps the configuration parameters you'll need. If your configuration is correct, you can request funds for either `stable [constantine]` or `nightly [titus]` testnet.
 
