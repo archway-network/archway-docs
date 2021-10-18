@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Archway Network',
   tagline: 'Elevate your ecosystem',
-  url: 'http://ec2-52-201-252-5.compute-1.amazonaws.com',
+  url: 'https://archway-docs.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -44,6 +44,13 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+    },
+    announcementBar: {
+      id: 'unstable',
+      content:`You're previewing Archway's unstable documentation. Hang in there, everything should work great by October 25!`,
+      backgroundColor: '#EAE5E1',
+      textColor: '#000000',
+      isCloseable: false,
     },
   },
   presets: [

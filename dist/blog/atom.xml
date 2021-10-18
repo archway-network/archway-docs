@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://ec2-52-201-252-5.compute-1.amazonaws.com/blog</id>
+    <id>https://archway-docs.netlify.app/blog</id>
     <title>Archway Network Blog</title>
     <updated>2019-05-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://ec2-52-201-252-5.compute-1.amazonaws.com/blog"/>
+    <link rel="alternate" href="https://archway-docs.netlify.app/blog"/>
     <subtitle>Archway Network Blog</subtitle>
-    <icon>http://ec2-52-201-252-5.compute-1.amazonaws.com/img/favicon.ico</icon>
+    <icon>https://archway-docs.netlify.app/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>
-        <link href="http://ec2-52-201-252-5.compute-1.amazonaws.com/blog/welcome"/>
+        <link href="https://archway-docs.netlify.app/blog/welcome"/>
         <updated>2019-05-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Blog features are powered by the blog plugin. Simply add files to the blog directory. It supports tags as well!]]></summary>
         <author>
@@ -21,7 +21,7 @@
     <entry>
         <title type="html"><![CDATA[Hello]]></title>
         <id>hello-world</id>
-        <link href="http://ec2-52-201-252-5.compute-1.amazonaws.com/blog/hello-world"/>
+        <link href="https://archway-docs.netlify.app/blog/hello-world"/>
         <updated>2019-05-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Welcome to this blog. This blog is created with Docusaurus 2.]]></summary>
         <author>
@@ -32,7 +32,7 @@
     <entry>
         <title type="html"><![CDATA[Hola]]></title>
         <id>hola</id>
-        <link href="http://ec2-52-201-252-5.compute-1.amazonaws.com/blog/hola"/>
+        <link href="https://archway-docs.netlify.app/blog/hola"/>
         <updated>2019-05-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
         <author>

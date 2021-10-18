@@ -11,7 +11,7 @@ Make sure you've installed and configured a few dependencies.
 - [Rustc](https://www.rust-lang.org/tools/install "Install Rust")
 - [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html "Install Cargo")
 - [Cargo Generate](https://crates.io/crates/cargo-generate "Install Cargo Generate")
-- [Wasmd](https://github.com/CosmWasm/wasmd "Install Wasmd")
+- [Archwayd](https://github.com/archway-network/archway/tree/main/cmd/archwayd "Install Archway Daemon")
 - [Docker](https://docs.docker.com/get-docker "Install Docker")
 - [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
 - [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install develolper CLI")
@@ -39,40 +39,38 @@ To install `cargo-generate` with `vendored-openssl` run the command:
 cargo install cargo-generate --features vendored-openssl
 ```
 
-## Wasmd
+## Archwayd
 
-`wasmd` is the first implementation of a cosmos zone with `wasm` smart contracts enabled.
+`archwayd` is the an implementation of a Cosmos zone with `wasm` smart contracts enabled.
 
-`wasmd` was originally forked from the [cosmos/gaia repository](https://github.com/cosmos/gaia). It adds a new module called `x/wasm`, but the `wasmd` binary should otherwise function just like `gaiad`.
+Originally forked from the [cosmos/gaia repository](https://github.com/cosmos/gaia). It adds new modules developer rewards and executing `wasm`, but the `archwayd` binary should otherwise function just like `gaiad`.
 
-To build `wasmd` you can either install it from source or using the `cosmwasm/wasmd` [Docker](https://www.docker.com/ "Docker Homepage") container.
+To build `archwayd` you can either install it from source or using the `drewstaylor/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
-### Install Wasmd From Source
+### Install Archwayd From Source
 
 Get source code:
 ```bash
-git clone git@github.com:CosmWasm/wasmd.git
-cd wasmd
+git clone git@github.com:archway-network/archway.git
+cd archway
 ```
 
 Build and install:
 ```bash
 make install
-make test
-make proto-gen
 ```
 
-**Note: building wasmd from source requires Go 1.16.8+**
+**Note: building archwayd from source requires Go 1.16.8+**
 
-For full installation and configuration parameters see: https://github.com/CosmWasm/wasmd#readme
+For full installation and configuration parameters see: https://github.com/archway-network/archway/blob/main/README.md
 
-### Install Wasmd Using Docker
+### Install Archwayd Using Docker
 
 ```bash
-docker build -t cosmwasm/wasmd:latest
+docker build -t drewstaylor/archwayd:latest
 ```
 
-For more information on running `wasmd` with the `cosmwasm/wasmd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/CosmWasm/wasmd#dockerized
+For more information on running `archwayd` with the `drewstaylor/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
 
 
 ## Npm

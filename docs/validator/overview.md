@@ -8,11 +8,11 @@ Archway is based on the [Tendermint](https://github.com/tendermint/tendermint/tr
 
 ## Introduction
 
-These validators participate in the consensus protocol by broadcasting votes which contain cryptographic signatures signed by each validator's private key. Validator candidates can bond their own `ARC` or have `ARC` delegated or staked to them by token holders. See [Participate in Staking (Delegation)](../staking.md). The validators are determined by the highest number that stake or delegate to them.
+These validators participate in the consensus protocol by broadcasting votes which contain cryptographic signatures signed by each validator's private key. Validator candidates can bond their own `ARCH` or have `ARCH` delegated or staked to them by token holders. See [Participate in Staking (Delegation)](../staking.md). The validators are determined by the highest number that stake or delegate to them.
 
-Validators and their delegators `ARC` as block provisions and tokens as transaction fees through execution of the Tendermint consensus protocol. Note that validators can set commission on the fees their delegators receive as additional incentive.
+Validators and their delegators `ARCH` as block provisions and tokens as transaction fees through execution of the Tendermint consensus protocol. Note that validators can set commission on the fees their delegators receive as additional incentive.
 
-If validators double sign, are frequently offline, or do not participate in governance, their staked `ARC`(including `ARC` of users that delegated to them) can be slashed. The penalty depends on the severity of the violation.
+If validators double sign, are frequently offline, or do not participate in governance, their staked `ARCH`(including `ARCH` of users that delegated to them) can be slashed. The penalty depends on the severity of the violation.
 
 ## Hardware
 
