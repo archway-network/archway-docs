@@ -67,10 +67,15 @@ For full installation and configuration parameters see: https://github.com/archw
 ### Install Archwayd Using Docker
 
 ```bash
-docker build -t drewstaylor/archwayd:latest
+docker build -t archway/archwayd:latest
 ```
 
-For more information on running `archwayd` with the `drewstaylor/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
+Or pull from Dockerhub
+```
+docker pull drewstaylor/archwayd:latest
+```
+
+For more information on running `archwayd` with the `archway/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
 
 
 ## Npm
