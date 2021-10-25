@@ -74,3 +74,30 @@ Ok!
 ```
 
 **Note: If you migrate between networks by answering `y` or `yes` and following the additional migration questions, your previous deployments history and script customisations will remain in tact.**
+
+## Creating an account
+
+Use the command `archway accounts` to view wallets in your key ring, or create a new wallet using the flag `--add <account label>`
+
+```bash
+archway accounts --add "mywallet"
+```
+
+Example output:
+```bash
+Enter keyring passphrase:
+
+- name: mywallet
+  type: local
+  address: archway1gtmpktrrnu2qwnweyulwptv6wukd3edpxugkzn
+  pubkey: archwaypub1addwnpepqdhls9u834myuuajgstf8esyqttn3ph6r5y6kr5nnfx5uc06al9hut8r9ac
+  mnemonic: ""
+  threshold: 0
+  pubkeys: []
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+[mnemonic seed words output goes here]
+```

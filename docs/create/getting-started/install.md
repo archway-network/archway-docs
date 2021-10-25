@@ -47,6 +47,13 @@ Originally forked from the [cosmos/gaia repository](https://github.com/cosmos/ga
 
 To build `archwayd` you can either install it from source or using the `drewstaylor/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
+:::caution
+**Note:** For the moment Archway can only be installed by pulling from Dockerhub. 
+E.g. `docker pull drewstaylor/archwayd:latest`
+
+Installing `archwayd` from source, coming soon!
+:::
+
 ### Install Archwayd From Source
 
 Get source code:
@@ -88,10 +95,8 @@ For installing `node` and `npm` see instructions for your operating system at: h
 
 ## Archway Developer CLI
 
-The Archway developer CLI can be installed from the [GitHub repository](https://github.com/archway-network/archway-cli)
+The Archway developer CLI can be installed using [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ```bash
-git clone git@github.com:archway-network/archway-cli.git
-cd archway-cli 
-npm install -g
+npm install -g @archwayhq/cli
 ```

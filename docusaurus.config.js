@@ -45,13 +45,13 @@ module.exports = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
-    announcementBar: {
-      id: 'unstable',
-      content:`You're previewing Archway's unstable documentation. Hang in there, everything should work great by October 25!`,
-      backgroundColor: '#EAE5E1',
-      textColor: '#000000',
-      isCloseable: false,
-    },
+    // announcementBar: {
+    //   id: 'unstable',
+    //   content:`You're previewing Archway's unstable documentation. Hang in there, everything should work great by October 25!`,
+    //   backgroundColor: '#EAE5E1',
+    //   textColor: '#000000',
+    //   isCloseable: false,
+    // },
   },
   presets: [
     [
