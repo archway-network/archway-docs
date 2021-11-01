@@ -100,3 +100,9 @@ The Archway developer CLI can be installed using [npm](https://docs.npmjs.com/do
 ```bash
 npm install -g @archwayhq/cli
 ```
+
+:::caution
+**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you'll need to install the Archway developer CLI as `root`, or give yourself permissions to access the container in your file system (e.g. `chmod -R 777 /var/tmp/.archwayd`)``
+
+Hang in there, installing `archwayd` from source, coming soon!
+:::
