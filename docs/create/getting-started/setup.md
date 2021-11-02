@@ -128,5 +128,5 @@ Enter keyring passphrase:
 **Important** write this mnemonic phrase in a safe place.
 It is the only way to recover your account if you ever forget your password.
 
-# mnemonic seed words here...
+# Mnemonic seed words here...
 ```
