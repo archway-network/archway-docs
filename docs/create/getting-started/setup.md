@@ -101,8 +101,9 @@ Printing network settings...
 Migrate to another network (Y/N default: N)?: n
 Ok!
 ```
-
-**Note: If you migrate between networks by answering `y` or `yes` and following the additional migration questions, your previous deployments history and script customisations will remain in tact.**
+:::note
+If you migrate between networks by answering `y` or `yes` and following the additional migration questions, your previous deployments history and script customisations will remain in tact.
+:::
 
 ## Creating an account
 

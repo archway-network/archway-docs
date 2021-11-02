@@ -39,4 +39,6 @@ Think of it like building `C++` executables with [UPX](https://upx.github.io/), 
 
 Producing _CosmWasm_ `wasm` executables is part of the deploy process and can be accessed by running the deploy command without the `--dryrun` flag.
 
-**Note: the Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started (Support for native `cosmwasm/rust-optimizer` bins coming soon).**
+:::note
+The Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started (Support for native `cosmwasm/rust-optimizer` binaries coming soon).
+:::

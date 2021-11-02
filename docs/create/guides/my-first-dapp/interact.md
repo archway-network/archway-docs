@@ -38,7 +38,9 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
 }
 ```
 
-**Note: `QueryMsg` is an `enum` with the `GetCount` property. It's good to be aware of the format here, as the enum attribute is uppercase without spaces in Rust, but lowercase with snake case when converted to JSON arguments.**
+:::info
+**Note:** `QueryMsg` is an `enum` with the `GetCount` property. It's good to be aware of the format here, as the enum attribute is uppercase without spaces in Rust, but lowercase with snake case when converted to JSON arguments.
+:::
 
 ## Transacting
 
@@ -85,7 +87,9 @@ pub fn execute(
 }
 ```
 
-**Note: `enum` attributes again are converted. `ExecuteMsg::Increment {}` becomes `{"increment":{}}` in the CLI.**
+:::info
+**Note:** `enum` attributes again are converted. `ExecuteMsg::Increment {}` becomes `{"increment":{}}` in the CLI.
+:::
 
 If our `{"increment":{}}` transaction succeeded and we query `count` again, it will have increased by `1`:
 ```bash

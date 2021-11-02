@@ -22,7 +22,9 @@ Example:
 archway deploy --args '{"count":0}'
 ```
 
-**Note: If you deploy without using `--args` you'll be prompted by the CLI to enter that information. If your dApp contract doesn't take any constructor arguments use `'{}'` to denote `null` arguments.**
+:::note
+If you deploy without using `--args` you'll be prompted by the CLI to enter that information. If your dApp contract doesn't take any constructor arguments use `'{}'` to denote `null` arguments.
+:::
 
 So why are we sending our constructor as `{"count":0}` and how can we verify it's correct? 
 
