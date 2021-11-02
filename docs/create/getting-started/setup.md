@@ -16,11 +16,40 @@ The `archway new` command starts a new project. You can press `enter` to accept 
 archway new
 ```
 
-Outputs: 
-```
+Example Output: 
+```bash
 Creating new Archway dApp...
-Configure environment (Y/N default: N)?:
-Use starter template (Y/N default: N)?:
+
+Configure environment (Y/N default: N)?: Y
+
+1. Testnet
+2. Localhost
+3. Mainnet
+
+Select environment type (1-3 default: 1): 1
+
+1. Constantine [stable]
+2. Titus [nightly]
+
+Select a testnet to use (1-2 default: 1): 1
+Use Docker to run "archwayd" daemon (Y/N default: N)?: Y
+Use starter template? (Y/N default: N): Y
+
+1. Increment [https://github.com/drewstaylor/archway-template/blob/main/README.md]
+
+Select starter template (1-1): 1
+
+Name of project (e.g. "My Project"): First Archway Project
+💡   Using private key: `$HOME/.ssh/id_rsa` for git-ssh checkout
+🔧   Generating template ...
+
+# More GitHub Feedback here...
+
+🔧   Moving generated files into: `/home/first-archway-project`...
+✨   Done! New project created /home/first-archway-project
+
+Successfully created new Increment project in path /home/first-archway-project with network configuration constantine-1.
+Config file location: /home/first-archway-project/config.json
 ```
 
 ## Configuring a project
