@@ -192,3 +192,19 @@ html[data-theme='dark'] .no-bd {
 .announcementBar_node_modules-\@docusaurus-theme-classic-lib-next-theme-AnnouncementBar-styles-module {
   border-color: var(--ifm-toc-border-color) !important;
 }
+
+span.token::-webkit-selection {
+  background: #b3d4fc;
+  text-shadow: 0 0 #b3d4fc;
+}
+
+span.token::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: 0 0 #b3d4fc;
+}
+
+
+span.token::selection {
+  background: #b3d4fc;
+  text-shadow: 0 0 #b3d4fc;
+}
