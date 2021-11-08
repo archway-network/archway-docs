@@ -214,6 +214,8 @@ archway test
 
 ### Tx
 
+Execute a transaction on Archway network
+
 ```
 archway tx [options]
 ```
