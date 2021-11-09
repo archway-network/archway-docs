@@ -89,7 +89,7 @@ For detailed configuration changes, opening and modifying `config.json` with a t
 
 Deploys your contracts to a target network. It can be used in `--dryrun` mode to test if your Rust code will build to [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (wasm). 
 
-Running `deploy` with `--dryrun` enabled is equivalent to the Cargo native command `cargo wasm`. Without `--dryrun` enabled, `deploy` progresses through a series tasks, the order of which is:
+Running `deploy` with `--dryrun` enabled is equivalent to the Cargo native command `cargo wasm`. Without `--dryrun` enabled, `deploy` progresses through a series of tasks, the order of which is:
 
 1. **MAKE WASM**
 2. **CREATE ON CHAIN WASM**
