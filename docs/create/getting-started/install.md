@@ -24,17 +24,17 @@ To install Rust follow the instructions for your operating system at https://www
 
 ## Cargo
 
-Cargo is Rust's package manager, like `go get` for Golang, or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`. 
+Cargo is Rust's package manager, like `go get` for Golang, or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`.
 
 If you didn't install with `rustup`, or don't have `cargo` in your command line path, see the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
 
 ## Cargo Generate
 
-`cargo-generate` is a tool that creates a new Rust project quickly by leveraging a pre-existing code base. 
+`cargo-generate` is a tool that creates a new Rust project quickly by leveraging a pre-existing code base.
 
-In Archway it's used to provide project templates for dApp development. 
+In Archway it's used to provide project templates for dApp development.
 
-To install `cargo-generate` with `vendored-openssl` run the command: 
+To install `cargo-generate` with `vendored-openssl` run the command:
 ```bash
 cargo install cargo-generate --features vendored-openssl
 ```
@@ -48,7 +48,7 @@ Originally forked from the [cosmos/gaia repository](https://github.com/cosmos/ga
 To build `archwayd` you can either install it from source or using the `drewstaylor/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
 :::caution
-**Note:** For the moment Archway can only be installed by pulling from Dockerhub. 
+**Note:** For the moment Archway can only be installed by pulling from Docker Hub.
 E.g. `docker pull drewstaylor/archwayd:latest`
 
 Installing `archwayd` from source, coming soon!
@@ -74,22 +74,22 @@ For full installation and configuration parameters see: https://github.com/archw
 ### Install Archwayd Using Docker
 
 ```bash
-docker build -t archway/archwayd:latest
+docker build -t archway-network/archwayd:latest
 ```
 
-Or pull from Dockerhub
+Or pull from Docker Hub
 ```
 docker pull drewstaylor/archwayd:latest
 ```
 
-For more information on running `archwayd` with the `archway/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
+For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
 
 
 ## Npm
 
-`npm` is a package manager for JavaScript and Node.js. 
+`npm` is a package manager for JavaScript and Node.js.
 
-In Archway it's used for installing and updating the developer CLI. 
+In Archway it's used for installing and updating the developer CLI.
 
 For installing `node` and `npm` see instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
