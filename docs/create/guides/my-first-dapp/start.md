@@ -13,23 +13,24 @@ This guide follows the below workflow:
 5. [Deploy to a testnet](./deploy.md)
 6. [Query and transact with a deployed contract](./interact.md)
 
-
 ## Creating a project
 
-In the [Setup](../../getting-started/setup.md) section we learned how to create and configure a new Archway project. 
+In the [Setup](../../getting-started/setup.md) section we learned how to create and configure a new Archway project.
 
-If you haven't created a project yet, or didn't choose the 'Increment' starter template, go back to [Setup](../../getting-started/setup.md) to complete this step. 
+If you haven't created a project yet, or didn't choose the 'Increment' starter template, go back to [Setup](../../getting-started/setup.md) to complete this step.
 
 Projects created with `archway new` are ready-made project templates. Later we'll add code and modify existing behavior, but to get acquainted let's build and test the boilerplate code we have now.
 
 ## Building and running tests
 
-Build your project using the command: 
+Build your project using the command:
+
 ```bash
 archway build
 ```
 
 Example output:
+
 ```bash
 Building project...
 
@@ -42,10 +43,13 @@ Building project...
 ```
 
 Test your build like this:
-```
+
+```bash
 archway test
 ```
+
 Example output:
+
 ```bash
 Loading tests...
 
@@ -60,3 +64,4 @@ test contract::tests::increment ... ok
 test contract::tests::reset ... ok
 
 test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```
