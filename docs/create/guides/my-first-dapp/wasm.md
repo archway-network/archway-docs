@@ -4,21 +4,29 @@ sidebar_position: 3
 
 # Producing Wasm executables
 
-Since we've tested and built our contract, we're still operating under the assumption everything works. 
+Since we've tested and built our contract, we're still operating under the assumption that everything works.
+However, to test our dApp on Archway, we'll need to build it as a `wasm` executable, then upload and instantiate it on chain.
 
-However, to test our dApp on Archway we'll need to build it as a `wasm` executable, then upload and instantiate it on chain.
+For that, you'll need the `wasm32-unknown-unknown` target installed in your toolchain as well. You can add it using:
 
-There are 2 types of `wasm` binaries that can be produced by the Developer CLI. Let's call them _"default"_ `wasm` and _"cosmwasm"_ `wasm`. 
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
+There are 2 types of `wasm` binaries that can be produced by the Developer CLI. Let's call them _"default"_ `wasm` and _"cosmwasm"_ `wasm`.
 
 ## Default Wasm executables
-This is a regular `wasm` binary. It's the same as you'd get by running the Rust native command `cargo wasm`. 
+
+This is a regular `wasm` binary. It's the same as you'd get by running the Rust native command `cargo wasm`.
 
 _Default_ `wasm` executables can be produced by the developer CLI using the command:
+
 ```bash
 archway deploy --dryrun
 ```
 
 Example output:
+
 ```bash
 Building wasm executable...
 
