@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Deploying your dApp on chain
+# Deploying your contract on chain
 
 :::note
 Before starting, make sure that [Docker is installed and running](https://www.docker.com/get-started) on your system.

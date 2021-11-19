@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Interacting with your dApp
+# Interacting with your contract
 
 Now, let's try querying and transacting with our deployed contract.
 

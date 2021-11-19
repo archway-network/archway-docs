@@ -51,7 +51,7 @@ To build `archwayd` you can either install it from source or using the `drewstay
 
 :::caution
 **Note:** For the moment Archway can only be installed by pulling from Docker Hub.
-E.g. `docker pull drewstaylor/archwayd:latest`
+E.g. `docker pull archwaynetwork/archwayd:latest`
 
 Installing `archwayd` from source, coming soon!
 :::
@@ -81,7 +81,7 @@ docker build -t archway-network/archwayd:latest
 
 Or pull from Docker Hub
 ```
-docker pull drewstaylor/archwayd:latest
+docker pull archwaynetwork/archwayd:latest
 ```
 
 For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
