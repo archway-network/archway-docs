@@ -2,11 +2,12 @@
 sidebar_position: 1
 ---
 
-# Join the Community
-Archway is an Open Source project, anyone can contribute 
+# Join the Archway Community
 
-- [Medium Blog](https://medium.com/archwayhq)
+Archway is an open source project. Connect with our fast-growing community of developers.
+
+- [Blog](https://medium.com/archwayhq)
 - [Twitter](https://twitter.com/archwayhq)
 - [Discord](https://discord.gg/5FVvx3WGfa)
-- [Github](https://github.com/archway-network)
-- [Email Newsletter](http://archway.io/updates)
+- [GitHub](https://github.com/archway-network)
+- [Newsletter](http://archway.io/updates)
