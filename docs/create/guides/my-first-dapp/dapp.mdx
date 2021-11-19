@@ -74,7 +74,7 @@ const getCount = async () => {
   };
   // Do query type 'smart'
   let queryResult = await queryHandler.query(ContractAddress, entrypoint);
-  return queryResult;
+  console.log('GetCount Query', queryResult);
 },
 ```
 
