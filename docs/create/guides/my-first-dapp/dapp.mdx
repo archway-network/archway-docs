@@ -79,7 +79,7 @@ const getCount = async () => {
 ```
 
 ## Incrementing the counter
-Broadcasting transactions is likewise achieved using our reference to `CosmWasmClient`. Here we call the `execute` function from `CosmWasmClient` and serve it with:
+To broadcast transactions we call the `execute` function, from our previous `CosmWasmClient` reference, using the following arguments:
 
 1. **userAddress** - the address broadcasting the transaction
 2. **ContractAddress** - the address of the contract the user is transacting with
