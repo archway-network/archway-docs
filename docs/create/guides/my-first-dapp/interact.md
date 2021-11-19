@@ -109,5 +109,3 @@ Attempting query...
 
 Ok!
 ```
-
-**Congrats, you built your first Archway dApp!**
