@@ -15,7 +15,7 @@ Make sure you've installed and configured a few dependencies.
 - [Cargo Generate](https://crates.io/crates/cargo-generate "Install Cargo Generate")
 - [Archwayd](https://github.com/archway-network/archway/tree/main/cmd/archwayd "Install Archway Daemon")
 - [Docker](https://docs.docker.com/get-docker "Install Docker")
-- [Npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
 - [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install develolper CLI")
 
 ## Rustc
@@ -87,13 +87,15 @@ docker pull archwaynetwork/archwayd:latest
 For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
 
 
-## Npm
+## Node.js and Npm
 
-`npm` is a package manager for JavaScript and Node.js.
-
-In Archway it's used for installing and updating the developer CLI.
+`npm` is a package manager for JavaScript and Node.js. In Archway it's used for installing and updating the developer CLI.
 
 For installing `node` and `npm` see instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
+:::info
+As of `v1.0.4-beta` the `@archwayhq/cli` will require Node.js version 17 or higher. [Check current version](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions).
+:::
 
 ## Archway Developer CLI
 
