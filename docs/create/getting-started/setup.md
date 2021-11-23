@@ -8,6 +8,33 @@ A new Archway project is a Rust project that will compile to `wasm` using the `a
 
 Let's setup a new project, using the [Archway developer CLI](https://github.com/archway-network/archway-cli)
 
+## Creating an account
+
+Use the command `archway accounts` to view wallets in your key ring, or create a new wallet using the flag `--add <account label>`
+
+```bash
+archway accounts --add "mywallet"
+```
+
+Example output:
+```bash
+Enter keyring passphrase:
+
+- name: mywallet
+  type: local
+  address: archway1gtmpktrrnu2qwnweyulwptv6wukd3edpxugkzn
+  pubkey: archwaypub1addwnpepqdhls9u834myuuajgstf8esyqttn3ph6r5y6kr5nnfx5uc06al9hut8r9ac
+  mnemonic: ""
+  threshold: 0
+  pubkeys: []
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+# Mnemonic seed words here...
+```
+
 ## Creating a project
 
 The `archway new` command starts a new project. You can press `enter` to accept the default options for any of the project configuration questions.
@@ -104,30 +131,3 @@ Ok!
 :::note
 If you migrate between networks by answering `y` or `yes` and following the additional migration questions, your previous deployments history and script customisations will remain in tact.
 :::
-
-## Creating an account
-
-Use the command `archway accounts` to view wallets in your key ring, or create a new wallet using the flag `--add <account label>`
-
-```bash
-archway accounts --add "mywallet"
-```
-
-Example output:
-```bash
-Enter keyring passphrase:
-
-- name: mywallet
-  type: local
-  address: archway1gtmpktrrnu2qwnweyulwptv6wukd3edpxugkzn
-  pubkey: archwaypub1addwnpepqdhls9u834myuuajgstf8esyqttn3ph6r5y6kr5nnfx5uc06al9hut8r9ac
-  mnemonic: ""
-  threshold: 0
-  pubkeys: []
-
-
-**Important** write this mnemonic phrase in a safe place.
-It is the only way to recover your account if you ever forget your password.
-
-# Mnemonic seed words here...
-```
