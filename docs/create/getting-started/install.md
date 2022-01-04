@@ -2,11 +2,11 @@
 sidebar_position: 1
 ---
 
-# Installation
+# Install Archway
 
 Make sure you've installed and configured a few dependencies.
 
-**IMPORTANT:** If on your machine, you need root access to run `docker`, make sure to follow all the steps with `root` access. Otherwise, there will be some conflicts and confusions on the deployment process which will ask for a root permission.
+**IMPORTANT:** For local installations, you need root access to run `docker`. Make sure to follow all the steps with `root` access to prevent conflicts and confusions on the deployment process which requires root permission.
 
 #### Dependencies
 
@@ -20,58 +20,62 @@ Make sure you've installed and configured a few dependencies.
 
 ## Rustc
 
-`rustc` is the compiler for the Rust programming language, provided by the [Rust](https://www.rust-lang.org/ "Rust Homepage") project maintainers. It takes your Rust source code and produces binary code, either as a library or executable.
+`rustc`, provided by the [Rust](https://www.rust-lang.org/ "Rust Homepage") project maintainers, is the compiler for the Rust programming language. `rustc` takes your Rust source code and produces binary code as a library or an executable.
 
-To install Rust follow the instructions for your operating system at https://www.rust-lang.org/tools/install
+To install Rust, follow the instructions for your operating system at https://www.rust-lang.org/tools/install.
 
 ## Cargo
 
-Cargo is Rust's package manager, like `go get` for Golang, or `npm` for JavaScript. It comes with Rust if you installed `rustc` using `rustup`.
+Cargo is the Rust package manager, like `go get` for Golang or `npm` is for JavaScript. Cargo comes with Rust if you installed `rustc` using `rustup`.
 
-If you didn't install with `rustup`, or don't have `cargo` in your command line path, see the instructions for installing `cargo` at https://doc.rust-lang.org/cargo/getting-started/installation.html
+If you didn't install  `rustc` with `rustup`, or don't have `cargo` in your command line path, see the instructions for installing Cargo at https://doc.rust-lang.org/cargo/getting-started/installation.html.
 
 ## Cargo Generate
 
-`cargo-generate` is a tool that creates a new Rust project quickly by leveraging a pre-existing code base.
+The `cargo-generate` tool creates a new Rust project quickly by leveraging a pre-existing code base.
 
-In Archway it's used to provide project templates for dApp development.
+Archway uses `cargo-generate` to provide project templates for dApp development.
 
-To install `cargo-generate` with `vendored-openssl` run the command:
+To install `cargo-generate` with `vendored-openssl`, run the command:
+
 ```bash
 cargo install cargo-generate --features vendored-openssl
 ```
 
 ## Archwayd
 
-`archwayd` is the an implementation of a Cosmos zone with `wasm` smart contracts enabled.
+`archwayd` is an implementation of a Cosmos zone with `wasm` smart contracts enabled.
 
-Originally forked from the [cosmos/gaia repository](https://github.com/cosmos/gaia). It adds new modules developer rewards and executing `wasm`, but the `archwayd` binary should otherwise function just like `gaiad`.
+Originally forked from the [cosmos/gaia repository](https://github.com/cosmos/gaia), `archwayd` adds new modules for developer rewards and for executing `wasm`, but otherwise the `archwayd` binary functions just like `gaiad`.
 
-To build `archwayd` you can either install it from source or using the `archwaynetwork/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
+To build `archwayd`, install it from source or use the `archwaynetwork/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
 :::caution
-**Note:** For the moment Archway can only be installed by pulling from Docker Hub.
-E.g. `docker pull archwaynetwork/archwayd:latest`
+**Note:** For the moment Archway can be installed only by pulling from Docker Hub.
+
+For example: `docker pull archwaynetwork/archwayd:latest`
 
 Installing `archwayd` from source, coming soon!
 :::
 
-### Install Archwayd From Source
+### Install Archwayd from Source (coming soon)
 
 Get source code:
+
 ```bash
 git clone git@github.com:archway-network/archway.git
 cd archway
 ```
 
 Build and install:
+
 ```bash
 make install
 ```
 
-**Note: building archwayd from source requires Go 1.16.8+**
+**Note: Building archwayd from source requires Go 1.16.8+**
 
-For full installation and configuration parameters see: https://github.com/archway-network/archway/blob/main/README.md
+For full installation and configuration parameters, see https://github.com/archway-network/archway/blob/main/README.md.
 
 ### Install Archwayd Using Docker
 
@@ -79,36 +83,37 @@ For full installation and configuration parameters see: https://github.com/archw
 docker build -t archway-network/archwayd:latest
 ```
 
-Or pull from Docker Hub
+Or pull from Docker Hub:
+
 ```
 docker pull archwaynetwork/archwayd:latest
 ```
 
-For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see: https://github.com/archway-network/archway#dockerized
+For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see  https://github.com/archway-network/archway#dockerized.
 
 
 ## Node.js and Npm
 
-`npm` is a package manager for JavaScript and Node.js. In Archway it's used for installing and updating the developer CLI.
+`npm` is a package manager for JavaScript and Node.js. Archway uses `npm` for installing and updating the developer CLI.
 
-For installing `node` and `npm` see instructions for your operating system at: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+For installing `node.js` and `npm`, see instructions for your operating system at https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 :::info
-As of `v1.0.4-beta` the `@archwayhq/cli` will require Node.js version 17 or higher.
+For `v1.0.4-beta` and later, the `@archwayhq/cli` requires Node.js version 17 or higher.
 
 [Check current version of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
 :::
 
 ## Archway Developer CLI
 
-The Archway developer CLI can be installed using [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+Install the Archway developer CLI using `npm`, see [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ```bash
 npm install -g @archwayhq/cli
 ```
 
 :::caution
-**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (e.g. `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R /var/tmp/.archwayd`)
+**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (for example, `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R /var/tmp/.archwayd`)
 
-Hang in there, installing `archwayd` from source, coming soon!
+Hang in there, installing `archwayd` from source is coming soon!
 :::
