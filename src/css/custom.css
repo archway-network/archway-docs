@@ -168,6 +168,10 @@ html[data-theme='dark'] .ft-link {
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
+html[data-theme='dark'] .tm-button__variant__underlined:after {
+  background-color: #000000;
+}
+
 .back-to-top,
 .back-to-top:active,
 .back-to-top:focus,
