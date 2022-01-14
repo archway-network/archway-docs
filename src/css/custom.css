@@ -112,6 +112,12 @@ nav.navbar--fixed-top .navbar__inner {
   font-weight: normal;
 }
 
+.hero__title,
+.hero__subtitle {
+  color: #000;
+  /* text-shadow: 1px 1px #fff; */
+}
+
 footer {
   padding: 0 !important;
   color:var(--ifm-color-primary);

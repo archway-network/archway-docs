@@ -1,79 +1,29 @@
 import React from 'react';
 import clsx from 'clsx';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Link from '@docusaurus/Link';
+
 import styles from './HomepageFeatures.module.css';
 
-// const FeaturePrimary = {
-//   src: require('../../static/img/prim.png').default
-// };
-
-const FeatureList = [
-  {
-    title: 'Universe',
-    Svg: require('../../static/img/lk-2.svg').default,
-    link: '/universe',
-    description: (
-      <>
-        Enter the Universe and elevate your ecosystem. Learn more about the Archway community.
-      </>
-    ),
-  },
-  {
-    title: 'Creator Hub',
-    Svg: require('../../static/img/lk-5.svg').default,
-    link: '/docs/create/getting-started/install',
-    description: (
-      <>
-        Find your story arc. Our creator focused learning section has everything you need to get your dApp up and running quickly.
-      </>
-    ),
-  },
-  // {
-  //   title: 'Playground',
-  //   Svg: require('../../static/img/lk-6.svg').default,
-  //   link: '/playground',
-  //   description: (
-  //     <>
-  //       Archway is built to support developers. Playground allows you to test writing contracts without installing any tools.
-  //     </>
-  //   ),
-  // },
-];
-
-function Feature({Svg, title, description, link}) {
-    return (
-      <div className={clsx('col col--6')}>
-        <a href={link}>
-          <div className="text--center">
-            <Svg className={styles.featureSvg} alt={title} />
-          </div>
-        </a>
-        <div className="text--center padding-horiz--md">
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
-      </div>
-    );
-}
-
 export default function HomepageFeatures() {
-  // return (
-  //   <section className={styles.features}>
-  //     <div className="container">
-  //       <div className="row">
-  //         {FeatureList.map((props, idx) => (
-  //           <Feature key={idx} {...props} />
-  //         ))}
-  //       </div>
-  //     </div>
-  //   </section>
-  // );
-  
-  
+  const {siteConfig} = useDocusaurusContext();
   return (
     <section className={styles.feature}>
-      <div className={styles.featurePrimary}></div>
+      <div className={styles.featurePrimary}>
+        <div className={clsx('hero hero--primary', styles.heroBanner)}>
+          <div className="container">
+            <h1 className="hero__title">{siteConfig.title}</h1>
+            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <div className={styles.buttons}>
+              <Link
+                className="button button--secondary button--lg"
+                to="/docs/create/getting-started/install">
+                Setup Tutorial - 5 min ⏱️
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
-
-  // return '';
 }

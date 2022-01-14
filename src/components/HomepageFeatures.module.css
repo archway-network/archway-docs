@@ -26,8 +26,29 @@
   background-position: center;
   background-size: contain;
   background-color: #eae5e1;
+  text-align: center;
 }
 
 .linkf {
   text-decoration: none;
+}
+
+.heroBanner {
+  padding: 14% 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
