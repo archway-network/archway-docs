@@ -57,8 +57,6 @@ Build and install:
 make install
 ```
 
-**Note: Building archwayd from source requires Go 1.16.8+**
-
 For full installation and configuration parameters, see https://github.com/archway-network/archway/blob/main/README.md.
 
 ### How To Install Archwayd Using Docker
