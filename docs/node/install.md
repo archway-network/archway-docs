@@ -32,12 +32,45 @@ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/insta
 
 ## Download the Archway Source Code
 
-Clone the repo and build archway:
+To build `archwayd`, install it from source or use the `archwaynetwork/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
+
+:::caution
+**Note:** For the moment Archway can be installed only by pulling from Docker Hub.
+
+For example: `docker pull archwaynetwork/archwayd:latest`
+
+Installing `archwayd` from source, coming soon!
+:::
+
+### How To Install Archwayd from Source (coming soon)
+
+Get source code:
 
 ```bash
 git clone git@github.com:archway-network/archway.git
 cd archway
+```
+
+Build and install:
+
+```bash
 make install
+```
+
+**Note: Building archwayd from source requires Go 1.16.8+**
+
+For full installation and configuration parameters, see https://github.com/archway-network/archway/blob/main/README.md.
+
+### How To Install Archwayd Using Docker
+
+```bash
+docker build -t archway-network/archwayd:latest
+```
+
+Or pull from Docker Hub:
+
+```
+docker pull archwaynetwork/archwayd:latest
 ```
 
 ## Initialize the Node
