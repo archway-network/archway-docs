@@ -12,12 +12,12 @@ export default function Node() {
           <div className={styles.featurePrimary}>
             <div className={clsx('hero hero--primary', styles.heroBanner)}>
               <div className="container">
-                <h1>Node Operators</h1>
+                <h1>Operate a Node</h1>
               </div>
             </div>
           </div>
         </section>
-        
+
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>
             <div className={clsx('hero hero--primary', styles.heroBanner)}>

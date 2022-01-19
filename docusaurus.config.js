@@ -28,6 +28,12 @@ module.exports = {
           label: 'Getting Started',
         },
         {
+          to: 'https://blog.archway.io/', 
+          position: 'left',
+          target: '_blank',
+          label: 'Learn'
+        },
+        {
           page: 'create',
           href: '/create',
           position: 'left',
