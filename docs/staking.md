@@ -7,7 +7,6 @@ The Archway network is a Proof-Of-Stake (PoS) blockchain, meaning that the weigh
 
 Any user in the system can declare their intention to become a validator by sending a `create-validator` transaction. From there, they become validator candidates.
 
-## Staking
 The weight (i.e. voting power) of a validator determines whether or not they are an active validator
 
 Delegators are ARCH holders who cannot, or do not want to run a validator themselves. ARCH holders can delegate ARCHs to a validator and obtain a part of their revenue in exchange.
@@ -18,17 +17,15 @@ You can stake by:
 - [Runing a validator](./validator/running-a-validator-node.md)
 - [Delegating](./staking.md#Delegate)
 
-## Delegate
+## Delegating
 You can stake by delegating your tokens to validators who process transactions and run the network.
 
 This allows ARCH holders that don't have the skills or desire to run a validator to participate in securing the network and be rewarded.
 
-### CLI
+### `archwayd` CLI
 
 #### Requirements
-- [Installation](./wallet.md#CLI)
-- [Create an account](./wallet.md#CLI)
-
+- [Create an account](./overview/wallet.md#create-account)
 #### Connecting to the network
 In order to delegate your stake you have to either [run your node](./node/join-a-network.md) or you can connect to a trustworthy operator.
 

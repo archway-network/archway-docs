@@ -28,10 +28,22 @@ module.exports = {
           label: 'Getting Started',
         },
         {
-          to: 'https://blog.archway.io/', 
-          label: 'Blog', 
+          page: 'create',
+          href: '/create',
           position: 'left',
-          target: '_blank'
+          label: 'Build',
+        },
+        {
+          page: 'node',
+          href: '/node',
+          position: 'left',
+          label: 'Join',
+        },
+        {
+          type: 'doc',
+          docId: 'staking',
+          position: 'left',
+          label: 'Participate',
         },
         {
           href: 'https://github.com/archway-network/archway-docs/',
