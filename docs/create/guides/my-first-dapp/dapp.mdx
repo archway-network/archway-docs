@@ -18,14 +18,14 @@ For building web frontends, you'll need the following [npm](https://www.npmjs.co
 
 ### Connecting to Archway
 
-To connect an end user to Archway Network, we’ll need our dApp to connect to users’ wallets using a browser extension like [Keplr](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap) wallet.
+We’ll need our dApp to connect to users’ wallets with a browser extension like [Keplr](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap) wallet.
 
 After installing the extension, you’ll notice Keplr is exposed to web pages as a property of the JavaScript window object of the active page.
 
 ![](../../../assets/keplr11.png)
 
-Keplr needs to know some metadata about the chain it’s connecting to, and the type of contracts stored there.
-Here's an example of the parameters you'll need to connect to Archway’s Constantine testnet and enable CosmWasm smart contracts.
+Keplr also needs some metadata about the chain it’s connecting to, and the type of contracts stored there.
+Here's the parameters you'll need to connect to Archway’s Constantine testnet and enable CosmWasm smart contracts.
 
 ```js
 const ChainInfo = {
@@ -45,7 +45,7 @@ const ChainInfo = {
 };
 ```
 
-With that out of the way, we can use `ChainInfo` to set up Keplr for Constantine testnet.
+Now we can use `ChainInfo` to set up Keplr for Constantine testnet.
 
 ```js
 import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
@@ -108,7 +108,7 @@ const getCount = async () => {
 ```
 
 ## Incrementing the counter
-To broadcast transactions we call the `execute` function, from our previous `CosmWasmClient` reference, using the following arguments:
+To broadcast transactions we call the `execute` function using our previous `CosmWasmClient` reference. We call this function with the following parameters:
 
 1. **userAddress** - the address broadcasting the transaction
 2. **ContractAddress** - the address of the contract the user is transacting with
