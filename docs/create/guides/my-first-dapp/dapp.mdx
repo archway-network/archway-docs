@@ -52,8 +52,8 @@ import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
 import { GasPrice } from "@cosmjs/stargate";
  
 let accounts, CosmWasmClient, queryHandler, gasPrice;
+
 async function connectKeplrWallet() {
- 
   if (window['keplr']) {
     if (window.keplr['experimentalSuggestChain']) {
       await window.keplr.experimentalSuggestChain()
