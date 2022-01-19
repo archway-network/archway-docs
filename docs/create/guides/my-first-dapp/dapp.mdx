@@ -128,7 +128,7 @@ const incrementCounter = async () => {
     increment: {}
   };
   // Gas fee estimation
-  let txFee = calculateFee(300_000, gasPrice);
+  let txFee = calculateFee(300000, gasPrice);
   // Send Tx
   let tx = await CosmWasmClient.execute(userAddress, ContractAddress, entrypoint, txFee);
   console.log('Increment Tx', tx);
