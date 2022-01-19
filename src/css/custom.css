@@ -203,18 +203,18 @@ html[data-theme='dark'] .no-bd {
   border-color: var(--ifm-toc-border-color) !important;
 }
 
-span.token::-webkit-selection {
+::-webkit-selection {
   background: #b3d4fc;
   text-shadow: 0 0 #b3d4fc;
 }
 
-span.token::-moz-selection {
+::-moz-selection {
   background: #b3d4fc;
   text-shadow: 0 0 #b3d4fc;
 }
 
 
-span.token::selection {
+::selection {
   background: #b3d4fc;
   text-shadow: 0 0 #b3d4fc;
 }
