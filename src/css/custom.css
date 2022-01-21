@@ -223,7 +223,7 @@ main.page {
   margin: 0px auto;
 }
 
-.hero.hero--primary {
+.hero.hero--primary.page {
   width: 90rem;
 }
 

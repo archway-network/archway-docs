@@ -14,8 +14,8 @@ Delegators are ARCH holders who cannot, or do not want to run a validator themse
 Now let's see how we can delegate some tokens to a validator.
 
 You can stake by:
-- [Runing a validator](../validator/running-a-validator-node.md)
-- [Delegating](./staking.md#Delegate)
+- [Runing a validator](/docs/validator/running-a-validator-node)
+- [Delegating](/docs/participate/staking#delegating)
 
 ## Delegating
 You can stake by delegating your tokens to validators who process transactions and run the network.
@@ -25,7 +25,7 @@ This allows ARCH holders that don't have the skills or desire to run a validator
 ### `archwayd` CLI
 
 #### Requirements
-- [Create an account](../overview/wallet.md#create-account)
+- [Create an account](/docs/participate/wallet#create-account)
 #### Connecting to the network
 In order to delegate your stake you have to either [run your node](../node/join-a-network.md) or you can connect to a trustworthy operator.
 

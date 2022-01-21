@@ -43,7 +43,7 @@ export default function Node() {
       <main className='page'>
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>
-            <div className={clsx('hero hero--primary', styles.heroBanner)}>
+            <div className={clsx('hero hero--primary page', styles.heroBanner)}>
               <div className="container">
                 <h1>Operate a Node</h1>
               </div>
@@ -54,7 +54,7 @@ export default function Node() {
 
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>
-            <div className={clsx('hero hero--primary lis', styles.heroBanner)}>
+            <div className={clsx('hero hero--primary lis page', styles.heroBanner)}>
               <div className="container">
                 <h1>Become a Validator</h1>
               </div>

@@ -30,7 +30,7 @@ export default function Participate() {
       <main className='page'>
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>
-            <div className={clsx('hero hero--primary', styles.heroBanner)}>
+            <div className={clsx('hero hero--primary page', styles.heroBanner)}>
               <div className="container">
                 <h1>Participate</h1>
               </div>

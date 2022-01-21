@@ -5,7 +5,7 @@ sidebar_position: 1
 # Create a Wallet
 
 ## Installation
-The first thing we need to in order to delegate our stake is to install the archwya CLI, you can find how to do this in our [installation guide](./create/getting-started/install.md)
+The first thing we need to in order to delegate our stake is to install the archwya CLI, you can find how to do this in our [installation guide](/docs/create/getting-started/install)
 
 ## Create Account
 ### Using a ledger device

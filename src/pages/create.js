@@ -29,7 +29,7 @@ export default function Create() {
       <main className='page'>
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>
-            <div className={clsx('hero hero--primary', styles.heroBanner)}>
+            <div className={clsx('hero hero--primary page', styles.heroBanner)}>
               <div className="container">
                 <h1>Creating dApps</h1>
               </div>
