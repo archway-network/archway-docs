@@ -25,7 +25,7 @@ export default function Create() {
   ) : null;
 
   return (
-    <Layout title="Creating dApps" description="dApps are the bread and butter that feed a blockchain">
+    <Layout title="Build" description="dApps are the bread and butter that feed a blockchain">
       <main className='page'>
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>

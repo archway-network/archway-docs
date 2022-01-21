@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import styles from './node.module.css';
+import styles from './network.module.css';
 
-export default function Node() {
+export default function Network() {
   const {siteConfig} = useDocusaurusContext();
   const categories = siteConfig.customFields.pageCategories;
   
@@ -39,7 +39,7 @@ export default function Node() {
   ) : null;
 
   return (
-    <Layout title="Node Operators" description="Your launchpad into Cosmos">
+    <Layout title="Join" description="Your launchpad into Cosmos">
       <main className='page'>
         <section className={styles.feature}>
           <div className={styles.featurePrimary}>

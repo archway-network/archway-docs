@@ -40,8 +40,8 @@ module.exports = {
           label: 'Build',
         },
         {
-          page: 'node',
-          href: '/node',
+          page: 'network',
+          href: '/network',
           position: 'left',
           label: 'Join',
         },
