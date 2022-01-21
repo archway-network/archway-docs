@@ -1,0 +1,11 @@
+.feature {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
