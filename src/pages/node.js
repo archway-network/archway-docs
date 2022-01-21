@@ -14,17 +14,27 @@ export default function Node() {
 
   const nodeItems = (nodeCats.length) ? nodeCats.map((item,i) =>
     <div className='cat-item' key={i}>
-      <p>
-        <a href={item.value}>{item.name}</a>
-      </p>
+      <a href={item.value}>
+        <div>
+          <img className='icon icon-arch' src='/img/arch32.png' />
+        </div>
+        <p>
+          {item.name}
+        </p>
+      </a>
     </div>
   ) : null;
 
   const validatorItems = (validCats.length) ? validCats.map((item,i) =>
     <div className='cat-item' key={i}>
-      <p>
-        <a href={item.value}>{item.name}</a>
-      </p>
+      <a href={item.value}>
+        <div>
+          <img className='icon icon-arch' src='/img/arch32.png' />
+        </div>
+        <p>
+          {item.name}
+        </p>
+      </a>
     </div>
   ) : null;
 

@@ -13,9 +13,14 @@ export default function Create() {
 
   const categoryItems = (createCats.length) ? createCats.map((item,i) =>
     <div className='cat-item' key={i}>
-      <p>
-        <a href={item.value}>{item.name}</a>
-      </p>
+      <a href={item.value}>
+        <div>
+          <img className='icon icon-arch' src='/img/arch32.png' />
+        </div>
+        <p>
+          {item.name}
+        </p>
+      </a>
     </div>
   ) : null;
 

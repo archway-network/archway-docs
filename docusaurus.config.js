@@ -89,7 +89,7 @@ module.exports = {
             {name:'Install', value:'/docs/node/install'},
             {name:'Configure', value:'/docs/node/configure'},
             {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet'},
-            {name:'Join a network', value:'/docs/node/join-a-network'}
+            {name:'Joining a network', value:'/docs/node/join-a-network'}
           ],
           // Validators
           [

@@ -250,6 +250,6 @@ main.page {
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
-.cat-item p {
+.cat-item a > p {
   margin-bottom: 0;
 }
