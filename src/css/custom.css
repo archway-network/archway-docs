@@ -213,8 +213,43 @@ html[data-theme='dark'] .no-bd {
   text-shadow: 0 0 #b3d4fc;
 }
 
-
 ::selection {
   background: #b3d4fc;
   text-shadow: 0 0 #b3d4fc;
+}
+
+main.page {
+  max-width: 90rem;
+  margin: 0px auto;
+}
+
+.hero.hero--primary {
+  width: 90rem;
+}
+
+.hero.hero--primary.lis {
+  margin-top: 2em;
+}
+
+.cat-wr {
+  width: 100%;
+}
+
+.cat-item {
+  text-align: center;
+  padding: 2rem;
+  margin: 1.25rem;
+  display: inline-block;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  background-color:var(--ifm-font-color-base-inverse);
+  color:var(--ifm-color-primary);
+  justify-content: space-around;
+  width: 80%;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.cat-item p {
+  margin-bottom: 0;
 }

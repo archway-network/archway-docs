@@ -46,8 +46,8 @@ module.exports = {
           label: 'Join',
         },
         {
-          type: 'doc',
-          docId: 'staking',
+          page: 'participate',
+          href: '/participate',
           position: 'left',
           label: 'Participate',
         },
@@ -70,6 +70,45 @@ module.exports = {
     //   textColor: '#000000',
     //   isCloseable: false,
     // },
+  },
+  customFields: {
+    pageCategories: [
+      {
+        name: 'build',
+        children: [
+          {name:'Quick Start', value:'/docs/create/getting-started/install'},
+          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start'},
+          {name:'Videos', value:'#'}
+        ]
+      },
+      {
+        name: 'join',
+        children: [
+          // Node Operators
+          [
+            {name:'Install', value:'/docs/node/install'},
+            {name:'Configure', value:'/docs/node/configure'},
+            {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet'},
+            {name:'Join a network', value:'/docs/node/join-a-network'}
+          ],
+          // Validators
+          [
+            {name:'What are validators?', value:'/docs/validator/overview'},
+            {name:'Requirements', value:'/docs/validator/requirements'},
+            {name:'Run a validator',value:'/docs/validator/running-a-validator-node'},
+            {name:'Monitor validators',value:'/docs/validator/monitoring-validators'},
+            {name:'Troubleshoot',value:'/docs/validator/troubleshooting'}
+          ]
+        ]
+      },
+      {
+        name: 'participate',
+        children: [
+          {name:'Create a wallet', value:'/docs/participate/wallet'},
+          {name:'Staking', value:'/docs/participate/staking'}
+        ]
+      }
+    ]
   },
   presets: [
     [
