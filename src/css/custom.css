@@ -252,4 +252,18 @@ main.page {
 
 .cat-item a > p {
   margin-bottom: 0;
+  filter: brightness(1.25);
+}
+
+.cat-item a:active,
+.cat-item a:focus,
+.cat-item a:hover,
+.cat-item a > p:active,
+.cat-item a > p:focus {
+  /* text-decoration: none; */
+  border-color: transparent;
+}
+
+html[data-theme='dark'] .cat-item a > p {
+  filter: brightness(1.5);
 }
