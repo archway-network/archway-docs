@@ -76,9 +76,9 @@ module.exports = {
       {
         name: 'build',
         children: [
-          {name:'Quick Start', value:'/docs/create/getting-started/install'},
-          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start'},
-          {name:'Videos', value:'#'}
+          {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket'},
+          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start', icon:'icon-guide2'},
+          {name:'Videos', value:'#', icon:'icon-video3'}
         ]
       },
       {
@@ -86,26 +86,26 @@ module.exports = {
         children: [
           // Node Operators
           [
-            {name:'Install', value:'/docs/node/install'},
-            {name:'Configure', value:'/docs/node/configure'},
-            {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet'},
-            {name:'Joining a network', value:'/docs/node/join-a-network'}
+            {name:'Install', value:'/docs/node/install', icon:'icon-hdd'},
+            {name:'Configure', value:'/docs/node/configure', icon:'icon-settings'},
+            {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet', icon:'icon-experiments'},
+            {name:'Joining a network', value:'/docs/node/join-a-network', icon:'icon-sitemap'}
           ],
           // Validators
           [
-            {name:'What are validators?', value:'/docs/validator/overview'},
-            {name:'Requirements', value:'/docs/validator/requirements'},
-            {name:'Run a validator',value:'/docs/validator/running-a-validator-node'},
-            {name:'Monitor validators',value:'/docs/validator/monitoring-validators'},
-            {name:'Troubleshoot',value:'/docs/validator/troubleshooting'}
+            {name:'What are validators?', value:'/docs/validator/overview', icon:'icon-safe1'},
+            {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1'},
+            {name:'Run a validator',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap'},
+            {name:'Monitor validators',value:'/docs/validator/monitoring-validators', icon:'icon-monitor'},
+            {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2'}
           ]
         ]
       },
       {
         name: 'participate',
         children: [
-          {name:'Create a wallet', value:'/docs/participate/wallet'},
-          {name:'Staking', value:'/docs/participate/staking'}
+          {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet'},
+          {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig'}
         ]
       }
     ]
@@ -123,7 +123,7 @@ module.exports = {
           editUrl: 'https://github.com/archway-network/archway-docs/edit/main/',
         },
         theme: {
-          customCss: [require.resolve('./src/css/archway.css'),require.resolve('./src/css/custom.css')]
+          customCss: [require.resolve('./src/css/archway.css'),require.resolve('./src/css/custom.css'),require.resolve('./src/css/icons.css')]
         },
       },
     ],

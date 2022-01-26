@@ -16,7 +16,7 @@ export default function Network() {
     <div className='cat-item' key={i}>
       <a href={item.value}>
         <div>
-          <img className='icon icon-arch' src='/img/arch32.png' />
+          <span className={item.icon + ' icon'}></span>
         </div>
         <p>
           {item.name}
@@ -29,7 +29,7 @@ export default function Network() {
     <div className='cat-item' key={i}>
       <a href={item.value}>
         <div>
-          <img className='icon icon-arch' src='/img/arch32.png' />
+          <span className={item.icon + ' icon'}></span>
         </div>
         <p>
           {item.name}

@@ -240,12 +240,14 @@ main.page {
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
-.cat-item a > p {
+.cat-item a > p,
+.cat-item a > div span {
   margin-bottom: 0;
   filter: brightness(1.25);
 }
 
-html[data-theme='dark'] .cat-item a > p {
+html[data-theme='dark'] .cat-item a > p,
+html[data-theme='dark'] .cat-item a > div span {
   filter: brightness(1.5);
 }
 
@@ -255,6 +257,14 @@ html[data-theme='dark'] .cat-item a > p {
 .cat-item a > p:active,
 .cat-item a > p:focus {
   border-color: transparent;
+}
+
+.icon {
+  font-size: 3rem;
+}
+
+.icon-pig {
+  font-size: 3.75rem;
 }
 
 @media (min-width:1600px) {
