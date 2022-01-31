@@ -4288,7 +4288,7 @@ pre[class*=language-] {
 
 @media screen and (min-width:1200px) {
   .logo[data-v-6e5b3ee8] {
-      top: 50%;
+      top: 40%;
       width: 28.3rem;
       transform: translate(-50%, -53.5%)
   }

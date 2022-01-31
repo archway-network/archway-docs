@@ -229,8 +229,25 @@ aside, .docs-wrapper {
   border: none;
 }
 
+.tm-grid-base {
+  height: 830px;
+}
+
 .tm-link:hover, .updt-sgn:hover {
   text-decoration: none;
+}
+
+.tm-inner.tm-inner-bm {
+  border: none;
+}
+
+.tm-rf5.tm-lh-title {
+  min-width: 1400px;
+  padding: 2em;
+}
+
+html[data-theme='dark'] path.usher {
+  filter: brightness(5);
 }
 
 html[data-theme='dark'] footer .bg-dark, 
