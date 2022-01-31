@@ -80,11 +80,12 @@ nav, .navbar__item {
   line-height: 130%; */
   font: 400 100%/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-feature-settings: "kern" on,"liga" on,"calt" on,"zero" on;
+  font-feature-settings: "kern" on,"liga" on,"calt" on,"zero" on;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
+  font-smooth: antialiased;
   font-variant-ligatures: contextual common-ligatures;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
@@ -215,6 +216,12 @@ html[data-theme='dark'] .ft-link {
   border-left: 1px solid var(--ifm-toc-border-color);
   border-bottom: 1px solid var(--ifm-toc-border-color);
   border-right: 1px solid var(--ifm-toc-border-color);
+}
+
+html[data-theme='dark'] .feature_src-components-HomepageFeatures-module {
+  border-left: 1px solid #ffffff40;
+  border-bottom: 1px solid #ffffff40;
+  border-right: 1px solid #ffffff40;
 }
 
 html[data-theme='dark'] .tm-button__variant__underlined:after {
