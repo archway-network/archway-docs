@@ -139,6 +139,11 @@ a.navbar__item, a.navbar__item:active, a.navbar__item:focus {
   height: auto;
 }
 
+.react-toggle-track {
+  position: relative;
+  top: 4px;
+}
+
 .button--lg {
   --ifm-button-size-multiplier: 1.2;
 }
