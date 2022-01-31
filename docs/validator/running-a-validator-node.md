@@ -6,13 +6,36 @@ sidebar_position: 3
 
 This guide shows how to setup a validator node in simple steps.
 
-## Initialize node
+## Hardware requirements
+- Linux distribution
+- `x86_64` processor
+- 16GB RAM
+- 500GB-2TB Storage\*
 
-<!-- First let's create a directory to store all node's data and config.
+* Storage size for validators will depend on level of pruning.
 
-```bash
-mkdir my-validator
-``` -->
+## Run your validator
+
+### Run your node 
+Follow instructions in how to run your node in our [join a network guide](../node/join-a-network.md)
+
+### Create your valdiator
+Once your node is ruunning and synced you can create a validator by staking tokens.
+
+```
+archwayd tx staking create-validator \
+--from <my-validator-account> \
+--amount 1000000000udenom \
+--min-self-delegation 1000000000udenom \
+--commission-rate 0.01 \
+--commission-max-rate 0.1 \
+--commission-max-change-rate 0.1 \
+--pubkey $(archwayd tendermint show-validator) \
+--chain-id <chain_id>
+```
+
+## Run validator on genesis
+### Initialize node
 
 Run the following command to initialize the genesis file which is required to establish a network.
 ```bash
@@ -21,7 +44,7 @@ archwayd init my-validator --chain-id my-chain
 
 <!-- **Note:** Please note that, we use `--home ./my-validator` flag in almost all commands in order to tell `archwayd` that we need to work on that specific directory. -->
 
-## Initialize account
+### Initialize account
 
 Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
 
@@ -38,7 +61,7 @@ with the genesis.app_state.staking.params.bond_denom denom, the default is staki
 archwayd add-genesis-account $(archwayd keys show my-validator-account -a) 1000000000stake,1000000000ARCH
 ```
 
-## Create validator transaction
+### Create validator transaction
 
 We need to generate a transaction creating the validator.
 
@@ -51,7 +74,7 @@ archwayd gentx my-validator-account 1000000000stake \
   --chain-id my-chain
 ```
 
-## Add transaction to genesis file
+### Add transaction to genesis file
 
 Add the generated bonding transaction to the genesis file
 
@@ -59,7 +82,7 @@ Add the generated bonding transaction to the genesis file
 archwayd collect-gentxs
 ```
 
-## Start validator node
+### Start validator node
 
 Now we can start our validator node in the local archway network
 
@@ -68,3 +91,5 @@ archwayd start
 ```
 
 **Note:** If you have multiple nodes running on the same machine, you will get some errors on `already in use ports`, you either need to run them in isolated environments _e.g. containers_ or edit `app.toml` and `conf.toml` files to setup different port numbers.
+
+
