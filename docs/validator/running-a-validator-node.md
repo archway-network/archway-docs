@@ -6,6 +6,13 @@ sidebar_position: 3
 
 This guide shows how to setup a validator node in simple steps.
 
+
+::: caution
+*Note:* For the moment Archway can be installed only by pulling from Docker Hub.
+For example: docker pull archwaynetwork/archwayd:latest
+Installing archwayd from source, coming soon!
+
+
 ## Hardware requirements
 - Linux distribution
 - `x86_64` processor
@@ -15,7 +22,6 @@ This guide shows how to setup a validator node in simple steps.
 * Storage size for validators will depend on level of pruning.
 
 ## Run your validator
-
 ### Run your node 
 Follow instructions in how to run your node in our [join a network guide](../node/join-a-network.md)
 
@@ -91,5 +97,59 @@ archwayd start
 ```
 
 **Note:** If you have multiple nodes running on the same machine, you will get some errors on `already in use ports`, you either need to run them in isolated environments _e.g. containers_ or edit `app.toml` and `conf.toml` files to setup different port numbers.
+
+
+## Run validator from docker container for testnet
+### Get the Docker Image
+First we have to get the docker image 
+```sh
+docker pull archwaynetwork/archwayd:latest
+```
+
+### Get into the container 
+We now have to get into our container by overriding our entrypoint
+```sh
+docker container run -it --entrypoint /bin/sh --name validator archwaynetwork/archwayd:latest
+```
+
+### Initialize config
+Let's start our datadir and our node info with
+
+```sh
+archwayd init <moniker>
+```
+
+### Retrieve Genesis
+To retreive genesis we first need to install jq to process json
+```sh
+apk add jq
+```
+
+We can now retrieve our genesis file with:
+```sh
+wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /root/.archway/config/genesis.json
+```
+
+### Run your node
+you can start your node with.
+```sh
+archwayd start --p2p.seeds <Address1>@<Host_Name_OR_IP1>:<PORT1>,<Address2>@<Host_Name_OR_IP2>:<PORT2>,<Address3>@<Host_Name_OR_IP3>:<PORT3>, ...<AddressN>@<Host_Name_OR_IPN>:<PORTN> --x-crisis-skip-assert-invariants
+```
+
+### Create your valdiator
+Once your node is ruunning and synced you can create a validator by staking tokens.
+
+```sh
+archwayd tx staking create-validator \
+--from <my-validator-account> \
+--amount 1000000000udenom \
+--min-self-delegation 1000000000udenom \
+--commission-rate 0.01 \
+--commission-max-rate 0.1 \
+--commission-max-change-rate 0.1 \
+--pubkey $(archwayd tendermint show-validator) \
+--chain-id <chain_id>
+```
+
 
 
