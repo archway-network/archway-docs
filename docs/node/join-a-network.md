@@ -16,43 +16,25 @@ rm -rf ~/.app
 
 **Note**: This command will remove all data and configs you already set.
 
-## Download the genesis file
-<!-- 
-Prepare 
-
+## Initialize node
+Run the following command to initialize the genesis file which is required to establish a network.
 ```bash
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=archwayd \
-		  -X github.com/cosmos/cosmos-sdk/version.AppName=archwayd \
-		  -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
-		  -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
-		  -X github.com/cosmos-zone/archwayd/app.Bech32Prefix=free \
-		  -X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)"
-
+archwayd init my-validator --chain-id my-chain 
 ```
 
-change the `-X github.com/cosmos-zone/archwayd/app.Bech32Prefix=free` to 
-
+<!-- **Note:** Please note that, we use `--home ./my-validator` flag in almost all commands in order to tell `archwayd` that we need to work on that specific directory. -->
+## Retrieve Genesis file
+Download the genesis file from a validator node
 ```bash
--X github.com/cosmos-zone/archwayd/app.Bech32Prefix=cosmos
-``` -->
-
-<!-- archwayd init my-node --chain-id -->
-
-Download compressed genesis state and extract it.
-
-```sh
-wget https://github.com/.../genesis.json.gz
-gzip -d genesis.json.gz
+wget -qO- <validator_url>/genesis| jq ."result"."genesis" > ~/.archway/config/genesis.json
 ```
 
-## Replace local genesis file with Archway `genesis.json`
+## Initialize account
 
-Move the downloaded genesis state to the archway directory:
+Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
 
-```sh
-# mkdir -p ~/.archway
-# mkdir -p ~/.archway/config
-mv genesis.json ~/.archway/config/genesis.json
+```bash
+archwayd keys add <my-validator-account>
 ```
 
 ## Join the network
