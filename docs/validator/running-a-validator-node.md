@@ -23,7 +23,10 @@ Follow instructions in how to run your node in our [join a network guide](../nod
 Once your node is ruunning and synced you can create a validator by staking tokens.
 
 ```
-archwayd tx staing <my-validator-account> 1000000000udenom \
+archwayd tx staking create-validator \
+--from <my-validator-account> \
+--amount 1000000000udenom \
+--min-self-delegation 1000000000udenom \
 --commission-rate 0.01 \
 --commission-max-rate 0.1 \
 --commission-max-change-rate 0.1 \
