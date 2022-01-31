@@ -186,7 +186,7 @@ html[data-theme='dark'] .token {
   text-shadow: 0 0 black;
 }
 
-aside {
+aside, .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocPage-styles-module {
   position: relative;
   left: -299px;
 }
@@ -208,10 +208,25 @@ aside, .docs-wrapper {
   margin: 0;
 }
 
+.menu_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocSidebar-styles-module {
+  border-bottom: none;
+}
+
 .pagination-nav__item {
   flex-direction: column;
   height: 75px;
   text-align: center;
+}
+
+.row .col.col--3 {
+  position: relative;
+  top: -20px;
+  right: -210px;
+  border-left: 1px solid var(--ifm-toc-border-color);
+}
+
+.table-of-contents__left-border {
+  border: none;
 }
 
 .tm-link:hover, .updt-sgn:hover {
