@@ -186,12 +186,26 @@ html[data-theme='dark'] .token {
   text-shadow: 0 0 black;
 }
 
+aside {
+  position: relative;
+  left: -299px;
+}
+
 aside, .docs-wrapper {
   min-height: 90vh;
 }
 
 .docs-wrapper {
   padding-bottom: 7em;
+  width: 1440px;
+  overflow: visible;
+  margin: auto;
+}
+
+.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocPage-styles-module {
+  max-width: 1440px;
+  min-width: 1440px !important;
+  margin: 0;
 }
 
 .pagination-nav__item {
