@@ -25,7 +25,7 @@ module.exports = {
           type: 'doc',
           docId: 'create/getting-started/install',
           position: 'left',
-          label: 'Getting Started',
+          label: 'Get Started',
         },
         {
           to: 'https://blog.archway.io/', 
