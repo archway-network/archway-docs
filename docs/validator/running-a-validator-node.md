@@ -105,18 +105,14 @@ First we have to get the docker image
 ```sh
 docker pull archwaynetwork/archwayd:latest
 ```
-
-### Get into the container 
-We now have to get into our container by overriding our entrypoint
+### Init config 
+first we need to initialize our validator config
 ```sh
-docker container run -it --entrypoint /bin/sh --name validator archwaynetwork/archwayd:latest
-```
-
-### Initialize config
-Let's start our datadir and our node info with
-
-```sh
-archwayd init <moniker>
+docker container run --rm \
+         -it \
+         -v /tmp/.archway:/root/.archway \
+         --name validator \
+         archwaynetwork/archwayd:latest init <moniker>
 ```
 
 ### Retrieve Genesis
@@ -127,28 +123,37 @@ apk add jq
 
 We can now retrieve our genesis file with:
 ```sh
-wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /root/.archway/config/genesis.json
+wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /tmp/.archway/config/genesis.json
 ```
 
 ### Run your node
-you can start your node with.
+We now have to get into our container by overriding our entrypoint
 ```sh
-archwayd start --p2p.seeds <Address1>@<Host_Name_OR_IP1>:<PORT1>,<Address2>@<Host_Name_OR_IP2>:<PORT2>,<Address3>@<Host_Name_OR_IP3>:<PORT3>, ...<AddressN>@<Host_Name_OR_IPN>:<PORTN> --x-crisis-skip-assert-invariants
+docker container run --rm \
+         -it \
+         -v /tmp/.archway:/root/.archway \
+         --name validator \
+         archwaynetwork/archwayd:latest \
+         start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
 ```
+
 
 ### Create your valdiator
 Once your node is ruunning and synced you can create a validator by staking tokens.
+::: note
+Run in a separate terminal if you ran the previous command in interactive mode
 
 ```sh
-archwayd tx staking create-validator \
---from <my-validator-account> \
---amount 1000000000udenom \
---min-self-delegation 1000000000udenom \
---commission-rate 0.01 \
---commission-max-rate 0.1 \
---commission-max-change-rate 0.1 \
---pubkey $(archwayd tendermint show-validator) \
---chain-id <chain_id>
+docker exec -it  validator \
+        archwayd tx staking create-validator \
+        --from <my-validator-account> \
+        --amount 1000000000udenom \
+        --min-self-delegation 1000000000udenom \
+        --commission-rate 0.01 \
+        --commission-max-rate 0.1 \
+        --commission-max-change-rate 0.1 \
+        --pubkey $(archwayd tendermint show-validator) \
+        --chain-id <chain_id>
 ```
 
 
