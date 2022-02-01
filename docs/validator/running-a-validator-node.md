@@ -131,7 +131,7 @@ wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /tmp/.archway/config/gene
 ```
 
 ### Run your node
-We now have to get into our container by overriding our entrypoint
+Let's start our node in the container
 ```sh
   archwayd start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
 ```
