@@ -102,9 +102,11 @@ archwayd start
 ## Run validator from docker container for testnet
 ### Get the Docker Image
 First we have to get the docker image 
+
 ```sh
 docker pull archwaynetwork/archwayd:latest
 ```
+
 ### Init config 
 first we need to initialize our validator config
 ```sh
