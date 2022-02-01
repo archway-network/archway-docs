@@ -30,9 +30,9 @@ The first step is to run a node. See the instructions [here](../node/join-a-netw
 ### Create your validator
 Once your node is ruunning (and synced up to date) you can create a validator by staking tokens.
 
-```
+```bash
 archwayd tx staking create-validator \
-  --from <my-validator-account> \
+  --from ${MY_VALIDATOR_ACCOUNT} \
   --amount 1000000000udenom \
   --min-self-delegation 1000000000udenom \
   --commission-rate 0.01 \
