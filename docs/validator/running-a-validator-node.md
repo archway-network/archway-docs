@@ -165,9 +165,10 @@ docker pull archwaynetwork/archwayd:latest
 ```
 
 ### Init config 
-first we need to initialize our validator config
+Now we can initialize our validator config
 ```bash
-archwayd init <moniker>
+# E.g. archwayd init "main_wallet"
+archwayd init ${MY_VALIDATOR_ACCOUNT_NAME}
 ```
 
 ### Retrieve genesis file
@@ -184,7 +185,7 @@ sudo sh -c 'wget -qO- ${RPC_URL}/genesis | jq ."result"."genesis" > /tmp/.archwa
 ### Run your node
 Let's start our node in the container
 ```bash
-  archwayd start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
+archwayd start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
 ```
 
 
