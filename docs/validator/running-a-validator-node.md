@@ -109,7 +109,7 @@ docker pull archwaynetwork/archwayd:latest
 ### Get into the container 
 We now have to get into our container by overriding our entrypoint
 ```sh
-docker container run -it --entrypoint /bin/sh --name validator archwaynetwork/archwayd:latest
+docker container run --rm -it --entrypoint /bin/sh --name validator archwaynetwork/archwayd:latest
 ```
 
 ### Initialize config
