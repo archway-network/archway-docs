@@ -127,7 +127,7 @@ apk add jq
 
 We can now retrieve our genesis file with:
 ```sh
-wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /tmp/.archway/config/genesis.json
+sudo sh -c 'wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /tmp/.archway/config/genesis.json'
 ```
 
 ### Run your node
