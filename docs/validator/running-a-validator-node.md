@@ -100,6 +100,12 @@ archwayd start
 
 
 ## Run validator from docker container for testnet
+::: note
+We will set an alias for simplification of commands
+```
+alias archwayd='docker run --rm -it -v /tmp/.archway:/root/.archway archwaynetwork/archwayd:latest'
+```
+
 ### Get the Docker Image
 First we have to get the docker image 
 
@@ -110,11 +116,7 @@ docker pull archwaynetwork/archwayd:latest
 ### Init config 
 first we need to initialize our validator config
 ```sh
-docker container run --rm \
-         -it \
-         -v /tmp/.archway:/root/.archway \
-         --name validator \
-         archwaynetwork/archwayd:latest init <moniker>
+archwayd init <moniker>
 ```
 
 ### Retrieve Genesis
@@ -131,12 +133,7 @@ wget -qO- <rpc_url>/genesis | jq ."result"."genesis" > /tmp/.archway/config/gene
 ### Run your node
 We now have to get into our container by overriding our entrypoint
 ```sh
-docker container run --rm \
-         -it \
-         -v /tmp/.archway:/root/.archway \
-         --name validator \
-         archwaynetwork/archwayd:latest \
-         start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
+  archwayd start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
 ```
 
 
@@ -146,7 +143,7 @@ Once your node is ruunning and synced you can create a validator by staking toke
 Run in a separate terminal if you ran the previous command in interactive mode
 
 ```sh
-docker exec -it  validator \
+docker exec -it validator \
         archwayd tx staking create-validator \
         --from <my-validator-account> \
         --amount 1000000000udenom \
