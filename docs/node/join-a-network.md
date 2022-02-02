@@ -11,7 +11,7 @@ Let's first cleanup our network. This is needed if you already have a genesis fi
 
 ```bash
 archwayd unsafe-reset-all
-rm -rf ~/.app
+rm -rf ~/.archway
 ```
 
 **Note**: This command will remove all data and configs you already set.
