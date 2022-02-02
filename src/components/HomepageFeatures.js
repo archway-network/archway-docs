@@ -8,8 +8,8 @@ import styles from './HomepageFeatures.module.css';
 export default function HomepageFeatures() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <section className={styles.feature}>
-      <div className={styles.featurePrimary}>
+    <section className={clsx('sectionf feature_src-components-HomepageFeatures-module', styles.feature)}>
+      <div className={clsx('divf', styles.featurePrimary)}>
         <div className={clsx('hero hero--primary', styles.heroBanner)}>
           <div className="container">
             <div className={styles.buttons}>
