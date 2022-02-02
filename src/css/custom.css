@@ -401,7 +401,7 @@ aside, .docs-wrapper > div main,
     left: -299px;
   }
   .row .col.col--3 {
-    right: -388px;
+    right: -210px;
   }
 }
 
@@ -417,7 +417,7 @@ aside, .docs-wrapper > div main,
     left: -179px;
   }
   .row .col.col--3 {
-    right: -298px;
+    right: -121px;
   }
 }
 
@@ -433,7 +433,7 @@ aside, .docs-wrapper > div main,
     left: -79px;
   }
   .row .col.col--3 {
-    right: -248px;
+    right: -70px;
   }
 }
 
@@ -461,14 +461,11 @@ aside, .docs-wrapper > div main,
     left: -149px;
   }
   .row .col.col--3 {
-    right: -223px;
+    right: -59px;
   }
 }
 
 @media (max-width:1500px) {
-  .navbar__logo {
-    margin-left: 8px;
-  }
   .navbar__inner {
     width: 700px;
   }
@@ -480,7 +477,7 @@ aside, .docs-wrapper > div main,
     left: -149px;
   }
   .row .col.col--3 {
-    right: -173px;
+    right: -9px;
   }
 }
 
