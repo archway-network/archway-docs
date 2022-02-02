@@ -64,7 +64,8 @@ Create a key to hold your account. Once you run this command, your may be prompt
 archwayd keys add my-validator-account
 ```
 
-Now you can add that key into the `accounts` array of `app_state` in your genesis.json file. 
+<!-- :::note
+Another way of adding your validator keys, would be to add it to the `accounts` array of `app_state` in your genesis.json file that you used for the `archwayd init` command
 
 ```json
 "app_state": {
@@ -82,12 +83,16 @@ Now you can add that key into the `accounts` array of `app_state` in your genesi
   }
 }
 ```
+::: -->
+
+This next command lets you set the number of coins to stake.
 
 ```bash
 archwayd add-genesis-account $(archwayd keys show my-validator-account -a) 1000000000stake,1000000000ARCH
 ```
 
-This next command lets you set the number of coins to stake.
+:::info
+**Note:** Make sure your account has an equal amount of coins matching the "bond denomination" of your genesis file.
 
 ```json
 // genesis.json
@@ -101,9 +106,6 @@ This next command lets you set the number of coins to stake.
   },
 }
 ```
-
-:::info
-**Note:** Make sure your account has an equal amount of coins matching the "bond denomination" of your genesis file.
 :::
 
 ### Create validator transaction
