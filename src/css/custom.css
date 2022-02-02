@@ -374,6 +374,11 @@ html[data-theme='dark'] .cat-item a > div span {
   font-size: 3.75rem;
 }
 
+nav.pagination-nav {
+  border: none;
+  border-bottom: none;
+}
+
 @media (min-width:1600px) {
   body, html {
     font-size: 1.15rem;
