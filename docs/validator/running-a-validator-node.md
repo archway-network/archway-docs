@@ -28,7 +28,7 @@ Installing archwayd from source, coming soon!
 The first step is to run a node. See the instructions [here](../node/join-a-network.md) on how to get your node up and running.
 
 ### Create your validator
-Once your node is ruunning (and synced up to date) you can create a validator by staking tokens.
+Once your node is running (and synced up to date) you can create a validator by staking tokens.
 
 ```bash
 archwayd tx staking create-validator \
