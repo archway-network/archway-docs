@@ -378,36 +378,9 @@ nav.pagination-nav {
   border-bottom: none;
 }
 
-@media (max-width:2050px) {
-  .navbar__inner {
-    width: 1200px;
-  }
-  .docs-wrapper > div main {
-    max-width: 1200px;
-    min-width: 1200px !important;
-  }
-  aside, .docs-wrapper > div main {
-    left: -179px;
-  }
-  .row .col.col--3 {
-    right: -121px;
-  }
-}
-
-@media (max-width:1800px) {
-  .navbar__inner {
-    width: 1000px;
-  }
-  .docs-wrapper > div main {
-    max-width: 1000px;
-    min-width: 1000px !important;
-  }
-  aside, .docs-wrapper > div main {
-    left: -79px;
-  }
-  .row .col.col--3 {
-    right: -70px;
-  }
+aside, .docs-wrapper > div main,
+.row .col.col--3 {
+  position: relative;
 }
 
 @media (min-width:1600px) {
@@ -428,7 +401,39 @@ nav.pagination-nav {
     left: -299px;
   }
   .row .col.col--3 {
-    right: -210px;
+    right: -388px;
+  }
+}
+
+@media (max-width:2050px) {
+  .navbar__inner {
+    width: 1200px;
+  }
+  .docs-wrapper > div main {
+    max-width: 1200px;
+    min-width: 1200px !important;
+  }
+  aside, .docs-wrapper > div main {
+    left: -179px;
+  }
+  .row .col.col--3 {
+    right: -298px;
+  }
+}
+
+@media (max-width:1800px) {
+  .navbar__inner {
+    width: 1000px;
+  }
+  .docs-wrapper > div main {
+    max-width: 1000px;
+    min-width: 1000px !important;
+  }
+  aside, .docs-wrapper > div main {
+    left: -79px;
+  }
+  .row .col.col--3 {
+    right: -248px;
   }
 }
 
@@ -453,10 +458,50 @@ nav.pagination-nav {
     min-width: 900px !important;
   }
   aside, .docs-wrapper > div main {
-    left: -29px;
+    left: -149px;
   }
   .row .col.col--3 {
-    right: -59px;
+    right: -223px;
+  }
+}
+
+@media (max-width:1500px) {
+  .navbar__logo {
+    margin-left: 8px;
+  }
+  .navbar__inner {
+    width: 700px;
+  }
+  .docs-wrapper > div main {
+    max-width: 700px;
+    min-width: 700px !important;
+  }
+  aside, .docs-wrapper > div main {
+    left: -149px;
+  }
+  .row .col.col--3 {
+    right: -173px;
+  }
+}
+
+@media (max-width:1300px) {
+  aside, .docs-wrapper > div main {
+    left: 0;
+  }
+  .row .col.col--3 {
+    right: 0;
+  }
+  .navbar__inner {
+    border-color: transparent;
+    width: auto;
+  }
+  .navbar__items--right {
+    border-color: transparent;
+  }
+  .docs-wrapper > div main,
+  .main-wrapper {
+    max-width: 100%;
+    min-width: auto !important;
   }
 }
 
