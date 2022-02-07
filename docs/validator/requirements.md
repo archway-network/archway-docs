@@ -33,7 +33,7 @@ A successful validator operation will require the efforts of multiple highly ski
 Validators should expect to run an HSM that supports ed25519 keys. Here are potential options:
 
 - YubiHSM 2
-- Ledger Nano S
+- Ledger Nano S/X
 - Ledger BOLOS SGX enclave
 - Thales nShield support
 

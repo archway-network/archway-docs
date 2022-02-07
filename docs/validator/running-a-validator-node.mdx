@@ -1,0 +1,355 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Running a Validator Node
+
+This guide shows how to setup a validator node in simple steps.
+
+## Hardware requirements
+
+- Linux distribution
+- x86_64 processor
+- 16 GB RAM
+- 500 GB to 2 TB storage\*
+
+* Storage size for validators depends on level of pruning.
+
+## Running your validator
+
+### Running your node
+
+The first step is to run a node. See the [Node Installation](../node/install.md) and [Joining a Network](../node/join-a-network.md) docs for instructions on how to get your node up and running.
+
+### Create your validator
+
+After your node is running and synced, you can create a validator by staking tokens:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd tx staking create-validator \
+  --from ${MY_VALIDATOR_ACCOUNT} \
+  --amount 1000000000udenom \
+  --min-self-delegation 1000000000udenom \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey "$(archwayd tendermint show-validator)" \
+  --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  tx staking create-validator \
+  --from ${MY_VALIDATOR_ACCOUNT} \
+  --amount 1000000000udenom \
+  --min-self-delegation 1000000000udenom \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey "$(archwayd tendermint show-validator)" \
+  --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+</Tabs>
+
+## Run validator pre-genesis
+
+### Initialize node
+
+To initialize the genesis json file that is required to establish a network:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd init my-validator --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  init my-validator --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+See this example [genesis file](https://rpc.constantine-1.archway.tech/genesis) for the Constantine testnet.
+:::
+
+<!-- **Note:** The `--home ./my-validator` flag in almost all commands tells `archwayd` to work on that specific directory. -->
+
+### Initialize account
+
+Create a key to hold your account:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd keys add my-validator-account
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  keys add my-validator-account
+```
+
+</TabItem>
+</Tabs>
+
+After you run this command, you are prompted with a password dialogue. Enter a new password for your account.
+
+<!-- :::note
+Another way of adding your validator keys is to add the validator keys to the `accounts` array of `app_state` in the `genesis.json` file that you used for the `archwayd init` command:
+
+```json
+"app_state": {
+  "auth":{
+    "params": {
+      "max_memo_characters": "256",
+      "tx_sig_limit": "7",
+      "tx_size_cost_per_byte": "10",
+      "sig_verify_cost_ed25519": "590",
+      "sig_verify_cost_secp256k1": "1000"
+    },
+    "accounts": [
+      // Add validator keys here
+    ]
+  }
+}
+```
+::: -->
+
+Now, set the number of coins to stake:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd add-genesis-account \
+  "$(archwayd keys show my-validator-account -a)" \
+  1000000000stake,1000000000ARCH
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  add-genesis-account "${VALIDATOR_ADDRESS}" 1000000000stake,1000000000ARCH
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+**Note:** Your account must have an equal amount of coins that match the bond denomination (`"bond_denom"`) in your genesis file.
+
+```json
+// genesis.json
+"staking": {
+  "params": {
+    "unbonding_time": "1814400s",
+    "max_validators": 100,
+    "max_entries": 7,
+    "historical_entries": 10000,
+    "bond_denom": "uconst" // "uconst" is the bond denomination of Constantine testnet
+  },
+}
+```
+:::
+
+### Create validator transaction
+
+Next, you must generate a transaction to create the validator:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd gentx my-validator-account 1000000000stake \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey "$(archwayd tendermint show-validator)" \
+  --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  gentx my-validator-account 1000000000stake \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey "$(archwayd tendermint show-validator)" \
+  --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+</Tabs>
+
+### Add transaction to genesis file
+
+Add the generated bonding transaction to the genesis file:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd collect-gentxs
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  collect-gentxs
+```
+
+</TabItem>
+</Tabs>
+
+### Start validator node
+
+Now, start your validator node in the local Archway network:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd start
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  start
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+**Note:** If you have multiple nodes running on the same machine, errors like `already in use ports` are returned.
+
+To proceed, run each node in isolated environments (Docker containers) or edit the `app.toml` and `conf.toml` files to setup different port numbers.
+:::
+
+## Run a validator post-genesis
+
+### Init config
+
+Initialize your validator config:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd init ${VALIDATOR_MONIKER} --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  init ${VALIDATOR_MONIKER} --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+</Tabs>
+
+### Retrieve the genesis file
+
+To retrieve the genesis file, install [jq](https://stedolan.github.io/jq/download/) (lightweight and flexible command-line JSON processor). Now, retrieve the genesis file:
+
+```bash
+curl -s "${RPC_URL}/genesis" | jq '.result.genesis' > ~/.archway/config/genesis.json
+```
+
+### Run your node
+
+Start your node in the Docker container:
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd start --p2p.seeds AddressN@Host_Name_orIPN:PORT --x-crisis-skip-assert-invariants
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  start --p2p.seeds AddressN@Host_Name_orIPN:PORT --x-crisis-skip-assert-invariants
+```
+
+</TabItem>
+</Tabs>
+
+### Create your validator
+
+After your node is running and synced, you can create a validator by staking tokens.
+
+:::note
+If you ran the previous command in interactive mode, you must run the following command in a separate terminal window.
+:::
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd tx staking create-validator \
+  --from ${MY_VALIDATOR_ACCOUNT} \
+  --amount 1000000000udenom \
+  --min-self-delegation 1000000000udenom \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey "$(archwayd tendermint show-validator)" \
+  --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  tx staking create-validator \
+  --from ${MY_VALIDATOR_ACCOUNT} \
+  --amount 1000000000udenom \
+  --min-self-delegation 1000000000udenom \
+  --commission-rate 0.01 \
+  --commission-max-rate 0.1 \
+  --commission-max-change-rate 0.1 \
+  --pubkey "$(archwayd tendermint show-validator)" \
+  --chain-id ${CHAIN_ID}
+```
+
+</TabItem>
+</Tabs>
