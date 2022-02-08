@@ -14,7 +14,7 @@ module.exports = {
   projectName: 'archway-docs',          // Repository name.
   themeConfig: {
     navbar: {
-      // title: 'Archway Network',
+      title: 'Documentation',
       logo: {
         alt: 'Archway is the passage for dApp developers to receive long-term value for their creativity and contributions',
         src: 'img/logo.svg',
@@ -22,46 +22,29 @@ module.exports = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'create/getting-started/install',
-          position: 'left',
-          label: 'Get Started',
-        },
-        {
-          to: 'https://blog.archway.io/', 
-          position: 'left',
-          target: '_blank',
-          label: 'Learn'
-        },
-        {
-          page: 'create',
-          href: '/create',
-          position: 'left',
-          label: 'Build',
-        },
-        {
-          page: 'network',
-          href: '/network',
-          position: 'left',
-          label: 'Join',
-        },
-        {
-          page: 'participate',
-          href: '/participate',
-          position: 'left',
-          label: 'Participate',
-        },
-        {
           href: 'https://github.com/archway-network/archway-docs/',
-          label: 'GitHub',
+          label: ' ',
           position: 'right',
+          className: 'header-github-link',
         },
+        {
+          href: 'https://discord.com/invite/5FVvx3WGfa',
+          label: ' ',
+          position: 'right',
+          className: 'header-discord-link',
+        }
       ],
     },
     footer: {},
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+    },
+    colorMode: {
+      switchConfig: {
+        darkIcon: '\u{25EF}',
+        lightIcon: '\u{2B24}',
+      },
     },
     // announcementBar: {
     //   id: 'unstable',
@@ -76,9 +59,9 @@ module.exports = {
       {
         name: 'build',
         children: [
-          {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket'},
-          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start', icon:'icon-guide2'},
-          {name:'Videos', value:'#', icon:'icon-video3'}
+          {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket', description:'Get started building decentralized applications on Archway'},
+          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start', icon:'icon-guide2', description:'Dive deeper into Archway smart contract development and dApp client code'},
+          {name:'Videos', value:'#', icon:'icon-video3', description:'Code along side Archway developers using our video tutorials'}
         ]
       },
       {
@@ -86,26 +69,26 @@ module.exports = {
         children: [
           // Node Operators
           [
-            {name:'Install', value:'/docs/node/install', icon:'icon-hdd'},
-            {name:'Configure', value:'/docs/node/configure', icon:'icon-settings'},
-            {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet', icon:'icon-experiments'},
-            {name:'Joining a network', value:'/docs/node/join-a-network', icon:'icon-sitemap'}
+            {name:'Install', value:'/docs/node/install', icon:'icon-hdd', description:'Installation requirements for Archway node operators'},
+            {name:'Configure', value:'/docs/node/configure', icon:'icon-settings', description:'Node configurations and operator settings'},
+            {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet', icon:'icon-experiments', description:'Running local testnet nodes'},
+            {name:'Joining a network', value:'/docs/node/join-a-network', icon:'icon-sitemap', description:'Join an existing network such as Augusta, Constantine or Titus'}
           ],
           // Validators
           [
-            {name:'What are validators?', value:'/docs/validator/overview', icon:'icon-safe1'},
-            {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1'},
-            {name:'Run a validator',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap'},
-            {name:'Monitor validators',value:'/docs/validator/monitoring-validators', icon:'icon-monitor'},
-            {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2'}
+            {name:'What are validators?', value:'/docs/validator/overview', icon:'icon-safe1', description:'Learn about validators and how they keep Archway secure'},
+            {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1', description:'Information about installation requirements for validator nodes'},
+            {name:'Run a validator',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap', description:'Running your validator and earning rewards'},
+            {name:'Monitor validators',value:'/docs/validator/monitoring-validators', icon:'icon-monitor', description:'Enable monitoring services to help ensure continuous uptime'},
+            {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common problems and issues with running validator nodes'}
           ]
         ]
       },
       {
         name: 'participate',
         children: [
-          {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet'},
-          {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig'}
+          {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet', description:'Setup a new wallet account and begin receiving and sending $ARCH'},
+          {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig', description:'Enroll your account in staking rewards'}
         ]
       }
     ]
@@ -116,14 +99,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/',
+          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/'
         },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/',
-        },
+        blog: false,
         theme: {
-          customCss: [require.resolve('./src/css/archway.css'),require.resolve('./src/css/custom.css'),require.resolve('./src/css/icons.css')]
+          customCss: [require.resolve('./src/css/custom.css'),require.resolve('./src/css/icons.css')]
         },
       },
     ],
