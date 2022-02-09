@@ -24,6 +24,7 @@ module.exports = {
         {
           href: 'https://www.archway.io/',
           label: 'Back to website',
+          position: 'right',
           className: 'back-to-website',
         },
         {
