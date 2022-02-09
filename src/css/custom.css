@@ -21,6 +21,7 @@
   --ifm-footer-background-color: #FFFFFF;
   --ifm-code-font-size: 95%;
   --ifm-toc-border-color: #000000;
+  --ifm-navbar-height: 80px;
 }
 
 html[data-theme='dark'] {
@@ -54,6 +55,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 body, html {
   font: 400 100%/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.navbar__brand img {
+  width: 160px;
+  margin-left: 40px;
 }
 
 b.navbar__title {
@@ -105,6 +111,15 @@ html[data-theme='dark'] .header-discord-link:before {
 
 .header-discord-link:hover {
   opacity: 0.5;
+}
+
+.back-to-website {
+  position: absolute;
+  right: 20%;
+}
+
+.back-to-website > span > svg {
+  display: none;
 }
 
 .navbar__items--right div:last-of-type > div:last-of-type {
