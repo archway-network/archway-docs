@@ -107,10 +107,6 @@ html[data-theme='dark'] .header-discord-link:before {
   opacity: 0.5;
 }
 
-.react-toggle-track-x, .react-toggle-track-check {
-  display: none;
-}
-
 .react-toggle-thumb {
   background-color: var(--ifm-color-primary) !important;
   border-color: transparent !important;
@@ -143,6 +139,12 @@ html[data-theme='dark'] .react-toggle-thumb {
   height: 160px;
   padding: 24px;
   margin-right: 24px;
+  margin-bottom: 24px;
+  transition: all .2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card-title {

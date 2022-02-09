@@ -43,7 +43,13 @@ module.exports = {
     colorMode: {
       switchConfig: {
         darkIcon: '\u{25EF}',
+        darkIconStyle: {
+          display: 'none',
+        },
         lightIcon: '\u{2B24}',
+        lightIconStyle: {
+          display: 'none',
+        }
       },
     },
     // announcementBar: {
@@ -72,22 +78,22 @@ module.exports = {
             {name:'Install', value:'/docs/node/install', icon:'icon-hdd', description:'Installation requirements for Archway node operators'},
             {name:'Configure', value:'/docs/node/configure', icon:'icon-settings', description:'Node configurations and operator settings'},
             {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet', icon:'icon-experiments', description:'Running local testnet nodes'},
-            {name:'Joining a network', value:'/docs/node/join-a-network', icon:'icon-sitemap', description:'Join an existing network such as Augusta, Constantine or Titus'}
+            {name:'Joining a network', value:'/docs/node/join-a-network', icon:'icon-sitemap', description:'Join an existing Archway network such as Augusta, Constantine or Titus'}
           ],
           // Validators
           [
             {name:'What are validators?', value:'/docs/validator/overview', icon:'icon-safe1', description:'Learn about validators and how they keep Archway secure'},
-            {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1', description:'Information about installation requirements for validator nodes'},
+            {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1', description:'Installation requirements for validator nodes'},
             {name:'Run a validator',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap', description:'Running your validator and earning rewards'},
             {name:'Monitor validators',value:'/docs/validator/monitoring-validators', icon:'icon-monitor', description:'Enable monitoring services to help ensure continuous uptime'},
-            {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common problems and issues with running validator nodes'}
+            {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common problems with validator nodes'}
           ]
         ]
       },
       {
         name: 'participate',
         children: [
-          {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet', description:'Setup a new wallet account and begin receiving and sending $ARCH'},
+          {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet', description:'Setup a new account to begin receiving and sending coins'},
           {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig', description:'Enroll your account in staking rewards'}
         ]
       }
