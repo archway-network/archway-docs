@@ -93,6 +93,12 @@ export default function Home() {
           <p>Explore our guides and examples to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
 
+        {/* Participate */}
+        <div className="container create-cats">
+          <h1>Participate</h1>
+          <div className='card-deck'>{participateCategoryItems}</div>
+        </div>
+
         {/* Create */}
         <div className="container create-cats">
           <h1>Creating dApps</h1>
@@ -101,7 +107,7 @@ export default function Home() {
 
         {/* Node */}
         <div className="container create-cats">
-          <h1>Running a Node</h1>
+          <h1>Run a Node</h1>
           <div className='card-deck'>{nodeCategoryItems}</div>
         </div>
 
@@ -109,12 +115,6 @@ export default function Home() {
         <div className="container create-cats">
           <h1>Become a Validator</h1>
           <div className='card-deck'>{validatorCategoryItems}</div>
-        </div>
-
-        {/* Participate */}
-        <div className="container create-cats">
-          <h1>Participate</h1>
-          <div className='card-deck'>{participateCategoryItems}</div>
         </div>
       </main>
     </Layout>

@@ -107,18 +107,18 @@ html[data-theme='dark'] .header-discord-link:before {
   opacity: 0.5;
 }
 
-.react-toggle-thumb {
+.navbar__items--right div:last-of-type > div:last-of-type {
   background-color: var(--ifm-color-primary) !important;
   border-color: transparent !important;
   left: 4px !important;
   top: 4px !important;
 }
 
-html[data-theme='dark'] .react-toggle-thumb {
+html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-type {
   left: 24px !important;
 }
 
-.react-toggle-track {
+.navbar__items--right div:last-of-type > div:first-of-type:not(.navbar__items--right div:last-of-type > div:first-of-type > div) {
   background-color: var(--ifm-font-color-base-inverse) !important;
   border: 1px solid var(--ifm-color-primary) !important;
   height: 30px !important;
