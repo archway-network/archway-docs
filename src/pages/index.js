@@ -90,7 +90,7 @@ export default function Home() {
       <main>
         <div className="container">
           <h1>Welcome</h1>
-          <p>Explore our guides and examples to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow.</p>
         </div>
 
         {/* Participate */}

@@ -15,6 +15,7 @@
   --ifm-color-primary-lighter: #D6D6D6;
   --ifm-color-primary-lightest: #F6F6F6;
   --ifm-font-color-base-inverse: #FFFFFF;
+  --ifm-font-color-highlight: #F15A27;
   --ifm-color-secondary: #FFFFFF;
   --ifm-background-color: #FFFFFF;
   --ifm-navbar-background-color: #FFFFFF;
@@ -23,6 +24,7 @@
   --ifm-toc-border-color: #000000;
   --ifm-toc-border-color-alt: rgba(0,0,0,0.15);
   --ifm-navbar-height: 80px;
+  --ifm-navbar-shadow: #000000;
 }
 
 html[data-theme='dark'] {
@@ -35,6 +37,7 @@ html[data-theme='dark'] {
   --ifm-footer-background-color: #000000;
   --ifm-toc-border-color: #FFFFFF;
   --ifm-toc-border-color-alt: rgba(255,255,255,0.25);
+  --ifm-navbar-shadow: #FFFFFF;
 }
 
 .docusaurus-highlight-code-line {
@@ -57,6 +60,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 body, html {
   font: 400 100%/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
+  overflow-x: hidden;
 }
 
 .navbar__brand img {
@@ -130,6 +134,10 @@ html[data-theme='dark'] .header-discord-link:before {
   padding-right: 40px;
 }
 
+.back-to-website span:hover {
+  opacity: 0.6;
+}
+
 .back-to-website > span > svg {
   display: none;
 }
@@ -152,6 +160,10 @@ html[data-theme='dark'] .header-discord-link:before {
 
 html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-type {
   left: 24px !important;
+}
+
+.navbar.navbar--fixed-top {
+  border: 1px solid var(--ifm-toc-border-color-alt);
 }
 
 .navbar__items--right div:last-of-type > div:first-of-type:not(.navbar__items--right div:last-of-type > div:first-of-type > div) {
@@ -189,4 +201,31 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
 
 main .container {
   margin-top: 60px;
+}
+
+.menu__link {
+  color: var(--ifm-font-color-primary);
+}
+
+.menu__link--sublist:after {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-image: url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"%3E%3Cpath d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"%3E%3C/path%3E%3C/svg%3E'); 
+}
+
+.menu__link:hover,
+.menu__link--active {
+  color: var(--ifm-font-color-highlight);
+}
+
+.menu__link,
+.menu__link--active,
+.menu__link:hover {
+  background: none !important;
+}
+
+.docs-wrapper div > aside,
+main > div.container > div.row > div.col--3 > div > ul {
+  border-color: var(--ifm-toc-border-color-alt);
 }
