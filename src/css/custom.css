@@ -231,7 +231,7 @@ main .container {
   color: var(--ifm-font-color-highlight);
 }
 
-.menu__list:first {
+.theme-doc-sidebar-menu {
   margin: 40px;
   margin-left: calc(50px - var(--ifm-menu-link-padding-horizontal));
 }
