@@ -90,7 +90,7 @@ module.exports = {
           [
             {name:'What are validators?', value:'/docs/validator/overview', icon:'icon-safe1', description:'Learn about validators and how they keep Archway secure'},
             {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1', description:'Installation requirements for validator nodes'},
-            {name:'Run a validator',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap', description:'Running your validator and earning rewards'},
+            {name:'Run a validator node',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap', description:'Running your validator and earning rewards'},
             {name:'Monitor validators',value:'/docs/validator/monitoring-validators', icon:'icon-monitor', description:'Enable monitoring services to help ensure continuous uptime'},
             {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common problems with validator nodes'}
           ]

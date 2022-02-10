@@ -221,7 +221,11 @@ main .container {
 
 .menu__link,
 .menu__link--active,
-.menu__link:hover {
+.menu__link:hover,
+.menu__caret:hover, 
+.menu__link:hover, 
+.menu__list-item-collapsible--active, 
+.menu__list-item-collapsible:hover {
   background: none !important;
 }
 
