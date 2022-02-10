@@ -38,7 +38,7 @@ html[data-theme='dark'] {
   --ifm-footer-background-color: #000000;
   --ifm-toc-border-color: #FFFFFF;
   --ifm-toc-border-color-alt: rgba(255,255,255,0.25);
-  --ifm-toc-border-color-alt-2: rgba(255,255,255,0.25);
+  --ifm-toc-border-color-alt-2: rgba(255,255,255,0.5);
   --ifm-navbar-shadow: #FFFFFF;
 }
 
@@ -129,6 +129,7 @@ html[data-theme='dark'] .header-discord-link:before {
 
 .header-discord-link:hover {
   opacity: 0.5;
+  border-right: 1.5px solid var(--ifm-toc-border-color-alt-2);
 }
 
 .back-to-website {
