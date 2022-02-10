@@ -26,6 +26,7 @@
   --ifm-toc-border-color-alt-2: rgba(0,0,0,0.25);
   --ifm-navbar-height: 80px;
   --ifm-navbar-shadow: #000000;
+  --ifm-font-family-base: "Inter";
 }
 
 html[data-theme='dark'] {
