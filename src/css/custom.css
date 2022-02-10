@@ -17,12 +17,13 @@
   --ifm-font-color-base-inverse: #FFFFFF;
   --ifm-font-color-highlight: #F15A27;
   --ifm-color-secondary: #FFFFFF;
-  --ifm-background-color: #FFFFFF;
-  --ifm-navbar-background-color: #FFFFFF;
-  --ifm-footer-background-color: #FFFFFF;
+  --ifm-background-color: #F9F9F9;
+  --ifm-navbar-background-color: #F9F9F9;
+  --ifm-footer-background-color: #F9F9F9;
   --ifm-code-font-size: 95%;
   --ifm-toc-border-color: #000000;
   --ifm-toc-border-color-alt: rgba(0,0,0,0.15);
+  --ifm-toc-border-color-alt-2: rgba(0,0,0,0.25);
   --ifm-navbar-height: 80px;
   --ifm-navbar-shadow: #000000;
 }
@@ -37,6 +38,7 @@ html[data-theme='dark'] {
   --ifm-footer-background-color: #000000;
   --ifm-toc-border-color: #FFFFFF;
   --ifm-toc-border-color-alt: rgba(255,255,255,0.25);
+  --ifm-toc-border-color-alt-2: rgba(255,255,255,0.25);
   --ifm-navbar-shadow: #FFFFFF;
 }
 
@@ -70,7 +72,7 @@ body, html {
 
 b.navbar__title {
   text-transform: uppercase;
-  font-family: Helvetica Neue;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -178,7 +180,7 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
 }
 
 .card {
-  border: 1px solid var(--ifm-toc-border-color);
+  border: 1px solid var(--ifm-toc-border-color-alt-2);
   background-color: var(--ifm-font-color-base-inverse);
   display: inline-block;
   box-sizing: border-box;
@@ -188,11 +190,14 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
   padding: 24px;
   margin-right: 24px;
   margin-bottom: 24px;
-  transition: all .2s ease-in-out;
+  top: 0px;
+  transition: top .2s ease-in-out;
+  position: relative;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
+  top: -10px;
 }
 
 .card-title {
@@ -203,7 +208,8 @@ main .container {
   margin-top: 60px;
 }
 
-.menu__link {
+.menu__link,
+.table-of-contents__link {
   color: var(--ifm-font-color-primary);
 }
 
@@ -215,7 +221,9 @@ main .container {
 }
 
 .menu__link:hover,
-.menu__link--active {
+.menu__link--active,
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
   color: var(--ifm-font-color-highlight);
 }
 
