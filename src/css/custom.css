@@ -26,6 +26,7 @@
   --ifm-toc-border-color-alt-2: rgba(0,0,0,0.25);
   --ifm-navbar-height: 80px;
   --ifm-navbar-shadow: #000000;
+  --ifm-heading-font-family: "Inter";
   --ifm-font-family-base: "Inter";
 }
 
@@ -207,7 +208,8 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
 }
 
 main .container {
-  margin-top: 60px;
+  margin-top: 40px;
+  padding-top: 0;
 }
 
 .menu__link,
@@ -229,6 +231,11 @@ main .container {
   color: var(--ifm-font-color-highlight);
 }
 
+.menu__list {
+  margin: 40px;
+  margin-left: calc(50px - var(--ifm-menu-link-padding-horizontal));
+}
+
 .menu__link,
 .menu__link--active,
 .menu__link:hover,
@@ -242,4 +249,12 @@ main .container {
 .docs-wrapper div > aside,
 main > div.container > div.row > div.col--3 > div > ul {
   border-color: var(--ifm-toc-border-color-alt);
+}
+
+main > div.container > div.row > div.col--3 > div > ul {
+  padding-left: 40px;
+}
+
+.container.padding-top--md {
+  padding-top: 0 !important;
 }
