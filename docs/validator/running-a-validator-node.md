@@ -8,27 +8,31 @@ This guide shows how to setup a validator node in simple steps.
 
 
 :::caution
-**Note:** For the moment Archway can be installed only by pulling from Docker Hub:
+**Note:** Archway can be installed only by pulling from Docker Hub:
 
 `docker pull archwaynetwork/archwayd:latest`
 
-Installing archwayd from source, coming soon!
+Installing archwayd from source is coming soon!
 :::
 
 ## Hardware requirements
-- Linux distribution
-- `x86_64` processor
-- 16GB RAM
-- 500GB-2TB Storage\*
 
-* Storage size for validators will depend on level of pruning.
+- Linux distribution
+- x86_64 processor
+- 16 GB RAM
+- 500 GB to 2 TB storage\*
+
+* Storage size for validators depends on level of pruning.
 
 ## Running your validator
+
 ### Running your node 
-The first step is to run a node. See the instructions [here](../node/join-a-network.md) on how to get your node up and running.
+
+The first step is to run a node. See the [Joining a Network](../node/join-a-network.md) doc for instructions on how to get your node up and running.
 
 ### Create your validator
-Once your node is running (and synced up to date) you can create a validator by staking tokens.
+
+After your node is running and synced, you can create a validator by staking tokens:
 
 ```bash
 archwayd tx staking create-validator \
@@ -43,29 +47,33 @@ archwayd tx staking create-validator \
 ```
 
 ## Run validator on genesis
+
 ### Initialize node
 
-Run the following command to initialize the genesis json file which is required to establish a network.
+To initialize the genesis json file that is required to establish a network:
+
 ```bash
 archwayd init my-validator --chain-id my-chain 
 ```
 
 :::info
-See [here](https://rpc.constantine-1.archway.tech/genesis) for an example of the genesis file for Constantine testnet.
+See this example [genesis file](https://rpc.constantine-1.archway.tech/genesis) for the Constantine testnet.
 ::: 
 
-<!-- **Note:** Please note that, we use `--home ./my-validator` flag in almost all commands in order to tell `archwayd` that we need to work on that specific directory. -->
+<!-- **Note:** The `--home ./my-validator` flag in almost all commands tells `archwayd` to work on that specific directory. -->
 
 ### Initialize account
 
-Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
+Create a key to hold your account:
 
 ```bash
 archwayd keys add my-validator-account
 ```
 
+After you run this command, you are prompted with a password dialogue. Enter a new password for your account.
+
 <!-- :::note
-Another way of adding your validator keys, would be to add it to the `accounts` array of `app_state` in your genesis.json file that you used for the `archwayd init` command
+Another way of adding your validator keys is to add the validator keys to the `accounts` array of `app_state` in the `genesis.json` file that you used for the `archwayd init` command:
 
 ```json
 "app_state": {
@@ -85,14 +93,14 @@ Another way of adding your validator keys, would be to add it to the `accounts` 
 ```
 ::: -->
 
-This next command lets you set the number of coins to stake.
+Now, set the number of coins to stake:
 
 ```bash
 archwayd add-genesis-account $(archwayd keys show my-validator-account -a) 1000000000stake,1000000000ARCH
 ```
 
 :::info
-**Note:** Make sure your account has an equal amount of coins matching the "bond denomination" of your genesis file.
+**Note:** Your account must have an equal amount of coins that match the bond denomination (`"bond_denom"`) in your genesis file.
 
 ```json
 // genesis.json
@@ -110,7 +118,7 @@ archwayd add-genesis-account $(archwayd keys show my-validator-account -a) 10000
 
 ### Create validator transaction
 
-Next we need to generate a transaction creating the validator.
+Next, you must generate a transaction to create the validator:
 
 ```bash
 archwayd gentx my-validator-account 1000000000stake \
@@ -123,7 +131,7 @@ archwayd gentx my-validator-account 1000000000stake \
 
 ### Add transaction to genesis file
 
-And now we'll add the generated bonding transaction to the genesis file
+Add the generated bonding transaction to the genesis file:
 
 ```bash
 archwayd collect-gentxs
@@ -131,71 +139,80 @@ archwayd collect-gentxs
 
 ### Start validator node
 
-Now we can start our validator node in the local archway network
+Now, start your validator node in the local Archway network:
 
 ```bash
 archwayd start
 ```
 
 :::tip
-**Note:** If you have multiple nodes running on the same machine, you will get some errors such as `already in use ports`. 
+**Note:** If you have multiple nodes running on the same machine, errors like `already in use ports` are returned. 
 
-You'll either need to run them in isolated environments _e.g. containers_ or edit the `app.toml` and `conf.toml` files to setup different port numbers.
+To proceed, run each node in isolated environments (Docker containers) or edit the `app.toml` and `conf.toml` files to setup different port numbers.
 :::
 
 
 ## Run validator from Docker
 
-Since the `archwayd` binary is only available at the moment from Docker Hub.
+The `archwayd` binary is available only from Docker Hub:
 
 ```bash
 docker run --rm -it -v /tmp/.archway:/root/.archway archwaynetwork/archwayd:latest
 ```
 
 :::tip
-To simplify using the Docker container you can set an alias 
+To simplify using the Docker container, set an alias
 `alias archwayd='docker run --rm -it -v /tmp/.archway:/root/.archway archwaynetwork/archwayd:latest'`
 
-After setting this alias, you'll be able to use the other `archwayd` commands in this guide without typing the verbose Docker run command.
+After setting this alias, you can use the other `archwayd` commands without typing the verbose Docker run command.
 :::
 
-### Get the Docker Image
-First we have to get the docker image 
+### Get the Docker image
+
+First, get the docker image:
 
 ```bash
 docker pull archwaynetwork/archwayd:latest
 ```
 
 ### Init config 
-Now we can initialize our validator config
+
+Now, initialize your validator config:
+
 ```bash
-# E.g. archwayd init "main_wallet"
+# archwayd init "main_wallet"
 archwayd init ${MY_VALIDATOR_ACCOUNT_NAME}
 ```
 
 ### Retrieve genesis file
-To retreive the genesis file we need to install jq to process json
+
+To retrieve the genesis file, install [jq](https://stedolan.github.io/jq/) (lightweight and flexible command-line JSON processor):
+
 ```bash
 apk add jq
 ```
 
-We can now retrieve our genesis file with:
+Now, retrieve your genesis file:
+
 ```bash
 sudo sh -c 'wget -qO- ${RPC_URL}/genesis | jq ."result"."genesis" > /tmp/.archway/config/genesis.json'
 ```
 
 ### Run your node
-Let's start our node in the container
+
+Start your node in the Docker container:
+
 ```bash
 archwayd start --p2p.seeds <AddressN>@<Host_Name_orIPN>:<PORT> --x-crisis-skip-assert-invariants
 ```
 
 
-### Create your valdiator
-Once your node is running and synced, you can create a validator by staking tokens.
+### Create your validator
+
+After your node is running and synced, you can create a validator by staking tokens.
 
 :::note
-If you ran the previous command in interactive mode, you'll want to run the following command in a separate terminal window 
+If you ran the previous command in interactive mode, you must run the following command in a separate terminal window. 
 :::
 
 ```bash
