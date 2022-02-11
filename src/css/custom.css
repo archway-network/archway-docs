@@ -180,7 +180,8 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
   border: 1px solid var(--ifm-toc-border-color-alt);
 }
 
-.navbar__items--right div:last-of-type > div:first-of-type:not(.navbar__items--right div:last-of-type > div:first-of-type > div) {
+.navbar__items--right div:last-of-type > div:first-of-type:not(.navbar__items--right div:last-of-type > div:first-of-type > div),
+.react-toggle-track {
   background-color: var(--ifm-font-color-base-inverse) !important;
   border: 1px solid var(--ifm-color-primary) !important;
   height: 30px !important;
@@ -189,6 +190,7 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
 
 .react-toggle-track {
   width: 60px !important;
+  background: transparent !important;
 }
 
 .react-toggle-track-x {

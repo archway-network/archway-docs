@@ -25,6 +25,9 @@
     margin-left: 6px !important;
     margin-top: 32px !important;
   }
+  [data-theme='dark'] .navbar-sidebar {
+    border-right: 1px solid var(--ifm-toc-border-color-alt);
+  }
   .navbar-sidebar__item.menu ul,
   .navbar-sidebar .navbar-sidebar__brand > div:first-of-type {
     position: absolute;
@@ -44,6 +47,9 @@
   }
   [data-theme='dark'] .react-toggle .react-toggle-thumb, .react-toggle--checked .react-toggle-thumb {
     left: 36px !important;
+  }
+  .react-toggle-thumb {
+    top: 4px !important;
   }
 }
 
