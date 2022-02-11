@@ -101,7 +101,7 @@ export default function Home() {
 
         {/* Create */}
         <div className="container create-cats">
-          <h1>Creating dApps</h1>
+          <h1>Create dApps</h1>
           <div className='card-deck'>{createCategoryItems}</div>
         </div>
 
