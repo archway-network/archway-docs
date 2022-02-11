@@ -178,6 +178,8 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
 
 .navbar.navbar--fixed-top {
   border: 1px solid var(--ifm-toc-border-color-alt);
+  border-left: 0;
+  border-right: 0;
 }
 
 .navbar__items--right div:last-of-type > div:first-of-type:not(.navbar__items--right div:last-of-type > div:first-of-type > div),
