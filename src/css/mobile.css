@@ -1,6 +1,7 @@
 @media screen and (max-width: 1000px) {
   .navbar-sidebar__item.menu ul.menu__list {
     display: block;
+    width: 96%;
   }
   .navbar-sidebar__item.menu ul.menu__list li > a {
     border: 0;
@@ -13,7 +14,7 @@
     padding-right: 0.25em;
   }
   .back-to-website {
-    border-bottom: 1px solid black !important;
+    border-bottom: 1px solid var(--ifm-color-primary) !important;
     border-radius: 0;
     margin-left: 16px;
     margin-right: 16px;
@@ -24,8 +25,48 @@
     margin-left: 6px !important;
     margin-top: 32px !important;
   }
+  .navbar-sidebar__item.menu ul,
+  .navbar-sidebar .navbar-sidebar__brand > div:first-of-type {
+    position: absolute;
+    bottom: 0;
+  }
+  .navbar-sidebar__item.menu ul {
+    padding-bottom: 32px;
+  }
+  .navbar-sidebar .navbar-sidebar__brand > div:first-of-type {
+    right: 0;
+    padding-bottom: 32px;
+    z-index: 1000;
+  }
+  .navbar-sidebar .navbar-sidebar__brand div:first-of-type div .react-toggle-track-x,
+  .navbar-sidebar .navbar-sidebar__brand div:first-of-type div .react-toggle-track-check {
+    bottom: 32px;
+  }
+  [data-theme='dark'] .react-toggle .react-toggle-thumb, .react-toggle--checked .react-toggle-thumb {
+    left: 36px !important;
+  }
 }
 
 @media screen and (max-width: 600px) {
-
+  #__docusaurus {
+    overflow-x: hidden;
+  }
+  .navbar__items {
+    width: 100vw;
+  }
+  img.navbar__logo {
+    width: 94px;
+    height: 12px;
+  }
+  b.navbar__title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.01em;
+  }
+  .main-wrapper {
+    padding: 0.75rem;
+    max-width: 100vw;
+  }
 }
