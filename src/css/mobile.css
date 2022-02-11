@@ -1,0 +1,31 @@
+@media screen and (max-width: 1000px) {
+  .navbar-sidebar__item.menu ul.menu__list {
+    display: block;
+  }
+  .navbar-sidebar__item.menu ul.menu__list li > a {
+    border: 0;
+  }
+  .navbar-sidebar__item.menu ul.menu__list li:not(:first-child),
+  .navbar-sidebar__item.menu ul.menu__list li:not(:first-child) a {
+    display: inline-block;
+    margin: 0;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+  }
+  .back-to-website {
+    border-bottom: 1px solid black !important;
+    border-radius: 0;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-bottom: 32px;
+    padding-left: 0;
+  }
+  .header-github-link {
+    margin-left: 6px !important;
+    margin-top: 32px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+}
