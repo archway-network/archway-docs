@@ -4,11 +4,10 @@ sidebar_position: 6
 
 # Building a dApp frontend
 
-For building web frontends, the following [npm](https://www.npmjs.com/) packages work together to connect web pages to Archway Network.
+For building web frontends, you'll need the following [npm](https://www.npmjs.com/) packages to connect your web page to Archway Network.
 
 - [@cosmjs/stargate](https://www.npmjs.com/package/@cosmjs/stargate)
 - [@cosmjs/cosmwasm-stargate](https://www.npmjs.com/package/@cosmjs/cosmwasm-stargate)
-- [@cosmjs/proto-signing](https://www.npmjs.com/package/@cosmjs/proto-signing)
 
 #### @cosmjs/stargate
 `@cosmjs/stargate` is client library for the Cosmos SDK.
@@ -16,46 +15,76 @@ For building web frontends, the following [npm](https://www.npmjs.com/) packages
 #### @cosmjs/cosmwasm-stargate
 `@cosmjs/cosmwasm-stargate` is an SDK to build CosmWasm clients. It extends `@cosmjs/stargate` with functionality for [CosmWasm](https://cosmwasm.com/) contracts.
 
-#### @cosmjs/proto-signing
-`@cosmjs/proto-signing` contains utilities for signing transactions from a wallet. It uses protobuf based signing as documented in [ADR-020](https://github.com/cosmos/cosmos-sdk/blob/66c5798cec/docs/architecture/adr-020-protobuf-transaction-encoding.md) and the [3 levels of proto encoding](https://warta.it/blog/cosmos-sdk-protobuf-signing).
-
 
 ### Connecting to Archway
 
-Let's connect an end user to Archway Network using a wallet mnemonic.
+We’ll need our dApp to connect to users’ wallets with a browser extension like [Keplr](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap) wallet.
 
-:::danger
-In a real world use case we'd authorize using a browser extension. In browser authentication is a feature still actively being working on.
-:::
+After installing the extension, you’ll notice Keplr is exposed to web pages as a property of the JavaScript window object of the active page.
+
+![](../../../assets/keplr11.png)
+
+Keplr also needs some metadata about the chain it’s connecting to, and the type of contracts stored there.
+Here's the parameters you'll need to connect to Archway’s Constantine testnet and enable CosmWasm smart contracts.
 
 ```js
-import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
-import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
+const ChainInfo = {
+  chainId: "constantine-1",
+  chainName: "Constantine Testnet",
+  rpc: "https://rpc.constantine-1.archway.tech" ,
+  rest: "https://api.constantine-1.archway.tech",
+  stakeCurrency: {coinDenom: "CONST",coinMinimalDenom: "uconst",coinDecimals: 6},
+  bip44: {coinType: 118},
+  bech32Config: {bech32PrefixAccAddr: "archway",bech32PrefixAccPub: "archwaypub",bech32PrefixValAddr: "archwayvaloper",bech32PrefixValPub: "archwayvaloperpub",bech32PrefixConsAddr: "archwayvalcons",bech32PrefixConsPub: "archwayvalconspub"
+  },
+  currencies: [{coinDenom: "CONST",coinMinimalDenom: "uconst",coinDecimals: 6}],
+  feeCurrencies: [{coinDenom: "CONST",coinMinimalDenom: "uconst",coinDecimals: 6}],
+  coinType: 118,
+  gasPriceStep: {low: 0,average: 0.1,high: 0.2},
+  features: ['cosmwasm']
+};
+```
+
+Now we can use `ChainInfo` to set up Keplr for Constantine testnet.
+
+```js
+import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
 import { GasPrice } from "@cosmjs/stargate";
+ 
+let accounts, CosmWasmClient, queryHandler, gasPrice;
 
-const RPC = "https://rpc.constantine-1.archway.tech:443"; // Or, titus deployments: `const RPC = "https://rpc.titus-1.archway.tech:443";`
-const BECH32_PREFIX = "archway";
-const userAddress = process.env.ACCOUNT_ADDRESS; // Your account address (pub address for mnemonic)
-const mnemonic = process.env.ACCOUNT_MNEMONIC; // Your test mnemonic
-
-let user, CosmWasmClient, queryHandler, gasPrice;
-const init = async () =>  {
-  // User wallet
-  user = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { prefix: BECH32_PREFIX });
-  // RPC access
-  CosmWasmClient = await SigningCosmWasmClient.connectWithSigner(RPC, user);
-  // Reference to querying a contract using the 'smart' query module
-  queryHandler = CosmWasmClient.queryClient.wasm.queryContractSmart;
-  // Gas price
-  gasPrice = GasPrice.fromString('0.002uconst');
-
-  console.log('dApp Initialized', {
-    user: user,
-    client: CosmWasmClient,
-    queryHandler: queryHandler,
-    gasPrice: gasPrice
-  });
-}
+async function connectKeplrWallet() {
+  if (window['keplr']) {
+    if (window.keplr['experimentalSuggestChain']) {
+      await window.keplr.experimentalSuggestChain()
+      await window.keplr.enable(ChainInfo.chainId);
+      const offlineSigner = await window.getOfflineSigner(ChainInfo.chainId);
+      CosmWasmClient = await SigningCosmWasmClient.connectWithSigner(ChainInfo.rpc, offlineSigner);
+     
+      // This async waits for the user to authorize your dApp
+      // it returns their account address only after permissions
+      // to read that address are granted
+      accounts = await this.offlineSigner.getAccounts();
+ 
+      queryHandler = CosmWasmClient.queryClient.wasm.queryContractSmart;
+      // Gas price
+      gasPrice = GasPrice.fromString('0.002uconst');
+ 
+      console.log('Wallet connected', {
+        offlineSigner: offlineSigner,
+        CosmWasmClient: CosmWasmClient,
+        accounts: accounts,
+        chain: ChainInfo,
+        queryHandler: queryHandler,
+        gasPrice: gasPrice
+      });
+    } else {
+      console.warn('Error accessing experimental features, please update Keplr');
+    }
+  } else {
+    console.warn('Error accessing Keplr, please install Keplr');
+  }
+};
 ```
 
 ## Querying the counter
@@ -79,7 +108,7 @@ const getCount = async () => {
 ```
 
 ## Incrementing the counter
-To broadcast transactions we call the `execute` function, from our previous `CosmWasmClient` reference, using the following arguments:
+To broadcast transactions we call the `execute` function using our previous `CosmWasmClient` reference. We call this function with the following parameters:
 
 1. **userAddress** - the address broadcasting the transaction
 2. **ContractAddress** - the address of the contract the user is transacting with
@@ -99,7 +128,7 @@ const incrementCounter = async () => {
     increment: {}
   };
   // Gas fee estimation
-  let txFee = calculateFee(300_000, gasPrice);
+  let txFee = calculateFee(300000, gasPrice);
   // Send Tx
   let tx = await CosmWasmClient.execute(userAddress, ContractAddress, entrypoint, txFee);
   console.log('Increment Tx', tx);

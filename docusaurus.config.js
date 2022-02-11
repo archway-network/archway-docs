@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Archway Network',
   tagline: 'Elevate your ecosystem',
-  url: 'https://archway-docs.netlify.app',
+  url: 'https://docs.archway.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -14,7 +14,7 @@ module.exports = {
   projectName: 'archway-docs',          // Repository name.
   themeConfig: {
     navbar: {
-      // title: 'Archway Network',
+      title: 'Documentation',
       logo: {
         alt: 'Archway is the passage for dApp developers to receive long-term value for their creativity and contributions',
         src: 'img/logo.svg',
@@ -22,28 +22,41 @@ module.exports = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'create/getting-started/install',
-          position: 'left',
-          label: 'Getting Started',
-        },
-        {
-          to: 'https://blog.archway.io/', 
-          label: 'Blog', 
-          position: 'left',
-          target: '_blank'
+          href: 'https://www.archway.io/',
+          label: 'Back to website',
+          position: 'right',
+          className: 'back-to-website',
         },
         {
           href: 'https://github.com/archway-network/archway-docs/',
-          label: 'GitHub',
+          label: ' ',
           position: 'right',
+          className: 'header-github-link',
         },
+        {
+          href: 'https://discord.com/invite/5FVvx3WGfa',
+          label: ' ',
+          position: 'right',
+          className: 'header-discord-link',
+        }
       ],
     },
     footer: {},
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+    },
+    colorMode: {
+      switchConfig: {
+        darkIcon: '\u{25EF}',
+        darkIconStyle: {
+          display: 'none',
+        },
+        lightIcon: '\u{2B24}',
+        lightIconStyle: {
+          display: 'none',
+        }
+      },
     },
     // announcementBar: {
     //   id: 'unstable',
@@ -53,20 +66,56 @@ module.exports = {
     //   isCloseable: false,
     // },
   },
+  customFields: {
+    pageCategories: [
+      {
+        name: 'build',
+        children: [
+          {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket', description:'Get started building decentralized applications on Archway'},
+          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start', icon:'icon-guide2', description:'Dive deeper into Archway smart contract development and dApp client code'},
+          {name:'Videos', value:'#', icon:'icon-video3', description:'Code along side Archway developers using our video tutorials'}
+        ]
+      },
+      {
+        name: 'join',
+        children: [
+          // Node Operators
+          [
+            {name:'Install', value:'/docs/node/install', icon:'icon-hdd', description:'Installation requirements for Archway node operators'},
+            {name:'Configure', value:'/docs/node/configure', icon:'icon-settings', description:'Node configurations and operator settings'},
+            {name:'Run a local testnet', value:'/docs/node/running-a-local-testnet', icon:'icon-experiments', description:'Running local testnet nodes'},
+            {name:'Joining a network', value:'/docs/node/join-a-network', icon:'icon-sitemap', description:'Join an existing Archway network such as Augusta, Constantine or Titus'}
+          ],
+          // Validators
+          [
+            {name:'What are validators?', value:'/docs/validator/overview', icon:'icon-safe1', description:'Learn about validators and how they keep Archway secure'},
+            {name:'Requirements', value:'/docs/validator/requirements', icon:'icon-download1', description:'Installation requirements for validator nodes'},
+            {name:'Run a validator node',value:'/docs/validator/running-a-validator-node', icon:'icon-sitemap', description:'Running your validator and earning rewards'},
+            {name:'Monitor validators',value:'/docs/validator/monitoring-validators', icon:'icon-monitor', description:'Enable monitoring services to help ensure continuous uptime'},
+            {name:'Troubleshoot',value:'/docs/validator/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common problems with validator nodes'}
+          ]
+        ]
+      },
+      {
+        name: 'participate',
+        children: [
+          {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet', description:'Setup a new account to begin receiving and sending coins'},
+          {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig', description:'Enroll your account in staking rewards'}
+        ]
+      }
+    ]
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/',
+          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/'
         },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/',
-        },
+        blog: false,
         theme: {
-          customCss: [require.resolve('./src/css/archway.css'),require.resolve('./src/css/custom.css')]
+          customCss: [require.resolve('./src/css/custom.css'),require.resolve('./src/css/mobile.css'),require.resolve('./src/css/icons.css')]
         },
       },
     ],

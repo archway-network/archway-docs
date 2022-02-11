@@ -85,14 +85,14 @@ Printing deployments...
 [
   {
     type: 'instatiate',
-    address: 'wasm1rfa3scumm5y2lt6jku49hg52y2tk06pnsm9p6w',
-    chainId: 'pebblenet-1',
+    address: 'archway1rfa3scumm5y2lt6jku49hg52y2tk06pnsm9p6w',
+    chainId: 'constantine-1',
     data: '{...}'
   },
   {
     type: 'create',
     codeId: '84',
-    chainId: 'pebblenet-1',
+    chainId: 'constantine-1',
     data: '{...}'
   }
 ]

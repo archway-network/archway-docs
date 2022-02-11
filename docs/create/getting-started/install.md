@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Install Archway
+# Installation
 
 Make sure you've installed and configured a few dependencies.
 

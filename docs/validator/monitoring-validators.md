@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Monitoring a Validator
+# Monitoring
 
 There is a [Grafana](https://grafana.com/) dashboard compatible with all the [cosmos-sdk](https://github.com/cosmos/cosmos-sdk) and [tendermint](https://github.com/tendermint/tendermint) based blockchains.
 
