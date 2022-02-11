@@ -26,8 +26,8 @@
   --ifm-toc-border-color-alt-2: rgba(0,0,0,0.25);
   --ifm-navbar-height: 80px;
   --ifm-navbar-shadow: #000000;
-  --ifm-heading-font-family: "Inter";
-  --ifm-font-family-base: "Inter";
+  --ifm-heading-font-family: "Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
+  --ifm-font-family-base: "Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
 }
 
 html[data-theme='dark'] {
@@ -197,6 +197,7 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
   background-size: 13px 13px;
   background-image: url('data:image/svg+xml;utf8,%3Csvg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath fill-rule="evenodd" clip-rule="evenodd" d="M8.76769 1.66828C5.76561 4.67036 5.3913 9.16365 7.93128 11.7036C8.5628 12.3351 9.31549 12.7857 10.135 13.062C7.68756 14.1614 4.71435 13.7141 2.70433 11.7041C0.10648 9.10625 0.106366 4.89363 2.70433 2.29567C4.62101 0.378989 7.41512 -0.118381 9.79258 0.792582C9.4372 1.05584 9.09228 1.34342 8.76732 1.66837L8.76732 1.66819L8.76769 1.66828Z" fill="black" /%3E%3C/svg%3E') !important;
   height: 13px !important;
+  right: 13px !important;
 }
 
 html[data-theme='dark'] .react-toggle-track-check {
@@ -226,12 +227,12 @@ html[data-theme='dark'] .react-toggle-track-check {
 }
 
 .card:hover {
-  /* transform: scale(1.05); */
-  top: -10px;
+  top: -5px;
 }
 
 .card-title {
   margin-bottom: 22px;
+  font-weight: 600;
 }
 
 main .container {
@@ -284,4 +285,9 @@ main > div.container > div.row > div.col--3 > div > ul {
 
 .container.padding-top--md {
   padding-top: 0 !important;
+}
+
+.pagination-nav__label {
+  font-family: var();
+  color: var(--ifm-font-color-highlight);
 }
