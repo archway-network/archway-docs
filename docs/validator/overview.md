@@ -2,11 +2,9 @@
 sidebar_position: 1
 ---
 
-# Validators Overview
+# Introduction to Validating for Archway Network
 
 Archway is based on the [Tendermint](https://github.com/tendermint/tendermint/tree/master/docs/introduction) consensus engine that relies on a set of validators that are responsible for committing new blocks in the blockchain. 
-
-## Introduction
 
 These validators participate in the consensus protocol by broadcasting votes which contain cryptographic signatures signed by each validator's private key. Validator candidates can bond their own `ARCH` or have `ARCH` delegated or staked to them by token holders. See [Participate in Staking (Delegation)](/docs/participate/staking#delegating). The validators are determined by the highest number that stake or delegate to them.
 
