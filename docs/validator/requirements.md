@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Requirements
+# Validator Requirements
 
 ## Technical Requirements
 
