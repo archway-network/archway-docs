@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Configuration
+# Node Configuration
 
 By default, the `init` command creates your `~/.archway` directory with subfolders `config` and `data`. In the config directory, the most important files for configuration are `app.toml` and `config.toml`. You can configure your node via editing these files. 
 

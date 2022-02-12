@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Installation
+# Node Installation
 
 How to install an Archway full node.
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Overview
+# Validators Overview
 
 Archway is based on the [Tendermint](https://github.com/tendermint/tendermint/tree/master/docs/introduction) consensus engine that relies on a set of validators that are responsible for committing new blocks in the blockchain. 
 

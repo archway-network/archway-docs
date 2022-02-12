@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Troubleshooting
+# Troubleshooting Common Issues With Validator Nodes
 
 Here we walk through a number of common issues that you might encounter when you are running a validator node.
 
