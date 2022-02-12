@@ -61,4 +61,4 @@ Sentry nodes can be quickly spun up or change their IP addresses. Because the li
 
 It is expected that good operating procedures on that part of validators will completely mitigate these threats.
 
-For more on sentry node architecture, see [Some Link].
+<!-- For more on sentry node architecture, see [Some Link]. -->
