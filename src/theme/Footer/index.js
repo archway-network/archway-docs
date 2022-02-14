@@ -6,6 +6,10 @@ function Footer() {
   const {footer} = useThemeConfig();
   const {isDarkTheme} = useThemeContext();
 
+  // function scrollAnim () {
+  //   document.querySelector('body').scrollTo(0,0);
+  // }
+
   if (!footer) {
     return null;
   }
@@ -72,7 +76,7 @@ function Footer() {
             </div>
           </div>
           <div className="mt-9 back-to-top" data-v-26b507a6>
-            <a id="sctoparw" href="#" className="tm-rf0 tm-rf-1-m tm-muted scrolltop tm-link" data-v-78aa3c22 data-v-26b507a6>
+            <a id="sctoparw" href="#" className="tm-rf0 tm-rf-1-m tm-muted scrolltop tm-link" data-v-78aa3c22 data-v-26b507a6 onClick={() => {document.querySelector('body').scrollTo(0,0)}}>
               <span className="sr-only" data-v-78aa3c22 data-v-26b507a6>Backed by the team at Tendermint</span>
               <div className="canvas back-to-top__icon" data-v-5a3cc64a data-v-26b507a6 data-v-78aa3c22>
                 <svg width={204} height={257} viewBox="0 0 204 257" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-5a3cc64a>
