@@ -29,6 +29,7 @@
   --ifm-heading-font-family: "Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
   --ifm-font-family-base: "Helvetica Neue",Helvetica,"Inter",Arial,sans-serif;
   --ifm-footer-padding-horizontal: 0;
+  --ifm-footer-padding-vertical: 0;
 }
 
 html[data-theme='dark'] {
@@ -38,7 +39,7 @@ html[data-theme='dark'] {
   --ifm-font-color-base-inverse: #000000;
   --ifm-background-color:  #000000;
   --ifm-navbar-background-color: #000000;
-  --ifm-footer-background-color: #000000;
+  --ifm-footer-background-color: #F9F9F9;
   --ifm-toc-border-color: #FFFFFF;
   --ifm-toc-border-color-alt: rgba(255,255,255,0.25);
   --ifm-toc-border-color-alt-2: rgba(255,255,255,0.5);
