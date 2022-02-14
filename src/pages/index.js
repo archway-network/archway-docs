@@ -16,7 +16,7 @@ export default function Home() {
 
   // Creating dApps
   const createCategoryItems = (createCats.length) ? createCats.map((item,i) =>
-    <a href={item.value} key={i}>
+    <a className='cats' href={item.value} key={i}>
       <div className='card' key={'card-'+i}>
         <div className='card-block'>
           <div className='card-body'>
@@ -32,7 +32,7 @@ export default function Home() {
 
 
   const nodeCategoryItems = (nodeCats.length) ? nodeCats.map((item,i) =>
-    <a href={item.value} key={i}>
+    <a className='cats' href={item.value} key={i}>
       <div className='card' key={'card-'+i}>
         <div className='card-block'>
           <div className='card-body'>
@@ -47,7 +47,7 @@ export default function Home() {
   ) : null;
 
   const validatorCategoryItems = (validCats.length) ? validCats.map((item,i) =>
-    <a href={item.value} key={i}>
+    <a className='cats' href={item.value} key={i}>
       <div className='card' key={'card-'+i}>
         <div className='card-block'>
           <div className='card-body'>
@@ -62,7 +62,7 @@ export default function Home() {
   ) : null;
 
   const participateCategoryItems = (participateCats.length) ? participateCats.map((item,i) =>
-    <a href={item.value} key={i}>
+    <a className='cats' href={item.value} key={i}>
       <div className='card' key={'card-'+i}>
         <div className='card-block'>
           <div className='card-body'>
@@ -78,15 +78,6 @@ export default function Home() {
 
   return (
     <Layout title="Home" description="Arch into Cosmos">
-      {/* 
-        // TODO: Fix show sidebar in pages
-        <div className='sidebar' role="complementary">
-        <DocSidebar
-          docsSidebars={sidebar.pageSidebar}
-        />
-      </div> 
-      */}
-
       <main>
         <div className="container">
           <h1>Welcome</h1>
