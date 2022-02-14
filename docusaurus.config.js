@@ -115,7 +115,12 @@ module.exports = {
         },
         blog: false,
         theme: {
-          customCss: [require.resolve('./src/css/custom.css'),require.resolve('./src/css/mobile.css'),require.resolve('./src/css/icons.css')]
+          customCss: [
+            require.resolve('./src/css/footer.css'),
+            require.resolve('./src/css/mobile.css'),
+            require.resolve('./src/css/icons.css'),
+            require.resolve('./src/css/custom.css')
+          ]
         },
       },
     ],
