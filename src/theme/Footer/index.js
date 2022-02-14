@@ -6,10 +6,6 @@ function Footer() {
   const {footer} = useThemeConfig();
   const {isDarkTheme} = useThemeContext();
 
-  // function scrollAnim () {
-  //   document.querySelector('body').scrollTo(0,0);
-  // }
-
   if (!footer) {
     return null;
   }
