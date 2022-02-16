@@ -115,6 +115,10 @@ a:not(.cats):hover {
   color: var(--ifm-font-color-highlight);
 }
 
+a.cats {
+  color: var(--ifm-color-primary);
+}
+
 .header-github-link {
   padding-left: 33px;
 }
@@ -155,9 +159,9 @@ html[data-theme='dark'] .header-discord-link:before {
   padding-right: 40px;
 }
 
-.back-to-website span:hover {
+/* .back-to-website span:hover {
   opacity: 0.6;
-}
+} */
 
 .back-to-website > span > svg {
   display: none;
