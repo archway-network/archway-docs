@@ -14,7 +14,7 @@ Make sure you've installed and configured a few dependencies.
 - [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html "Install Cargo")
 - [Cargo Generate](https://crates.io/crates/cargo-generate "Install Cargo Generate")
 - [Archwayd](https://github.com/archway-network/archway/tree/main/cmd/archwayd "Install Archway Daemon")
-- [Docker](https://docs.docker.com/get-docker "Install Docker")
+- [Docker](https://docs.docker.com/get-docker "Install Docker") (for Linux users, it's recommended to [run the Docker daemon in Rootless Mode](https://docs.docker.com/engine/security/rootless/))
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
 - [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install develolper CLI")
 
