@@ -1,0 +1,114 @@
+---
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Joining a Network
+
+## Cleaning up
+
+Let's first cleanup our network. This is needed if you already have a genesis file.
+
+```bash
+rm -rf ~/.archway
+```
+
+:::danger
+This command will remove all data and configs you already set.
+:::
+
+## Initialize the node
+
+Run the following command to initialize the genesis file which is required to establish a network.
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd init my-validator --chain-id my-chain
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  init my-validator --chain-id my-chain
+```
+
+</TabItem>
+</Tabs>
+
+## Retrieve the Genesis file
+
+Download the genesis file from a validator node:
+
+```bash
+curl -s "$RPC_ENDPOINT/genesis" | jq '.result.genesis' > ~/.archway/config/genesis.json
+```
+
+## Initialize account
+
+Create a key to hold your account. Once you run this command, your may be prompted with a password dialogue. Please enter a new password for your account.
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd keys add my-validator-account
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  keys add my-validator-account
+```
+
+</TabItem>
+</Tabs>
+
+## Join the network
+
+Start the archway and join the network
+
+<Tabs groupId="archwayd">
+<TabItem value="binary" label="Binary">
+
+```bash
+archwayd start \
+  --x-crisis-skip-assert-invariants
+  --p2p.seeds Address1@Host_Name_OR_IP1:PORT1, ...AddressN@Host_Name_OR_IPN:PORTN \
+```
+
+</TabItem>
+<TabItem value="docker" label="Docker" default>
+
+```bash
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
+  start \
+  --x-crisis-skip-assert-invariants
+  --p2p.seeds Address1@Host_Name_OR_IP1:PORT1, ...AddressN@Host_Name_OR_IPN:PORTN \
+```
+
+</TabItem>
+</Tabs>
+
+### Joining a testnet
+
+To initialize a node for existing testnets, you should use the following parameters:
+
+#### Titus
+
+- Chain ID: `titus-1`
+- RPC Endpoint: https://rpc.titus-1.archway.tech
+- P2P Seeds: `69a56ffcaf3766f52eeabb1915571d76bb9b0b8c@34.75.26.143:443`
+
+#### Constantine
+
+- Chain ID: `constantine-1`
+- RPC Endpoint: https://rpc.constantine-1.archway.tech
+- P2P Seeds: `3f49fe7d704a2b87fea36ea8c9bd894dde848523@35.237.199.63:443`

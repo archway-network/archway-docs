@@ -26,7 +26,7 @@ archwayd keys add <yourAccountName> --ledger
 #### Warning
 This process will only work while the Ledger is plugged in and unlocked.
 
-### Computer 
+### Computer
 To generate an account, use the following command:
 
 ```
@@ -47,19 +47,19 @@ rm -rf ~/.bash_history`
 
 # Keplr
 
-This quick start guide helps you set up a wallet and manage your tokens with it. A popular wallets for Cosmos-based coins is `Keplr`, a wallet that is similar to [MetaMask](https://metamask.io/).
+This quick start guide helps you set up a wallet and manage your tokens with it. A popular wallets for Cosmos-based coins is [Keplr](https://wallet.keplr.app/), a wallet that is similar to MetaMask.
 
-## Install 
-Open you _Google Chrome_ browser and head over to this website: https://wallet.keplr.app/ 
+## Install
+Open you _Google Chrome_ browser and head over to this website: https://wallet.keplr.app/
 
 Open a _Google Chrome_  webbrowser and navigate to https://wallet.keplr.app/.
 
 If you have not already installed Keplr, select the message box to install it.
 
-You are redirected to the page where you can to install the Keplr extension. 
+You are redirected to the page where you can to install the Keplr extension.
 Select `Add to Chrome` and install the extension.
 
-When the Keplr extension is installed, the Keplr icon shows on your web browser. 
+When the Keplr extension is installed, the Keplr icon shows on your web browser.
 
 ![](../assets/keplr01.png)
 
@@ -132,11 +132,11 @@ To manage your account, select the account icon. You can also view the mnemonic 
 
 ## CLI Wallet
 
-First we need to have our node running one validator, so please set it up here: [Running a Validator Node](./validator/running-a-validator-node.md).
+First we need to have our node running one validator, so please set it up here: [Running a Validator Node](./validator/running-a-validator-node.mdx).
 
 ### Querying the balance of the wallet
 
-Now let's see the balance of our wallet. 
+Now let's see the balance of our wallet.
 We can query any account with the following command:
 
 ```bash
@@ -185,15 +185,15 @@ Then, you should be prompted with the following confirmation question:
     "memo": "",
     "timeout_height": "0",
     "extension_options": [
-      
+
     ],
     "non_critical_extension_options": [
-      
+
     ]
   },
   "auth_info": {
     "signer_infos": [
-      
+
     ],
     "fee": {
       "amount": [
@@ -208,7 +208,7 @@ Then, you should be prompted with the following confirmation question:
     }
   },
   "signatures": [
-    
+
   ]
 }
 

@@ -4,47 +4,24 @@ sidebar_position: 1
 
 # Node Installation
 
-How to install an Archway full node.
+This guide shows how to install and run an Archway full node.
 
-## Prerequisites
+## Running the Archway daemon
+
+:::caution
+Archway can be installed only by pulling from Docker Hub ([see bellow](#how-to-run-archwayd-using-docker)).
+
+Installing `archwayd` from source is coming soon!
+:::
+
+### How to install `archwayd` from source
 
 Make sure you have golang installed on your machine:
 
-- Install [Go](https://golang.org/doc/install) (**version 1.16** or higher)
-- Ensure the Go environment variables are [set properly](https://golang.org/doc/gopath_code#GOPATH) on your system
+- Install [Go](https://golang.org/doc/install) (**version 1.16** or higher).
+- Ensure the Go environment variables are [set properly](https://golang.org/doc/gopath_code#GOPATH) on your system.
 
-
-<!-- Let's first cleanup our network in case you have setup an `archway` node before.
-
-```bash
-rm -rf ~/.archway
-```
-
-**Note**: This command will remove all data and configs you already set.
- -->
-
-To install `golangci-lint`, run the following command:
-
-```bash
-curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
-```
-
-
-## Download the Archway Source Code
-
-To build `archwayd`, install it from source or use the `archwaynetwork/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
-
-:::caution
-**Note:** For the moment Archway can be installed only by pulling from Docker Hub.
-
-For example: `docker pull archwaynetwork/archwayd:latest`
-
-Installing `archwayd` from source, coming soon!
-:::
-
-### How To Install Archwayd from Source (coming soon)
-
-Get source code:
+Get the source code:
 
 ```bash
 git clone git@github.com:archway-network/archway.git
@@ -57,19 +34,61 @@ Build and install:
 make install
 ```
 
-For full installation and configuration parameters, see https://github.com/archway-network/archway/blob/main/README.md.
+For full installation and configuration parameters, see the [README](https://github.com/archway-network/archway/blob/main/README.md).
 
-### How To Install Archwayd Using Docker
+### How to run `archwayd` using Docker
+
+Make sure you have [Docker](https://docs.docker.com/get-docker "Install Docker") installed on your machine. For Linux users, it's recommended to run the Docker daemon in [Rootless Mode](https://docs.docker.com/engine/security/rootless/ "Docker Rootless mode").
+
+Pull the image from [Docker Hub](https://hub.docker.com/r/archwaynetwork/archwayd):
 
 ```bash
-docker build -t archway-network/archwayd:latest
-```
-
-Or pull from Docker Hub:
-
-```
 docker pull archwaynetwork/archwayd:latest
 ```
+
+Each Archway network will eventually have a different version running. To connect your node to a network, you should use a tag with the corresponding network name. For example, to connect to the Constantine testnet:
+
+```bash
+docker pull archwaynetwork/archwayd:constantine
+```
+
+:::info
+Make sure to always use the image tag that points to the network you want to connect.
+:::
+
+By default, the Docker image runs the `archwayd` binary, so you should specify the arguments for `archwayd` right after the image name. For better usage, mount an external volume at `/root/.archway` to persist the daemon home path across different runs. For example, if you want to add a key:
+
+```bash
+docker run --rm -it \
+  -v ~/.archway:/root/.archway \
+  archwaynetwork/archwayd:latest \
+  keys add test-key
+```
+
+And then list all keys:
+
+```bash
+docker run --rm -it \
+  -v ~/.archway:/root/.archway \
+  archwaynetwork/archwayd:latest \
+  keys list
+```
+
+It's also important to notice that, when running a node in a network, you'll need to expose the container ports for external connectivity. The image exposes the following ports:
+
+- `1317`: Rest server
+- `26656`: Tendermint P2P
+- `26657`: Tendermint RPC
+
+:::tip
+To simplify using the Docker container, set an alias with the home path and the proper zimage tag (replacing `<network-name>`), like:
+
+```bash
+alias archwayd="docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:<network-name>"
+```
+
+After setting this alias, you can use the other `archwayd` commands without typing the verbose Docker run command.
+:::
 
 ## Initialize the Node
 
@@ -89,7 +108,7 @@ archwayd keys add my-account
 
 You see an output similar to the following:
 
-```
+```text
 - name: my-account
   type: local
   address: archway12ntzpk9fjt2x39pvll8ufma9tuhhnkh8g4zzc2

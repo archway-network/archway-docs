@@ -27,11 +27,11 @@ This allows ARCH holders that don't have the skills or desire to run a validator
 #### Requirements
 - [Create an account](/docs/participate/wallet#create-account)
 #### Connecting to the network
-In order to delegate your stake you have to either [run your node](../node/join-a-network.md) or you can connect to a trustworthy operator.
+In order to delegate your stake you have to either [run your node](../node/join-a-network.mdx) or you can connect to a trustworthy operator.
 
 Malicious operator could return incorrect query results or censor your transactions. However, they will never be able to steal your funds, as your private keys are stored locally on your computer or ledger device. Possible options of full-node operators include validators, wallet providers or exchanges.
 
-in order to connect to the network we must 
+in order to connect to the network we must
 
 ##### Config CLI
 
@@ -108,7 +108,7 @@ First open your `keplr` browser extension and click on the `Stake` button.
 
 ![](../assets/staking01.png)
 
-After you click the `Stake` button, the `keplr` extension opens the `keplr web wallet`. 
+After you click the `Stake` button, the `keplr` extension opens the `keplr web wallet`.
 In the list of validators, select the one you want and then select `Manage`.
 
 **Warning:** Conduct proper research about the validator before staking your tokens with them.
@@ -154,7 +154,7 @@ After some time, you can see the staking reward to be claimed.
 
 ![](../assets/staking10.png)
 
-To claim a reward, select the `Claim` button. 
+To claim a reward, select the `Claim` button.
 Select a fee for the transaction and select the `Set Fee` button.
 
 ![](../assets/staking11.png)
@@ -169,7 +169,7 @@ After a few moments, you ycan see the updates on our account.
 
 To undelegate your staked tokens, select the validator from the list of validators in your `keplr web wallet` and then select the `Undelegate` button.
 
-**Note:** The unbonding period in Cosmos-based networks is `21` days. 
+**Note:** The unbonding period in Cosmos-based networks is `21` days.
 
 ![](../assets/staking13.png)
 
