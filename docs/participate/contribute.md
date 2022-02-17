@@ -134,6 +134,17 @@ After the PR moves from **Draft** to **Ready for review**, the CI status checks 
 
 To view your preview, you'll have to build the web app for production and copy those changes to the `dist` folder, where distributions are kept. A production build must be created each time you change the code or docs in your branch for them to be reflected in the deployed preview.
 
+To build the web app for production:
+
+```bash
+cd archway-docs
+npm run build
+rm -R dist/
+cp -R build/ dist/
+# Now you can commit and push your build to see 
+# a deploy-preview once your PR is moved from Draft to Ready for review
+```
+
 To view a deployed preview on a **Ready for review** PR, click the **Browse the preview** link in the comment by the Netlify CI bot:
 
 ![deploy-preview](../assets/deploy-preview.png)
