@@ -81,7 +81,7 @@ It's also important to notice that, when running a node in a network, you'll nee
 - `26657`: Tendermint RPC
 
 :::tip
-To simplify using the Docker container, set an alias with the home path and the proper zimage tag (replacing `<network-name>`), like:
+To simplify using the Docker container, set an alias with the home path and the proper image tag (replacing `<network-name>`), like:
 
 ```bash
 alias archwayd="docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:<network-name>"
