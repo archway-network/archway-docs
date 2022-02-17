@@ -100,7 +100,8 @@ module.exports = {
         name: 'participate',
         children: [
           {name:'Create a wallet', value:'/docs/participate/wallet', icon:'icon-wallet', description:'Setup a new account to begin receiving and sending coins'},
-          {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig', description:'Enroll your account in staking rewards'}
+          {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig', description:'Enroll your account in staking rewards'},
+          {name:'Contributing', value:'/docs/participate/contribute', icon:'icon-build', description:'Help maintain and support Archway documentation and guides'}
         ]
       }
     ]
