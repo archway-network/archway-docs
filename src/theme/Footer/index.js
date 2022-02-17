@@ -16,7 +16,7 @@ function Footer() {
         <div className="footer-top__container" data-v-26b507a6>
           <div className="tm-rf7 tm-lh-title" data-v-26b507a6>Arch into Cosmos</div>
             <div className="mt-7" data-v-26b507a6>
-              <a href="/updates" className="ft-link tm-rf1 tm-button tm-button__size__m tm-button__variant__underlined tm-lh-title tm-medium  tm-rf0" data-v-49eff159 data-v-26b507a6>
+              <a href="https://www.archway.io/updates" target="_blank" className="ft-link tm-rf1 tm-button tm-button__size__m tm-button__variant__underlined tm-lh-title tm-medium  tm-rf0" data-v-49eff159 data-v-26b507a6>
                 <span className="tm-button__content" data-v-49eff159>SIGN UP FOR UPDATES</span>
               </a>
             </div>
@@ -33,7 +33,7 @@ function Footer() {
                     <a href="https://docs.archway.io/docs/overview/faq" target="_blank" rel="noopener noreferrer" className="ft-link footer-top__link tm-link" data-v-78aa3c22 data-v-26b507a6>Support</a>
                   </li>
                   <li data-v-26b507a6>
-                    <a href="/brand-kit.zip" download="true" className="ft-link footer-top__link tm-link" data-v-78aa3c22 data-v-26b507a6>Brand Kit</a>
+                    <a href="https://www.archway.io/brand-kit.zip" target="_blank" download="true" className="ft-link footer-top__link tm-link" data-v-78aa3c22 data-v-26b507a6>Brand Kit</a>
                   </li>
                 </ul>
               </div>
