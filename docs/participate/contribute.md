@@ -151,4 +151,4 @@ To view a deployed preview on a **Ready for review** PR, click the **Browse the 
 
 ## Who works on the tutorials?
 
-The docs and tutorials are maintained by [@drewstaylor](https://github.com/drewstaylor) and [@aelesbao](https://github.com/aelesbao) with contributions from the entire Archway team.
+The docs and tutorials are maintained by [@drewstaylor](https://github.com/drewstaylor) and [@aelesbao](https://github.com/aelesbao) with contributions from the entire Archway team and folks like you.
