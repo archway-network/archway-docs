@@ -79,6 +79,10 @@ body, html {
   overflow-x: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 .navbar__brand img {
   width: 160px;
   margin-left: 40px;
@@ -123,6 +127,8 @@ a:not(.cats):hover {
 a.cats {
   color: var(--ifm-color-primary);
 }
+
+
 
 .header-github-link {
   padding-left: 33px;
@@ -242,6 +248,10 @@ html[data-theme='dark'] .react-toggle-track-check {
   top: 0px;
   transition: top .2s ease-in-out;
   position: relative;
+}
+
+.card.sm {
+  height: 72px;
 }
 
 .card:hover {

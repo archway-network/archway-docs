@@ -103,6 +103,14 @@ module.exports = {
           {name:'Staking', value:'/docs/participate/staking', icon:'icon-pig', description:'Enroll your account in staking rewards'},
           {name:'Contributing', value:'/docs/participate/contribute', icon:'icon-build', description:'Help maintain and support Archway documentation and guides'}
         ]
+      },
+      {
+        name: 'overview',
+        children: [
+          {name:'About Archway', value:'/docs/overview/about', icon:''},
+          {name:'Public Networks', value:'/docs/overview/network', icon:'icon-sitemap'},
+          {name:'Join the Community', value:'/docs/overview/join-the-community', icon:'icon-earth'},
+        ]
       }
     ]
   },

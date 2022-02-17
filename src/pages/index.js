@@ -8,11 +8,12 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   const categories = siteConfig.customFields.pageCategories;
-  
+
   let createCats = categories[0].children;
   let nodeCats = categories[1].children[0];
   let validCats = categories[1].children[1];
   let participateCats = categories[2].children;
+  let overviewCats = categories[3].children;
 
   // Creating dApps
   const createCategoryItems = (createCats.length) ? createCats.map((item,i) =>
@@ -74,7 +75,21 @@ export default function Home() {
         </div>
       </div>
     </a>
-  ) : null;  
+  ) : null;
+
+  const overviewCategoryItems = (overviewCats.length) ? overviewCats.map((item,i) =>
+    <a className='cats sm' href={item.value} key={i}>
+      <div className='card sm' key={'card-'+i}>
+        <div className='card-block sm'>
+          <div className='card-body sm'>
+            <div className='card-title sm'>
+              <span className={(item.icon) ? item.icon + ' icon icon-card-sm' : 'hidden'}>&nbsp;</span>{item.name}
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  ) : null;
 
   return (
     <Layout title="Home" description="Arch into Cosmos">
@@ -82,6 +97,7 @@ export default function Home() {
         <div className="container">
           <h1>Welcome</h1>
           <p>Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow.</p>
+          <div className='card-deck sm'>{overviewCategoryItems}</div>
         </div>
 
         {/* Participate */}
