@@ -57,7 +57,7 @@ Consider the following tradeoffs between building your core logic as a smart con
 
 <!-- Architecture : Modules -->
 
-## Archway module specifications
+## Module specifications
 
 Here you'll find some information about Archway specfic modules that extend the functionality of the Cosmos SDK
 
