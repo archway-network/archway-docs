@@ -89,10 +89,15 @@ Or pull from Docker Hub:
 docker pull archwaynetwork/archwayd:latest
 ```
 
-For comfortable use of the client through the console, create an alias:
+:::tip
+To simplify using the Docker container, set an alias with the home path and the proper zimage tag (replacing `<network-name>`), like:
+
+```bash
+alias archwayd="docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:<network-name>"
 ```
-alias archwayd="docker run -it --volume=/var/tmp/.archwayd:/root/.archway archwaynetwork/archwayd"
-```
+
+After setting this alias, you can use the other `archwayd` commands without typing the verbose Docker run command.
+:::
 
 For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see  https://github.com/archway-network/archway#dockerized.
 
