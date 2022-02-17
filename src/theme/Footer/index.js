@@ -6,6 +6,8 @@ function Footer() {
   const {footer} = useThemeConfig();
   const {isDarkTheme} = useThemeContext();
 
+  const currentYear = new Date().getFullYear();
+
   if (!footer) {
     return null;
   }
@@ -116,7 +118,7 @@ function Footer() {
         <div className="footer-bottom__line" data-v-26b507a6>
           <div className="tm-container" data-v-26b507a6>
             <div className="footer-bottom__row" data-v-26b507a6>
-              <div className="footer-bottom__item footer-bottom__item--first" data-v-26b507a6>2021 Archway Network</div>
+              <div className="footer-bottom__item footer-bottom__item--first" data-v-26b507a6>{currentYear} Archway Network</div>
               <div className="footer-bottom__list" data-v-26b507a6>
                 <div className="footer-bottom__item" data-v-26b507a6>All Rights Reserved</div>
                 <div className="footer-bottom__item footer-bottom__item--small" data-v-26b507a6>

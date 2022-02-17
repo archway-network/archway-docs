@@ -189,6 +189,14 @@
   --warning: #ffa34e;
 }
 
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  src: url("../fonts/Inter.var.woff2") format("woff2"), url("../fonts/Inter.var.ttf") format("truetype");
+}
+
 .bg-dark {
   --bg: var(--black);
   --title: var(--gray-100);
@@ -474,8 +482,12 @@ html[data-theme='dark'] .footer-bottom__line {
   line-height: var(--line-height-copy-0);
 }
 
-.tm-inter {
+/* .tm-inter {
   font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+} */
+
+.tm-inter {
+  font-family: "Inter var",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
 .tm-rf-1 {

@@ -53,7 +53,7 @@ html[data-theme='dark'] {
   font-family: "Inter";
   font-style: normal;
   font-weight: 100 900;
-  src: url("https://raw.githubusercontent.com/rsms/inter/master/docs/font-files/Inter.var.woff2") format("woff2")
+  src: url("../fonts/Inter.var.woff2") format("woff2"), url("../fonts/Inter.var.ttf") format("truetype");
 }
 
 .docusaurus-highlight-code-line {
