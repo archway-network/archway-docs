@@ -1,14 +1,13 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Network
+# Archway Networks
 
 Network configurations for Archway Mainnet and Testnets.
 
 ## Triomphe (Mainnet) 
 Coming Later
-
 
 ## Constantine (dApp Developer Testnet)
 
@@ -17,7 +16,16 @@ Stable testing network for dApp developers building dApps.
 - RPC: https://rpc.constantine-1.archway.tech 
 - Faucet: https://faucet.constantine-1.archway.tech 
 - LCD: https://api.constantine-1.archway.tech  
-- Block Explorer: https://explorer.constantine-1.archway.tech 
+- Block Explorer: https://explorer.constantine-1.archway.tech
+
+<!-- ## Augusta (Incentivized Testnet)
+
+Testnet to be used for completing incentivized testnet challenges.
+
+- RPC: https://rpc.augusta-1.archway.tech 
+- Faucet: https://faucet.augusta-1.archway.tech 
+- LCD: https://api.augusta-1.archway.tech  
+- Block Explorer: https://explorer.augusta-1.archway.tech -->
 
 ## Titus (Experimental Testnet) 
 
