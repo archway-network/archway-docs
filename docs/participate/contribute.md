@@ -8,10 +8,10 @@ sidebar_position: 3
   - [Using this repo](#using-this-repo)
   - [Writing and contributing](#writing-and-contributing)
   - [Where can I find the tutorials and docs?](#where-can-i-find-the-tutorials-and-docs)
-  - [Who works on the tutorials?](#who-works-on-the-tutorials)
   - [Viewing tutorial builds](#viewing-tutorial-builds)
     - [Preview PRs on a deployed preview](#preview-prs-on-a-deployed-preview)
     - [Preview draft PRs on a local web browser](#preview-draft-prs-on-a-local-web-browser)
+  - [Who works on the tutorials?](#who-works-on-the-tutorials)
 
 Thank you for considering making contributions. We appreciate your interest in helping us to create and maintain awesome tutorials and documentation.
 
@@ -48,7 +48,7 @@ Other useful resources:
 
 #### Developer docs:
 
-"Developer docs" refers to documentation for smart contract and dAPp developers. It's content to help them build and scale their dApps on Archway network. They contain information that is pertinent to:
+_Developer docs_ refers to documentation for smart contract and dApp developers. It's content to help them build and scale their dApps on Archway network. They contain information that is pertinent to:
 - Smart Contract development
 - Web and UI frontends that connect to Archway network
 - [Archway developer CLI](https://www.npmjs.com/package/@archwayhq/cli)
@@ -57,20 +57,15 @@ Developer docs are located in folder [/docs/create](https://github.com/archway-n
 
 #### Node operator docs:
 
-"Node operator docs" refers to documentation relevant to operators of full nodes, local testnets and connecting nodes to public networks. This content helps for setting up, configuring, monitoring and troubleshooting node instances.
+_Node operator docs_ refers to documentation relevant to operators of full nodes, local testnets and connecting nodes to public networks. This content helps for setting up, configuring, monitoring and troubleshooting node instances.
 
 Node operator docs are located in [/docs/node](https://github.com/archway-network/archway-docs/tree/main/docs/node).
 
 #### Validator docs:
 
-"Validator docs" refers to documentation relevant to operators of validator nodes, validator security and participating in validator rewards.
+_Validator docs_ refers to documentation relevant to operators of validator nodes, validator security and participating in validator rewards.
 
 Validator docs are located in [/docs/validator](https://github.com/archway-network/archway-docs/tree/main/docs/validator).
-
-
-## Who works on the tutorials?
-
-The docs and tutorials are maintained by [@drewstaylor](https://github.com/drewstaylor) and [@aelesbao](https://github.com/aelesbao) with contributions from the entire Archway team.
 
 ## Viewing tutorial builds
 
@@ -140,3 +135,7 @@ Docusaurus website is running at "http://localhost:8080/".
 ```
 
 5. You can now view the docs site in your web browser using the URL `http://localhost:8080/`. Hot-reload is enabled. That means you won't need to stop and restart the server everytime you make changes to the docs or code.
+
+## Who works on the tutorials?
+
+The docs and tutorials are maintained by [@drewstaylor](https://github.com/drewstaylor) and [@aelesbao](https://github.com/aelesbao) with contributions from the entire Archway team.

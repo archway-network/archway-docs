@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import DocSidebar from '@theme/DocSidebar';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+// import DocSidebar from '@theme/DocSidebar';
 // import * as sidebar from '../../sidebars';
 
 export default function Home() {
