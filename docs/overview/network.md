@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Archway Networks
+# Networks
 
 Network configurations for Archway Mainnet and Testnets.
 
