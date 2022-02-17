@@ -9,8 +9,8 @@ sidebar_position: 3
   - [Writing and contributing](#writing-and-contributing)
   - [Where can I find the tutorials and docs?](#where-can-i-find-the-tutorials-and-docs)
   - [Viewing tutorial builds](#viewing-tutorial-builds)
-    - [Preview PRs on a deployed preview](#preview-prs-on-a-deployed-preview)
     - [Preview draft PRs on a local web browser](#preview-draft-prs-on-a-local-web-browser)
+    - [Preview PRs on a deployed preview](#preview-prs-on-a-deployed-preview)
   - [Who works on the tutorials?](#who-works-on-the-tutorials)
 
 Thank you for considering making contributions. We appreciate your interest in helping us to create and maintain awesome tutorials and documentation.
@@ -74,14 +74,6 @@ There are two ways to see what your changes will look like in production before 
 - When a PR is ready for review, you can see a deployed preview on a URL that is unique for that PR.
 - While a PR is in draft mode, you can preview a local build.
 
-### Preview PRs on a deployed preview
-
-After the PR moves from **Draft** to **Ready for review**, the CI status checks will generate a Netlify deploy preview. Netlify keeps this preview up to date as you continue to work and commit new changes to the same branch.
-
-To view a deployed preview on a **Ready for review** PR, click the **Browse the preview** link in the comment by the Netlify CI bot:
-
-![deploy-preview](../assets/deploy-preview.png)
-
 ### Preview draft PRs on a local web browser
 
 Since the deploy preview doesn't work on Draft PRs, follow these steps to preview a tutorial build on a local web browser.
@@ -135,6 +127,16 @@ Docusaurus website is running at "http://localhost:8080/".
 ```
 
 5. You can now view the docs site in your web browser using the URL `http://localhost:8080/`. Hot-reload is enabled. That means you won't need to stop and restart the server everytime you make changes to the docs or code.
+
+### Preview PRs on a deployed preview
+
+After the PR moves from **Draft** to **Ready for review**, the CI status checks will generate a Netlify deploy preview. Netlify keeps this preview up to date as you continue to work and commit new changes to the same branch. 
+
+To view your preview, you'll have to build the web app for production and copy those changes to the `dist` folder, where distributions are kept. A production build must be created each time you change the code or docs in your branch for them to be reflected in the deployed preview.
+
+To view a deployed preview on a **Ready for review** PR, click the **Browse the preview** link in the comment by the Netlify CI bot:
+
+![deploy-preview](../assets/deploy-preview.png)
 
 ## Who works on the tutorials?
 
