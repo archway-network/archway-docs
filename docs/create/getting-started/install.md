@@ -89,6 +89,12 @@ Or pull from Docker Hub:
 docker pull archwaynetwork/archwayd:latest
 ```
 
+For comfortable use of the client through the console, create an alias:
+```
+alias archwayd="docker run -it --volume=/var/tmp/.archwayd:/root/.archway archwaynetwork/archwayd"
+```
+:::
+
 For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see  https://github.com/archway-network/archway#dockerized.
 
 
