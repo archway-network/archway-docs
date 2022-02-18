@@ -11,7 +11,7 @@ sidebar_position: 3
   - [Viewing web app builds](#viewing-web-app-builds)
     - [Preview draft PRs on a local web browser](#preview-draft-prs-on-a-local-web-browser)
     - [Preview PRs on a deployed preview](#preview-prs-on-a-deployed-preview)
-  - [Who works on the tutorials?](#who-works-on-the-tutorials)
+  - [Who works on the docs?](#who-works-on-the-tutorials)
 
 Thank you for considering making contributions. We appreciate your interest in helping us to create and maintain awesome tutorials and documentation.
 
