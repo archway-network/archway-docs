@@ -151,6 +151,10 @@ cp -r build/ dist/
 # a deploy-preview once your PR is moved from Draft to Ready for review
 ```
 
+:::note
+For clarity and review purposes, build commits should not contain changes to files outside of the `dist` directory or they may be rejected.
+:::
+
 To view a deployed preview on a **Ready for review** PR, click the **Browse the preview** link in the comment by the Netlify CI bot:
 
 ![deploy-preview](../assets/deploy-preview.png)
