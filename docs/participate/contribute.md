@@ -145,8 +145,8 @@ To build the web app for production:
 ```bash
 cd archway-docs
 npm run build
-rm -R dist/
-cp -R build/ dist/
+rm -r dist/
+cp -r build/ dist/
 # Now you can commit and push your build to see 
 # a deploy-preview once your PR is moved from Draft to Ready for review
 ```
