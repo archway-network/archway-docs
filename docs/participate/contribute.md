@@ -8,7 +8,7 @@ sidebar_position: 3
   - [Using this repo](#using-this-repo)
   - [Writing and contributing](#writing-and-contributing)
   - [Where can I find the tutorials and docs?](#where-can-i-find-the-tutorials-and-docs)
-  - [Viewing tutorial builds](#viewing-tutorial-builds)
+  - [Viewing web app builds](#viewing-web-app-builds)
     - [Preview draft PRs on a local web browser](#preview-draft-prs-on-a-local-web-browser)
     - [Preview PRs on a deployed preview](#preview-prs-on-a-deployed-preview)
   - [Who works on the tutorials?](#who-works-on-the-tutorials)
@@ -48,16 +48,22 @@ Other useful resources:
 
 #### Developer docs:
 
-_Developer docs_ refers to documentation for smart contract and dApp developers. It's content to help them build and scale their dApps on Archway network. They contain information that is pertinent to:
+_Developer docs_ refers to documentation for smart contract and dApp developers. It's content to help users build and scale dApps on Archway network and contains information that is pertinent to:
 - Smart Contract development
 - Web and UI frontends that connect to Archway network
-- [Archway developer CLI](https://www.npmjs.com/package/@archwayhq/cli)
+- The [Archway developer CLI](https://www.npmjs.com/package/@archwayhq/cli)
 
 Developer docs are located in folder [/docs/create](https://github.com/archway-network/archway-docs/tree/main/docs/create) of the repository.
 
+#### Developer guides (tutorials):
+
+_Developer guides_ are tutorials for developing Archway smart contract and dApp projects. Each guide includes step by step instructions and final source code for a completed project to be run on Archway network.
+
+Developer guides are located in the folder [/docs/create/guides](https://github.com/archway-network/archway-docs/tree/main/docs/create/guides)
+
 #### Node operator docs:
 
-_Node operator docs_ refers to documentation relevant to operators of full nodes, local testnets and connecting nodes to public networks. This content helps for setting up, configuring, monitoring and troubleshooting node instances.
+_Node operator docs_ refers to documentation relevant to operators of full nodes, local testnets and to connecting nodes to public networks. This content is to help with setting up, configuring, monitoring and troubleshooting node instances.
 
 Node operator docs are located in [/docs/node](https://github.com/archway-network/archway-docs/tree/main/docs/node).
 
@@ -67,7 +73,7 @@ _Validator docs_ refers to documentation relevant to operators of validator node
 
 Validator docs are located in [/docs/validator](https://github.com/archway-network/archway-docs/tree/main/docs/validator).
 
-## Viewing tutorial builds
+## Viewing web app builds
 
 There are two ways to see what your changes will look like in production before the updated pages are published.
 
@@ -76,16 +82,16 @@ There are two ways to see what your changes will look like in production before 
 
 ### Preview draft PRs on a local web browser
 
-Since the deploy preview doesn't work on Draft PRs, follow these steps to preview a tutorial build on a local web browser.
+Since the deploy preview doesn't work on Draft PRs, follow these steps to preview a build of the Archway docs website on a local web browser.
 
-1. If you haven't already, clone the docs repo to your local machine and change to that directory. For example:
+1. If you haven't already, clone the docs repo to your local machine and change to that directory
 
     ```bash
     git clone git@github.com:archway-network/archway-docs.git
     cd archway-docs
     ```
 
-2. Building the Archway docs website requires [Node and npm](https://nodejs.org/en/download/) for JavaScript.
+2. Building the Archway docs website requires [Node and npm](https://nodejs.org/en/download/) for JavaScript
 
 3. Using [npm](https://www.npmjs.com/), install the repository's dependency modules
 
@@ -93,7 +99,7 @@ Since the deploy preview doesn't work on Draft PRs, follow these steps to previe
     npm install
     ```
 
-4. Start the local instance of the tutorial build:
+4. Start a local instance of the Archway docs website:
 
 ```bash
 npm start
