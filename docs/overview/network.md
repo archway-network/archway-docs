@@ -18,14 +18,14 @@ Stable testing network for dApp developers building dApps.
 - LCD: https://api.constantine-1.archway.tech  
 - Block Explorer: https://explorer.constantine-1.archway.tech
 
-<!-- ## Augusta (Incentivized Testnet)
+## Augusta (Community Testnet)
 
-Testnet to be used for completing incentivized testnet challenges.
+Community testnet to be used for completing incentivized testnet challenges.
 
 - RPC: https://rpc.augusta-1.archway.tech 
 - Faucet: https://faucet.augusta-1.archway.tech 
 - LCD: https://api.augusta-1.archway.tech  
-- Block Explorer: https://explorer.augusta-1.archway.tech -->
+- Block Explorer: https://explorer.augusta-1.archway.tech
 
 ## Titus (Experimental Testnet) 
 
