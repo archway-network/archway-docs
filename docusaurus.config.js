@@ -58,6 +58,10 @@ module.exports = {
         }
       },
     },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 3,
+    },
     // announcementBar: {
     //   id: 'unstable',
     //   content:`You're previewing Archway's unstable documentation. Hang in there, everything should work great by October 25!`,
