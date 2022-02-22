@@ -12,6 +12,32 @@ function Footer() {
     return null;
   }
 
+  setTimeout(() => {
+    if (typeof document == 'object') {
+      let toc = document.getElementsByClassName('table-of-contents'), children;
+      const updateToc = (item) => {
+        let items = document.getElementsByClassName('table-of-contents__link--active');
+        items = [].slice.call(items);
+        items.forEach((itm) => {
+          itm.classList.remove('table-of-contents__link--active');
+        });
+        item.classList.add('table-of-contents__link--active');
+      };
+
+      if (toc[0]) {
+        toc = toc[0];
+        children = [].slice.call(toc.children);
+        children.forEach((li) => {
+          li.addEventListener('click', (event) => {
+            if (event.target) {
+              updateToc(event.target);
+            }
+          });
+        });
+      }
+    }
+  }, 0);
+
   return (
     <footer className="footer" data-v-26b507a6><div className="bg-dark tm-text" data-v-26b507a6>
       <div className="footer-top tm-container" data-v-26b507a6>
