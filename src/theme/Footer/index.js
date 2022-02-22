@@ -1,9 +1,10 @@
 import React from 'react';
-import {useThemeConfig, useColorMode} from '@docusaurus/theme-common';
+import {useThemeConfig} from '@docusaurus/theme-common';
+import useThemeContext from '@theme/hooks/useThemeContext';
 
 function Footer() {
   const {footer} = useThemeConfig();
-  const {isDarkTheme} = useColorMode();
+  const {isDarkTheme} = useThemeContext();
 
   const currentYear = new Date().getFullYear();
 
