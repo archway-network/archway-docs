@@ -22,7 +22,7 @@ Stable testing network for dApp developers building dApps.
 
 ## Titus (Experimental Testnet) 
 
-Experimental testing network for core sdk developers testing out the newest features baked into the archway network. 
+Experimental testing network for core sdk developers testing out the newest features baked into Archway network. 
 
 - Chain ID: `titus-1`
 - RPC: https://rpc.titus-1.archway.tech 
