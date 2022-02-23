@@ -24,7 +24,7 @@ Stable testing network for dApp developers building dApps.
 
 Experimental testing network for core sdk developers testing out the newest features baked into the archway network. 
 
-- CHAIN ID: `titus-1`
+- Chain ID: `titus-1`
 - RPC: https://rpc.titus-1.archway.tech 
 - Faucet: https://faucet.titus-1.archway.tech 
 - LCD: https://api.titus-1.archway.tech  
