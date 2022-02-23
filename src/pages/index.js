@@ -2,8 +2,8 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-// import DocSidebar from '@theme/DocSidebar';
-// import * as sidebar from '../../sidebars';
+import DocSidebar from '@theme/DocSidebar';
+import * as sidebar from '../../sidebars';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -93,35 +93,43 @@ export default function Home() {
 
   return (
     <Layout title="Home" description="Arch into Cosmos">
+      <div className="navbar-sidebar navbar-sidebar-wr" role="complementary">
+        <DocSidebar
+          docsSidebars={sidebar}
+          path="docs/"
+          sidebar={sidebar.pageSidebar}
+          sidebarCollapsible={true}
+        />
+      </div>
       <main>
         <div className="container">
           <h1>Welcome</h1>
           <p>Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow.</p>
-          <div className='card-deck sm'>{overviewCategoryItems}</div>
+          <div className="card-deck sm">{overviewCategoryItems}</div>
         </div>
 
         {/* Participate */}
         <div className="container create-cats">
           <h1>Participate</h1>
-          <div className='card-deck'>{participateCategoryItems}</div>
+          <div className="card-deck">{participateCategoryItems}</div>
         </div>
 
         {/* Create */}
         <div className="container create-cats">
           <h1>Create dApps</h1>
-          <div className='card-deck'>{createCategoryItems}</div>
+          <div className="card-deck">{createCategoryItems}</div>
         </div>
 
         {/* Node */}
         <div className="container create-cats">
           <h1>Run a Node</h1>
-          <div className='card-deck'>{nodeCategoryItems}</div>
+          <div className="card-deck">{nodeCategoryItems}</div>
         </div>
 
         {/* Validator */}
         <div className="container create-cats">
           <h1>Become a Validator</h1>
-          <div className='card-deck'>{validatorCategoryItems}</div>
+          <div className="card-deck">{validatorCategoryItems}</div>
         </div>
       </main>
     </Layout>
