@@ -62,6 +62,10 @@
   #__docusaurus {
     overflow-x: hidden;
   }
+  .navbar__toggle {
+    position: absolute;
+    right: 16px;
+  }
   .navbar__items {
     width: 100vw;
   }
