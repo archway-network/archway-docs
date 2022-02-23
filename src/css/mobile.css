@@ -1,3 +1,7 @@
+.navbar-sidebar__back {
+  display: none;
+}
+
 @media screen and (max-width: 1000px) {
   .navbar-sidebar__item.menu ul.menu__list {
     display: block;
@@ -58,12 +62,20 @@
   #__docusaurus {
     overflow-x: hidden;
   }
+  .navbar__toggle {
+    position: absolute;
+    right: 16px;
+  }
   .navbar__items {
     width: 100vw;
+  }
+  .theme-doc-sidebar-menu {
+    margin: 0;
   }
   img.navbar__logo {
     width: 94px;
     height: 12px;
+    margin-left: 8px;
   }
   b.navbar__title {
     font-style: normal;

@@ -23,7 +23,7 @@ module.exports = {
       items: [
         {
           href: 'https://www.archway.io/',
-          label: 'Back to website',
+          label: 'Back to main website',
           position: 'right',
           className: 'back-to-website',
         },
@@ -130,9 +130,9 @@ module.exports = {
         theme: {
           customCss: [
             require.resolve('./src/css/footer.css'),
-            require.resolve('./src/css/mobile.css'),
             require.resolve('./src/css/icons.css'),
-            require.resolve('./src/css/custom.css')
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/mobile.css')
           ]
         },
       },
