@@ -6,7 +6,7 @@ sidebar_position: 1
 
 New wallets can be created a number of ways but this guide will focus on using the `archwayd` core daemon or the  [developer CLI](/docs/create/getting-started/basics). For installing and accessing `archwayd` see the [Docker installation instructions](/docs/create/getting-started/install#install-archwayd-using-docker). For instructions on how to install and setup the developer CLI review our [installation guide](/docs/create/getting-started/install).
 
-::: note
+:::note
 Additional options for creating wallets are covered in this article, but do note any 3rd party tools are not supported or maintained by Archway directly
 ::::
 
