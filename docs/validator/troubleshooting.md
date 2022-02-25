@@ -69,7 +69,7 @@ Having another issue?
 
 Please reach out through the following channels:
 
-- [Medium Blog](https://medium.com/archwayhq)
+- [Medium](https://medium.com/archwayhq)
 - [Twitter](https://twitter.com/archwayhq) 
-- [Discord Invite Link](https://discord.gg/-5FVvx3WGfa)
+- [Discord](https://discord.gg/-5FVvx3WGfa)
 - [Github](https://github.com/archway-network)
