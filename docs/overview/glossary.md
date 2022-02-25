@@ -5,6 +5,11 @@ sidebar_position: 4
 # Glossary
 
 <!-- A -->
+
+## Application Blockchain Interface (ABCI)
+
+ABCI is an interface that defines the boundary between the replication engine (the blockchain), and the state machine (the application). Using a socket protocol, a consensus engine running in one process can manage an application state running in another. It's the interface between Archway and your application, and it consists of a set of methods, each with a corresponding `Request` and `Response` message type.
+
 <!-- B -->
 
 <!-- C -->
