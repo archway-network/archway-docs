@@ -4,164 +4,126 @@ sidebar_position: 1
 
 # Create a Wallet
 
-## Installation
-The first thing we need to in order to delegate our stake is to install the archwya CLI, you can find how to do this in our [installation guide](/docs/create/getting-started/install)
+New wallets can be created a number of ways but this guide will focus on using the `archwayd` core daemon or the  [developer CLI](/docs/create/getting-started/basics). For installing and accessing `archwayd` see the [Docker installation instructions](/docs/create/getting-started/install#install-archwayd-using-docker). For instructions on how to install and setup the developer CLI review our [installation guide](/docs/create/getting-started/install).
 
-## Create Account
-### Using a ledger device
-When you initialize your ledger, a 24-word mnemonic is generated and stored in the device. This mnemonic is compatible with Cosmos and Cosmos accounts can be derived from it. Therefore, all you have to do is make your ledger compatible with gaiad. To do so, you need to go through the following steps:
+::: note
+Additional options for creating wallets are covered in this article, but do note any 3rd party tools are not supported or maintained by Archway directly
+::::
 
-1- Download the Ledger Live app here (opens new window).
-2- Connect your ledger via USB and update to the latest firmware
-3- Go to the ledger live app store, and download the "Cosmos" application (this can take a while). Note: You may have to enable Dev Mode in the Settings of Ledger Live to be able to download the "Cosmos" application.
-4- Navigate to the Cosmos app on your ledger device
-5- To create an account, use the following command:
-```
-archwayd keys add <yourAccountName> --ledger
+### Using the `archwayd` Daemon
+
+The command to add a new account using the daemon is:
+
+```bash
+archwayd keys add ${ACCOUNT_LABEL}
 ```
 
-- `<yourKeyName>` is the name of the account. it is a reference to the account number used to derive the key pair from the mnemonic. You will use this name to identify your account when you want to send a transaction.
-- You can add the optional `--account` flag to specify the path (0, 1, 2, ...) you want to use to generate your account. By default, account 0 is generated.
+Where `${ACCOUNT_LABEL}` represents a human readable label for you account. Account labels help keep track of which account is which, especially pertinent if you're managing multiple Archway accounts.
 
-#### Warning
-This process will only work while the Ledger is plugged in and unlocked.
+Example account creation:
 
-### Computer
-To generate an account, use the following command:
+```bash
+archwayd keys add demo
+Enter keyring passphrase:
 
+- name: demo
+  type: local
+  address: archway1cnfpa4n3pnrdfsrj3glmnq08u64mfmgu7nym9t
+  pubkey: archwaypub1addwnpepqgr0thwj5f4yvmndeqzxw3fvc6avchgvkyufrm5uvmguqjys8zj4guqdpyh
+  mnemonic: ""
+  threshold: 0
+  pubkeys: []
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+# Mnemonic seed words here...
 ```
-archwayd keys add <yourKeyName>
+
+### Using the Developer CLI
+
+The process of using the developer CLI is nearly identical to using the daemon (`archwayd`), but has the benefit of making it easy to switch between Dockerized and native built versions of Archway core.
+
+[Read the developer instructions for creating a wallet](/docs/create/getting-started/setup#creating-an-account)
+
+### Using a Ledger device (hardware wallet)
+
+When you initialize your Ledger, a 24-word mnemonic is generated and stored in the device. This mnemonic is compatible with Cosmos and Cosmos accounts can be derived from it. The following steps help make your Ledger compatible with the Archway daemon.
+
+1. Download the _Ledger Live_ app
+2. Connect your Ledger via USB and update to the latest firmware
+3. From the _Ledger Live_ app store, download the _Cosmos_ application. You may have to enable _Dev Mode_ in the Settings of Ledger Live to be able to download it.
+4. Navigate to the _Cosmos_ app on your Ledger device
+5. Create your account with the `archwayd` daemon using the flag `--ledger`
+
+```bash
+archwayd keys add ${ACCOUNT_LABEL} --ledger
 ```
 
-The command will generate a 24-words mnemonic and save the private and public keys for account 0 at the same time. Each time you want to send a transaction, you will need to unlock your system's credentials store. If you lose access to your credentials storage, you can always recover the private key with the mnemonic.
-
-- `<yourKeyName>` is the name of the account. it is a reference to the account number used to derive the key pair from the mnemonic. You will use this name to identify your account when you want to send a transaction.
-- You can add the optional `--account` flag to specify the path (0, 1, 2, ...) you want to use to generate your account. By default, account 0 is generated.
-
-### Warning
+:::tip
 After securing your mnemonic, you can delete your bash history to ensure no one can retrieve it
-```
+
+```bash
 history -c
 rm -rf ~/.bash_history`
 ```
+:::
 
-# Keplr
+:::caution
+Creating Ledger accounts will only work if the Ledger is charged, plugged in and unlocked.
+::: 
+
+
+### Using a Browser Extension (Keplr)
 
 This quick start guide helps you set up a wallet and manage your tokens with it. A popular wallets for Cosmos-based coins is [Keplr](https://wallet.keplr.app/), a wallet that is similar to MetaMask.
 
-## Install
-Open you _Google Chrome_ browser and head over to this website: https://wallet.keplr.app/
+#### Installing Keplr
 
-Open a _Google Chrome_  webbrowser and navigate to https://wallet.keplr.app/.
-
-If you have not already installed Keplr, select the message box to install it.
-
-You are redirected to the page where you can to install the Keplr extension.
-Select `Add to Chrome` and install the extension.
-
-When the Keplr extension is installed, the Keplr icon shows on your web browser.
-
-![](../assets/keplr01.png)
+For instructions on installing and setting up [Keplr](https://wallet.keplr.app/) see 
 
 
-## Open Keplr
+#### Open Keplr
 
 Select the Keplr icon on your web browser. You see a screen like this:
 
 ![](../assets/keplr02.png)
 
 
-## Create an Account
+#### Create an Account
 
 Select `Create new account` to see the following form:
 
 ![](../assets/keplr03.png)
 
-You see a `Mnemonic Seed` phrase that is generated specifically for your account. You may use this phrase to recover your account in case you install your Keplr extension or forget your password.
-
-**Attention**: Make sure to write the mnemonic phrase down, print it, or make several copies of it and keep them in a safe place.
-
-You can select a 12- or 24-words mnemonic phrase. Either option is fine, the 24-word mnemonic is more secure.
-
-Enter an account name, write down your password, and select `Next`.
-
-## Confirm Mnemonic Phrase
-
-After the following screen appears, select the mnemonic phrase exactly in the same order that you saw in the previous screen.
+A `Mnemonic Seed` phrase is generated specifically for your account. Use this phrase to recover your account in the case your browser extension becomes corrupted or you forget your password.
 
 ![](../assets/keplr04.png)
 
-## Register
-
-When all the words are put in the right order, select the `Register` button and you are all set.
-
-![](../assets/keplr05.png)
-
-## Working with Keplr
-
-The next time you select the Keplr extension icon, you see this window since you have an account.
+When we're logged into Keplr with a valid account we see this following
 
 ![](../assets/keplr06.png)
 
-In this window, you can view your total balance and perform multiple actions with our account.
+It's here we can view account balances and perform actions with our account like sending payments and executing smart contract calls.
 
-### Your Wallet Address
-
-To view and copy your wallet address, hover over the text starting with `cosmos`. You can share this address with the people who want to transfer tokens to your account.
-
-![](../assets/keplr07.png)
-
-### Make a Deposit
-
-Select the `Deposit` button. The wallet address is shown in a [QR Code](https://en.wikipedia.org/wiki/QR_code) format. You can let a person scan the QR code when they want to transfer some crypto to your wallet.
-
-![](../assets/keplr08.png)
-
-### Other Cosmos Tokens
+#### Viewing and Switching between Cosmos tokens
 
 Select the `Cosmos` dropdown on top of the window to switch the view to other Cosmos-based crypto tokens.
 
 ![](../assets/keplr09.png)
 
-### Account Management
+<!-- ### Extras
 
-To manage your account, select the account icon. You can also view the mnemonic phrase in your account.
+Read on for extra tips and tricks for using your new account.
 
-![](../assets/keplr10.png)
+#### Transferring ARCH tokens
 
-
-## CLI Wallet
-
-First we need to have our node running one validator, so please set it up here: [Running a Validator Node](./validator/running-a-validator-node.mdx).
-
-### Querying the balance of the wallet
-
-Now let's see the balance of our wallet.
-We can query any account with the following command:
-
-```bash
-archwayd query bank balances <Wallet_Address>
-```
-
-If we forget our wallet address we can retrieve its details via this command:
-
-```bash
-archwayd keys show my-wallet
-```
-
-So in our example we can see the balance of our wallet by running this command:
-
-```bash
-archwayd query bank balances $(archwayd keys show my-wallet -a)
-```
-
-### Transferring ARCH tokens to our wallet
-
-Now let's transfer some `ARCH` tokens from our validator account to our newly created wallet.
+Here's how we can transfer `ARCH` tokens between accounts using the `archwayd` daemon.
 
 
 ```bash
-archwayd tx send $(archwayd keys show my-validator-account -a) $(archwayd keys show my-wallet -a) 12ARCH --fees 0.1ARCH --chain-id my-chain
+archwayd tx send $(archwayd keys show ${SENDER_ACCOUNT} -a) $(archwayd keys show ${RECEIVING_ACCOUNT} -a) 12ARCH --fees 0.1ARCH --chain-id 'titus-1'
 ```
 
 Then, you should be prompted with the following confirmation question:
@@ -280,4 +242,4 @@ balances:
 - amount: "12"
   denom: ARCH
 pagination: {}
-```
+``` -->
