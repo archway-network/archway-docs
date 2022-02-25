@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Create a Wallet
 
-New wallets can be created a number of ways but this guide will focus on using the `archwayd` core daemon or the  [developer CLI](/docs/create/getting-started/basics). For installing and accessing `archwayd` see the [Docker installation instructions](/docs/create/getting-started/install#install-archwayd-using-docker). For instructions on how to install and setup the developer CLI review our [installation guide](/docs/create/getting-started/install).
+New wallets can be created a number of ways but this guide will focus on using the `archwayd` core daemon or the  [developer CLI](/docs/create/getting-started/basics). For installing and accessing `archwayd` see the [Archway Docker installation instructions](/docs/create/getting-started/install#install-archwayd-using-docker). For instructions on how to install and setup the developer CLI review our [installation guide](/docs/create/getting-started/install).
 
 :::note
 While additional options for creating wallets are covered in this article, 3rd party tools are not supported or maintained by Archway directly
@@ -43,7 +43,7 @@ It is the only way to recover your account if you ever forget your password.
 
 ### Using the Developer CLI
 
-The process of using the developer CLI is nearly identical to using the daemon (`archwayd`), but has the benefit of making it easy to switch between Dockerized and native built versions of Archway core.
+Creating an account with the developer CLI is similar to using the daemon (`archwayd`), but has the benefit of making it easy to switch between Dockerized and native built versions of Archway core.
 
 [Read the developer instructions for creating a wallet](/docs/create/getting-started/setup#creating-an-account)
 
