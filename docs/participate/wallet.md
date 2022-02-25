@@ -10,9 +10,9 @@ New wallets can be created a number of ways but this guide will focus on using t
 Additional options for creating wallets are covered in this article, but do note any 3rd party tools are not supported or maintained by Archway directly
 ::::
 
-### Using the `archwayd` Daemon
+### Using the Archway Daemon
 
-The command to add a new account using the daemon is:
+The command to add a new account using the `archwayd` daemon is:
 
 ```bash
 archwayd keys add ${ACCOUNT_LABEL}
