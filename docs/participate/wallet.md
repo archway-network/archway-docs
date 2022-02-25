@@ -41,6 +41,15 @@ It is the only way to recover your account if you ever forget your password.
 # Mnemonic seed words here...
 ```
 
+:::tip
+After securing your mnemonic, you can delete your bash history to ensure no one can retrieve it
+
+```bash
+history -c
+rm -rf ~/.bash_history`
+```
+:::
+
 ### Using the Developer CLI
 
 Creating an account with the developer CLI is similar to using the daemon (`archwayd`), but has the benefit of making it easy to switch between Dockerized and native built versions of Archway core.
@@ -60,15 +69,6 @@ When you initialize your Ledger, a 24-word mnemonic is generated and stored in t
 ```bash
 archwayd keys add ${ACCOUNT_LABEL} --ledger
 ```
-
-:::tip
-After securing your mnemonic, you can delete your bash history to ensure no one can retrieve it
-
-```bash
-history -c
-rm -rf ~/.bash_history`
-```
-:::
 
 :::caution
 Creating Ledger accounts will only work if the Ledger is charged, plugged in and unlocked.
