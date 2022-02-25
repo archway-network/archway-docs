@@ -53,7 +53,7 @@ When you initialize your Ledger, a 24-word mnemonic is generated and stored in t
 
 1. Download the _Ledger Live_ app
 2. Connect your Ledger via USB and update to the latest firmware
-3. From the _Ledger Live_ app store, download the _Cosmos_ application. You may have to enable _Dev Mode_ in the Settings of Ledger Live to be able to download it.
+3. From the _Ledger Live_ app store, download the _Cosmos_ application. You may have to enable _Dev Mode_ in the settings of _Ledger Live_ to be able to download it.
 4. Navigate to the _Cosmos_ app on your Ledger device
 5. Create your account with the `archwayd` daemon using the flag `--ledger`
 
