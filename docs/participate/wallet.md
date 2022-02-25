@@ -77,21 +77,12 @@ Creating Ledger accounts will only work if the Ledger is charged, plugged in and
 
 ### Using a Browser Extension (Keplr)
 
-This quick start guide helps you set up a wallet and manage your tokens with it. A popular wallets for Cosmos-based coins is [Keplr](https://wallet.keplr.app/), a wallet that is similar to MetaMask.
-
-#### Installing Keplr
-
-For instructions on installing and setting up [Keplr](https://wallet.keplr.app/) see 
+A popular wallet for Cosmos-based coins is [Keplr](https://wallet.keplr.app/), a wallet that offers a similar user experience to MetaMask on Ethereum. For instructions regarding downloading, installing and setting up [Keplr](https://wallet.keplr.app/) see Keplr's own [installation guide](https://keplr.crunch.help/getting-started/installing-keplr-wallet)
 
 
-#### Open Keplr
-
-Select the Keplr icon on your web browser. You see a screen like this:
+After installing the extension, open Keplr by selecting its icon from your browser toolbar. If you haven't created an account yet, you'll see a screen like this:
 
 ![](../assets/keplr02.png)
-
-
-#### Create an Account
 
 Select `Create new account` to see the following form:
 
@@ -101,11 +92,9 @@ A `Mnemonic Seed` phrase is generated specifically for your account. Use this ph
 
 ![](../assets/keplr04.png)
 
-When we're logged into Keplr with a valid account we see this following
+When logged into Keplr with a valid account, the extension presents us with the following screen where we can view account balances and perform actions like sending payments or executing calls to smart contracts.
 
 ![](../assets/keplr06.png)
-
-It's here we can view account balances and perform actions with our account like sending payments and executing smart contract calls.
 
 #### Viewing and Switching between Cosmos tokens
 
