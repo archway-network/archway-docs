@@ -35,7 +35,7 @@ in order to connect to the network we must
 
 ##### Config CLI
 If you are not running a node, you can configure your machine as a client.
-First remove any archway node data if there is any:
+First, remove any archway node data if there is any:
 
 ```bash
 rm -rf ~/.archway/*
@@ -45,7 +45,7 @@ We must set the default value for the node we are connecting to
 ```sh
 archwayd config node https://rpc.constantine-1.archway.tech:443
 ```
-*Note: This example connects to the `constantine` test node. Make sure to connect to the right network.
+*Note:* This example connects to the `constantine` test node. Make sure to connect to the correct network.
 
 Finally let's set up the chain ID of the network we want to interact with
 
