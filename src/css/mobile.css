@@ -2,6 +2,11 @@
   display: none;
 }
 
+.container.home,
+.container.create-cats {
+  max-width: 1035px;
+}
+
 @media screen and (max-width: 1000px) {
   .navbar-sidebar__item.menu ul.menu__list {
     display: block;
@@ -55,6 +60,27 @@
   .react-toggle-thumb {
     top: 4px !important;
     left: 3px !important;
+  }
+  .card, .card-sm {
+    width: 405px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card, .card-sm {
+    width: 390px;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .card, .card-sm {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card, .card-sm {
+    width: 100%;
   }
 }
 

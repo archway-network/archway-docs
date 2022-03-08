@@ -189,7 +189,7 @@ export default function Home() {
         />
       </div>
       <main>
-        <div className="container">
+        <div className="container home">
           <h1>Welcome</h1>
           <p>Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow.</p>
           <div className="card-deck sm">{overviewCategoryItems}</div>
