@@ -92,6 +92,9 @@
     position: absolute;
     right: 16px;
   }
+  .navbar__toggle > svg {
+    margin-right: 8px;
+  }
   .navbar__items {
     width: 100vw;
   }
