@@ -117,4 +117,14 @@
   .navbar__items {
     margin-top: 16px;
   }
+  .navbar--fixed-top,
+  .navbar__inner {
+    position: fixed !important;
+  }
+  .navbar--fixed-top {
+    width: 100%;
+  }
+  main {
+    margin-top: 80px;
+  }
 }
