@@ -172,11 +172,16 @@ html[data-theme='dark'] .header-discord-link:before {
 
 /* .back-to-website span:hover {
   opacity: 0.6;
-}
+} */
 
 .back-to-website > span > svg {
   display: none;
-} */
+}
+
+.arrow.external,
+.arrow.external span {
+  font-family: 'Inter';
+}
 
 .navbar__items.navbar__items--right {
   margin-left: 40px;

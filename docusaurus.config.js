@@ -23,9 +23,9 @@ module.exports = {
       items: [
         {
           href: 'https://www.archway.io/',
-          label: 'Back to archway.io',
+          label: 'Archway.io ↗',
           position: 'right',
-          className: 'back-to-website',
+          className: 'back-to-website arrow external',
         },
         {
           href: 'https://github.com/archway-network/archway-docs/',
