@@ -77,7 +77,7 @@ module.exports = {
         children: [
           {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket', description:'Get started building decentralized applications on Archway'},
           {name:'Guides', value:'/docs/create/guides/my-first-dapp/start', icon:'icon-guide2', description:'Dive deeper into Archway smart contract development and dApp client code'},
-          {name:'Videos', value:'#', icon:'icon-video3', description:'Code along side Archway developers using our video tutorials'}
+          {name:'Videos', value:'/videos', icon:'icon-video3', description:'Code along side Archway developers using our video tutorials'}
         ]
       },
       {
@@ -115,6 +115,14 @@ module.exports = {
           {name:'Public Networks', value:'/docs/overview/network', icon:'icon-sitemap'},
           {name:'Join the Community', value:'/docs/overview/join-the-community', icon:'icon-earth'},
         ]
+      }
+    ],
+    videos: [
+      {
+        name: 'Create your own dApps and NFTs with CosmWasm using Archway',
+        value: 'https://www.youtube.com/watch?v=n4rvQB86lLM',
+        tags: ['Cosmos','Ignite','Code with Us', 'NFTs', 'Rust', 'Cosmjs'],
+        description: 'CosmWasm unlocks a vast universe of new possibilities through true cross-chain smart contracts. However, the development experience hasn’t always been the most straightforward. With this workshop, you’ll learn just how easy it is to create your own CosmWasm dApps and NFTs on top of Archway. '
       }
     ]
   },
