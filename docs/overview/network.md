@@ -18,7 +18,7 @@ Stable testing network for dApp developers building dApps.
 - Faucet: https://faucet.constantine-1.archway.tech 
 - LCD: https://api.constantine-1.archway.tech  
 - Block Explorer: https://explorer.constantine-1.archway.tech
-- P2P Seed: `3f49fe7d704a2b87fea36ea8c9bd894dde848523@35.237.199.63:443`
+- P2P Seed: `d46ddf80f6e4313b06209507135466847c7b4163@35.229.84.66:26656`
 
 ## Titus (Experimental Testnet) 
 
