@@ -340,3 +340,29 @@ main > div.container > div.row > div.col--3 > div > ul {
 .markdown h1:first-child {
   --ifm-h1-font-size: 37px;
 }
+
+ul.tags {
+  list-style: none;
+  display: inline;
+  padding: 0;
+}
+
+li.tag {
+  border-radius: 2em;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  margin: 0.25rem;
+  margin-right: 0.5em;
+  margin-left: 0;
+  padding: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: inline-block;
+  border: 1px solid var(--ifm-color-primary);
+}
+
+li.tag:hover {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base-inverse);
+  border: 1px solid var(--ifm-font-color-base-inverse);
+}

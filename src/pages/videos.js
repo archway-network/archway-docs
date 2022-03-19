@@ -23,6 +23,13 @@ export default function Videos() {
             </div>
             {/* <iframe width='560' height='315' src={item.value} frameBorder='0' allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowFullScreen></iframe> */}
             <p className='card-text'>{item.description}</p>
+            
+            <ul className='tags'>
+              {item.tags.map((tag, index) => (
+                <li className='tag' key={index}>{tag}</li>
+              ))}
+            </ul>
+
           </div>
         </div>
       </div>
@@ -42,7 +49,7 @@ export default function Videos() {
       <main>
         <div className="container videos">
           <h1>Videos</h1>
-          <p>Explore hands-on video tutorials and code along sessions. Learn how to make your ideas for the next "killer dApp" a reality 🚀</p>
+          {/* <p>Explore hands-on video tutorials and code along sessions. Learn how to make your ideas for the next "killer dApp" a reality 🚀</p> */}
           <div className="card-deck video">{videoItems}</div>
         </div>
       </main>
