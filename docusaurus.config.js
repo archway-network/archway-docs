@@ -76,7 +76,7 @@ module.exports = {
         name: 'build',
         children: [
           {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket', description:'Get started building decentralized applications on Archway'},
-          {name:'Guides', value:'/docs/create/guides/my-first-dapp/start', icon:'icon-guide2', description:'Dive deeper into Archway smart contract development and dApp client code'},
+          {name:'Guides', value:'/docs/create/guides/launchpad', icon:'icon-guide2', description:'Dive deeper into Archway smart contract development and dApp client code'},
           {name:'Videos', value:'/videos', icon:'icon-video3', description:'Code along side Archway developers using our video tutorials'}
         ]
       },
