@@ -16,4 +16,4 @@ When we run the `archway deploy` command, we add our values for `name`, `symbol`
 $ archway deploy --args '{ "name": "Test Collection", "symbol": "NFTEST", "minter": "archway1znhxr5j4ty5rz09z49thrj7gnxpm9jl5nnmvjx" }'
 ```
 
-Once deployment succeeds, you're able to mint your first token of the collection. Read on to learn about interacting with the contract.
+Once deployment succeeds, you're able to mint your first token of the collection. Read on to learn more about interacting with this contract.
