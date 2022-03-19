@@ -2,4 +2,4 @@
 sidebar_position: 4
 ---
 
-# Building the dApp frontend
+# Building the NFT dApp
