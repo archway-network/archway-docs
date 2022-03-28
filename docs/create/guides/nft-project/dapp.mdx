@@ -1,0 +1,104 @@
+---
+sidebar_position: 4
+title: Building the NFT dApp
+---
+
+# Building the dApp UI
+
+If it's is your first time building an Archway dApp frontend, head over to the [Creating Your First dApp](../my-first-dapp/dapp.mdx) guide to learn how to setup your basic project scaffolding. Once you're serving a web page that connects to [Keplr](https://wallet.keplr.app/), you'll be ready to follow the next steps.
+
+# Loading NFT the collection
+
+As we saw in the previous guide, to query a contract we need to know its address on chain. We also need the `SigningCosmWasmClient` from `@cosmjs/cosmwasm-stargate` that's been connected to an Archway network such as [Constantine testnet](https://rpc.constantine-1.archway.tech/).
+
+```js
+const queryHandler = CosmWasmClient.queryClient.wasm.queryContractSmart; // For more on setting up this handler see the "Creating Your First dApp" guide (linked to above)
+const contract = "" // Replace this empty string with your deployed contract address
+```
+
+Using the above two variables we can write JavaScript to query the NFT collection for token ids like this:
+
+```js
+async function getNfts () {
+  let entrypoint = {
+    all_tokens: {}
+  };
+  let query = await queryHandler(contract, entrypoint);
+  console.log('All NFTs of contract ' + contract + ':', query);
+  return query;
+}
+// Example return:
+// { tokens: ['1'] }
+// (XXX TODO: check / test this output)
+```
+
+# Minting from the dApp
+
+To mint from our dApp, we need to assemble the metadata fields for the NFT. We can achieve this by making a web UI with form fields where the NFT creator can add custom traits to their NFT.
+
+[screenshot goes here]
+
+We also need the `calculateFee` and `GasPrice` functions from the [@cosmjs/stargate](https://www.npmjs.com/package/@cosmjs/stargate) package.
+
+```js
+const gasPrice = GasPrice.fromString('0.002uconst');
+const txFee = calculateFee(300000, this.gas.price);
+```
+
+For now, we can simplify our remaining task by writing a function which takes the required NFT metadata as parameters. With that in mind, here's what a minting function looks like in JavaScript:
+
+```js
+async function mintNft (owner = null, tokenId = null, imageUrl = null, name = null, description = null, attributes = []) {
+  if (!owner || !tokenId || !imageUrl || !name || !description) {
+    console.warn('Error reading minting arguments', {
+      owner: owner, 
+      tokenId: tokenId, 
+      imageUrl: imageUrl, 
+      name: name, 
+      description: description
+    });
+    return;
+  }
+
+  // Prepare Tx
+  let entrypoint = {
+    mint: {
+      token_id: String(this.nfts.market.tokens.length),
+      owner: owner,
+      token_uri: this.metadata.uri,
+      extension: {
+        name: name,
+        description: description,
+        image: imageUrl,
+      }
+    }
+  };
+
+  // If the creator used any arbitrary custom
+  // attributes, we add them to the entrypoint
+  if (Array.isArray(attributes)) {
+    if (attributes.length) {
+      entrypoint.mint.extension.attributes = attributes;
+    }
+  }
+
+  // UNCOMMENT FOR DEBUGGING:
+  // console.log('Entrypoint', entrypoint);
+  // console.log('Tx args', {
+  //   senderAddress: this.accounts[0].address, 
+  //   contractAddress: this.contract, 
+  //   msg: entrypoint, 
+  //   fee: txFee
+  // });
+
+  try {
+    // Send Tx
+    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, txFee);
+    console.log('Mint Tx', tx);
+    // Refresh the NFT collection to resolve the new token
+    await getNfts();
+  } catch (e) {
+    console.warn('Error executing mint tx', e);
+  }
+}
+```

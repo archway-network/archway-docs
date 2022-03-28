@@ -13,7 +13,7 @@ Now we are ready to deploy and instantiate the contract. The contract instantiat
 When we run the `archway deploy` command, we add our values for `name`, `symbol` and `minter` as arguments like this:
 
 ```bash
-$ archway deploy --args '{ "name": "Test Collection", "symbol": "NFTEST", "minter": "archway1znhxr5j4ty5rz09z49thrj7gnxpm9jl5nnmvjx" }'
+archway deploy --args '{ "name": "Test Collection", "symbol": "NFTEST", "minter": "archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq" }'
 ```
 
 Once deployment succeeds, you're able to mint your first token of the collection. Read on to learn more about interacting with this contract.
