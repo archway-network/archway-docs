@@ -10,7 +10,7 @@ This guide follows the below workflow:
 2. [Customizing your token parameters](#designing-your-tokens)
 3. [Deploying your token contract](./deploy.md)
 4. [Minting and sending tokens](./interact.md)
-5. [Building the NFT dApp](./dapp.md)
+5. [Building the NFT dApp](./dapp.mdx)
 
 
 ## Introduction

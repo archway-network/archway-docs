@@ -4,7 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import DocSidebar from '@theme/DocSidebar';
 import * as sidebar from '../../sidebars';
-import pageSidebar from './common/pageSidebar';
+import pageSidebar from '../common/pageSidebar';
 
 export default function Home() {
   sidebar.pageSidebar = pageSidebar;
