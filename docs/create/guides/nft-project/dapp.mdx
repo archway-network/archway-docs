@@ -3,11 +3,9 @@ sidebar_position: 4
 title: Building the NFT dApp
 ---
 
-# Building the dApp UI
-
 If it's is your first time building an Archway dApp frontend, head over to the [Creating Your First dApp](../my-first-dapp/dapp.mdx) guide to learn how to setup your basic project scaffolding. Once you're serving a web page that connects to [Keplr](https://wallet.keplr.app/), you'll be ready to follow the next steps.
 
-# Loading NFT the collection
+## Loading NFT the collection
 
 As we saw in the previous guide, to query a contract we need to know its address on chain. We also need the `SigningCosmWasmClient` from `@cosmjs/cosmwasm-stargate` that's been connected to an Archway network such as [Constantine testnet](https://rpc.constantine-1.archway.tech/).
 
@@ -32,7 +30,7 @@ async function getNfts () {
 // (XXX TODO: check / test this output)
 ```
 
-# Minting from the dApp
+## Minting from the dApp
 
 To mint from our dApp, we need to assemble the metadata fields for the NFT. We can achieve this by making a web UI with form fields where the NFT creator can add custom traits to their NFT.
 
@@ -63,13 +61,12 @@ async function mintNft (owner = null, tokenId = null, imageUrl = null, name = nu
   // Prepare Tx
   let entrypoint = {
     mint: {
-      token_id: String(this.nfts.market.tokens.length),
+      token_id: String(nfts.tokens.length),
       owner: owner,
-      token_uri: this.metadata.uri,
       extension: {
         name: name,
         description: description,
-        image: imageUrl,
+        image: imageUrl
       }
     }
   };
@@ -101,4 +98,110 @@ async function mintNft (owner = null, tokenId = null, imageUrl = null, name = nu
     console.warn('Error executing mint tx', e);
   }
 }
+
+// Example call:
+async function doMint() {
+  let mintTx = await mintNft(
+    owner = 'archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq', 
+    tokenId = '2', 
+    imageUrl = "ipfs://QmY8Ei2NQkMg8rCFiUkcXH2NPWPNKMoWLBYDwBeMNsP5sr", 
+    name = "Archway NFT #2", 
+    description = "Building With NFTs (and dApps)", 
+    attributes = [{"trait_type": "tutorial","value": "https://docs.archway.io/docs/create/guides/nft-project/deploy"}]
+  );
+  console.log('Mint tx', mintTx);
+}
 ```
+
+## Transferring NFTs 
+
+Now that we can mint from our dApp, the form and entrypoint parameters for transferring NFTs are much simpler. Just like transfers initiated from the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli) we need the recipient's Archway address, and the `token_id` we are sending to them. We also need to know the address of the current owner, and references to the `contract` address and `txFee` that we set earlier.
+
+Here's what a JavaScript function to transfer an Archway NFT looks like:
+
+```js
+async function transferNft (owner = null, recipient = null, tokenId = null) {
+  if (!owner || !recipient || !tokenId) {
+    console.warn('Error reading transfer_nft arguments', {
+      owner: owner,
+      recipient: recipient,
+      tokenId: tokenId
+    });
+  }
+  // Prepare Tx
+  let entrypoint = {
+    transfer_nft: {
+      recipient: recipient,
+      token_id: tokenId
+    }
+  };
+  // Send Tx
+  try {
+    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, txFee);
+    console.log('Transfer Tx', tx);
+    // Refresh the NFT collection
+    await getNfts();
+  } catch (e) {
+    console.warn("Error executing NFT transfer", e);
+  }
+}
+
+// Example call:
+async function doTransfer() {
+  let transferTx = await transferNft(
+    owner = 'archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq', 
+    recipient = 'archway1y00hm50lffnxt5m0kuy9afk83gyuye684zwcr5', 
+    tokenId = '2'
+  );
+  console.log('Transfer tx', transferTx);
+}
+```
+
+## Displaying NFTs
+
+The `getNfts` function we created returns all token ids minted by the contract, but one more step is needed before we can display NFTs from our collection in our dApp. To read an NFT's metadata we call the [nft_info](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/query.rs#L33-L39) entrypoint we executed from CLI in the [previous lesson](./interact.md).
+
+Here's what loading token metadata looks like using JavaScript:
+
+```js
+async function getTokenMeta (tokenId = false) {
+  if (!tokenId || typeof tokenId !== 'string') {
+    console.warn('Invalid token ID. Token ID must be a string, but got ' + typeof tokenId);
+    return;
+  }
+  let entrypoint = {
+    nft_info: {
+      token_id: tokenId
+    }
+  };
+  let query = await this.handlers.query(contract, entrypoint);
+  console.log('NFT contract succesfully  queried for token ID ' + tokenId, query);
+  return query;
+}
+
+// Example call:
+async function loadNft() {
+  let token2 = await getTokenMeta('2');
+  console.log('token_id == 2:', token2);
+}
+```
+
+:::info
+**Note:** If your NFT image was uploaded to IPFS, using an IPFS url like `ipfs://...` your web application needs to resolve it as an image source via an IPFS gateway ([read more about IPFS gateways and providers](https://docs.ipfs.io/concepts/ipfs-gateway/)).
+:::
+
+## Clone it and try yourself
+
+Since this guide focused on core features of Archway NFTs, some basic aspects of web development haven't been looked at in detail. You'll find working example frontends for this project in the [dApp examples repository](https://github.com/archway-network/dApp-examples).
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="vue" label="Vue.js" default>
+    <a href="https://github.com/archway-network/dApp-examples/tree/main/vuejs/nft-basic" target="_blank">Vue Basic NFT</a>
+  </TabItem>
+  <TabItem value="react" label="React">
+    <p>React version coming soon...</p>
+  </TabItem>
+</Tabs>
