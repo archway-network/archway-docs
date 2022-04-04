@@ -122,7 +122,7 @@ Here's what a JavaScript function to transfer an Archway NFT looks like:
 ```js
 async function transferNft(owner, recipient, tokenId) {
   if (!owner || !recipient || !tokenId) {
-    console.warn('Error parsing transfer_nft arguments', {owner: owner, recipient: recipient, tokenId: tokenId});
+    console.warn('Error parsing transfer_nft arguments', { owner, recipient, tokenId});
     return;
   }
   // Prepare Tx
