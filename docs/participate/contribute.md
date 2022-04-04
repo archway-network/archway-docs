@@ -91,7 +91,13 @@ Since the deploy preview doesn't work on Draft PRs, follow these steps to previe
     cd archway-docs
     ```
 
-2. Building the Archway docs website requires [Node and npm](https://nodejs.org/en/download/) for JavaScript
+2. Building the Archway docs website requires [Node and npm](https://nodejs.org/en/download/) for JavaScript. 
+
+:::tip
+For running [Docusaurus 2](https://docusaurus.io/) we recommend using Node version 14 (fermium). Docusuarus fails to compile correctly in more recent, stable versions. 
+
+For installing and maintaining multiple versions of `node` and `npm` you can use [nvm](https://nvm.sh)
+:::
 
 3. Using [npm](https://www.npmjs.com/), install the repository's dependency modules
 

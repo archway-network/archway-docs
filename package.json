@@ -1,6 +1,6 @@
 {
   "name": "archway-docs",
-  "version": "1.0.0-alpha",
+  "version": "1.0.1-alpha",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
