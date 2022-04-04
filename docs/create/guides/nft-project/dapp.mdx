@@ -58,7 +58,7 @@ const txFee = calculateFee(300000, this.gas.price);
 We can simplify our remaining task by writing a function which takes the required NFT metadata as parameters. With that in mind, here's what a minting function looks like in JavaScript:
 
 ```js
-async function mintNft (owner = null, tokenId = null, imageUrl = null, name = null, description = null, attributes = []) {
+async function mintNft (owner, tokenId, imageUrl, name, description, attributes = []) {
   // Ensure we collected the required arguments
   if (!owner || !tokenId || !imageUrl || !name || !description) {
     console.warn('Error parsing mint arguments', {owner: owner, tokenId: tokenId, imageUrl: imageUrl, name: name, description: description});
@@ -120,7 +120,7 @@ Now that we can mint from our dApp, the form and entrypoint parameters for trans
 Here's what a JavaScript function to transfer an Archway NFT looks like:
 
 ```js
-async function transferNft (owner = null, recipient = null, tokenId = null) {
+async function transferNft (owner, recipient, tokenId) {
   if (!owner || !recipient || !tokenId) {
     console.warn('Error parsing transfer_nft arguments', {owner: owner, recipient: recipient, tokenId: tokenId});
     return;
@@ -166,8 +166,8 @@ The `getNfts` function we created returns all token ids minted by the contract, 
 Here's what loading token metadata looks like using JavaScript:
 
 ```js
-async function getTokenMeta (tokenId = false) {
-  if (!tokenId || typeof tokenId !== 'string') {
+async function getTokenMeta (tokenId) {
+  if (typeof tokenId !== 'string') {
     console.warn('Invalid token ID. Token ID must be a string, but got ' + typeof tokenId);
     return;
   }
