@@ -61,7 +61,7 @@ We can simplify our remaining task by writing a function which takes the require
 async function mintNft(owner, tokenId, imageUrl, name, description, attributes = []) {
   // Ensure we collected the required arguments
   if (!owner || !tokenId || !imageUrl || !name || !description) {
-    console.warn('Error parsing mint arguments', {owner: owner, tokenId: tokenId, imageUrl: imageUrl, name: name, description: description});
+    console.warn('Error parsing mint arguments', { owner, tokenId, imageUrl, name, description });
     return;
   }
 
