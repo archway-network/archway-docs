@@ -58,7 +58,7 @@ For example: `docker pull archwaynetwork/archwayd:latest`
 Installing `archwayd` from source, coming soon!
 :::
 
-### Install Archwayd from Source (coming soon)
+### Install Archwayd from Source
 
 Get source code:
 
@@ -124,6 +124,4 @@ npm install -g @archwayhq/cli
 
 :::caution
 **Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (for example, `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R /var/tmp/.archwayd`)
-
-Hang in there, installing `archwayd` from source is coming soon!
 :::
