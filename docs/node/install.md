@@ -8,12 +8,6 @@ This guide shows how to install and run an Archway full node.
 
 ## Running the Archway daemon
 
-:::caution
-Archway can be installed only by pulling from Docker Hub ([see bellow](#how-to-run-archwayd-using-docker)).
-
-Installing `archwayd` from source is coming soon!
-:::
-
 ### How to install `archwayd` from source
 
 Make sure you have golang installed on your machine:
