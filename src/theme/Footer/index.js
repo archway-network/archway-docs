@@ -148,11 +148,9 @@ function Footer() {
               <div className="footer-bottom__list" data-v-26b507a6>
                 <div className="footer-bottom__item" data-v-26b507a6>All Rights Reserved</div>
                 <div className="footer-bottom__item footer-bottom__item--small" data-v-26b507a6>
-                  <a href="mailto:hello@archway.io" className="no-bd tm-link tm-link-dark" data-v-78aa3c22 data-v-26b507a6>hello@archway.io</a>
-                </div>
-                <div className="footer-bottom__item footer-bottom__item--small" data-v-26b507a6>
                   <a target="_blank" href="https://www.archway.io/privacy" className="no-bd tm-link tm-link-dark" data-v-78aa3c22 data-v-26b507a6>Privacy Policy</a>
                 </div>
+                <div className="footer-bottom__item footer-bottom__item--small" data-v-26b507a6></div>
               </div>
             </div>
           </div>
