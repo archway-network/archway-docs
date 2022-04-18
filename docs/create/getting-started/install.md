@@ -34,12 +34,13 @@ If you didn't install  `rustc` with `rustup`, or don't have `cargo` in your comm
 
 The `cargo-generate` tool creates a new Rust project quickly by leveraging a pre-existing code base.
 
-Archway uses `cargo-generate` to provide project templates for dApp development.
+Archway uses `cargo-generate` and `cargo-run-script` to provide and manage project templates for dApp development.
 
-To install `cargo-generate` with `vendored-openssl`, run the command:
+To install `cargo-generate` with `vendored-openssl`, and the `cargo-run-script` module, run the command:
 
 ```bash
 cargo install cargo-generate --features vendored-openssl
+cargo install cargo-run-script
 ```
 
 ## Archwayd
