@@ -51,14 +51,6 @@ Originally forked from the [cosmos/gaia repository](https://github.com/cosmos/ga
 
 To build `archwayd`, install it from source or use the `archwaynetwork/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container.
 
-:::caution
-**Note:** For the moment Archway can be installed only by pulling from Docker Hub.
-
-For example: `docker pull archwaynetwork/archwayd:latest`
-
-Installing `archwayd` from source, coming soon!
-:::
-
 ### Install Archwayd from Source
 
 Get source code:
@@ -74,7 +66,9 @@ Build and install:
 make install
 ```
 
-**Note: Building archwayd from source requires Go 1.16.8+**
+:::info
+**Note: Building archwayd from source requires Go 1.17+**
+:::info
 
 For full installation and configuration parameters, see https://github.com/archway-network/archway/blob/main/README.md.
 
@@ -110,7 +104,7 @@ For more information on running `archwayd` with the `archway-network/archwayd` [
 For installing `node.js` and `npm`, see instructions for your operating system at https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 :::info
-For `v1.0.4-beta` and later, the `@archwayhq/cli` requires Node.js version 17 or higher.
+The `@archwayhq/cli` requires Node.js version 17 or higher.
 
 [Check current version of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
 :::
@@ -124,5 +118,5 @@ npm install -g @archwayhq/cli
 ```
 
 :::caution
-**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (for example, `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R /var/tmp/.archwayd`)
+**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (for example, `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R ~/.archway`)
 :::
