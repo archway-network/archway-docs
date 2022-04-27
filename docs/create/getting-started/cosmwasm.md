@@ -8,7 +8,9 @@ CosmWasm is a Cosmos framework that allows developers to write multi-chain smart
 
 ## Developer Ecosystem
 
-CosmWasm is written as a module that can plug into the Cosmos SDK, this makes it easy for deploying Cosmos blockchains that utilize Wasm smart contracts. Disregarding special code pertaining to specific chains, CosmWasm contracts deploy and behave interchangeably among blockchains running the [`wasmd`](https://github.com/CosmWasm/wasmd) binary. This means developers can find many helpful resources, documentation, and guides that may or may not be included on [this](https://docs.archway.io) website. 
+CosmWasm is written as a module that can plug into the Cosmos SDK, making it easy for deploying Cosmos blockchains that utilize Wasm smart contracts. 
+
+Disregarding code pertaining to specific chains, CosmWasm contracts deploy and behave interchangeably among blockchains running the [`wasmd`](https://github.com/CosmWasm/wasmd) binary. This means developers can find many helpful resources, documentation, and guides that may or may not be included on [this](https://docs.archway.io) website. 
 
 #### Let's build together!
 
