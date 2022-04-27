@@ -22,7 +22,7 @@ This is a regular `wasm` binary. It's the same as you'd get by running the Rust 
 _Default_ `wasm` executables can be produced by the developer CLI using the command:
 
 ```bash
-archway deploy --dryrun
+archway deploy --dry-run
 ```
 
 Example output:
@@ -37,7 +37,7 @@ Building wasm executable...
     Finished release [optimized] target(s) in 27.78s
 ```
 
-**Note: use `--dryrun` before deploying to gauge whether the deployment will succeed. This is useful because of speed, as running `archway deploy --dryrun` is a lot faster.**
+**Note: use `--dry-run` before deploying to gauge whether the deployment will succeed. This is useful because of speed, as running `archway deploy --dry-run` is a lot faster.**
 
 ## CosmWasm Wasm executables
 
@@ -45,7 +45,7 @@ _CosmWasm_ `wasm` executables are optimized using the `cosmwasm/rust-optimizer` 
 
 Think of it like building `C++` executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
 
-Producing _CosmWasm_ `wasm` executables is part of the deploy process and can be accessed by running the deploy command without the `--dryrun` flag.
+Producing _CosmWasm_ `wasm` executables is part of the deploy process and can be accessed by running the deploy command without the `--dry-run` flag.
 
 :::note
 The Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started (Support for native `cosmwasm/rust-optimizer` binaries coming soon).
