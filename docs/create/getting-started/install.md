@@ -104,7 +104,7 @@ For more information on running `archwayd` with the `archway-network/archwayd` [
 For installing `node.js` and `npm`, see instructions for your operating system at https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 :::info
-As of 1.1.x `@archwayhq/cli` requires Node.js version 14 or higher, but some older `@archwayhq/cli` versions in the `beta` release track required Node.js version 17. Check your version you have installed using the command `archway --version`
+`@archwayhq/cli` requires Node.js version 14 or higher, but some older versions in the `beta` release track required Node.js version 17. You can check which version you have installed using the command `archway --version`.
 
 [See all availble versions of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
 :::
@@ -118,5 +118,5 @@ npm install -g @archwayhq/cli
 ```
 
 :::caution
-**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (for example, `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R ~/.archway`)
+**Note:** If you are running `archwayd` using [Docker](https://docs.docker.com/get-docker), and not running in [Rootless Mode](https://docs.docker.com/engine/security/rootless/), you may need to install the Archway developer CLI as `root`, or give yourself permissions to the directory on your file system (for example, `sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R ~/.archway`).
 :::
