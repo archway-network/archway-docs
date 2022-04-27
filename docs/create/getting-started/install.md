@@ -104,9 +104,9 @@ For more information on running `archwayd` with the `archway-network/archwayd` [
 For installing `node.js` and `npm`, see instructions for your operating system at https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
 :::info
-The `@archwayhq/cli` requires Node.js version 17 or higher.
+As of 1.1.x `@archwayhq/cli` requires Node.js version 14 or higher, but some older `@archwayhq/cli` versions in the `beta` release track required Node.js version 17. Check your version you have installed using the command `archway --version`
 
-[Check current version of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
+[See all availble versions of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
 :::
 
 ## Archway Developer CLI
