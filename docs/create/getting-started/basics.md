@@ -27,6 +27,7 @@ configure [options]              Print or modify environment settings
 deploy [options]                 Deploy to network, or test deployability
 faucet                           Request Testnet funds from faucet
 history                          Print deployments history
+metadata [options]               Set the contract metadata
 network                          Show network settings or migrate between networks
 new                              Create a new project for Archway network
 query [options] <module> [type]  Query for data on Archway network
@@ -133,6 +134,29 @@ archway history
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
 | -h, --help             | `archway history -h`        | Display help for history command                     |
 
+### Metadata
+
+Sets the contract metadata with Archway parameters such as developer premiums and configurations for gas pooling.
+
+```bash
+archway metadata
+```
+
+| Option                 | Example                     | Description                                          |
+| ---------------------- | --------------------------- | ---------------------------------------------------- |
+| -c, --contract [value] | `archway metadata -c archway1aacn8927thr0cuw9jdw2wvswhlyfm4z05e6uhtr2hqx6wkgq5enszqhhvx` | Optional contract address override; defaults to last deployed  |
+| -f, --from [value]     | `archway metadata --from "main"` | Name or address of account to sign transactions |
+| --developer-address [value] | `archway metadata --developer-address "archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq"` | Developer address which can change metadata later on |
+| --reward-address [value] | `archway metadata --reward-address "archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq"` | Reward address in which rewards will be deposited |
+| --collect-premium      | `archway metadata --collect-premium` | Indicates the contract will use a premium for gas rewards |
+| --premium-percentage [value] | `archway metadata --collect-premium --premium-percentage 10` | Integer percentage of premium in a range between 0 and 200 |
+| --gas-rebate           | `archway metadata --gas-rebate` | Indicates contract rewards should be used for gas rebates to the user |
+| --no-confirm           | `archway metadata --no-confirm` | Do not prompt for confirmation when broadcasting tx |
+| --dry-run              | `archway metadata --dry-run` | Perform a simulation of a transaction without broadcasting it (default: false) |
+| --flags [flags]        | `archway metadata --flags "--amount 1"` | Send additional flags to `archwayd`|
+| -k, --docker [value]   | `archway metadata -k true`  | Use the docker version of `archwayd` |
+| -h, --help             | `archway metadata -h`       | Display help for metadata command                    |
+
 ### Network
 
 Print current network settings or migrate between networks
@@ -145,10 +169,6 @@ archway network
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
 | -h, --help             | `archway network -h`        | Display help for network command                     |
 
-:::info
-Support for migrating between networks is currently disabled but scheduled to roll out in release `1.0.3-beta`.
-:::
-
 ### New
 
 Create a new project for Archway network. Projects can be created as blank slates or from starter code templates.
@@ -160,10 +180,6 @@ archway new
 | Option                 | Example                     | Description                                          |
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
 | -h, --help             | `archway new -h`            | Display help for new command                         |
-
-:::info
-Support for starting blank slate projects is currently disabled but scheduled to roll out in release `1.0.4-beta`.
-:::
 
 ### Query 
 
