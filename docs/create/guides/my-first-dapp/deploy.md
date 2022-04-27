@@ -115,7 +115,6 @@ $ archway metadata
 ✔ Enter an address to receive developer rewards (e.g. "archway1...") … archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq
 ✔ Enable a premium on rewards? (enabling this feature will automatically disable gas rebate) … no
 ✔ Use the contract rewards for gas rebates to the user? … yes
-
 Setting metadata for contract archway1aacn8927thr0cuw9jdw2wvswhlyfm4z05e6uhtr2hqx6wkgq5enszqhhvx on constantine-1...
 Enter keyring passphrase: *[hidden]*
 
