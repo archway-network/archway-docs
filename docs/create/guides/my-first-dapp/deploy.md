@@ -52,8 +52,6 @@ pub fn instantiate(
 }
 ```
 
-<!-- XXX TODO: put a video here in place of output -->
-
 `archway deploy` is a developer super command that produces a lot of output. It doesn't make sense to list all of it here, instead let's look at a step-by-step anatomy of what the command does.
 
 There are 5 steps in total:
@@ -96,4 +94,31 @@ Printing deployments...
     data: '{...}'
   }
 ]
+```
+
+# Configuring your deployment
+
+Now that the dApp is deployed it's recommended to set its metadata. This will configure the smart contract to collect develop premiums, rewards and can be used to enable gas rebates with a pooling account.
+
+To set contract metadata, use the command:
+
+```bash
+archway metadata
+```
+
+Example output:
+
+```bash
+$ archway metadata
+✔ Send tx from which wallet in your keychain? (e.g. "main" or "archway1...") … docker
+✔ Developer address which can change the metadata later on (e.g. "archway1...") … archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq
+✔ Enter an address to receive developer rewards (e.g. "archway1...") … archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq
+✔ Enable a premium on rewards? (enabling this feature will automatically disable gas rebate) … no
+✔ Use the contract rewards for gas rebates to the user? … yes
+Setting metadata for contract archway1aacn8927thr0cuw9jdw2wvswhlyfm4z05e6uhtr2hqx6wkgq5enszqhhvx on constantine-1...
+Enter keyring passphrase: *[hidden]*
+
+# Tx. logs and confirm broadcast...
+
+Successfully set contract metadata on tx hash 6AAD95F173364D5E2E4B1715EC3A834CC8992143610B80C800D199D59D19D329
 ```
