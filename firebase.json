@@ -1,0 +1,6 @@
+{
+  "hosting": {
+    "target": "archway-docs",
+    "public": "build"
+  }
+}
