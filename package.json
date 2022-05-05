@@ -27,6 +27,16 @@
     "react-dom": "^17.0.1",
     "url-loader": "^4.1.1"
   },
+  "overrides": {
+    "@docusaurus/core": {
+      "webpack-dev-server": {
+        "portfinder": {
+          "async": ">=2.6.4"
+        }
+      }
+    },
+    "async": ">=2.6.4"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
