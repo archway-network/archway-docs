@@ -98,7 +98,7 @@ Printing deployments...
 
 # Configuring your deployment
 
-Now that the dApp is deployed it's recommended to set its metadata. This will configure the smart contract to collect develop premiums, rewards and can be used to enable gas rebates with a pooling account.
+Now that the dApp is deployed it's recommended to set its metadata. This will configure the smart contract to collect developer premiums, rewards and can be used to enable gas rebates with a pooling account.
 
 To set contract metadata, use the command:
 
