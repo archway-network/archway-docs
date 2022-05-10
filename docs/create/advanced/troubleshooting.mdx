@@ -1,0 +1,191 @@
+---
+sidebar_position: 4
+title: Troubleshooting
+---
+
+# Troubleshooting Development Issues
+
+- [General](#general)
+- [Installation](#installation)
+- [Project Creation](#project-creation)
+- [Deployment](#deployment)
+- [Debugging](#debugging)
+- [Testing](#testing)
+- [Permissions](#permissions)
+
+
+## General
+
+TODO Items: 
+- Demystify Node promisify errors
+
+## Installation
+
+TODO Items:
+- Incorrect Node version
+- Incorrect Rustc version
+- Incorrect Golang version
+- Unable to install Docker (Windows users)
+
+## Project Creation
+
+TODO Items: 
+- cargo errors (cargo-run-script, cargo-generate)
+
+## Deployment
+
+- rust-optimizer fails
+- Deployment stuck at downloading WASM
+- WASM stores but contract fails to instantiate
+
+## Debugging
+For better understanding the issue you're having it can be help to review our [debugging instructions](advanced/debug)
+
+## Testing
+
+### Why can't I use macros like `println!` and `dbg!` to write to `STDOUT`?
+
+This happens because Rust tests hide the `STDOUT` stream of successful tests to keep test output tidy. You can disable this behavior by passing the `--nocapture` option to the test binary or to cargo test (but, in this case after -- – see below):
+
+Examples:
+
+```bash
+$ rustc --test main.rs; ./main
+
+running 1 test
+test test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+$ ./main --nocapture
+
+running 1 test
+Hidden output
+test test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+$ cargo test -- --nocapture
+
+running 1 test
+Hidden output
+test test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```
+
+If you need to make this the default behavior of the `archway test` command, you can do so by modifying the value `developer.scripts.test` in `config.json` at the root of your project.
+
+Example:
+
+Default JSON (excerpt)
+```json
+{
+  "developer": {
+    "scripts": {
+      "test": "cargo unit-test",
+      "build": "cargo build",
+      "optimize": "cargo run-script optimize",
+      "wasm": "cargo wasm",
+      "query": "archwayd query wasm",
+      "tx": "archwayd tx wasm execute"
+    }
+  }
+}
+```
+
+Updated JSON (excerpt)
+```json
+{
+  "developer": {
+    "scripts": {
+      "test": "cargo unit-test -- --nocapture",
+      "build": "cargo build",
+      "optimize": "cargo run-script optimize",
+      "wasm": "cargo wasm",
+      "query": "archwayd query wasm",
+      "tx": "archwayd tx wasm execute"
+    }
+  }
+}
+```
+
+### Instantiation test passed but on-chain instantiation fails
+
+A common reason for this happening is an error with the instantiation arguments passed to the `--args` flag in the `archway deploy` command.
+
+There are several things to consider when formulating your JSON arguments to pass to the `--args` flag. Below are few use cases that will cause instantiation to fail.
+
+1) Invalid JSON
+
+If your arguments are not submitted in valid JSON format the instantiation will fail. The full error response looks like this:
+
+```bash
+error: option '-a, --args <value>' argument '{count:0}' is invalid. Please inform a valid JSON string.
+```
+
+2) Invalid JSON key
+
+If your JSON values are all correct, but one or more of their keys are not recognized, you'll get an `Error parsing into type` response from the developer CLI. The full error message looks like this:
+
+```bash
+Error: rpc error: code = InvalidArgument desc = failed to execute message; message index: 0: Error parsing into type increment_project::msg::InstantiateMsg: missing field `count`: instantiate wasm contract failed: invalid request
+```
+
+**3) Invalid JSON value**
+
+If the JSON keys are correct, but one or more values are not, you'll get an `Invalid type` error response from the developer CLI. The full error message looks like this:
+
+```bash
+Error: rpc error: code = InvalidArgument desc = failed to execute message; message index: 0: Error parsing into type increment_project::msg::InstantiateMsg: Invalid type: instantiate wasm contract failed: invalid request
+```
+
+For help with finding the source of the type error, use the command `cargo schema` to generate new schema examples. The generated files will 
+
+Example:
+
+```bash
+$ cargo schema
+    Finished dev [unoptimized + debuginfo] target(s) in 0.10s
+     Running `target/debug/examples/schema`
+Removing "/home/lsd/projects/increment-project/schema/state.json" …
+Removing "/home/lsd/projects/increment-project/query_msg.json" …
+Removing "/home/lsd/projects/increment-project/instantiate_msg.json" …
+Removing "/home/lsd/projects/increment-project/count_response.json" …
+Removing "/home/lsd/projects/increment-project/execute_msg.json" …
+Created /home/lsd/projects/increment-project/instantiate_msg.json
+Created /home/lsd/projects/increment-project/execute_msg.json
+Created /home/lsd/projects/increment-project/query_msg.json
+Created /home/lsd/projects/increment-project/state.json
+Created /home/lsd/projects/increment-project/count_response.json
+```
+
+Now you can print the regenerated schema for `instantiate_msg` to see what are the type and format requirements for your particular instantiation.
+
+Example:
+
+```bash
+$ cat schema/instantiate_msg.json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InstantiateMsg",
+  "type": "object",
+  "required": [
+    "count"
+  ],
+  "properties": {
+    "count": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}
+```
+
+The above schema tells us we should be sending arguments to the deployer in the format `--args '{"count":0}'` and that sending them as `--args '{"count":"0"}'` will fail.
+
+## Permissions
+
+TODO Items:
+- Docker permissions and rootless mode vs fully local
+- How to get around using the Docker CW rust-optimizer
