@@ -142,29 +142,14 @@ Docusaurus website is running at "http://localhost:8080/".
 
 ### Preview PRs on a deployed preview
 
-After the PR moves from **Draft** to **Ready for review**, the CI status checks will generate a Netlify deploy preview. Netlify keeps this preview up to date as you continue to work and commit new changes to the same branch. 
+After the PR moves from **Draft** to **Ready for review**, the CI status checks will automatically generate a deploy preview. As you continue to work and commit new changes to the same branch, while the PR is open the deploy preview will be kept up to date with your latest pushed change set. 
 
 To view your preview, you'll have to build the web app for production and copy those changes to the `dist` folder, where distributions are kept. A production build must be created each time you change the code or docs in your branch for them to be reflected in the deployed preview.
 
-To build the web app for production:
-
-```bash
-cd archway-docs
-npm run build
-rm -r dist/
-cp -r build/ dist/
-# Now you can commit and push your build to see 
-# a deploy-preview once your PR is moved from Draft to Ready for review
-```
-
-:::note
-For clarity and review purposes, build commits should not contain changes to files outside of the `dist` directory or they may be rejected.
-:::
-
-To view a deployed preview on a **Ready for review** PR, click the **Browse the preview** link in the comment by the Netlify CI bot:
+To view a deployed preview on a **Ready for review** PR, click the preview link in the comment by the github-actions bot in the PR **Conversation** tab of the PR:
 
 ![deploy-preview](../assets/deploy-preview.png)
 
 ## Who works on the docs?
 
-The docs and guides are maintained by [@drewstaylor](https://github.com/drewstaylor) and [@aelesbao](https://github.com/aelesbao) with contributions from the entire Archway team and folks like you.
+The docs and guides are maintained by [@drewstaylor](https://github.com/drewstaylor), [@santanaluiz](https://github.com/santanaluiz) and [@aelesbao](https://github.com/aelesbao) with contributions from the entire Archway team and folks like you.
