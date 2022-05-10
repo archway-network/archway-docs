@@ -142,7 +142,7 @@ Docusaurus website is running at "http://localhost:8080/".
 
 ### Preview PRs on a deployed preview
 
-After the PR moves from **Draft** to **Ready for review**, the CI status checks will automatically generate a deploy preview. As you continue to work and commit new changes to the same branch, while the PR is open the deploy preview will be kept up to date with your latest pushed change set. 
+After the PR moves from **Draft** to **Ready for review**, the CI status checks will automatically generate a deploy preview. As you continue to work and commit new changes to the same branch, while the PR is open, the deploy preview will be kept up to date with your latest pushed change set. 
 
 To view a deploy preview on a **Ready for review** PR, click the preview link in the comment by the github-actions bot in the PR **Conversation** tab of the PR:
 
