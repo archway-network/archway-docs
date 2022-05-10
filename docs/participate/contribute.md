@@ -144,9 +144,7 @@ Docusaurus website is running at "http://localhost:8080/".
 
 After the PR moves from **Draft** to **Ready for review**, the CI status checks will automatically generate a deploy preview. As you continue to work and commit new changes to the same branch, while the PR is open the deploy preview will be kept up to date with your latest pushed change set. 
 
-To view your preview, you'll have to build the web app for production and copy those changes to the `dist` folder, where distributions are kept. A production build must be created each time you change the code or docs in your branch for them to be reflected in the deployed preview.
-
-To view a deployed preview on a **Ready for review** PR, click the preview link in the comment by the github-actions bot in the PR **Conversation** tab of the PR:
+To view a deploy preview on a **Ready for review** PR, click the preview link in the comment by the github-actions bot in the PR **Conversation** tab of the PR:
 
 ![deploy-preview](../assets/deploy-preview.png)
 
