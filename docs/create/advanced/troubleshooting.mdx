@@ -107,7 +107,7 @@ The most common reason for deployments failing at instantiation is incorrect arg
 
 ### Can't print data from tests
 
-Ever wondered why you can't use macros like `println!` and `dbg!` to write to `stdout` from tests? This happens because Rust tests hide the `STDOUT` stream of successful tests to keep test output tidy. You can disable this behavior by passing the `--nocapture` option to the test binary or to cargo test (but, in this case after -- – see below):
+Ever wondered why you can't use macros like `println!` and `dbg!` to write to `stdout` from tests? This happens because Rust tests hide the `stdout` stream of successful tests to keep test output tidy. You can disable this behavior by passing the `--nocapture` option to the test binary or to cargo test (but, in this case after -- – see below):
 
 Examples:
 
