@@ -84,7 +84,15 @@ optimize = """docker run --rm -v "$(pwd)":/code \
 
 By default projects created with the `archway new` command use a Docker Hub version of the `cosmwasm/rust-optimizer`. It's also possible to use a locally built Docker image for this step. See the [Dockerfile](https://github.com/CosmWasm/rust-optimizer/blob/main/Dockerfile) and [Makefile](https://github.com/CosmWasm/rust-optimizer/blob/main/Makefile) for information about build parameters and dependencies.
 
+It's also possible to build an optimized wasm file without using the Docker image. To do that you'll need to install the [binaryen](https://github.com/WebAssembly/binaryen) WASM tools. With `binaryen` installed, use the following commands to generate the optimized `wasm` file (a convenience checksum file is also provided):
 
+```bash
+RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown --locked
+PROJECT=$(cargo metadata --quiet --no-deps --format-version=1 | jq -r '.packages[0].name | sub("-"; "_")')
+WASM=target/wasm32-unknown-unknown/release/$PROJECT.wasm
+sha256sum -- $WASM | tee -a artifacts/checksums_intermediate.txt
+wasm-opt -Os $WASM -o artifacts/$(basename $WASM)
+```
 
 ### Deployment stuck at downloading WASM
 
@@ -239,7 +247,19 @@ Error: rpc error: code = InvalidArgument desc = account sequence mismatch, expec
 
 The above error isn't caused by your code. It seems to occur during periods of high network activity. We're tracking the problem in [this](https://github.com/archway-network/archway/issues/157) GitHub thread. 
 
-We're actively looking for ways to solve it, but in the meantime your best bet is to continue broadcasting the transaction until it works.
+We're actively looking for ways to solve it, but in the meantime your best bet is to continue broadcasting the transaction until it works. In some cases, you may also be able to get your transaction through by switching the `--broadcast-mode` flag sent to `archwayd`. The developer CLI currently defaults to `--broadcast-mode block`, to switch to `--broadcast-mode sync` you'll need to call `archwayd` directly.
+
+Example (Instantiate):
+
+```bash
+archwayd tx wasm instantiate ${YOUR_CODE_ID} '{"key":"value"}' --from ${YOUR_WALLET_NAME} --label ${YOUR_DAPP_LABEL} --node "https://rpc.constantine-1.archway.tech:443" --chain-id "constantine-1" --gas-prices "0.001uconst" --gas "auto" --gas-adjustment 1.3 --broadcast-mode sync -y
+```
+
+Example (Tx):
+
+```bash
+archwayd tx wasm execute ${YOUR_CONTRACT_ADDRESS} '{"entrypoint":{}}' --from ${YOUR_WALLET_NAME} --label ${YOUR_DAPP_LABEL} --node "https://rpc.constantine-1.archway.tech:443" --chain-id "constantine-1" --gas-prices "0.001uconst" --gas "auto" --gas-adjustment 1.3 --broadcast-mode sync -y
+```
 
 ## Permissions Errors
 
