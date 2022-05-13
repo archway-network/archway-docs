@@ -1,0 +1,274 @@
+---
+sidebar_position: 4
+title: Troubleshooting
+description: Troubleshoot common issues and problems with Archway development
+---
+
+# Troubleshooting Development Issues
+
+Here you'll find instructions for troubleshooting common issues and problems that can occur during Archway development.
+
+- [General errors](#general-errors)
+- [Creating project fails](#project-creation)
+- [Deployment failures](#deployment-failures)
+- [RPC errors](#rpc-errors)
+- [Testing](#testing)
+- [File permissions](#permissions-errors)
+
+
+## General Errors
+
+### Process exited with code 1 (ChildProcess)
+
+There are times during development where you may encounter vague error responses from the developer CLI. This can leave you wondering how to proceed, because the error response itself doesn't explain what part of the command failed. These errors are usually triggered by Node's [Child Process](https://nodejs.org/api/child_process.html) module panicking and failing to complete a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+```bash
+Failed to deploy project
+Error: Process exited with code 1
+at ChildProcess.done (/home/user/.nvm/versions/node/v17.9.0/lib/node_modules/@archwayhq/cli/node_modules/promisify-child-process/index.cjs:70:19)
+at ChildProcess.emit (node:events:527:28)
+at maybeClose (node:internal/child_process:1090:16)
+at Process.ChildProcess._handle.onexit (node:internal/child_process:302:5)
+```
+
+To understand the real source of the error, you'll need to execute your command with some debugging flags enabled. To understand how to enable debugging on the developer CLI, review our [debugging instructions](debug).
+
+### SyntaxError: Invalid or unexpected token
+
+You'll get this error response for all Archway commands, if the NPM package for the developer CLI was installed using a legacy version of [Node.js](https://nodejs.org/). To solve this problem update your Node.js and reinstall the [NPM package](https://www.npmjs.com/package/@archwayhq/cli). For information about which versions of Node.js are supported, review the [developer installation instructions](../getting-started/install/#nodejs-and-npm).
+
+## Project Creation
+
+### Error: no such subcommand
+
+When creating a new project with the `archway new` command, if you encounter the error response saying `error: no such subcommand: run-script` or `error: no such subcommand: generate`, it means you're missing a required [Cargo](https://github.com/rust-lang/cargo) package.
+
+To fix the error, make sure you've installed both `cargo-generate` and `cargo-run-script`.
+
+Example:
+
+```bash
+cargo install cargo-generate --features vendored-openssl
+cargo install cargo-run-script
+```
+
+## Deployment Failures
+
+### CosmWasm Rust optimizer fails
+
+If you're having trouble with the `cosmwasm/rust-optimizer`, you may need to update Cargo.toml at the root of your project with another version of the optimizer.
+
+Example (Old Cargo.toml): 
+
+```toml
+[package.metadata.scripts]
+optimize = """docker run --rm -v "$(pwd)":/code \
+  -e CARGO_TERM_COLOR=always \
+  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+  cosmwasm/rust-optimizer:0.12.5
+"""
+```
+
+Example (Updated Cargo.toml):
+
+```toml
+[package.metadata.scripts]
+optimize = """docker run --rm -v "$(pwd)":/code \
+  -e CARGO_TERM_COLOR=always \
+  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+  cosmwasm/rust-optimizer:0.12.6
+"""
+```
+
+By default projects created with the `archway new` command use a Docker Hub version of the `cosmwasm/rust-optimizer`. It's also possible to use a locally built Docker image for this step. See the [Dockerfile](https://github.com/CosmWasm/rust-optimizer/blob/main/Dockerfile) and [Makefile](https://github.com/CosmWasm/rust-optimizer/blob/main/Makefile) for information about build parameters and dependencies.
+
+It's also possible to build an optimized wasm file without using the Docker image. To do that you'll need to install the [binaryen](https://github.com/WebAssembly/binaryen) WASM tools. With `binaryen` installed, use the following commands to generate the optimized `wasm` file (a convenience checksum file is also provided):
+
+```bash
+RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown --locked
+PROJECT=$(cargo metadata --quiet --no-deps --format-version=1 | jq -r '.packages[0].name | sub("-"; "_")')
+WASM=target/wasm32-unknown-unknown/release/$PROJECT.wasm
+sha256sum -- $WASM | tee -a artifacts/checksums_intermediate.txt
+wasm-opt -Os $WASM -o artifacts/$(basename $WASM)
+```
+
+### Deployment stuck at downloading WASM
+
+This could be an issue with the RPC node. If your deployment is continually getting stuck downloading `wasm`, try downloading it manually or use the flag `--no-verify` to skip checksum verification entirely.
+
+To download and verify the `wasm` upload manually, you'll need to know your `code id` which you can get by searching the [block explorer](https://explorer.constantine-1.archway.tech/) for your upload transaction by its hash, or using the `archway history` command if your `config.json` was successfully updated after the transaction. Once you've got the `code id`, see below for an example of how to download and verify your `wasm` storage transaction.
+
+Example:
+
+```bash
+archwayd query wasm code $YOUR_CODE_ID --node "https://rpc.constantine-1.archway.tech:443" download.wasm
+$ diff artifacts/YOUR_DOCKER_WASM_OUTPUT_FILE.wasm download.wasm
+```
+
+### WASM stores but contract fails to instantiate
+
+The most common reason for deployments failing at instantiation is incorrect arguments submitted to the `--args` flags. See [test passed but on-chain tx fails](#test-passed-but-on-chain-tx-fails).
+
+## Testing
+
+### Can't print data from tests
+
+Ever wondered why you can't use macros like `println!` and `dbg!` to write to `stdout` from tests? This happens because Rust tests hide the `stdout` stream of successful tests to keep test output tidy. You can disable this behavior by passing the `--nocapture` option to the test binary or to cargo test (but, in this case after -- – see below):
+
+Examples:
+
+```bash
+$ rustc --test main.rs; ./main
+
+running 1 test
+test test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+$ ./main --nocapture
+
+running 1 test
+Hidden output
+test test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+$ cargo test -- --nocapture
+
+running 1 test
+Hidden output
+test test ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```
+
+If you need to make this the default behavior of the `archway test` command, you can do so by modifying the value of `developer.scripts.test` in `config.json` at the root of your project.
+
+Example:
+
+Default JSON (excerpt)
+```json
+{
+  "developer": {
+    "scripts": {
+      "test": "cargo unit-test",
+      "build": "cargo build",
+      "optimize": "cargo run-script optimize",
+      "wasm": "cargo wasm",
+      "query": "archwayd query wasm",
+      "tx": "archwayd tx wasm execute"
+    }
+  }
+}
+```
+
+Updated JSON (excerpt)
+```json
+{
+  "developer": {
+    "scripts": {
+      "test": "cargo unit-test -- --nocapture",
+      "build": "cargo build",
+      "optimize": "cargo run-script optimize",
+      "wasm": "cargo wasm",
+      "query": "archwayd query wasm",
+      "tx": "archwayd tx wasm execute"
+    }
+  }
+}
+```
+
+### Test passed but on-chain tx fails
+
+A common reason for this happening is one or more errors in the arguments passed to the `--args` flag in the `archway deploy` or `archway tx` command.
+
+There are several things to consider when formulating your JSON arguments to pass to the `--args` flag. Below are a few use cases that will cause instantiation to fail.
+
+**1) Invalid JSON**
+
+If your arguments are not submitted in valid JSON format the instantiation will fail. The full error response looks like this:
+
+```bash
+error: option '-a, --args <value>' argument '{count:0}' is invalid. Please inform a valid JSON string.
+```
+
+**2) Invalid JSON key**
+
+If your JSON values are all correct, but one or more of their keys are not recognized, you'll get an `Error parsing into type` response from the developer CLI. The full error message might look like this:
+
+```bash
+Error: rpc error: code = InvalidArgument desc = failed to execute message; message index: 0: Error parsing into type increment_project::msg::InstantiateMsg: missing field `count`: instantiate wasm contract failed: invalid request
+```
+
+**3) Invalid JSON value**
+
+If the JSON keys are correct, but one or more values are not, you'll get an `Invalid type` error response from the developer CLI. The full error message looks like this:
+
+```bash
+Error: rpc error: code = InvalidArgument desc = failed to execute message; message index: 0: Error parsing into type increment_project::msg::InstantiateMsg: Invalid type: instantiate wasm contract failed: invalid request
+```
+
+:::tip
+For help finding the source of problems with transaction aguments, see [how to debug failing transactions](debug#how-to-debug-failing-transactions) for more information about regenerating your schema.
+:::
+
+
+## RPC Errors
+
+### My code used to work, I didn't change anything
+
+This can happen if the RPC node you're connecting is running a different version of `archwayd`. 
+
+If you're using the Docker version of `archwayd`, pull again from Docker Hub to get the latest image.
+
+Example: 
+
+```bash
+ docker pull archwaynetwork/archwayd:constantine
+```
+
+If you installed `archwayd` locally from GitHub, you'll need to pull the latest changes and reinstall `archwayd`.
+
+Example:
+
+```bash
+git fetch
+git checkout tags/${tag_name} # e.g. git checkout tags/v0.0.5
+make install
+```
+
+### InvalidArgument desc = account sequence mismatch
+
+```bash
+Error: rpc error: code = InvalidArgument desc = account sequence mismatch, expected 13898, got 13884: incorrect account sequence: invalid request
+```
+
+The above error isn't caused by your code. It seems to occur during periods of high network activity. We're tracking the problem in [this](https://github.com/archway-network/archway/issues/157) GitHub thread. 
+
+We're actively looking for ways to solve it, but in the meantime your best bet is to continue broadcasting the transaction until it works. In some cases, you may also be able to get your transaction through by switching the `--broadcast-mode` flag sent to `archwayd`. The developer CLI currently defaults to `--broadcast-mode block`, to switch to `--broadcast-mode sync` you'll need to call `archwayd` directly.
+
+Example (Instantiate):
+
+```bash
+archwayd tx wasm instantiate ${YOUR_CODE_ID} '{"key":"value"}' --from ${YOUR_WALLET_NAME} --label ${YOUR_DAPP_LABEL} --node "https://rpc.constantine-1.archway.tech:443" --chain-id "constantine-1" --gas-prices "0.001uconst" --gas "auto" --gas-adjustment 1.3 --broadcast-mode sync -y
+```
+
+Example (Tx):
+
+```bash
+archwayd tx wasm execute ${YOUR_CONTRACT_ADDRESS} '{"entrypoint":{}}' --from ${YOUR_WALLET_NAME} --label ${YOUR_DAPP_LABEL} --node "https://rpc.constantine-1.archway.tech:443" --chain-id "constantine-1" --gas-prices "0.001uconst" --gas "auto" --gas-adjustment 1.3 --broadcast-mode sync -y
+```
+
+## Permissions Errors
+
+Docker setups are the source of most permissions errors, and by default Docker runs as the root user. If you're not running the Docker daemon in [rootless mode](https://docs.docker.com/engine/security/rootless/) you may need to install the Archway developer CLI as root, or give your user permissions to the Archway directory on your filesystem.
+
+Example: 
+
+```bash
+sudo chown YOUR_USERNAME:YOUR_GROUPNAME -R ~/.archway
+```
+
+This problem can be avoided by installing `archwayd` locally. For those instructions see: [install archwayd from source](../getting-started/install#install-archwayd-from-source)
