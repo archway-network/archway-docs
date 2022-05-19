@@ -203,6 +203,6 @@ Since most dApps are composed of smaller, more modular pieces of code and layers
 
 ## Governance
 
-Gvernance is the process by which Archway network participants and token holders can influence the future direction of the protocol through proposals and on-chain voting.
+Governance is the process by which Archway network participants and token holders can influence the future direction of the protocol through proposals and on-chain voting.
 
 In addition to fees and staking, Archway’s native token is used for governance. This governance model helps maintain and support Archway’s decentralized community while ensuring fair and transparent participation. All holders of the native token can propose changes to the Archway protocol and vote on active proposals. Proposals that reach a consensus threshold are adopted, whether a specific feature or even changing the governance system itself.
