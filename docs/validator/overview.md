@@ -16,7 +16,7 @@ If validators double sign, are frequently offline, or do not participate in gove
 
 Validators can set up a physical operation secured with restricted access. A good starting place, for example, would be co-locating in secure data centers.
 
-Validators are expected to equip their datacenter location with redundant power, connectivity, and storage backups. Plan to have several redundant networking boxes for fiber, firewall, and switching and also small servers with redundant hard drive and failover.  to start out, hardware can be on the low end of datacenter gear.
+Validators are expected to equip their data center location with redundant power, connectivity, and storage backups. Plan to have several redundant networking boxes for fiber, firewall, and switching and also small servers with redundant hard drive and failover.  to start out, hardware can be on the low end of data center gear.
 
 Archway network requirements are expected to be low initially. The current testnet requires minimal resources. Bandwidth, CPU, and memory requirements rise as the network grows. Large hard drives are recommended for storing years of blockchain history.
 

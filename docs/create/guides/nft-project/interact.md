@@ -51,11 +51,11 @@ archway query contract-state smart --args '{"nft_info":{"token_id":"1"}}'
 # Show output here
 ```
 
-The behaviour of the `nft_info` entrypoint is defined [here](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/query.rs#L33-L39) if you want to read the response model in detail.
+The behavior of the `nft_info` entry point is defined [here](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/query.rs#L33-L39) if you want to read the response model in detail.
 
 ## Sending tokens
 
-To transfer a token, we have to send a message of the type `TransferNft`, which we achieve by sending a transaction to the [transfer_nft](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/execute.rs#L124-L139) entrypoint exposed by the contract. The params we send to the entrypoint are: the recipient address; and the `token_id` to be sent to the receiver.
+To transfer a token, we have to send a message of the type `TransferNft`, which we achieve by sending a transaction to the [transfer_nft](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/execute.rs#L124-L139) entry point exposed by the contract. The params we send to the entry point are: the recipient address; and the `token_id` to be sent to the receiver.
 
 In JSON format, our transaction arguments look like this:
 
@@ -74,7 +74,7 @@ Using the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), we broa
 archway tx --args '{"transfer_nft":{"recipient":"archway1y00hm50lffnxt5m0kuy9afk83gyuye684zwcr5","token_id":"1"}}'
 ```
 
-Once the transaction confirms ownership of the token will be changed from the address declared as owner at minting (`archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq` in this guides's example), to the new receiver address (`archway1y00hm50lffnxt5m0kuy9afk83gyuye684zwcr5` in this guides's example). To verify that's the case, we can query the contract again to see who owns the `token_id` with the value of `'1'`.
+Once the transaction confirms ownership of the token will be changed from the address declared as owner at minting (`archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq` in this guide's example), to the new receiver address (`archway1y00hm50lffnxt5m0kuy9afk83gyuye684zwcr5` in this guide's example). To verify that's the case, we can query the contract again to see who owns the `token_id` with the value of `'1'`.
 
 ```bash
 archway query contract-state smart --args '{"nft_info":{"token_id":"1"}}'

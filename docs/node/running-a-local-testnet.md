@@ -177,7 +177,7 @@ All we need is
 
 ## Join the network
 
-Since we are running it on our local machine, the Ip address is `0.0.0.0` which refers to `localhost` we can use either `localhost` or `127.0.0.1`. For me even `0.0.0.0` worked!
+Since we are running it on our local machine, the IP address is `0.0.0.0` which refers to `localhost` we can use either `localhost` or `127.0.0.1`. For me even `0.0.0.0` worked!
 
 Now let's run the following command to join the network:
 

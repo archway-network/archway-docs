@@ -129,5 +129,5 @@ Migrate to another network (Y/N default: N)?: n
 Ok!
 ```
 :::note
-If you migrate between networks by answering `y` or `yes` and following the additional migration questions, your previous deployments history and script customisations will remain in tact.
+If you migrate between networks by answering `y` or `yes` and following the additional migration questions, your previous deployments history and script customization will remain in tact.
 :::

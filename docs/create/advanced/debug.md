@@ -24,7 +24,7 @@ DEBUG=* archway deploy --args '{ "name": "debugger", "symbol": "dbg!", "minter":
 
 ## Debug failing transactions
 
-If your transaction is failing use the `cargo schema` command to regenerate schema requirements for your project. The generated files will explain exactly what keys, types and values are permissible for entrypoints of the contract.
+If your transaction is failing use the `cargo schema` command to regenerate schema requirements for your project. The generated files will explain exactly what keys, types and values are permissible for entry points of the contract.
 
 Example:
 

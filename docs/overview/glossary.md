@@ -23,7 +23,7 @@ A framework that allows developers to write multi-chain smart contracts using an
 
 ## dApp
 
-An abbreviation of "decentralized application", dApps are applications built on Archway that combine smart contract functionality with a frontend web interface for users.
+An abbreviation of "decentralized application", dApps are applications built on Archway that combine smart contract functionality with a front-end web interface for users.
 
 <!-- E -->
 <!-- F -->

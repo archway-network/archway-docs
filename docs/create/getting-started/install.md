@@ -16,7 +16,7 @@ Make sure you've installed and configured a few dependencies.
 - [Archwayd](https://github.com/archway-network/archway/tree/main/cmd/archwayd "Install Archway Daemon")
 - [Docker](https://docs.docker.com/get-docker "Install Docker") (for Linux users, it's recommended to [run the Docker daemon in Rootless Mode](https://docs.docker.com/engine/security/rootless/))
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
-- [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install develolper CLI")
+- [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install developer CLI")
 
 ## Rustc
 
@@ -106,7 +106,7 @@ For installing `node.js` and `npm`, see instructions for your operating system a
 :::info
 `@archwayhq/cli` requires Node.js version 14 or higher, but some older versions in the `beta` release track required Node.js version 17. You can check which version you have installed using the command `archway --version`.
 
-[See all availble versions of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
+[See all available versions of @archwayhq/cli](https://www.npmjs.com/package/@archwayhq/cli?activeTab=versions)
 :::
 
 ## Archway Developer CLI

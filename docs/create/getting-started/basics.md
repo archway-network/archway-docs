@@ -102,7 +102,7 @@ Without `--dry-run` enabled, `deploy` progresses through a series of tasks, the 
 5. **STORE DEPLOYMENT LOG**
 
 :::tip
-**Note:** The flags and options below allow you to surpress prompts, skip steps or resume a deployment. This can be helpful in the case of failing deployments.
+**Note:** The flags and options below allow you to suppress prompts, skip steps or resume a deployment. This can be helpful in the case of failing deployments.
 :::
 
 ```bash
@@ -119,7 +119,7 @@ archway deploy [options]
 | --no-build             | `archway deploy --no-build` | Do not build the project before deploying; it will fail if the wasm file is not built |
 | --no-verify            | `archway deploy --no-verify` | Do not verify the wasm file uploaded on-chain matches your local version |
 | --no-confirm           | `archway deploy --no-confirm` | Skip tx broadcasting prompt confirmation |
-| -d, --dry-run           | `archway deploy -d`        | Test deployability by building cargo wasm release binary       |
+| -d, --dry-run           | `archway deploy -d`        | Test deploy-ability by building cargo wasm release binary       |
 | -k, --docker           | `archway deploy -k`         | Use the docker version of `archwayd`                           |
 | -h, --help             | `archway deploy -h`         | Display help for deploy command                                |
 
@@ -229,7 +229,7 @@ archway query <module> [type] [options]
 
 | Option                 | Example                     | Description                                          |
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
-| *-a, --args [string]   | `archway query contract-state smart --args '{"entrypoint_name": {}}'` | JSON encoded arguments for query. Calls a contract's `query` entrypoint. |
+| *-a, --args [string]   | `archway query contract-state smart --args '{"entrypoint_name": {}}'` | JSON encoded arguments for query. Calls a contract's `query` entry point. |
 | -k, --docker           | `archway query contract-state smart -k` | Use the docker version of `archwayd` |
 | -f, --flags [string]   | `archway query contract-state smart --args '{"entrypoint_name": {}}' -f '--height 361880'` | Send additional flags to `archwayd` by wrapping in a string; e.g. "--height 492520 --limit 10" |
 | -h, --help             | `archway query -h`          | Display help for query command                       |
