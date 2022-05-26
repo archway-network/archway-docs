@@ -1,7 +1,6 @@
 ---
 sidebar_position: 1
 title: Managing Dependencies
-description: Cargo bakes in the concept of Semantic Versioning. The Cargo.toml file for each package is called its manifest. Every manifest file consists of one or more sections.
 ---
 
 # What is [Cargo](https://doc.rust-lang.org/cargo/) really?
@@ -13,9 +12,30 @@ description: Cargo bakes in the concept of Semantic Versioning. The Cargo.toml f
 
 ## Cargo.toml
 
-The Cargo.toml file at the root of an Archway project is called its [manifest](https://en.wikipedia.org/wiki/Manifest_file), and contains all of the metadata Cargo needs to compile your smart contract project and its dependencies. 
+The Cargo.toml file at the root of an Archway project is called its [manifest](https://en.wikipedia.org/wiki/Manifest_file), and contains all of the metadata Cargo needs to compile your smart contract project and its dependencies. Every manifest file consists of one or more sections.
+
+The following sections are some examples commonly found in Archway projects:
+
+- `[package]` - The first section in a Cargo.toml is always `[package]` and must include the metadata properties `name` and `version`
+- `[lib]` - Library target settings
+- `[profile.release]` - This section is for setting your build profile. Cargo has 4 built-in profiles: `dev`, `release`, `test`, and `bench`.
+- `[features]` - Conditional compilation features
+- `[package.metadata.scripts]` - This section is part of the `cargo-run-script` module, it's where scripts are defined. If you are familiar with node, `cargo-run-script` brings the `npm run` functionality to the Rust and Cargo ecosystem
+- `[dependencies]` -  Use this section for defining your project's external dependencies
+- `[dev-dependencies]` - Use this section for defining dependencies for examples, tests, and benchmarks
+
+[For a full list of possible sections and valid properties, see this webpage from the Cargo Book](https://doc.rust-lang.org/cargo/reference/manifest.html)
 
 ## Semantic Versioning
+
+Cargo bakes in the concept of Semantic Versioning. It is configured to look for dependencies on [crates.io](https://crates.io/) by default. Only the name and a version string are required in this case.
+
+Example:
+
+```toml
+[dependencies]
+cosmwasm-std = "1.0.0-beta"
+```
 
 ## Updating project dependencies
 
