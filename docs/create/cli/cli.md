@@ -3,7 +3,7 @@ sidebar_position: 2
 title: Developer CLI
 ---
 
-# What is [Archway Cli](https://github.com/archway-network/archway-cli) really?
+# What is [Archway CLI](https://github.com/archway-network/archway-cli) really?
 
 Archway's Developer CLI is a command-line tool for working with smart contracts. The CLI functions as a wrapper around `rustc`, `cargo`, `archwayd` and `cosmwasm-rust-optimizer`. Think of it like a user friendly version of `archwayd` with support for compiling Rust. 
 
