@@ -273,6 +273,10 @@ html[data-theme='dark'] .navbar__items--right > div:first-of-type > div:first-of
   height: auto;
 }
 
+.card.m.video {
+  min-height: 578px;
+}
+
 .card:hover {
   top: -5px;
 }

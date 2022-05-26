@@ -125,7 +125,13 @@ module.exports = {
         name: 'Create your own dApps and NFTs with CosmWasm using Archway',
         value: 'https://www.youtube.com/watch?v=n4rvQB86lLM',
         tags: ['Cosmos','Ignite','Code with Us', 'NFTs', 'Rust', 'Cosmjs'],
-        description: 'CosmWasm unlocks a vast universe of new possibilities through true cross-chain smart contracts. However, the development experience hasn’t always been the most straightforward. With this workshop, you’ll learn just how easy it is to create your own CosmWasm dApps and NFTs on top of Archway. '
+        description: 'CosmWasm unlocks a vast universe of new possibilities through true cross-chain smart contracts. However, the development experience hasn’t always been the most straightforward. With this workshop, you’ll learn just how easy it is to create your own CosmWasm dApps and NFTs on top of Archway.'
+      },
+      {
+        name: 'Archway Developer Rewards + CosmWasm Contracts',
+        value: 'https://www.youtube.com/watch?v=fit1_bMNgVc',
+        tags: ['Developer Rewards', 'Contract Metadata', 'DAOs', 'Escrow'],
+        description: 'Learn how to write contracts that automatically redirect protocol rewards for several use cases (contributing to a DAO, subsidizing gas fees, seeding liquidity pools, boosting governance token rewards, etc.)'
       }
     ]
   },
