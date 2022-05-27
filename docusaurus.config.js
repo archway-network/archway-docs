@@ -78,6 +78,7 @@ module.exports = {
           {name:'Quick Start', value:'/docs/create/getting-started/install', icon:'icon-rocket', description:'Get started building decentralized applications on Archway'},
           {name:'Guides', value:'/docs/create/guides/launchpad', icon:'icon-guide2', description:'Dive deeper into Archway smart contract development and dApp client code'},
           {name:'Videos', value:'/videos', icon:'icon-video3', description:'Code along side Archway developers using our video tutorials'},
+          {name:'Dependencies', value:'/docs/create/advanced/cargo', icon:'icon-beta1', description:'Update your source code and manage dependencies'},
           {name:'Debugging', value:'/docs/create/advanced/debug', icon:'icon-bug', description:'Tricks and tips for debugging smart contract errors'},
           {name:'Troubleshooting', value:'/docs/create/advanced/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common issues and problems with Archway development'},
           {name:'Core Protocol', value:'/docs/create/cli/daemon', icon:'icon-computer', description:'Learn about the archwayd binary from a developer\'s perspective'}
