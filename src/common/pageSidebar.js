@@ -5,11 +5,11 @@ const pageSidebar = [
     collapsed: true,
     label: 'Overview',
     items: [
-      {type: 'ref', id:'overview/about', href: 'docs/overview/about', label:'About'},
-      {type: 'ref', id:'overview/network', href: 'docs/overview/network', label:'Networks'},
-      {type: 'ref', id:'overview/join-the-community', href: 'docs/overview/join-the-community', label:'Join the Archway Community'},
-      {type: 'ref', id:'overview/glossary', href: 'docs/overview/glossary', label:'Glossary'},
-      {type: 'ref', id:'overview/faq', href: 'docs/overview/faq', label:'FAQ'}
+      {type: 'ref', id: 'overview/about', href: 'docs/overview/about', label: 'About'},
+      {type: 'ref', id: 'overview/network', href: 'docs/overview/network', label: 'Networks'},
+      {type: 'ref', id: 'overview/join-the-community', href: 'docs/overview/join-the-community', label: 'Join the Archway Community'},
+      {type: 'ref', id: 'overview/glossary', href: 'docs/overview/glossary', label: 'Glossary'},
+      {type: 'ref', id: 'overview/faq', href: 'docs/overview/faq', label: 'FAQ'}
     ]
   },
   { 
@@ -24,9 +24,9 @@ const pageSidebar = [
         collapsed: true,
         label: 'Getting Started',
         items: [
-          {type: 'ref', id:'create/getting-started/install', href: 'docs/create/getting-started/install', label:'Installation'},
-          {type: 'ref', id:'create/getting-started/setup', href: 'docs/create/getting-started/setup', label:'Setup'},
-          {type: 'ref', id:'create/getting-started/basics', href: 'docs/create/getting-started/basics', label:'Basics'},
+          {type: 'ref', id: 'create/getting-started/install', href: 'docs/create/getting-started/install', label: 'Installation'},
+          {type: 'ref', id: 'create/getting-started/setup', href: 'docs/create/getting-started/setup', label: 'Setup'},
+          {type: 'ref', id: 'create/getting-started/basics', href: 'docs/create/getting-started/basics', label: 'Basics'},
         ]
       },
       {
@@ -35,12 +35,30 @@ const pageSidebar = [
         collapsed: true,
         label: 'Guides',
         items: [
-          {type: 'ref', id:'create/guides/my-first-dapp/start', href: 'docs/create/guides/my-first-dapp/start', label:'Starting out'},
-          {type: 'ref', id:'create/guides/my-first-dapp/faucet', href: 'docs/create/guides/my-first-dapp/faucet', label:'Requesting Testnet funds'},
-          {type: 'ref', id:'create/guides/my-first-dapp/wasm', href: 'docs/create/guides/my-first-dapp/wasm', label:'Producing Wasm executables'},
-          {type: 'ref', id:'create/guides/my-first-dapp/deploy', href: 'docs/create/guides/my-first-dapp/deploy', label:'Deploying your contract on chain'},
-          {type: 'ref', id:'create/guides/my-first-dapp/interact', href: 'docs/create/guides/my-first-dapp/interact', label:'Interacting with your contract'},
-          {type: 'ref', id:'create/guides/my-first-dapp/dapp', href: 'docs/create/guides/my-first-dapp/dapp', label:'Building a dApp frontend'}
+          {type: 'ref', id: 'create/guides/launchpad', href: 'docs/create/guides/launchpad', label: 'Launchpad'},
+          {type: 'ref', id: 'create/guides/my-first-dapp/start', href: 'docs/create/guides/my-first-dapp/start', label: 'Creating Your First dApp'},
+          {type: 'ref', id: 'create/guides/nft-project/start', href: 'docs/create/guides/nft-project/start', label: 'Building With NFTs'},
+        ]
+      },
+      {
+        type: 'category',
+        collapsible: true,
+        collapsed: true,
+        label: 'Advanced',
+        items: [
+          {type: 'ref', id: 'create/advanced/cargo', href: 'docs/create/advanced/cargo', label: 'Managing Dependencies'},
+          {type: 'ref', id: 'create/advanced/debug', href: 'docs/create/advanced/debug', label: 'Debugging'},
+          {type: 'ref', id: 'create/advanced/troubleshooting', href: 'docs/create/advanced/troubleshooting', label: 'Troubleshooting'},
+        ]
+      },
+      {
+        type: 'category',
+        collapsible: true,
+        collapsed: true,
+        label: 'CLI',
+        items: [
+          {type: 'ref', id: 'create/cli/daemon', href: 'docs/create/cli/daemon', label: 'Archway Daemon'},
+          {type: 'ref', id: 'create/cli/cli', href: 'docs/create/cli/cli', label: 'Developer CLI'},
         ]
       },
     ]

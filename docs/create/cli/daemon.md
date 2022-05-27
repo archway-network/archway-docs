@@ -92,15 +92,19 @@ Transactions use the `tx` module. Ideally, deployments will include 3 transactio
 Upload and store the wasm on-chain:
 
 ```bash
-archwayd tx wasm store path_to_wasm/my_wasm_file.wasm --gas auto --gas-prices 0.05uconst --gas-adjustment 1.4 --from main --chain-id "constantine-1" --node "https://rpc.constantine-1.archway.tech:443" --broadcast-mode sync --output json -y
+archwayd tx wasm store path_to_wasm/my_wasm_file.wasm --gas auto --gas-prices 0.05uconst --gas-adjustment 1.4 --from ${WALLET_LABEL} --chain-id "constantine-1" --node "https://rpc.constantine-1.archway.tech:443" --broadcast-mode sync --output json -y
 ```
+
+:::note
+Replace `${WALLET_LABEL}` with your own value
+:::
 
 The response from storing wasm will give you the Code ID required for instantiating the contract.
 
 Then instantiate it:
 
 ```bash
-archwayd tx wasm instantiate ${CODE_ID} '{"entrypoint":"value"}' --from ${WALLET_LABEL} --label "A human readable label for this deployment" --gas auto --gas-prices 0.05uconst --gas-adjustment 1.4 --from main --chain-id "constantine-1" --node "https://rpc.constantine-1.archway.tech:443" --broadcast-mode sync --output json -y
+archwayd tx wasm instantiate ${CODE_ID} '{"entrypoint":"value"}' --from ${WALLET_LABEL} --label "A human readable label for this deployment" --gas auto --gas-prices 0.05uconst --gas-adjustment 1.4 --chain-id "constantine-1" --node "https://rpc.constantine-1.archway.tech:443" --broadcast-mode sync --output json -y
 ```
 
 :::note
@@ -112,11 +116,11 @@ The response from instantiating the contract will give you the Contract Address 
 Setting metadata on the contract instance:
 
 ```bash
-archwayd tx gastracker set-contract-metadata ${CONTRACT_ADDRESS} '{ "developer_address": ${ADMINISTRATOR_ADDRESS}, "reward_address": ${ADDRESS_TO_RECEIVE_REWARDS}, "collect_premium": false, "premium_percentage_charged": 0, "gas_rebate_to_user": false }' --gas auto --gas-prices 0.05uconst --gas-adjustment 1.4 --from main --chain-id "constantine-1" --node "https://rpc.constantine-1.archway.tech:443" --broadcast-mode sync --output json -y
+archwayd tx gastracker set-contract-metadata ${CONTRACT_ADDRESS} '{ "developer_address": ${ADMINISTRATOR_ADDRESS}, "reward_address": ${ADDRESS_TO_RECEIVE_REWARDS}, "collect_premium": false, "premium_percentage_charged": 0, "gas_rebate_to_user": false }' --gas auto --gas-prices 0.05uconst --gas-adjustment 1.4 --from ${WALLET_LABEL} --chain-id "constantine-1" --node "https://rpc.constantine-1.archway.tech:443" --broadcast-mode sync --output json -y
 ```
 
 :::note
-Replace `${CONTRACT_ADDRESS}`, `${ADMINISTRATOR_ADDRESS}`, `${ADDRESS_TO_RECEIVE_REWARDS}` and the other JSON values with your own values.
+Replace `${CONTRACT_ADDRESS}`, `${WALLET_LABEL}`, and `${ADMINISTRATOR_ADDRESS}`, `${ADDRESS_TO_RECEIVE_REWARDS}` and the other JSON values with your own values.
 :::
 
 ### Transaction filtering

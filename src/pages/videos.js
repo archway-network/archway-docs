@@ -15,7 +15,7 @@ export default function Videos() {
   const videoItems = (videos.length) ? videos.map((item,i) =>
     // <div className='card video-card' key={'card-'+i}>
     <a className='cats' target='_blank' href={item.value} key={i}>
-      <div className='card m' key={'card-'+i}>
+      <div className='card m video' key={'card-'+i}>
         <div className='card-block'>
           <div className='card-body'>
             <div className='card-title'>
