@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "archway-prod"
+    "default": "archway-network"
   },
   "targets": {
-    "archway-prod": {
+    "archway-network": {
       "hosting": {
-        "archway-docs": [
-          "archway-docs"
+        "docs-archway": [
+          "docs-archway"
         ]
       }
     }
