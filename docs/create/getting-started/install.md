@@ -74,6 +74,15 @@ For full installation and configuration parameters, see https://github.com/archw
 
 ### Install Archwayd Using Docker
 
+Get source code:
+
+```bash
+git clone git@github.com:archway-network/archway.git
+cd archway
+```
+
+Build and install:
+
 ```bash
 docker build -t archway-network/archwayd:latest .
 ```
