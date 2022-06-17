@@ -18,7 +18,7 @@ Stable testing network for dApp developers building dApps.
 - Faucet: https://faucet.constantine-1.archway.tech 
 - LCD: https://api.constantine-1.archway.tech  
 - Block Explorer: https://explorer.constantine-1.archway.tech
-- P2P Seed: `d46ddf80f6e4313b06209507135466847c7b4163@35.229.84.66:26656`
+<!-- - P2P Seed: `d46ddf80f6e4313b06209507135466847c7b4163@35.229.84.66:26656` -->
 
 ## Titus (Experimental Testnet) 
 
@@ -29,15 +29,14 @@ Experimental testing network for core sdk developers testing out the newest feat
 - Faucet: https://faucet.titus-1.archway.tech 
 - LCD: https://api.titus-1.archway.tech  
 - Block Explorer: https://explorer.titus-1.archway.tech
-- P2P Seed: `69a56ffcaf3766f52eeabb1915571d76bb9b0b8c@34.75.26.143:443`
+<!-- - P2P Seed: `69a56ffcaf3766f52eeabb1915571d76bb9b0b8c@34.75.26.143:443` -->
 
-## Augusta (Community Testnet)
+## Torii (Community Testnet)
 
 Community testnet to be used for completing incentivized testnet challenges.
 
-- Chain ID: `augusta-1`
-- RPC: https://rpc.augusta-1.archway.tech 
-- Faucet: https://faucet.augusta-1.archway.tech 
-- LCD: https://api.augusta-1.archway.tech  
-- Block Explorer: https://explorer.augusta-1.archway.tech
-- P2P Seed: `2f234549828b18cf5e991cc884707eb65e503bb2@34.74.129.75:31076`
+- Chain ID: `torii-1`
+- RPC: https://rpc.torii-1.archway.tech 
+- Faucet: https://faucet.torii-1.archway.tech 
+- LCD: https://api.torii-1.archway.tech  
+- Block Explorer: https://explorer.torii-1.archway.tech
