@@ -46,13 +46,11 @@
     padding-bottom: 32px;
   }
   .navbar-sidebar .navbar-sidebar__brand > div:first-of-type {
-    right: 0;
+    right: -32px;
     padding-bottom: 32px;
     z-index: 1000;
-  }
-  .navbar-sidebar .navbar-sidebar__brand div:first-of-type div .react-toggle-track-x,
-  .navbar-sidebar .navbar-sidebar__brand div:first-of-type div .react-toggle-track-check {
-    bottom: 32px;
+    bottom: 30px;
+    border: none;
   }
   [data-theme='dark'] .react-toggle .react-toggle-thumb, .react-toggle--checked .react-toggle-thumb {
     left: 36px !important;
@@ -62,13 +60,13 @@
     left: 3px !important;
   }
   .card, .card-sm {
-    width: 405px;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .card, .card-sm {
     width: 390px;
+  }
+  .react-toggle-track,
+  .navbar__items--right > div:first-of-type > div:first-of-type {
+    background-color: var(--ifm-font-color-base-inverse) !important;
+    border: 1px solid var(--ifm-color-primary) !important;
+    height: 30px !important;
   }
 }
 
