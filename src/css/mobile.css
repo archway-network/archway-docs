@@ -130,4 +130,9 @@
   main {
     margin-top: 80px;
   }
+  .DocSearch {
+    position: relative;
+    top: -32px;
+    right: 60px;
+  }
 }
