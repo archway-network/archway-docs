@@ -69,6 +69,11 @@ module.exports = {
     //   textColor: '#000000',
     //   isCloseable: false,
     // },
+    algolia: {
+      appId: 'JZGFMMUO49',
+      apiKey: '5cf4091f0bb7fbc6fa83c38913057977',
+      indexName: 'archway',
+    },
   },
   customFields: {
     pageCategories: [
