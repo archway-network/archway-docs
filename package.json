@@ -33,6 +33,16 @@
       "webpack-dev-server": {
         "portfinder": {
           "async": ">=2.6.4"
+        },
+        "sockjs-client": {
+          "eventsource": ">=1.1.1"
+        }
+      },
+      "update-notifier": {
+        "latest-version": {
+          "package-json": {
+            "got": ">=11.8.5"
+          }
         }
       }
     },
