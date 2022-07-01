@@ -22,6 +22,7 @@
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
+    "dotenv": "^16.0.1",
     "file-loader": "^6.2.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
@@ -33,6 +34,16 @@
       "webpack-dev-server": {
         "portfinder": {
           "async": ">=2.6.4"
+        },
+        "sockjs-client": {
+          "eventsource": ">=1.1.1"
+        }
+      },
+      "update-notifier": {
+        "latest-version": {
+          "package-json": {
+            "got": ">=11.8.5"
+          }
         }
       }
     },
