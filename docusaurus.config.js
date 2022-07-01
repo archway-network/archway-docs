@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -70,8 +72,8 @@ module.exports = {
     //   isCloseable: false,
     // },
     algolia: {
-      appId: 'JZGFMMUO49',
-      apiKey: '5cf4091f0bb7fbc6fa83c38913057977',
+      appId: process.env.REACT_APP_ALGOLIA_APP_ID,
+      apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,
       indexName: 'archway',
     },
   },
