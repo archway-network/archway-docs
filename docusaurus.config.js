@@ -72,8 +72,8 @@ module.exports = {
     //   isCloseable: false,
     // },
     algolia: {
-      appId: process.env.algoliaAppId,
-      apiKey: process.env.algoliaApiKey,
+      appId: process.env.REACT_APP_ALGOLIA_APP_ID,
+      apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,
       indexName: 'archway',
     },
   },
