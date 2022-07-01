@@ -24,14 +24,13 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
+          REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
+          REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build
-        with:
-          REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
-          REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
         run: npm run build
 
       - name: Deploy
