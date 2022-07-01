@@ -21,8 +21,6 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
-          REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
-          REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
 
       - name: Install Dependencies
         run: npm install
@@ -38,3 +36,5 @@ jobs:
           expires: 7d
           target: docs-archway
           projectId: archway-network
+          REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
+          REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
