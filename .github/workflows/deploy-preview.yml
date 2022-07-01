@@ -27,6 +27,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
+          REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -36,5 +39,3 @@ jobs:
           expires: 7d
           target: docs-archway
           projectId: archway-network
-          REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
-          REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
