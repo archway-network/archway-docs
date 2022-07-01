@@ -29,10 +29,10 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
         with:
           REACT_APP_ALGOLIA_APP_ID: '${{ secrets.REACT_APP_ALGOLIA_APP_ID }}'
           REACT_APP_ALGOLIA_API_KEY: '${{ secrets.REACT_APP_ALGOLIA_API_KEY }}'
+        run: npm run build
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
