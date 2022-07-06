@@ -45,6 +45,9 @@
             "got": ">=11.8.5"
           }
         }
+      },
+      "react-dev-utils": {
+        "shell-quote": ">=1.7.3"
       }
     },
     "async": ">=2.6.4"
