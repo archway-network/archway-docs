@@ -30,7 +30,7 @@ Users familiar with [Cosmos Hub](https://github.com/cosmos/gaia) will recognize 
 The full scope of `archwayd` commands can be viewed using command `archwayd --help`:
 
 ```bash
-$ archwayd --help
+archwayd --help
 # Outputs:
 Archway Daemon (server)
 
@@ -78,7 +78,7 @@ For querying an account balance, use the `bank` module.
 Example:
 
 ```bash
-$ archwayd query bank balances ${ACCOUNT_ADDRESS} --node "https://rpc.constantine-1.archway.tech:443"
+archwayd query bank balances ${ACCOUNT_ADDRESS} --node "https://rpc.constantine-1.archway.tech:443"
 ```
 
 :::note
@@ -172,7 +172,7 @@ Replace `${CONTRACT_ADDRESS}` with your own value.
 #### Check if a contract's code was ever updated:
 
 ```bash
-archwayd query wasm contract ${CONTRACT_ADDRESS} --node "https://rpc.constantine-1.archway.tech:443"
+archwayd query wasm contract-history ${CONTRACT_ADDRESS} --node"https://rpc.constantine-1.archway.tech:443"
 ```
 
 :::note
