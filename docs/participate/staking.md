@@ -14,7 +14,7 @@ Delegators are ARCH holders who cannot, or do not want to run a validator themse
 Now let's see how we can delegate some tokens to a validator.
 
 You can stake by:
-- [Runing a validator](/docs/validator/running-a-validator-node)
+- [Running a validator](/docs/validator/running-a-validator-node)
 - [Delegating](/docs/participate/staking#delegating)
 
 ## Delegating
