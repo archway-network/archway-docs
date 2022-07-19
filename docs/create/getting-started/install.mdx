@@ -6,17 +6,22 @@ sidebar_position: 1
 
 Make sure you've installed and configured a few dependencies.
 
-**IMPORTANT:** For local installations, you need root access to run `docker`. Make sure to follow all the steps with `root` access to prevent conflicts and confusions on the deployment process which requires root permission.
-
 #### Dependencies
 
-- [Rustc](https://www.rust-lang.org/tools/install "Install Rust")
-- [Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html "Install Cargo")
-- [Cargo Generate](https://crates.io/crates/cargo-generate "Install Cargo Generate")
-- [Archwayd](https://github.com/archway-network/archway/tree/main/cmd/archwayd "Install Archway Daemon")
+- [Rustc](#rustc "Install Rust")
+- [Cargo](#cargo "Install Cargo")
+- [Cargo Generate](#cargo-generate "Install Cargo Generate")
+- [wasm32](#wasm32 "Install wasm32")
+- [Binaryen](#binaryen "Install Binaryen")
+- [Archwayd](#archwayd "Install Archway Daemon")
+- [Node.js](#nodejs-and-npm "Install Node.js and NPM")
+- [Archway Developer CLI](#archway-developer-cli "Install develolper CLI")
+
+#### Optional Dependencies
+
+**IMPORTANT:** For local installations, you need root access to run `docker`. Make sure to follow all the steps with `root` access to prevent conflicts and confusions on the deployment process which requires root permission.
+
 - [Docker](https://docs.docker.com/get-docker "Install Docker") (for Linux users, it's recommended to [run the Docker daemon in Rootless Mode](https://docs.docker.com/engine/security/rootless/))
-- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm "Install Node.js and NPM")
-- [Archway Developer CLI](https://github.com/archway-network/archway-cli "Install develolper CLI")
 
 ## Rustc
 
@@ -41,6 +46,46 @@ To install `cargo-generate` with `vendored-openssl`, and the `cargo-run-script` 
 ```bash
 cargo install cargo-generate --features vendored-openssl
 cargo install cargo-run-script
+```
+
+## wasm32
+
+The `wasm32` [rustup](https://rustup.rs/) target is a 32-bit "bare wasm" module for producing [WebAssembly](https://webassembly.org/) output that makes zero assumptions about your host machine and environment (hence the `-unknown-unkown` suffix). It's required by the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), as of version [`1.2.1`](https://www.npmjs.com/package/@archwayhq/cli/v/1.2.1), for optimizing `wasm` output for on-chain storage of binaries.
+
+Install `wasm32` using the following command:
+
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
+## Binaryen
+
+As of version [`1.2.1`](https://www.npmjs.com/package/@archwayhq/cli/v/1.2.1) of the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), [Binaryen](https://github.com/WebAssembly/binaryen) replaces the need to use [Docker](https://docs.docker.com/get-docker) for optimizing `wasm` binaries for storage on-chain—allowing developers to run the [CosmWasm Rust Optimizer](https://github.com/CosmWasm/rust-optimizer) natively from the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli).
+
+### Building binaryen from source
+
+To install `binaryen` clone the [git repository](https://github.com/WebAssembly/binaryen) then initialize the submodules and update them:
+
+```bash
+git submodule init
+git submodule update
+```
+
+After that you can build it with [CMake](https://cmake.org/)
+```
+cmake . && make
+```
+
+:::tip
+For building `binaryen` with gcc, you'll need [gcc-8](https://gcc.gnu.org/gcc-8/), or higher, in your path. Note that building with [gcc-7](https://gcc.gnu.org/gcc-7/), or lower, will fail with an `uknown option` or `unused variable` error.
+:::
+
+### Installing binaryen with Homebrew
+
+MacOS users can install the [binaryen package](https://formulae.brew.sh/formula/binaryen#default) from [Homebrew](https://brew.sh/)
+
+```
+brew install binaryen
 ```
 
 ## Archwayd
@@ -104,6 +149,10 @@ After setting this alias, you can use the other `archwayd` commands without typi
 :::
 
 For more information on running `archwayd` with the `archway-network/archwayd` [Docker](https://www.docker.com/ "Docker Homepage") container, see  https://github.com/archway-network/archway#dockerized.
+
+:::info
+As of version [`1.2.1`](https://www.npmjs.com/package/@archwayhq/cli/v/1.2.1) of the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli) Docker is no longer a required dependency for optimizing smart contracts for upload to the blockchain.
+:::
 
 
 ## Node.js and Npm
