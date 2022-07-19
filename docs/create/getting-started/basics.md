@@ -28,11 +28,13 @@ configure [options]              Print or modify environment settings
 deploy [options]                 Deploy to network, or test deployability
 faucet                           Request Testnet funds from faucet
 history                          Print deployments history
+instantiate [options]            Instantiate a stored contract
 metadata [options]               Set the contract metadata
 network                          Show network settings or migrate between networks
 new                              Create a new project for Archway network
 query [options] <module> [type]  Query for data on Archway network
 run [options]                    Run a custom script of your own creation
+store [options]                  Stores and verify a contract on-chain
 test                             Run unit tests
 tx [options]                     Execute a transaction on Archway network
 help [command]                   display help for command
@@ -154,6 +156,26 @@ archway history [options]
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
 | -h, --help             | `archway history -h`        | Display help for history command                     |
 
+### Instantiate
+
+Instantiate a contract stored with `archway store`; or, resume a failed deployment made using the `archway deploy` command which finished the storage step but failed to instantiate.
+
+```
+archway instantiate [options]
+```
+
+| Option                 | Example                     | Description                                          |
+| ---------------------- | --------------------------- | ---------------------------------------------------- |
+| -c, --code-id [number]             | `archway instantiate -c 101` | Instantiate a contract stored at a specific Code ID |
+| -a, --args [string]             | `archway instantiate --args '{}'`    | JSON encoded constructor arguments for contract deployment     |
+| -l, --label [string]             | `archway instantiate -l "Archway dApp v1.0.0"` | Label to be used for this instantiation of the contract |
+| --default-label             | `archway instantiate --default-label` | Use the default label for instantiating the contract: "[project_name] [project_version]" |
+| -f, --from [string]     | `archway instantiate --from "main"` | Name or address of account to sign transactions |
+| --admin-address [string]     | `archway instantiate --admin-address "archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq"` | Address which can perform admin actions on the contract (e.g. "archway1...") |
+| --no-confirm           | `archway instantiate --no-confirm` | Do not prompt for confirmation when broadcasting tx |
+| -k, --docker           | `archway instantiate -k`       | Use the docker version of `archwayd` |
+| -h, --help             | `archway instantiate -h`        | Display help for instantiate command                     |
+
 ### Metadata
 
 Sets the contract metadata with Archway parameters such as developer premiums and configurations for gas pooling.
@@ -230,8 +252,9 @@ archway query <module> [type] [options]
 | Option                 | Example                     | Description                                          |
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
 | *-a, --args [string]   | `archway query contract-state smart --args '{"entrypoint_name": {}}'` | JSON encoded arguments for query. Calls a contract's `query` entrypoint. |
-| -k, --docker           | `archway query contract-state smart -k` | Use the docker version of `archwayd` |
 | -f, --flags [string]   | `archway query contract-state smart --args '{"entrypoint_name": {}}' -f '--height 361880'` | Send additional flags to `archwayd` by wrapping in a string; e.g. "--height 492520 --limit 10" |
+| -c, --contract [string] | `archway query contract-state smart --args '{"entrypoint_name": {}}' -c "archway1zh9gzcw3j5jd53ulfjx9lj4088plur7xy3jayndwr7jxrdqhg7jq9twww7"` |  |
+| -k, --docker           | `archway query contract-state smart --args '{"entrypoint_name": {}}' -k` | Use the docker version of `archwayd` |
 | -h, --help             | `archway query -h`          | Display help for query command                       |
 `*` = required option
 
@@ -249,6 +272,23 @@ archway run [options]
 | -k, --docker           | `archway run -s scriptname -k` | Use the docker version of `archwayd`              |
 | -h, --help             | `archway run -h`            | Display help for run command                         |
 `*` = required option
+
+### Store
+
+Store and verify a contract on chain. "Storing" will upload your optimized wasm binary to the blockchain. "Verifying" will download the wasm binary stored on chain, and verify its checksum matches your locally built file.
+
+```
+archway store [options]
+```
+
+| Option                 | Example                     | Description                                          |
+| ---------------------- | --------------------------- | ---------------------------------------------------- |
+| -f, --from [string]    | `archway store --from "main"` | Name or address of account to sign transactions |
+| --no-confirm           | `archway store --no-confirm` | Do not prompt for confirmation when broadcasting tx |
+| --no-verify            | `archway store --no-verify` | Do not verify the wasm file uploaded on-chain |
+| --no-store             | `archway store --no-store` | Do not upload the wasm file on-chain (uses the latest Code ID in the deployments history of `config.json`) |
+| -k, --docker           | `archway store -k`       | Use the docker version of `archwayd` |
+| -h, --help             | `archway store -h`        | Display help for store command                     |
 
 ### Test
 
