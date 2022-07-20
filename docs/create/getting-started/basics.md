@@ -105,10 +105,10 @@ Running `deploy` with `--dry-run` enabled is equivalent to the Cargo native comm
 Without `--dry-run` enabled, `deploy` progresses through a series of tasks, most of which can be called as individual archway commands, and the order of which is:
 
 1. **MAKE WASM** (e.g. `archway build --optimize`)
-2. **CREATE ON CHAIN WASM** (e.g. as per `archway store`)
-3. **VERIFY UPLOAD INTEGRITY** (e.g. as per `archway store`)
-4. **INSTANTIATE CONTRACT** (e.g. as per `archway instantiate`)
-5. **STORE DEPLOYMENT LOG** (e.g. as per `archway store` and `archway instatiate`)
+2. **CREATE ON CHAIN WASM** (e.g. `archway store`)
+3. **VERIFY UPLOAD INTEGRITY** (e.g. `archway store`)
+4. **INSTANTIATE CONTRACT** (e.g. `archway instantiate`)
+5. **STORE DEPLOYMENT LOG** (e.g. `archway store` and `archway instatiate`)
 
 :::tip
 **Note:** The flags and options below allow you to surpress prompts, skip steps or resume a deployment. This can be helpful in the case of failing deployments.
