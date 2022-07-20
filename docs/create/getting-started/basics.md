@@ -58,14 +58,21 @@ archway accounts [options]
 
 ### Build
 
-The `build` command is just a wrapper around `cargo build`. Its default behavior can be modified by editing `config.json` at the root of your project. 
+The default `build` command is just a wrapper around `cargo build`. Its default behavior can be modified by editing `config.json` at the root of your project. 
 
 ```bash
 archway build [options]
 ```
 
+To build an optimized wasm binary for storage on the blockchain, use the `--optimize` flag.
+
+```bash
+archway build --optimize
+```
+
 | Option                 | Example                     | Description                                          |
 | ---------------------- | --------------------------- | ---------------------------------------------------- |
+| --optimize             | `archway build --optimize`  | Builds an optimized wasm file ready for deployment |
 | -h, --help             | `archway build -h`          | Display help for build command                       |
 
 :::info
@@ -95,13 +102,13 @@ Deploys your contracts to a target network. It can be used in `--dry-run` mode t
 
 Running `deploy` with `--dry-run` enabled is equivalent to the Cargo native command `cargo wasm`. 
 
-Without `--dry-run` enabled, `deploy` progresses through a series of tasks, the order of which is:
+Without `--dry-run` enabled, `deploy` progresses through a series of tasks, most of which can be called as individual archway commands, and the order of which is:
 
-1. **MAKE WASM**
-2. **CREATE ON CHAIN WASM**
-3. **VERIFY UPLOAD INTEGRITY**
-4. **INSTANTIATE CONTRACT**
-5. **STORE DEPLOYMENT LOG**
+1. **MAKE WASM** (e.g. `archway build --optimize`)
+2. **CREATE ON CHAIN WASM** (e.g. as per `archway store`)
+3. **VERIFY UPLOAD INTEGRITY** (e.g. as per `archway store`)
+4. **INSTANTIATE CONTRACT** (e.g. as per `archway instantiate`)
+5. **STORE DEPLOYMENT LOG** (e.g. as per `archway store` and `archway instatiate`)
 
 :::tip
 **Note:** The flags and options below allow you to surpress prompts, skip steps or resume a deployment. This can be helpful in the case of failing deployments.
