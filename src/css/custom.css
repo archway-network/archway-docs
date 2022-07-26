@@ -170,10 +170,6 @@ html[data-theme='dark'] .header-discord-link:before {
   padding-right: 40px;
 }
 
-/* .back-to-website span:hover {
-  opacity: 0.6;
-} */
-
 .back-to-website > span > svg {
   display: none;
 }
@@ -239,6 +235,11 @@ html[data-theme='dark'] .navbar__items--right div:last-of-type > div:last-of-typ
   right: 13px !important;
   right: 44px !important;
   top: -2px;
+}
+
+.react-toggle-track-check,
+.navbar__items--right > div:first-of-type > div:first-of-type > div:nth-child(1) {
+  border-color: transparent !important;
 }
 
 html[data-theme='dark'] .react-toggle-track-check,
