@@ -48,9 +48,26 @@
       },
       "react-dev-utils": {
         "shell-quote": ">=1.7.3"
+      },
+      "html-minifier-terser": {
+        "terser": ">=5.14.2"
+      },
+      "@docusaurus/theme-search-algolia": {
+        "html-minifier-terser": {
+          "terser": ">=5.14.2"
+        }
+      },
+      "terser-webpack-plugin": {
+        "terser": ">=5.14.2"
+      },
+      "html-webpack-plugin": {
+        "html-minifier-terser": {
+          "terser": ">=5.14.2"
+        }
       }
     },
-    "async": ">=2.6.4"
+    "async": ">=2.6.4",
+    "html-minifier-terser": "6.1.0"
   },
   "browserslist": {
     "production": [
