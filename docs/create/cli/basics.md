@@ -1,6 +1,6 @@
 ---
-sidebar_position: 3
-title: CLI Basics
+sidebar_position: 2
+title: API Docs
 ---
 
 # Basics
