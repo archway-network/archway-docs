@@ -16,3 +16,5 @@ After [creating an account](../../getting-started/setup.md#creating-an-account),
 ```
 
 The funds will be deposited to your account in a few minutes on all testnets.
+
+![](../../../assets/archway-discord-faucet.png)
