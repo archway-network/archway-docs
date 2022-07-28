@@ -4,37 +4,57 @@ sidebar_position: 4
 
 # Deploying your contract on chain
 
-:::note
-Before starting, make sure that [Docker is installed and running](https://www.docker.com/get-started) on your system.
-:::
+When you're ready to deploy an on-chain build, we can use either granular commands or the bundled `archway deploy` command. While the granular commands give you total control of the deployment workflow, `archway deploy` bundles them into one command, but will be troublesome to navigate if you have a failing deployment.
 
-When you're ready to deploy an on-chain build, we can use the `archway deploy` command.
+It's recommended to avoid relying on `archway deploy` unless you've already a good understanding of the granular commands.
 
-```bash
-archway deploy
+The granular workflow follows this process:
+
+1. **CREATE ON CHAIN WASM** - _Upload CosmWasm `wasm` executable on chain_
+2. **VERIFY UPLOAD INTEGRITY** - _Download stored `wasm` file and verify it matches the checksum of your local build_
+3. **INSTANTIATE CONTRACT** - _Create an instance of the uploaded contract_
+4. **SET CONTRACT METADATA** - _Configure developer rewards and admin settings_
+
+The commands for achieving this workflow are:
+
+1. `archway store` - Stores and verifies upload integrity
+2. `archway instantiate` - Creates an instance of a contract that's been stored on chain
+3. `archway metadata` - Configures contract parameters for developer rewards and contract admins
+
+
+## Storing the contract on chain
+
+Only `wasm` files optimized with the `cosmwasm/rust-optimizer` can be stored on chain. If your local project does not have an `artifacts` folder, or, if the `artifacts` folder is empty. Go back to the [previous guide step](./wasm.md) for information on producing _CosmWasm_ optimized executables.
+
+When the executable is ready to be stored on chain, run the command:
+
 ```
+archway store
+```
+
+## Instatiating the contract
 
 To skip the CLI asking for default values required by your dApp, include constructor arguments using the `--args` parameter. Format your constructor parameters as a `JSON` encoded string.
 
 ```bash
-archway deploy --args '{"my_key":"my value"}'
+archway instantiate --args '{"my_key":"my value"}'
 ```
 
-Since we cloned the `Increment` starter template, try deploying with your `counter` argument set to `0`:
+Since we cloned the `Increment` starter template, try instantiating with your `counter` argument set to `0`:
 
 Example:
 
 ```bash
-archway deploy --args '{"count":0}'
+archway instantiate --args '{"count":0}'
 ```
 
 :::note
-If you deploy without using `--args` you'll be prompted by the CLI to enter that information. If your dApp contract doesn't take any constructor arguments use `'{}'` to denote `null` arguments.
+If you instantiate without using `--args` you'll be prompted by the CLI to enter that information. If your dApp contract doesn't take any constructor arguments use `'{}'` to denote `null` arguments.
 :::
 
 So why are we sending our constructor as `{"count":0}` and how can we verify it's correct?
 
-From your project files open `src/contract.rs`. Near the top, you'll see the function `pub fn instantiate`, which works as a constructor and sets the initial state of the contract:
+From your project files open `src/contract.rs`. Near the top, is the function `pub fn instantiate`, which works as a constructor and sets the initial state of the contract:
 
 ```rust
 pub fn instantiate(
@@ -52,19 +72,7 @@ pub fn instantiate(
 }
 ```
 
-`archway deploy` is a developer super command that produces a lot of output. It doesn't make sense to list all of it here, instead let's look at a step-by-step anatomy of what the command does.
-
-There are 5 steps in total:
-
-1. **MAKE WASM** - _Produces `wasm` executable optimized and compressed with `cosmwasm/rust-optimizer`_
-2. **CREATE ON CHAIN WASM** - _Uploads `wasm` executable on chain_
-3. **VERIFY UPLOAD INTEGRITY** - _Downloads the uploaded `wasm` and verifies on chain version matches checksum of local build_
-4. **INSTANTIATE CONTRACT** - _Creates an instance of the uploaded contract_
-5. **STORE DEPLOYMENT LOG** - _Creates log entries for steps 2 (upload) and 4 (instantiation) in `config.json`_
-
-If you deployed successfully now you can query and transact with your dApp.
-
-If you're unsure, or suspect something may have gone wrong, you can always check your deployments history using the `archway history` command, or by opening `config.json` at the root of the project and looking at the `deployments` array.
+If you're unsure, or suspect something may have gone wrong, you can always check your deployments history using the `archway history` command, or by opening `config.json` at the root of the project and looking at the `deployments` array. 
 
 In your history you should see 2 transactions were created:
 
@@ -82,21 +90,23 @@ Printing deployments...
 
 [
   {
-    type: 'instatiate',
-    address: 'archway1rfa3scumm5y2lt6jku49hg52y2tk06pnsm9p6w',
+    type: 'instantiate',
     chainId: 'constantine-1',
-    data: '{...}'
+    codeId: 26,
+    txhash: 'A060BA9CD256BF3E8C11C2640AEBF8B50EE42D76F2C586E604B581ACE834C76B',
+    address: 'archway1u6clujjm2qnem09gd4y7hhmulftvlt6mej4q0dd742tzcnsstt2q70lpu6',
+    admin: 'archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq'
   },
   {
-    type: 'create',
-    codeId: '84',
+    type: 'store',
+    codeId: 26,
     chainId: 'constantine-1',
-    data: '{...}'
+    txhash: '9EAD3FF16B1321E6A4E37EFB07BDAA0143602F28F64CBC5159A925D8ACEB7528'
   }
 ]
 ```
 
-# Configuring your deployment
+## Configuring the deployed contract
 
 Now that the dApp is deployed it's recommended to set its metadata. This will configure the smart contract to collect developer premiums, rewards and can be used to enable gas rebates with a pooling account.
 
@@ -120,5 +130,34 @@ Enter keyring passphrase: *[hidden]*
 
 # Tx. logs and confirm broadcast...
 
-Successfully set contract metadata on tx hash 6AAD95F173364D5E2E4B1715EC3A834CC8992143610B80C800D199D59D19D329
+Successfully set contract metadata on tx hash 1C30EB87FD947CF8D3843E110E4752181E05012EBC2B2C3FCD870DB707EB36F3
+```
+
+Checking the deployments history again, another item, of type `'set-metadata'`, has just been added:
+
+```bash
+archway history
+```
+
+Example output:
+
+```bash
+Printing deployments...
+
+[
+  {
+    type: 'set-metadata',
+    chainId: 'constantine-1',
+    codeId: 26,
+    txhash: '1C30EB87FD947CF8D3843E110E4752181E05012EBC2B2C3FCD870DB707EB36F3',
+    contract: 'archway1u6clujjm2qnem09gd4y7hhmulftvlt6mej4q0dd742tzcnsstt2q70lpu6',
+    contractMetadata: {
+      developerAddress: 'archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq',
+      rewardAddress: 'archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq',
+      collectPremium: false,
+      gasRebate: false
+    }
+  },
+  // Our previous history entries, for `store` and `instantiate`, appear below...
+]
 ```

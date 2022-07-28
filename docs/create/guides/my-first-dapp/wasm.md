@@ -41,12 +41,24 @@ Building wasm executable...
 
 ## CosmWasm Wasm executables
 
-_CosmWasm_ `wasm` executables are optimized using the `cosmwasm/rust-optimizer` which produces a smaller executable size than `cargo wasm`.
+_CosmWasm_ `wasm` executables are optimized using the `cosmwasm/rust-optimizer` which produces a smaller executable size than `cargo wasm`. 
 
-Think of it like building `C++` executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
+If you're coming from a `C++` background, think of it like building executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
 
-Producing _CosmWasm_ `wasm` executables is part of the deploy process and can be accessed by running the deploy command without the `--dry-run` flag.
+To build a _CosmWasm_ `wasm` executable, pass the `--optimize` flag to `archway build`.
 
-:::note
-The Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started (Support for native `cosmwasm/rust-optimizer` binaries coming soon).
+```bash
+archway build --optimize
+```
+
+Example output:
+
+```bash
+Building wasm binary...
+✔ Optimizing wasm file...
+Optimized wasm binary saved to artifacts/my_first_dapp.wasm
+```
+
+:::info
+Building CosmWasm `wasm` executables requires the [Binaryen](https://github.com/WebAssembly/binaryen) toolkit. See the [installation](../../getting-started/install.mdx#binaryen) instructions for details on installing this package on your system.
 :::

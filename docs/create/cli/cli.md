@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
-title: Developer CLI
+sidebar_position: 1
+title: Introduction
 ---
 
 # What is [Archway CLI](https://github.com/archway-network/archway-cli) really?
