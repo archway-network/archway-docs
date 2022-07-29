@@ -13,16 +13,14 @@ For that, you'll need the `wasm32-unknown-unknown` target installed in your tool
 rustup target add wasm32-unknown-unknown
 ```
 
-There are 2 types of `wasm` binaries that can be produced by the Developer CLI. Let's call them _"default"_ `wasm` and _"cosmwasm"_ `wasm`.
+There are 2 types of `wasm` binaries that can be produced by the Developer CLI. Let's call them _"default"_ `wasm` and _"CosmWasm"_ `wasm`.
 
 ## Default Wasm executables
 
-This is a regular `wasm` binary. It's the same as you'd get by running the Rust native command `cargo wasm`.
-
-_Default_ `wasm` executables can be produced by the developer CLI using the command:
+Regular `wasm` binaries can be produced by running the Rust native command `cargo wasm`.
 
 ```bash
-archway deploy --dry-run
+cargo wasm
 ```
 
 Example output:
@@ -37,7 +35,7 @@ Building wasm executable...
     Finished release [optimized] target(s) in 27.78s
 ```
 
-**Note: use `--dry-run` before deploying to gauge whether the deployment will succeed. This is useful because of speed, as running `archway deploy --dry-run` is a lot faster.**
+While it's good to know your project will compile valid `wasm`, these executables cannot be uploaded to the blockchain; for that, you'll need to produce a _CosmWasm_ `wasm` binary.
 
 ## CosmWasm Wasm executables
 
