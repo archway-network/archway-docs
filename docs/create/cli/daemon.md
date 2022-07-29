@@ -3,29 +3,7 @@ sidebar_position: 3
 title: Archway Daemon
 ---
 
-# What is [Archwayd](https://github.com/archway-network/archway) really?
-
-The `archwayd` binary is the core implementation of the Archway protocol. It leverages the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) and [CosmWasm](https://github.com/CosmWasm/cosmwasm) to reward validators and creators for their contributions to the network. The command-line interface runs a full-node of Archway and provides utilities for chain genesis, account management (keys), validators, nodes, queries and transactions.
-
-Users familiar with [Cosmos Hub](https://github.com/cosmos/gaia) will recognize the Archway daemon is Archway's version of [Gaiad](https://hub.cosmos.network/main/getting-started/what-is-gaia.html). It's built using the same Cosmos SDK modules, but introduces a new SDK module called `x/gastracker` which monitors gas consumed by applications on the network and distributes developer rewards.
-
-#### Cosmos SDK Modules
-
-- `x/auth`: Accounts and signatures
-- `x/bank`: Token transfers
-- `x/staking`: Staking logic
-- `x/mint`: Inflation logic
-- `x/distribution`: Fee distribution logic
-- `x/slashing`: Slashing logic
-- `x/gov`: Governance logic
-- `ibc-go/modules`: Inter-blockchain communication
-- `x/params`: Handles app-level parameters
-
-#### Archway SDK Modules
-
-- `x/gastracker`: measures gas consumption and rewards developers
-
-## Archwayd Commands
+# Archwayd CLI
 
 The full scope of `archwayd` commands can be viewed using command `archwayd --help`:
 

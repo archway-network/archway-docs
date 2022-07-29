@@ -1,13 +1,11 @@
 ---
 sidebar_position: 2
-title: API Docs
+title: Developer CLI
 ---
 
-# Basics
+# Archway Developer CLI
 
 An overview of Archway developer CLI commands, options and usage.
-
-## Archway Developer CLI
 
 ### Usage
 ```

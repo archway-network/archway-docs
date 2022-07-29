@@ -89,7 +89,7 @@ module.exports = {
           {name:'Debugging', value:'/docs/create/advanced/debug', icon:'icon-bug', description:'Tricks and tips for debugging smart contract errors'},
           {name:'Troubleshooting', value:'/docs/create/advanced/troubleshooting', icon:'icon-fix2', description:'Troubleshoot common issues and problems with Archway development'},
           {name:'Core Protocol', value:'/docs/create/cli/daemon', icon:'icon-computer', description:'Learn about the archwayd binary from a developer\'s perspective'},
-          {name:'CLI Basics', value:'/docs/create/cli/basics', icon:'icon-guide1', description:'Usage instructions and documentation for the Developer CLI'}
+          {name:'CLI Basics', value:'/docs/create/cli/developer-cli', icon:'icon-guide1', description:'Usage instructions and documentation for the Developer CLI'}
         ]
       },
       {
