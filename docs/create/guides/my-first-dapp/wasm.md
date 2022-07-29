@@ -41,7 +41,7 @@ While it's good to know your project will compile valid `wasm`, these executable
 
 _CosmWasm_ `wasm` executables are optimized using the `cosmwasm/rust-optimizer` which produces a smaller executable size than `cargo wasm`. 
 
-If you're coming from a `C++` background, think of it like building executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
+If you're coming from a `C++` background, it's like building executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
 
 To build a _CosmWasm_ `wasm` executable, pass the `--optimize` flag to `archway build`.
 
