@@ -34,7 +34,7 @@ query [options] <module> [type]  Query for data on Archway network
 run [options]                    Run a custom script of your own creation
 store [options]                  Stores and verify a contract on-chain
 test                             Run unit tests
-tx [options]                     Execute a transaction on Archway network
+tx [options]                     Execute a smart contract transaction on Archway network
 help [command]                   display help for command
 ```
 
