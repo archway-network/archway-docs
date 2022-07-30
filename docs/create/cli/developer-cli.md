@@ -118,7 +118,6 @@ archway deploy [options]
 | --no-build             | `archway deploy --no-build` | Do not build the project before deploying; it will fail if the wasm file is not built |
 | --no-verify            | `archway deploy --no-verify` | Do not verify the wasm file uploaded on-chain matches your local version |
 | --no-confirm           | `archway deploy --no-confirm` | Skip tx broadcasting prompt confirmation |
-| -d, --dry-run           | `archway deploy -d`        | Test deployability by building cargo wasm release binary       |
 | -k, --docker           | `archway deploy -k`         | Use the docker version of `archwayd`                           |
 | -h, --help             | `archway deploy -h`         | Display help for deploy command                                |
 
@@ -191,7 +190,6 @@ archway metadata [options]
 | --premium-percentage [string] | `archway metadata --collect-premium --premium-percentage 10` | Integer percentage of premium in a range between 0 and 200 |
 | --gas-rebate           | `archway metadata --gas-rebate` | Indicates contract rewards should be used for gas rebates to the user |
 | --no-confirm           | `archway metadata --no-confirm` | Do not prompt for confirmation when broadcasting tx |
-| --dry-run              | `archway metadata --dry-run` | Perform a simulation of a transaction without broadcasting it (default: false) |
 | --flags [string]        | `archway metadata --flags "--amount 1"` | Send additional flags to `archwayd`|
 | -k, --docker           | `archway metadata -k`       | Use the docker version of `archwayd` |
 | -h, --help             | `archway metadata -h`       | Display help for metadata command |
@@ -313,7 +311,6 @@ archway tx [options]
 | -f, --from [string]    | `archway tx -f "main"`      | Name or address of account used to sign transactions |
 | -a, --args [string]    |`archway tx -a '{"entrypoint_name":{}}'` | JSON encoded arguments to execute in transaction; defaults to "{}" |
 | --no-confirm           | `archway tx --no-confrim`   | Skip tx broadcasting prompt confirmation             |
-|  --dry-run             | `archway tx --dry-run`      | Perform a simulation of a transaction without broadcasting it (default: false) |
-| -f, --flags [string]   | `archway tx -f "--amount 1000uarch"` | Send additional flags to `archwayd` by wrapping in a string; e.g. "--dry-run --amount 1000uarch" |
+| -f, --flags [string]   | `archway tx -f "--amount 1000uarch"` | Send additional flags to `archwayd` by wrapping in a string; e.g. "--amount 1000uarch" |
 | -k, --docker           | `archway tx -k`             | Use the docker version of `archwayd`                 |
 | -h, --help             | `archway tx -h`             | Display help for tx command                          |
