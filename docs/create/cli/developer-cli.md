@@ -155,7 +155,7 @@ archway history [options]
 
 ### Instantiate
 
-Instantiate a contract stored with `archway store`; or, resume a failed deployment made using the `archway deploy` command which finished the storage step but failed to instantiate.
+Instantiate a contract stored with `archway store`.
 
 ```
 archway instantiate [options]
