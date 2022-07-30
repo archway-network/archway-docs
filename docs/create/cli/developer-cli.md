@@ -96,21 +96,13 @@ For detailed configuration changes, opening and modifying `config.json` with a t
 
 ### Deploy
 
-Deploys your contracts to a target network. It can be used in `--dry-run` mode to test if your Rust code will build to [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (wasm). 
-
-Running `deploy` with `--dry-run` enabled is equivalent to the Cargo native command `cargo wasm`. 
-
-Without `--dry-run` enabled, `deploy` progresses through a series of tasks, most of which can be called as individual archway commands, and the order of which is:
+Deploys your contracts to a target network. `archway deploy` progresses through a series of tasks, each of which could be executed as individual commands, their order is:
 
 1. **MAKE WASM** (e.g. `archway build --optimize`)
 2. **CREATE ON CHAIN WASM** (e.g. `archway store`)
 3. **VERIFY UPLOAD INTEGRITY** (e.g. `archway store`)
 4. **INSTANTIATE CONTRACT** (e.g. `archway instantiate`)
 5. **STORE DEPLOYMENT LOG** (e.g. `archway store` and `archway instatiate`)
-
-:::tip
-**Note:** The flags and options below allow you to surpress prompts, skip steps or resume a deployment. This can be helpful in the case of failing deployments.
-:::
 
 ```bash
 archway deploy [options]
