@@ -1,13 +1,11 @@
 ---
-sidebar_position: 3
-title: CLI Basics
+sidebar_position: 2
+title: Developer CLI
 ---
 
-# Basics
+# Archway Developer CLI
 
 An overview of Archway developer CLI commands, options and usage.
-
-## Archway Developer CLI
 
 ### Usage
 ```
@@ -36,7 +34,7 @@ query [options] <module> [type]  Query for data on Archway network
 run [options]                    Run a custom script of your own creation
 store [options]                  Stores and verify a contract on-chain
 test                             Run unit tests
-tx [options]                     Execute a transaction on Archway network
+tx [options]                     Execute a smart contract transaction on Archway network
 help [command]                   display help for command
 ```
 
@@ -98,21 +96,13 @@ For detailed configuration changes, opening and modifying `config.json` with a t
 
 ### Deploy
 
-Deploys your contracts to a target network. It can be used in `--dry-run` mode to test if your Rust code will build to [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (wasm). 
-
-Running `deploy` with `--dry-run` enabled is equivalent to the Cargo native command `cargo wasm`. 
-
-Without `--dry-run` enabled, `deploy` progresses through a series of tasks, most of which can be called as individual archway commands, and the order of which is:
+Deploys your contracts to a target network. `archway deploy` progresses through a series of tasks, each of which could be executed as individual commands, their order is:
 
 1. **MAKE WASM** (e.g. `archway build --optimize`)
 2. **CREATE ON CHAIN WASM** (e.g. `archway store`)
 3. **VERIFY UPLOAD INTEGRITY** (e.g. `archway store`)
 4. **INSTANTIATE CONTRACT** (e.g. `archway instantiate`)
 5. **STORE DEPLOYMENT LOG** (e.g. `archway store` and `archway instatiate`)
-
-:::tip
-**Note:** The flags and options below allow you to surpress prompts, skip steps or resume a deployment. This can be helpful in the case of failing deployments.
-:::
 
 ```bash
 archway deploy [options]
@@ -128,7 +118,6 @@ archway deploy [options]
 | --no-build             | `archway deploy --no-build` | Do not build the project before deploying; it will fail if the wasm file is not built |
 | --no-verify            | `archway deploy --no-verify` | Do not verify the wasm file uploaded on-chain matches your local version |
 | --no-confirm           | `archway deploy --no-confirm` | Skip tx broadcasting prompt confirmation |
-| -d, --dry-run           | `archway deploy -d`        | Test deployability by building cargo wasm release binary       |
 | -k, --docker           | `archway deploy -k`         | Use the docker version of `archwayd`                           |
 | -h, --help             | `archway deploy -h`         | Display help for deploy command                                |
 
@@ -165,7 +154,7 @@ archway history [options]
 
 ### Instantiate
 
-Instantiate a contract stored with `archway store`; or, resume a failed deployment made using the `archway deploy` command which finished the storage step but failed to instantiate.
+Instantiate a contract stored with `archway store`.
 
 ```
 archway instantiate [options]
@@ -201,7 +190,6 @@ archway metadata [options]
 | --premium-percentage [string] | `archway metadata --collect-premium --premium-percentage 10` | Integer percentage of premium in a range between 0 and 200 |
 | --gas-rebate           | `archway metadata --gas-rebate` | Indicates contract rewards should be used for gas rebates to the user |
 | --no-confirm           | `archway metadata --no-confirm` | Do not prompt for confirmation when broadcasting tx |
-| --dry-run              | `archway metadata --dry-run` | Perform a simulation of a transaction without broadcasting it (default: false) |
 | --flags [string]        | `archway metadata --flags "--amount 1"` | Send additional flags to `archwayd`|
 | -k, --docker           | `archway metadata -k`       | Use the docker version of `archwayd` |
 | -h, --help             | `archway metadata -h`       | Display help for metadata command |
@@ -323,7 +311,6 @@ archway tx [options]
 | -f, --from [string]    | `archway tx -f "main"`      | Name or address of account used to sign transactions |
 | -a, --args [string]    |`archway tx -a '{"entrypoint_name":{}}'` | JSON encoded arguments to execute in transaction; defaults to "{}" |
 | --no-confirm           | `archway tx --no-confrim`   | Skip tx broadcasting prompt confirmation             |
-|  --dry-run             | `archway tx --dry-run`      | Perform a simulation of a transaction without broadcasting it (default: false) |
-| -f, --flags [string]   | `archway tx -f "--amount 1000uarch"` | Send additional flags to `archwayd` by wrapping in a string; e.g. "--dry-run --amount 1000uarch" |
+| -f, --flags [string]   | `archway tx -f "--amount 1000uarch"` | Send additional flags to `archwayd` by wrapping in a string; e.g. "--amount 1000uarch" |
 | -k, --docker           | `archway tx -k`             | Use the docker version of `archwayd`                 |
 | -h, --help             | `archway tx -h`             | Display help for tx command                          |

@@ -13,16 +13,14 @@ For that, you'll need the `wasm32-unknown-unknown` target installed in your tool
 rustup target add wasm32-unknown-unknown
 ```
 
-There are 2 types of `wasm` binaries that can be produced by the Developer CLI. Let's call them _"default"_ `wasm` and _"cosmwasm"_ `wasm`.
+There are 2 types of `wasm` binaries that can be produced by the Developer CLI. Let's call them _"default"_ `wasm` and _"CosmWasm"_ `wasm`.
 
 ## Default Wasm executables
 
-This is a regular `wasm` binary. It's the same as you'd get by running the Rust native command `cargo wasm`.
-
-_Default_ `wasm` executables can be produced by the developer CLI using the command:
+Regular `wasm` binaries can be produced by running the Rust native command `cargo wasm`.
 
 ```bash
-archway deploy --dry-run
+cargo wasm
 ```
 
 Example output:
@@ -37,16 +35,28 @@ Building wasm executable...
     Finished release [optimized] target(s) in 27.78s
 ```
 
-**Note: use `--dry-run` before deploying to gauge whether the deployment will succeed. This is useful because of speed, as running `archway deploy --dry-run` is a lot faster.**
+While it's good to know your project will compile valid `wasm`, these executables cannot be uploaded to the blockchain; for that, you'll need to produce a _CosmWasm_ `wasm` binary.
 
 ## CosmWasm Wasm executables
 
-_CosmWasm_ `wasm` executables are optimized using the `cosmwasm/rust-optimizer` which produces a smaller executable size than `cargo wasm`.
+_CosmWasm_ `wasm` executables are optimized using the `cosmwasm/rust-optimizer` which produces a smaller executable size than `cargo wasm`. 
 
-Think of it like building `C++` executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
+If you're coming from a `C++` background, it's like building executables with [UPX](https://upx.github.io/), as `cosmwasm/rust-optimizer` also compresses the binary to produce smaller build outputs.
 
-Producing _CosmWasm_ `wasm` executables is part of the deploy process and can be accessed by running the deploy command without the `--dry-run` flag.
+To build a _CosmWasm_ `wasm` executable, pass the `--optimize` flag to `archway build`.
 
-:::note
-The Developer CLI currently only supports the Docker version of `cosmwasm/rust-optimizer`. The deploy process will fail and exit if Docker has not been started (Support for native `cosmwasm/rust-optimizer` binaries coming soon).
+```bash
+archway build --optimize
+```
+
+Example output:
+
+```bash
+Building wasm binary...
+✔ Optimizing wasm file...
+Optimized wasm binary saved to artifacts/my_first_dapp.wasm
+```
+
+:::info
+Building CosmWasm `wasm` executables requires the [Binaryen](https://github.com/WebAssembly/binaryen) toolkit. See the [installation](../../getting-started/install.mdx#binaryen) instructions for details on installing this package on your system.
 :::

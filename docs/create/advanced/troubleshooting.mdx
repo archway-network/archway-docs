@@ -82,18 +82,6 @@ optimize = """docker run --rm -v "$(pwd)":/code \
 """
 ```
 
-By default projects created with the `archway new` command use a Docker Hub version of the `cosmwasm/rust-optimizer`. It's also possible to use a locally built Docker image for this step. See the [Dockerfile](https://github.com/CosmWasm/rust-optimizer/blob/main/Dockerfile) and [Makefile](https://github.com/CosmWasm/rust-optimizer/blob/main/Makefile) for information about build parameters and dependencies.
-
-It's also possible to build an optimized wasm file without using the Docker image. To do that you'll need to install the [binaryen](https://github.com/WebAssembly/binaryen) WASM tools. With `binaryen` installed, use the following commands to generate the optimized `wasm` file (a convenience checksum file is also provided):
-
-```bash
-RUSTFLAGS='-C link-arg=-s' cargo build --release --target wasm32-unknown-unknown --locked
-PROJECT=$(cargo metadata --quiet --no-deps --format-version=1 | jq -r '.packages[0].name | sub("-"; "_")')
-WASM=target/wasm32-unknown-unknown/release/$PROJECT.wasm
-sha256sum -- $WASM | tee -a artifacts/checksums_intermediate.txt
-wasm-opt -Os $WASM -o artifacts/$(basename $WASM)
-```
-
 ### Deployment stuck at downloading WASM
 
 This could be an issue with the RPC node. If your deployment is continually getting stuck downloading `wasm`, try downloading it manually or use the flag `--no-verify` to skip checksum verification entirely.
