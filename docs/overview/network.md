@@ -15,7 +15,7 @@ Stable testing network for dApp developers building dApps.
 
 - Chain ID: `constantine-1`
 - RPC: https://rpc.constantine-1.archway.tech 
-- GRPC: grpc.constantine-1.archway.tech:443
+- GRPC: `grpc.constantine-1.archway.tech:443`
 - Faucet: https://faucet.constantine-1.archway.tech 
 - LCD: https://api.constantine-1.archway.tech  
 - Block Explorer: https://explorer.constantine-1.archway.tech
@@ -27,7 +27,7 @@ Experimental testing network for core sdk developers testing out the newest feat
 
 - Chain ID: `titus-1`
 - RPC: https://rpc.titus-1.archway.tech 
-- GRPC: grpc.titus-1.archway.tech:443
+- GRPC: `grpc.titus-1.archway.tech:443`
 - Faucet: https://faucet.titus-1.archway.tech 
 - LCD: https://api.titus-1.archway.tech  
 - Block Explorer: https://explorer.titus-1.archway.tech
@@ -39,7 +39,7 @@ Community testnet to be used for completing incentivized testnet challenges.
 
 - Chain ID: `torii-1`
 - RPC: https://rpc.torii-1.archway.tech 
-- GRPC: grpc.torii-1.archway.tech:443
+- GRPC: `grpc.torii-1.archway.tech:443`
 - Faucet: https://faucet.torii-1.archway.tech 
 - LCD: https://api.torii-1.archway.tech  
 - Block Explorer: https://explorer.torii-1.archway.tech
