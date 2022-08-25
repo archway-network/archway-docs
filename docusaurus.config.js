@@ -5,43 +5,23 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Archway Network',
-  tagline: 'Elevate your ecosystem',
+  title: 'Archway',
+  tagline: 'Rewarding Architects of Web3',
   url: 'https://docs.archway.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
   organizationName: 'archway-network',  // GitHub org/user name.
-  projectName: 'archway-docs',          // Repository name.
+  projectName: 'archway-docs', // Repository name.
   themeConfig: {
     navbar: {
-      title: 'Documentation',
+      title: 'Docs',
       logo: {
-        alt: 'Archway is the passage for dApp developers to receive long-term value for their creativity and contributions',
+        alt: 'Archway - Rewarding Architects of Web3',
         src: 'img/logo.svg',
-        srcDark: 'img/logo-dt.svg'
+        srcDark: 'img/logo-dark.svg'
       },
-      items: [
-        {
-          href: 'https://www.archway.io/',
-          label: 'Archway.io ↗',
-          position: 'right',
-          className: 'back-to-website arrow external',
-        },
-        {
-          href: 'https://github.com/archway-network/archway-docs/',
-          label: ' ',
-          position: 'right',
-          className: 'header-github-link',
-        },
-        {
-          href: 'https://discord.com/invite/5FVvx3WGfa',
-          label: ' ',
-          position: 'right',
-          className: 'header-discord-link',
-        }
-      ],
     },
     footer: {},
     prism: {
@@ -49,16 +29,7 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
     colorMode: {
-      switchConfig: {
-        darkIcon: '\u{25EF}',
-        darkIconStyle: {
-          display: 'none',
-        },
-        lightIcon: '\u{2B24}',
-        lightIconStyle: {
-          display: 'none',
-        }
-      },
+      respectPrefersColorScheme: true,
     },
     tableOfContents: {
       minHeadingLevel: 2,
@@ -149,19 +120,30 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/archway-network/archway-docs/edit/main/'
+          // editUrl: 'https://github.com/archway-network/archway-docs/edit/main/'
         },
         blog: false,
         theme: {
           customCss: [
-            require.resolve('./src/css/footer.css'),
-            require.resolve('./src/css/icons.css'),
             require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/mobile.css')
+            require.resolve('./src/css/icons.css'),
           ]
         },
       },
     ],
+  ],
+  plugins: [
+    async function docusaurusTailwindcssPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
   ],
 };

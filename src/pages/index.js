@@ -2,137 +2,73 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+import CardsList from '../components/CardsList';
+
 import DocSidebar from '@theme/DocSidebar';
 import * as sidebar from '../../sidebars';
 import pageSidebar from '../common/pageSidebar';
 
 export default function Home() {
-  sidebar.pageSidebar = pageSidebar;
+  // sidebar.pageSidebar = pageSidebar;
 
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   const categories = siteConfig.customFields.pageCategories;
 
-  let createCats = categories[0].children;
-  let nodeCats = categories[1].children[0];
-  let validCats = categories[1].children[1];
-  let participateCats = categories[2].children;
-  let overviewCats = categories[3].children;
-
-  // Creating dApps
-  const createCategoryItems = (createCats.length) ? createCats.map((item,i) =>
-    <a className='cats' href={item.value} key={i}>
-      <div className='card' key={'card-'+i}>
-        <div className='card-block'>
-          <div className='card-body'>
-            <div className='card-title'>
-              <span className={item.icon + ' icon'}></span>&nbsp;{item.name}
-            </div>
-            <p className='card-text'>{item.description}</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  ) : null;
-
-
-  const nodeCategoryItems = (nodeCats.length) ? nodeCats.map((item,i) =>
-    <a className='cats' href={item.value} key={i}>
-      <div className='card' key={'card-'+i}>
-        <div className='card-block'>
-          <div className='card-body'>
-            <div className='card-title'>
-              <span className={item.icon + ' icon'}></span>&nbsp;{item.name}
-            </div>
-            <p className='card-text'>{item.description}</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  ) : null;
-
-  const validatorCategoryItems = (validCats.length) ? validCats.map((item,i) =>
-    <a className='cats' href={item.value} key={i}>
-      <div className='card' key={'card-'+i}>
-        <div className='card-block'>
-          <div className='card-body'>
-            <div className='card-title'>
-              <span className={item.icon + ' icon'}></span>&nbsp;{item.name}
-            </div>
-            <p className='card-text'>{item.description}</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  ) : null;
-
-  const participateCategoryItems = (participateCats.length) ? participateCats.map((item,i) =>
-    <a className='cats' href={item.value} key={i}>
-      <div className='card' key={'card-'+i}>
-        <div className='card-block'>
-          <div className='card-body'>
-            <div className='card-title'>
-              <span className={item.icon + ' icon'}></span>&nbsp;{item.name}
-            </div>
-            <p className='card-text'>{item.description}</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  ) : null;
-
-  const overviewCategoryItems = (overviewCats.length) ? overviewCats.map((item,i) =>
-    <a className='cats sm' href={item.value} key={i}>
-      <div className='card sm' key={'card-'+i}>
-        <div className='card-block sm'>
-          <div className='card-body sm'>
-            <div className='card-title sm'>
-              <span className={(item.icon) ? item.icon + ' icon icon-card-sm' : 'hidden'}>&nbsp;</span>{item.name}
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-  ) : null;
+  const overview = categories[3].children || [];
+  const participate = categories[2].children || [];
+  const createDApps = categories[0].children || [];
+  const runNodes = categories[1].children[0] || [];
+  const becomeValidator = categories[1].children[1] || [];
 
   return (
-    <Layout title="Home" description="Arch into Cosmos">
-      <div className="navbar-sidebar navbar-sidebar-wr" role="complementary">
-        <DocSidebar
-          docsSidebars={sidebar}
-          sidebar={sidebar.pageSidebar}
-          sidebarCollapsible={true}
-        />
-      </div>
-      <main>
-        <div className="container home">
-          <h1>Welcome</h1>
-          <p>Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow.</p>
-          <div className="card-deck sm">{overviewCategoryItems}</div>
+    <Layout title="Home" description="Rewarding Architects of Web3">
+      {/* <div className="navbar-sidebar navbar-sidebar-wr" role="complementary">
+        <DocSidebar docsSidebars={sidebar} sidebar={sidebar.pageSidebar} sidebarCollapsible={true} />
+      </div> */}
+      <main className="container py-40">
+        <div className="space-y-20">
+          <div>
+            <h1 className="hero-1 uppercase pb-4">
+              Welcome,
+              <br />
+              Let's build
+            </h1>
+            <p className="title-4 max-w-5xl">
+              Discover why and how to build on Archway, the incentivized smart contract platform that rewards dApp{' '}
+              <span className="text-orange">architects</span>.
+            </p>
+          </div>
+
+          <CardsList
+            heading="Welcome"
+            info="Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow."
+            items={overview}
+          />
+          <CardsList heading="Participate" items={participate} />
+          <CardsList heading="Create dApps" items={createDApps} />
+          <CardsList heading="Run a Node" items={runNodes} />
+          <CardsList heading="Become a Validator" items={becomeValidator} />
         </div>
 
-        {/* Participate */}
-        <div className="container create-cats">
+        {/* <div className="container create-cats">
           <h1>Participate</h1>
           <div className="card-deck">{participateCategoryItems}</div>
         </div>
 
-        {/* Create */}
         <div className="container create-cats">
           <h1>Create dApps</h1>
           <div className="card-deck">{createCategoryItems}</div>
         </div>
 
-        {/* Node */}
         <div className="container create-cats">
           <h1>Run a Node</h1>
           <div className="card-deck">{nodeCategoryItems}</div>
         </div>
 
-        {/* Validator */}
         <div className="container create-cats">
           <h1>Become a Validator</h1>
           <div className="card-deck">{validatorCategoryItems}</div>
-        </div>
+        </div> */}
       </main>
     </Layout>
   );

@@ -1,0 +1,12 @@
+.hero-1 {
+  font-size: 40px;
+  line-height: 120%;
+}
+
+@screen lg {
+  .hero-1 {
+    font-size: 120px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+  }
+}

@@ -1,0 +1,11 @@
+.heading-1 {
+  font-size: 40px;
+  line-height: 120%;
+}
+
+@screen lg {
+  .heading-1 {
+    font-size: 64px;
+    line-height: 120%;
+  }
+}
