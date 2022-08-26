@@ -4,15 +4,11 @@ import { Popover, Transition } from '@headlessui/react';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import SearchBar from '@theme/SearchBar';
 import NavbarSearch from '@theme/Navbar/Search';
-import DocSidebar from '@theme/DocSidebar';
-import { Link, ArchwayLogo, MenuIcon, CloseIcon, GithubIcon } from '../../components/Ui';
+import { Link, MobileMenu, ArchwayLogo, MenuIcon, CloseIcon, GithubIcon } from '../../components/Ui';
 
-import * as sidebar from '../../../sidebars';
 import pageSidebar from '../../common/pageSidebar';
 
 export default function Navbar() {
-  sidebar.pageSidebar = pageSidebar;
-
   return (
     <div className="fixed inset-x-0 z-20">
       <div className="container">
@@ -31,7 +27,7 @@ export default function Navbar() {
               <GithubIcon className="w-6 h-6 text-gray dark:text-white" />
             </Link>
             <div className="hidden lg:block">
-              <NavbarColorModeToggle />
+              <NavbarColorModeToggle className="color-mode-toggle-button" />
             </div>
             <NavbarSearch className="!relative !right-auto">
               <SearchBar />
@@ -64,7 +60,7 @@ export default function Navbar() {
           >
             <Popover.Panel className="fixed inset-0 overflow-hidden transition transform origin-top-left lg:block ">
               <div className="absolute inset-0 overflow-hidden">
-                <div className="pointer-events-none fixed inset-0 flex max-w-full">
+                <div className="pointer-events-none fixed inset-0 flex max-w-full overflow-auto">
                   <div className="container bg-white dark:bg-black">
                     <div className="pointer-events-auto flex items-center justify-between border-b border-gray-200">
                       <div className="h-24 flex items-center">
@@ -95,8 +91,8 @@ export default function Navbar() {
                         </Popover.Button>
                       </div>
                     </div>
-                    <div className="mt-6">
-                      <DocSidebar docsSidebars={sidebar} sidebar={sidebar.pageSidebar} sidebarCollapsible={true} />
+                    <div className="mt-6 pointer-events-auto">
+                      <MobileMenu menu={pageSidebar} />
                     </div>
                   </div>
                 </div>

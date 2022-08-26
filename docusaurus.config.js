@@ -198,15 +198,17 @@ module.exports = {
     videos: [
       {
         name: 'Create your own dApps and NFTs with CosmWasm using Archway',
-        value: 'https://www.youtube.com/watch?v=n4rvQB86lLM',
+        url: 'https://www.youtube.com/watch?v=n4rvQB86lLM',
+        thumb: 'https://img.youtube.com/vi/n4rvQB86lLM/0.jpg',
         tags: ['Cosmos', 'Ignite', 'Code with Us', 'NFTs', 'Rust', 'Cosmjs'],
         description:
           'CosmWasm unlocks a vast universe of new possibilities through true cross-chain smart contracts. However, the development experience hasn’t always been the most straightforward. With this workshop, you’ll learn just how easy it is to create your own CosmWasm dApps and NFTs on top of Archway.',
       },
       {
         name: 'Archway Developer Rewards + CosmWasm Contracts',
-        value: 'https://www.youtube.com/watch?v=fit1_bMNgVc',
-        tags: ['Developer Rewards', 'Contract Metadata', 'DAOs', 'Escrow'],
+        url: 'https://www.youtube.com/watch?v=fit1_bMNgVc',
+        thumb: 'https://img.youtube.com/vi/fit1_bMNgVc/0.jpg',
+        tags: ['Developer Rewards', 'DAOs', 'Contract Metadata', 'Escrow'],
         description:
           'Learn how to write contracts that automatically redirect protocol rewards for several use cases (contributing to a DAO, subsidizing gas fees, seeding liquidity pools, boosting governance token rewards, etc.)',
       },
@@ -217,7 +219,6 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          breadcrumbs: false,
           sidebarPath: require.resolve('./sidebars.js'),
           // editUrl: 'https://github.com/archway-network/archway-docs/edit/main/'
         },

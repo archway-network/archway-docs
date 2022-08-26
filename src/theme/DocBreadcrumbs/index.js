@@ -1,17 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
-import {ThemeClassNames} from '@docusaurus/theme-common';
-import {
-  useSidebarBreadcrumbs,
-  useHomePageRoute,
-} from '@docusaurus/theme-common/internal';
+import { ThemeClassNames } from '@docusaurus/theme-common';
+import { useSidebarBreadcrumbs, useHomePageRoute } from '@docusaurus/theme-common/internal';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import {translate} from '@docusaurus/Translate';
+import { translate } from '@docusaurus/Translate';
 import IconHome from '@theme/Icon/Home';
 import styles from './styles.module.css';
 // TODO move to design system folder
-function BreadcrumbsItemLink({children, href, isLast}) {
+function BreadcrumbsItemLink({ children, href, isLast }) {
   const className = 'breadcrumbs__link';
   if (isLast) {
     return (
@@ -34,7 +31,7 @@ function BreadcrumbsItemLink({children, href, isLast}) {
   );
 }
 // TODO move to design system folder
-function BreadcrumbsItem({children, active, index, addMicrodata}) {
+function BreadcrumbsItem({ children, active, index, addMicrodata }) {
   return (
     <li
       {...(addMicrodata && {
@@ -44,7 +41,8 @@ function BreadcrumbsItem({children, active, index, addMicrodata}) {
       })}
       className={clsx('breadcrumbs__item', {
         'breadcrumbs__item--active': active,
-      })}>
+      })}
+    >
       {children}
       <meta itemProp="position" content={String(index + 1)} />
     </li>
@@ -61,8 +59,9 @@ function HomeBreadcrumbItem() {
           description: 'The ARIA label for the home page in the breadcrumbs',
         })}
         className={clsx('breadcrumbs__link', styles.breadcrumbsItemLink)}
-        href={homeHref}>
-        <IconHome className={styles.breadcrumbHomeIcon} />
+        href={homeHref}
+      >
+        Docs
       </Link>
     </li>
   );
@@ -75,28 +74,19 @@ export default function DocBreadcrumbs() {
   }
   return (
     <nav
-      className={clsx(
-        ThemeClassNames.docs.docBreadcrumbs,
-        styles.breadcrumbsContainer,
-      )}
+      className={clsx(ThemeClassNames.docs.docBreadcrumbs, styles.breadcrumbsContainer)}
       aria-label={translate({
         id: 'theme.docs.breadcrumbs.navAriaLabel',
         message: 'Breadcrumbs',
         description: 'The ARIA label for the breadcrumbs',
-      })}>
-      <ul
-        className="breadcrumbs"
-        itemScope
-        itemType="https://schema.org/BreadcrumbList">
+      })}
+    >
+      <ul className="flex items-center" itemScope itemType="https://schema.org/BreadcrumbList">
         {homePageRoute && <HomeBreadcrumbItem />}
         {breadcrumbs.map((item, idx) => {
           const isLast = idx === breadcrumbs.length - 1;
           return (
-            <BreadcrumbsItem
-              key={idx}
-              active={isLast}
-              index={idx}
-              addMicrodata={!!item.href}>
+            <BreadcrumbsItem key={idx} active={isLast} index={idx} addMicrodata={!!item.href}>
               <BreadcrumbsItemLink href={item.href} isLast={isLast}>
                 {item.label}
               </BreadcrumbsItemLink>

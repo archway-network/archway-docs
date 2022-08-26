@@ -2,7 +2,6 @@ class Navigation {
   static archwayResources() {
     return [
       { label: 'About', url: 'https://archway.io' },
-      { label: 'Support', url: 'https://archway.io' },
       { label: 'Brand kit', url: 'https://archway.io/brand' },
     ];
   }
@@ -10,7 +9,6 @@ class Navigation {
   static developerResources() {
     return [
       { label: 'Introduction', url: '/' },
-      { label: 'Documentation', url: '/' },
       { label: 'Github', url: 'https://github.com/archway-network' },
     ];
   }

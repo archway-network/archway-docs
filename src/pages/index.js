@@ -4,13 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import CardsList from '../components/CardsList';
 
-import DocSidebar from '@theme/DocSidebar';
-import * as sidebar from '../../sidebars';
-import pageSidebar from '../common/pageSidebar';
-
 export default function Home() {
-  // sidebar.pageSidebar = pageSidebar;
-
   const { siteConfig } = useDocusaurusContext();
   const categories = siteConfig.customFields.pageCategories;
 
@@ -21,11 +15,8 @@ export default function Home() {
   const becomeValidator = categories[1].children[1] || [];
 
   return (
-    <Layout title="Home" description="Rewarding Architects of Web3">
-      {/* <div className="navbar-sidebar navbar-sidebar-wr" role="complementary">
-        <DocSidebar docsSidebars={sidebar} sidebar={sidebar.pageSidebar} sidebarCollapsible={true} />
-      </div> */}
-      <main className="container py-40">
+    <Layout className="home-page" title="Home" description="Rewarding Architects of Web3">
+      <main className="py-40">
         <div className="space-y-20">
           <div>
             <h1 className="hero-1 uppercase pb-4">
@@ -35,7 +26,7 @@ export default function Home() {
             </h1>
             <p className="title-4 max-w-5xl">
               Discover why and how to build on Archway, the incentivized smart contract platform that rewards dApp{' '}
-              <span className="text-orange">architects</span>.
+              <span className="text-orange">developers</span>.
             </p>
           </div>
 
