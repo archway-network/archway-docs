@@ -48,6 +48,7 @@ export default function Navbar() {
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
+          <Popover.Overlay className="fixed inset-0 bg-black opacity-30" />
 
           <Transition
             as={Fragment}
@@ -62,7 +63,7 @@ export default function Navbar() {
               <div className="absolute inset-0 overflow-hidden">
                 <div className="pointer-events-none fixed inset-0 flex max-w-full overflow-auto">
                   <div className="container bg-white dark:bg-black">
-                    <div className="pointer-events-auto flex items-center justify-between border-b border-gray-200">
+                    <div className="pointer-events-auto flex items-center justify-between border-b border-gray-200 dark:!border-[rgba(255,255,255,0.14)]">
                       <div className="h-24 flex items-center">
                         <Popover.Button as={Link} href="/">
                           <span className="sr-only">Archway Docs</span>
