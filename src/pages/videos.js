@@ -43,18 +43,22 @@ export default function Videos() {
         <h2 className="title-4">Code along side Archway developers using our video tutorials.</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 pt-8 lg:pt-12">
           {videos.map(({ name, description, thumb, url, tags }) => (
-            <Link className="bg-white shadow-card rounded-2xl px-6 pt-6 pb-10 flex flex-col" href={url} externalIcon={false}>
+            <Link
+              className="bg-white dark:bg-gray-900 hover:dark:text-gray-800 shadow-card rounded-2xl px-6 pt-6 pb-10 flex flex-col"
+              href={url}
+              externalIcon={false}
+            >
               <div className="flex-1 space-y-3">
                 <img className="rounded-lg" src={thumb} alt="" />
                 <div>
-                  <span className="inline-block w-[18px] h-[18px] bg-black rounded-full" />
+                  <span className="inline-block w-[18px] h-[18px] bg-black dark:bg-white rounded-full" />
                 </div>
                 <h3 className="font-bold">{name}</h3>
-                <p>{description}</p>
+                <p className="dark:text-gray-800">{description}</p>
               </div>
               <ul className="pt-6 flex flex-wrap gap-x-2 gap-y-2">
                 {tags.map(tag => (
-                  <li className="small text-gray dark:text-white px-2.5 py-2 border border-black/60 dark:border-white rounded-full">
+                  <li className="small text-gray dark:text-gray-800 px-2.5 py-2 border border-black/60 dark:border-gray-900 rounded-full">
                     {tag}
                   </li>
                 ))}
