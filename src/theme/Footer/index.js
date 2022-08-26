@@ -7,7 +7,7 @@ const community = Navigation.communityResources();
 const developers = Navigation.developerResources();
 
 const Footer = () => (
-  <footer className="border-t">
+  <footer className="border-t dark:border-[#ffffff24]">
     <div className="container py-10 lg:py-20 relative">
       <div>
         <div className="lg:flex">

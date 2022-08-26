@@ -38,7 +38,7 @@ export default function Videos() {
 
   return (
     <Layout title="Videos" description="Level up your knowledge with hands-on video tutorials and code along sessions">
-      <main className="container py-40">
+      <main className="py-40">
         <h1 className="title-1 uppercase pb-5 lg:pb-8">Videos</h1>
         <h2 className="title-4">Code along side Archway developers using our video tutorials.</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 pt-8 lg:pt-12">
@@ -50,15 +50,12 @@ export default function Videos() {
             >
               <div className="flex-1 space-y-3">
                 <img className="rounded-lg" src={thumb} alt="" />
-                <div>
-                  <span className="inline-block w-[18px] h-[18px] bg-black dark:bg-white rounded-full" />
-                </div>
                 <h3 className="font-bold">{name}</h3>
                 <p className="dark:text-gray-800">{description}</p>
               </div>
               <ul className="pt-6 flex flex-wrap gap-x-2 gap-y-2">
                 {tags.map(tag => (
-                  <li className="small text-gray dark:text-gray-800 px-2.5 py-2 border border-black/60 dark:border-gray-900 rounded-full">
+                  <li className="small text-gray dark:text-gray-800 px-2.5 py-2 border border-black/60 dark:border-gray-800 rounded-full">
                     {tag}
                   </li>
                 ))}

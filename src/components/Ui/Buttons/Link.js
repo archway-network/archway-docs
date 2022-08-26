@@ -9,7 +9,7 @@ const Link = ({ className, href, externalIcon = true, children }) => {
   return (
     <BaseLink
       className={clsx(
-        'text-black dark:text-white hover:text-black-warm hover:no-underline',
+        'text-black dark:text-white hover:text-black-warm hover:dark:text-white hover:no-underline',
         { external: isExternal && externalIcon },
         className
       )}

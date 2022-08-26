@@ -12,13 +12,13 @@ export default function Navbar() {
   return (
     <div className="fixed inset-x-0 z-20">
       <div className="container">
-        <Popover as="header" className="navbar p-0 border-b border-gray-200">
+        <Popover as="header" className="navbar">
           <div className="h-full flex items-center">
             <Link href="/">
               <span className="sr-only">Archway Docs</span>
               <span className="flex items-end space-x-2">
                 <ArchwayLogo />
-                <span className="text-gray dark:text-white">Docs</span>
+                <span className="text-gray dark:text-gray-600">Docs</span>
               </span>
             </Link>
           </div>
@@ -45,7 +45,7 @@ export default function Navbar() {
               )}
             >
               <span className="sr-only">Open menu</span>
-              <MenuIcon aria-hidden="true" />
+              <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
                           <span className="sr-only">Archway Docs</span>
                           <span className="flex items-end space-x-2">
                             <ArchwayLogo />
-                            <span className="text-gray dark:text-white">Docs</span>
+                            <span className="text-gray dark:text-gray-600">Docs</span>
                           </span>
                         </Popover.Button>
                       </div>

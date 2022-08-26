@@ -30,36 +30,12 @@ export default function Home() {
             </p>
           </div>
 
-          <CardsList
-            heading="Welcome"
-            info="Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your workflow."
-            items={overview}
-          />
+          <CardsList items={overview} />
           <CardsList heading="Participate" items={participate} />
           <CardsList heading="Create dApps" items={createDApps} />
           <CardsList heading="Run a Node" items={runNodes} />
           <CardsList heading="Become a Validator" items={becomeValidator} />
         </div>
-
-        {/* <div className="container create-cats">
-          <h1>Participate</h1>
-          <div className="card-deck">{participateCategoryItems}</div>
-        </div>
-
-        <div className="container create-cats">
-          <h1>Create dApps</h1>
-          <div className="card-deck">{createCategoryItems}</div>
-        </div>
-
-        <div className="container create-cats">
-          <h1>Run a Node</h1>
-          <div className="card-deck">{nodeCategoryItems}</div>
-        </div>
-
-        <div className="container create-cats">
-          <h1>Become a Validator</h1>
-          <div className="card-deck">{validatorCategoryItems}</div>
-        </div> */}
       </main>
     </Layout>
   );

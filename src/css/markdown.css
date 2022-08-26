@@ -7,6 +7,6 @@
 }
 
 .markdown blockquote {
-  @apply !border-l-[3px] !border-black !pl-[29px] !pr-0 !py-0 !mb-5;
-  @apply !text-base !text-black !font-normal;
+  @apply !border-l-[3px] !border-black dark:!border-white !pl-[29px] !pr-0 !py-0 !mb-5;
+  @apply !text-base !text-black dark:!text-white !font-normal;
 }
