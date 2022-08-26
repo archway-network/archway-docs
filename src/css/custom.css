@@ -1,7 +1,6 @@
 /* stylelint-disable docusaurus/copyright-header */
 
 @import 'tailwindcss/base';
-@import './typography';
 @import './resets';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
