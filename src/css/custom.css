@@ -32,10 +32,15 @@
   }
   a.external:after {
     content: '\2197';
-    position: absolute;
+    /* position: absolute; */
     bottom: 0.166em;
     right: 0;
     font-size: 0.85em;
     line-height: 1;
   }
+}
+
+
+.theme-doc-sidebar-container > div {
+  margin-top: 5.75rem;
 }
