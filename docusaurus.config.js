@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Archway',
+  title: 'Archway Docs',
   tagline: 'Rewarding Architects of Web3',
   url: 'https://docs.archway.io',
   baseUrl: '/',
