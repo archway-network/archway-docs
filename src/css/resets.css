@@ -1,6 +1,6 @@
 /* reset header style */
 .navbar {
-  @apply !p-0 !border-b-[1.5px] lg:!border-0 !border-gray-200 dark:!border-[rgba(255,255,255,0.14)];
+  @apply !p-0 !border-b-[1.5px] !border-gray-200 dark:!border-[rgba(255,255,255,0.14)];
 }
 
 .navbar__title {
@@ -60,7 +60,7 @@ div[class*='docPage'] > aside {
 }
 
 div[class*='docPage'] > main[class*='docMainContainer'] {
-  @apply !flex-1 !max-w-none;
+  @apply !flex-1;
 }
 
 div[class*='docPage'] > main[class*='docMainContainer'] > .container {
