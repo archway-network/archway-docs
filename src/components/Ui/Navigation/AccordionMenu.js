@@ -1,11 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Disclosure } from '@headlessui/react';
-import Link from '../Buttons/Link';
 import AccordionMenu from '../Navigation/AccordionMenu';
 import ChevronDown from '../Icons/ChevronDown';
 
-export default ({ className, label, items }) => (
+export default ({ className, label, items, goTo }) => (
   <Disclosure>
     {({ open }) => (
       <>
@@ -26,9 +25,9 @@ export default ({ className, label, items }) => (
             }
             return (
               <div key={`accordion-menu-${label}-${item.label}`} className="py-2">
-                <Link className="text-gray dark:text-white hover:no-underline focus:outline-none" href={`/${item.href}`}>
+                <button className="text-gray dark:text-white hover:no-underline focus:outline-none" onClick={() => goTo(`/${item.href}`)}>
                   {item.label}
-                </Link>
+                </button>
               </div>
             );
           })}

@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { useLocation } from '@docusaurus/router';
+import { useLocation, useHistory } from '@docusaurus/router';
 import { Dialog } from '@headlessui/react';
 import NavbarSearch from '@theme/Navbar/Search';
 import SearchBar from '@theme/SearchBar';
@@ -10,6 +10,12 @@ import pageSidebar from '../../common/pageSidebar';
 
 export default ({ isOpen, onClose }) => {
   const location = useLocation();
+  const history = useHistory();
+
+  const goTo = url => {
+    onClose();
+    history.push(url);
+  };
 
   return (
     <Dialog open={isOpen} onClose={onClose}>
@@ -50,7 +56,7 @@ export default ({ isOpen, onClose }) => {
           </div>
           <div className="flex-1 py-6 min-h-0">
             <div className="h-full pointer-events-auto overflow-y-auto">
-              <MobileMenu menu={pageSidebar} />
+              <MobileMenu menu={pageSidebar} goTo={goTo} />
             </div>
           </div>
         </div>
