@@ -1,0 +1,220 @@
+/* reset header style */
+.navbar {
+  @apply !p-0 !border-b-[1.5px] !border-gray-200 dark:!border-[rgba(255,255,255,0.14)];
+}
+
+.navbar__title {
+  @apply font-normal text-black/60 dark:text-white;
+}
+
+.DocSearch-Button {
+  @apply !w-12 !h-12 !p-3 !rounded-xl hover:!border-0 hover:!shadow-none;
+  @apply !inline-flex !items-center !justify-center;
+  @apply !bg-gray-100 hover:!bg-gray-100/80 dark:!bg-white/10 dark:hover:!bg-white/30;
+  @apply dark:!border dark:!border-black-warm;
+  @apply focus:!outline-none focus:!ring-2 focus:!ring-inset focus:!ring-black-warm;
+
+  @apply md:!w-auto md:!h-auto;
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+  @apply !text-black hover:!text-black-warm dark:!text-white hover:dark:!text-white/80;
+  @apply md:hidden;
+}
+
+.DocSearch-Button .DocSearch-Button-Keys {
+  @apply hidden md:flex items-center !space-x-1 !min-w-fit;
+}
+
+.DocSearch-Button .DocSearch-Button-Keys .DocSearch-Button-Key {
+  @apply !w-6 !h-6 !p-0 !m-0 !top-auto;
+  @apply !flex !justify-center !items-center;
+  @apply !bg-none !shadow-none !text-sm;
+  @apply !rounded-lg;
+  border: 1px #a5a5a5 solid !important;
+}
+
+.searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+  @apply !p-0;
+}
+
+.color-mode-toggle-button button {
+  @apply hover:!bg-transparent;
+}
+
+.color-mode-toggle-button button svg {
+  @apply !w-6 !h-6 !text-gray dark:!text-white;
+}
+
+/* reset documentation article page */
+.main-wrapper {
+  @apply container;
+}
+
+div[class*='docPage'] {
+  @apply !flex;
+}
+
+div[class*='docPage'] > aside {
+  @apply hidden lg:block;
+}
+
+div[class*='docPage'] > main[class*='docMainContainer'] {
+  @apply !flex-1;
+}
+
+div[class*='docPage'] > main[class*='docMainContainer'] > .container {
+  @apply !max-w-none !mx-auto !px-0;
+}
+
+div[class*='docPage'] > main[class*='docMainContainer'] .row {
+  @apply !max-w-none !mx-0 !px-0 !flex;
+}
+
+div[class*='docPage'] > main[class*='docMainContainer'] .col[class*='docItemCol'] {
+  @apply !px-0 !max-w-none !w-2/3;
+}
+
+div[class*='docPage'] > main[class*='docMainContainer'] .col.col--3 {
+  @apply !hidden xl:!block !w-1/3;
+}
+
+main[class*='docMainContainer'] article {
+  @apply lg:!px-8 !py-24;
+}
+
+/* reset documentation article sidebar */
+.menu__list-item:not(:first-child) {
+  @apply !mb-0;
+}
+
+.menu__link--active {
+  @apply font-bold;
+}
+
+/* reset documentation article pagination */
+.pagination-nav {
+  @apply !px-0 lg:!px-8 !gap-4 !flex !flex-col lg:!flex-row;
+}
+
+.pagination-nav .pagination-nav__link {
+  @apply !flex-1;
+  @apply !border-0 !bg-white dark:!bg-gray-900 !shadow-card !rounded-2xl !px-6 !py-6;
+  @apply dark:hover:!text-white/80;
+}
+
+.pagination-nav .pagination-nav__link .pagination-nav__sublabel {
+  @apply !text-base !pb-2.5 !mb-0;
+}
+
+.pagination-nav .pagination-nav__link .pagination-nav__label {
+  @apply !text-base !font-bold after:hidden before:hidden;
+}
+
+.pagination-nav .pagination-nav__link--next {
+  @apply !text-left;
+}
+
+/* reset documentation article on-this-page */
+.theme-doc-toc-mobile {
+  @apply !my-6 !block xl:!hidden;
+}
+
+.theme-doc-toc-mobile button {
+  @apply !bg-gray-100 dark:!bg-gray-900 !px-6 !py-5 !mt-6 !rounded-2xl;
+}
+
+.theme-doc-toc-mobile button[class*='tocCollapsibleButtonExpanded'] {
+  @apply !rounded-b-none;
+}
+
+.theme-doc-toc-mobile > div {
+  @apply !bg-gray-100 dark:!bg-gray-900 !px-6 !rounded-b-2xl;
+}
+
+.table-of-contents {
+  @apply !px-0 !py-4 !space-y-4 dark:!border-gray-400;
+}
+
+.table-of-contents > li > ul {
+  @apply !pl-4 !pr-0 !pt-4 !space-y-4;
+}
+
+.table-of-contents li {
+  @apply !px-0 !m-0;
+}
+
+.table-of-contents li > a {
+  @apply !text-gray dark:!text-[#aaaaaa] hover:dark:!text-white;
+}
+
+@screen lg {
+  .table-of-contents li {
+    @apply !pl-6;
+  }
+}
+
+/* reset documentation article breadcrumbs */
+.theme-doc-breadcrumbs {
+  @apply !mb-8 overflow-hidden;
+}
+
+.theme-doc-breadcrumbs > ul {
+  @apply !flex !items-center !flex-wrap !whitespace-nowrap;
+}
+
+.breadcrumbs__item:not(:last-child):after {
+  content: '/';
+  filter: none;
+  @apply bg-none !pl-2 !pr-4 !m-0 !opacity-100 !text-gray dark:!text-[#aaaaaa];
+}
+
+.breadcrumbs__item .breadcrumbs__link {
+  @apply !px-0 !bg-none hover:!bg-none !text-base !text-gray dark:!text-[#aaaaaa] hover:dark:!text-white;
+}
+
+/* reset theme variables */
+:root {
+  --ifm-color-primary: #000000;
+  --ifm-color-primary-dark: #4d4d4d;
+  --ifm-color-primary-darker: #7d7d7d;
+  --ifm-color-primary-darkest: #9b9b9b;
+  --ifm-color-primary-light: #bcbcbc;
+  --ifm-color-primary-lighter: #d6d6d6;
+  --ifm-color-primary-lightest: #f6f6f6;
+  --ifm-font-color-base-inverse: #ffffff;
+  --ifm-font-color-highlight: #f15a27;
+  --ifm-color-secondary: #ffffff;
+  --ifm-background-color: #ffffff;
+  --ifm-link-color: #f15a27;
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-height: 6rem;
+  --ifm-navbar-shadow: none;
+  --ifm-toc-border-color: rgba(0, 0, 0, 0.12);
+  --ifm-toc-border-color-alt: rgba(0, 0, 0, 0.15);
+  --ifm-toc-border-color-alt-2: rgba(0, 0, 0, 0.25);
+  --docsearch-searchbox-background: #f7f7f7;
+  --docsearch-key-gradient: none;
+  --ifm-menu-link-padding-vertical: 1rem;
+  --ifm-menu-color: color('gray.DEFAULT');
+  --ifm-menu-color-active: color('gray.DEFAULT');
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-menu-color-background-active: transparent;
+  --ifm-breadcrumb-item-background-active: transparent;
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #ffffff;
+  --ifm-color-primary-dark: #ffffff;
+  --ifm-color-primary-darker: #e0e0e0;
+  --ifm-font-color-base-inverse: #000000;
+  --ifm-background-color: #000000;
+  --ifm-navbar-background-color: #000000;
+  --ifm-navbar-shadow: none;
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.14);
+  --ifm-toc-border-color-alt: rgba(255, 255, 255, 0.25);
+  --ifm-toc-border-color-alt-2: rgba(255, 255, 255, 0.5);
+  --ifm-menu-color: color('white');
+  --ifm-menu-color-active: color('white');
+}
