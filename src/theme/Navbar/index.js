@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link className="hidden md:inline-block" href="https://github.com/archway-network/archway-docs" externalIcon={false}>
               <GithubIcon className="w-6 h-6 text-gray dark:text-white" />
             </Link>
-            <div className="hidden lg:block">
+            <div>
               <NavbarColorModeToggle className="color-mode-toggle-button" />
             </div>
             <NavbarSearch className="!relative !right-auto">
