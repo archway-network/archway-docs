@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useLocation } from '@docusaurus/router';
 import { Dialog } from '@headlessui/react';
 import NavbarSearch from '@theme/Navbar/Search';
 import SearchBar from '@theme/SearchBar';
@@ -8,9 +9,14 @@ import { ArchwayLogo, CloseIcon, MobileMenu, Link } from '../../components/Ui';
 import pageSidebar from '../../common/pageSidebar';
 
 export default ({ isOpen, onClose }) => {
+  const location = useLocation();
+
   return (
     <Dialog open={isOpen} onClose={onClose}>
-      <Dialog.Panel className="bg-white dark:bg-black absolute inset-0 overflow-hidden transition transform origin-top-left flex flex-col z-50">
+      <Dialog.Panel
+        key={location.key}
+        className="bg-white dark:bg-black absolute inset-0 overflow-hidden transition transform origin-top-left flex flex-col z-50"
+      >
         <div className="container flex-1 flex flex-col min-h-0">
           <div className="flex items-center justify-between border-b border-gray-200 dark:!border-[rgba(255,255,255,0.14)]">
             <div className="h-24 flex items-center">
@@ -43,7 +49,7 @@ export default ({ isOpen, onClose }) => {
             </div>
           </div>
           <div className="flex-1 py-6 min-h-0">
-            <div className="h-full overflow-y-auto">
+            <div className="h-full pointer-events-auto overflow-y-auto">
               <MobileMenu menu={pageSidebar} />
             </div>
           </div>
