@@ -8,7 +8,10 @@ export default ({ menu, goTo }) => {
     }
 
     return (
-      <button className="text-gray dark:text-white hover:no-underline focus:outline-none py-2" onClick={() => goTo(`/${item.href}`)}>
+      <button
+        className="text-left text-gray dark:text-white hover:no-underline focus:outline-none py-2"
+        onClick={() => goTo(`/${item.href}`)}
+      >
         {item.label}
       </button>
     );

@@ -25,7 +25,10 @@ export default ({ className, label, items, goTo }) => (
             }
             return (
               <div key={`accordion-menu-${label}-${item.label}`} className="py-2">
-                <button className="text-gray dark:text-white hover:no-underline focus:outline-none" onClick={() => goTo(`/${item.href}`)}>
+                <button
+                  className="text-left text-gray dark:text-white hover:no-underline focus:outline-none"
+                  onClick={() => goTo(`/${item.href}`)}
+                >
                   {item.label}
                 </button>
               </div>
