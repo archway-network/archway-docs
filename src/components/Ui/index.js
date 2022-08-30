@@ -1,5 +1,6 @@
 export { default as Link } from './Buttons/Link';
 export { default as AccordionMenu } from './Navigation/AccordionMenu';
+export { default as MobileMenuModal } from './MobileMenuModal';
 export { default as MobileMenu } from './MobileMenu';
 
 export { default as ArchwayLogo } from './ArchwayLogo';

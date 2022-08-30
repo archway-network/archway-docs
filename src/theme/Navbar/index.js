@@ -1,18 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
-import { Popover, Transition } from '@headlessui/react';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
-import SearchBar from '@theme/SearchBar';
 import NavbarSearch from '@theme/Navbar/Search';
-import { Link, MobileMenu, ArchwayLogo, MenuIcon, CloseIcon, GithubIcon } from '../../components/Ui';
-
-import pageSidebar from '../../common/pageSidebar';
+import SearchBar from '@theme/SearchBar';
+import { ArchwayLogo, GithubIcon, Link, MenuIcon, MobileMenuModal } from '../../components/Ui';
 
 export default function Navbar() {
+  let [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="fixed inset-x-0 z-20">
+    <div className="fixed inset-x-0 bg-white dark:bg-black z-20">
       <div className="container">
-        <Popover as="header" className="navbar">
+        <header className="navbar">
           <div className="h-full flex items-center">
             <Link href="/">
               <span className="sr-only">Archway Docs</span>
@@ -35,7 +34,7 @@ export default function Navbar() {
             <Link className="hidden lg:inline-block" href="https://archway.io" externalIcon={false}>
               Back to Archway
             </Link>
-            <Popover.Button
+            <button
               className={clsx(
                 'lg:hidden w-12 h-12 p-3 inline-flex items-center justify-center',
                 'rounded-xl bg-gray-100 hover:bg-gray-100/80 dark:bg-white/10 dark:hover:!bg-white/30',
@@ -43,64 +42,14 @@ export default function Navbar() {
                 'focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black-warm',
                 'text-black  hover:text-black-warm dark:text-white hover:dark:text-white/80'
               )}
+              onClick={() => setIsOpen(true)}
             >
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
-            </Popover.Button>
+            </button>
           </div>
-          <Popover.Overlay className="fixed inset-0 bg-black opacity-30" />
-
-          <Transition
-            as={Fragment}
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
-          >
-            <Popover.Panel className="fixed inset-0 overflow-hidden transition transform origin-top-left lg:block ">
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="pointer-events-none fixed inset-0 flex max-w-full overflow-auto">
-                  <div className="container bg-white dark:bg-black">
-                    <div className="pointer-events-auto flex items-center justify-between border-b border-gray-200 dark:!border-[rgba(255,255,255,0.14)]">
-                      <div className="h-24 flex items-center">
-                        <Popover.Button as={Link} href="/">
-                          <span className="sr-only">Archway Docs</span>
-                          <span className="flex items-end space-x-2">
-                            <ArchwayLogo />
-                            <span className="text-gray dark:text-gray-600">Docs</span>
-                          </span>
-                        </Popover.Button>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="relative">
-                          <NavbarSearch className="!relative !right-auto">
-                            <SearchBar />
-                          </NavbarSearch>
-                        </div>
-                        <Popover.Button
-                          className={clsx(
-                            'w-12 h-12 p-3 inline-flex items-center justify-center',
-                            'rounded-xl bg-black dark:bg-white hover:bg-black/80 hover:dark:bg-white/80',
-                            'text-white dark:text-black hover:text-white hover:dark:text-black-warm',
-                            'focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black-warm-500'
-                          )}
-                        >
-                          <span className="sr-only">Close menu</span>
-                          <CloseIcon className="h-6 w-6" aria-hidden="true" />
-                        </Popover.Button>
-                      </div>
-                    </div>
-                    <div className="mt-6 pointer-events-auto">
-                      <MobileMenu menu={pageSidebar} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Popover.Panel>
-          </Transition>
-        </Popover>
+          <MobileMenuModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        </header>
       </div>
     </div>
   );
