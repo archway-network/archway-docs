@@ -4,33 +4,63 @@ sidebar_position: 1
 
 # Node Installation
 
-This guide shows how to install and run an Archway full node.
+This guide explains how to install and run an Archway full node. 
 
-## Running the Archway daemon
+## Installing Prerequisites 
+Below are the packages that your machine needs to complete the installation process. 
 
-### How to install `archwayd` from source
+```bash 
+# updates and upgrades the list of local packages 
+sudo apt-get update && sudo apt upgrade -y
 
-Make sure you have golang installed on your machine:
+#installs docker, build-essential package and git 
+sudo apt-get install build-essential docker-ce docker-ce-cli containerd.io docker-compose-plugin git
 
-- Install [Go](https://golang.org/doc/install) (**version 1.16** or higher).
-- Ensure the Go environment variables are [set properly](https://golang.org/doc/gopath_code#GOPATH) on your system.
+``` 
 
-Get the source code:
+## Installing Go
+Go Version 1.16 or higher is required to run an Archway node. Please find a [guide here](https://golang.org/doc/install) on how to install Go. 
+
+Ensure the Go environment variables are [set properly](https://golang.org/doc/gopath_code#GOPATH) on your system.
+
+## Build Archway Daemon from Source
+The next step is to get the source code from the [Archway Repository](https://github.com/archway-network/archway). 
 
 ```bash
-git clone git@github.com:archway-network/archway.git
-cd archway
-```
 
-Build and install:
+git clone https://github.com/archway-network/archway.git
+
+cd archway
+
+git fetch
+
+git checkout <version-tag>
+
+```
+:::info
+For connecting to the [Constantine Developer Testnet](https://docs.archway.io/docs/overview/network#constantine-dapp-developer-testnet), the version tag v0.0.5 should be used:
+
+`git checkout v0.0.5` 
+:::
+
+
+
+Build and install that Archway Daemon  
 
 ```bash
 make install
 ```
 
-For full installation and configuration parameters, see the [README](https://github.com/archway-network/archway/blob/main/README.md).
+Confirm that the installation has been completed by running the following command: 
 
-### How to run `archwayd` using Docker
+```bash 
+archway --version
+
+#1.2.3
+``` 
+
+
+## Run `archwayd` using Docker
 
 Make sure you have [Docker](https://docs.docker.com/get-docker "Install Docker") installed on your machine. For Linux users, it's recommended to run the Docker daemon in [Rootless Mode](https://docs.docker.com/engine/security/rootless/ "Docker Rootless mode").
 
@@ -40,7 +70,7 @@ Pull the image from [Docker Hub](https://hub.docker.com/r/archwaynetwork/archway
 docker pull archwaynetwork/archwayd:latest
 ```
 
-Each Archway network will eventually have a different version running. To connect your node to a network, you should use a tag with the corresponding network name. For example, to connect to the Constantine testnet:
+Each Archway network uses a different version of Archway. To connect your node to a network, you should use a tag with the corresponding network name. For example, to connect to the Constantine testnet:
 
 ```bash
 docker pull archwaynetwork/archwayd:constantine
@@ -92,6 +122,19 @@ Initialize the `genesis.json` file that is required to establish a network.
 archwayd init my-node --chain-id my-chain
 ```
 
+If you recieve a `archwayd: command not found` Error message, run the follwoing command: 
+
+```bash 
+sudo cp /$HOME/go/bin/archwayd /usr/local/bin
+```
+
+If the command is run successfully, you will see the information about your chain starting with a similar message: 
+
+```bash 
+{"app_message":{"auth":{"accounts":[],"params":{"max_memo_characters":"256","sig_verify_cost_ed25519":"590","sig_verify_cost_secp256k1":"1000","tx_sig_limit":"7","tx_size_cost_per_byte":"10"}}....
+
+```
+
 ## Prepare the Account and Keys
 
 Create a key to hold your account. After you run this command, you are prompted with a password dialogue. Enter a new password for your account.
@@ -122,7 +165,7 @@ Here you can see your account details and the mnemonic phrase that is very cruci
 
 ## Starting the Node
 
-If you try to start the node, you get an error since at least one validator is required for your network to run.
+Starting a node now will give you an error message like the one below. This is because at least one validator node must be connected for the network to run. 
 
 ```bash
 archwayd start
@@ -130,4 +173,7 @@ archwayd start
 Error: error during handshake: error on replay: validator set is nil in genesis and still empty after InitChain
 ```
 
-To configure a validator node, see [Validator Overview](../validator/overview.md).
+## Next Steps 
+To get your node fully running, you can [run a local testnet](https://docs.archway.io/docs/node/running-a-local-testnet) with two nodes.
+
+If you would like to connect to a network, see the [Validator Overview](../validator/overview.md) on how to run a validator node. 

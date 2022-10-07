@@ -4,45 +4,68 @@ sidebar_position: 3
 
 # Running a Local Testnet
 
-To have a working network we need at least one validator node. So, let's create a validator node.
+This guide explains how to run a local Archway testnet. If you have not installed a Archway node before, please follow this [guide here](https://docs.archway.io/docs/node/install). 
+
+To have a working test network we need at least one validator node. So, let's create a validator node.
 
 ## Initialize the validator node
 
-Let's first crate a directory to keep all nodes data in it.
+First, let's a directory to keep all nodes data in to stay organized: 
 
 ```bash
 mkdir testnet
 cd testnet
 ```
 
-Create a directory for the main node (the first node)
+Since we will create two nodes in this testnet, let's create a directory for first node that will will call `node-main`. 
 
 ```bash
 mkdir -p node-main
 ```
 
-Initiate the node with the chain name:
+Initiate node-main with the chain name:
 
 ```bash
 archwayd init node-main --chain-id my-chain --home ./node-main
 ```
 
-Create a key to hold your account.
+You will see something similar after running the command: 
+
+```bash 
+{"app_message":{"auth":{"accounts":[],"params":{"max_memo_characters":"256","sig_verify_cost_ed25519":"590","sig_verify_cost_secp256k1":"1000","tx_sig_limit":"7","tx_size_cost_per_byte":"10"}},"authz":{"authorization":[]},"bank":{"balances":[],"denom_metadata":[],"params":{"default_send_enabled":true,"send_enabled":[]},"supply":[]},"capability":{"index":"1","owners":[]},"crisis":{"constant_fee":{"amount":"1000","denom":"stake"}},"distribution":{"delegator_starting_infos":[],"....
+``` 
+
+Create a key to hold your account. An account is a pair of public key and private key. These keys are then stored in an object called a `keyring`. 
 
 ```bash
-archwayd keys add node-main-account
+archwayd keys add node-main-account --home ./node-main
+```
+
+After running this command, you will be asked to create a `keyring` phrase. Create a `keyring` passphrase and re-enter the same phrase. 
+
+:::important
+Please remember your keyring passphrase as it is need to complete the following steps
+:::
+
+Once you have created a passphrase, you will see a similar message: 
+```bash
+- name: node-main-account
+  type: local
+  address: archway10n7srpt0x859ghelguwxvxwh84vdsryy8ptel8
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A6+usIOWVm2K45jsAzjhrRWDzDWANQsQvxXLtIZyT4OL"}'
+  mnemonic: "
 ```
 
 Add that key into the genesis.app_state.accounts array in the genesis file.
 
-**Note:** this command lets you set the number of coins. Make sure this account has some coins
+**Note:** This command lets you set the number of coins. Make sure this account has some coins
 with the genesis.app_state.staking.params.bond_denom denom, the default is staking.
 
 ```bash
-archwayd add-genesis-account $(archwayd keys show node-main-account -a) 1000000000stake,1000000000validatortoken --home ./node-main
+archwayd add-genesis-account $(archwayd keys show node-main-account -a --home ./node-main) 1000000000stake,1000000000validatortoken --home ./node-main
 ```
 
-We need to generate a transaction creating the validator.
+Now we will generate the genesis transaction to create the validator. The gensesis transactions is the first transaction of the local chain. 
 
 ```bash
 archwayd gentx node-main-account 1000000000stake --chain-id my-chain --home ./node-main
@@ -50,21 +73,33 @@ archwayd gentx node-main-account 1000000000stake --chain-id my-chain --home ./no
 archwayd collect-gentxs --home ./node-main
 ```
 
+After running the above command, you will see a message like this: 
+```bash 
+Genesis transaction written to "node-main/config/gentx/gentx-69b522ae3010219fc2317b3aa8f1c789df81fa30.json"
+``` 
+
 Now let's start the validator node.
 
 ```bash
 archwayd start --home ./node-main
 ```
+If successful, the node will start running and you will see a message like below: 
+
+```bash
+8:49PM INF starting node with ABCI Tendermint in-process
+``` 
+
+**Congrats! You have created the first node. Now let's create a second node to connect to our testnet** 
 
 ## Initialize the second node
 
-Create a directory for the second node:
+Open another terminal window and create a directory for the second node:
 
 ```bash
 mkdir -p node2
 ```
 
-Initiate the node with the chain name.
+Initiate the node with the chain name like we did with the main node earlier. 
 
 ```bash
 archwayd init node2 --chain-id my-chain --home ./node2
@@ -72,58 +107,63 @@ archwayd init node2 --chain-id my-chain --home ./node2
 
 ## Fix port conflicts
 
-Since, in this guide, we run both nodes on the same machine, there will be some port conflicts.
-Let's fix them before starting the node.
+Since we are running both nodes on the same machine, there will be some port conflicts.
+Let's fix them before starting the second node.
 
-### Open the `./node2/config/app.toml` file and look for
+### Changes to the `app.toml` file 
 
-```toml
-[grpc]
-address = "0.0.0.0:9090"
+The first file we will change is the `app.toml` file. Go to this file by running the below commands: 
+
+```bash 
+cd node2/config 
+
+nano app.toml
 ```
 
-Then change the port to something else like this:
+Under the `gRPC Configuration` section you will see the `address` settings. Change the value to the below:
 
-```toml
-[grpc]
-address = "0.0.0.0:9092"
+| **Original Value **      | **Changed Value **       |
+|--------------------------|--------------------------|
+| address = "0.0.0.0:9090" | address = "0.0.0.0:9092" |
+
+Save the file after making the above changes. 
+
+### Changes to the `config.toml` file 
+
+The next file we will change is the `config.toml` file. Go to this file by running the below commands after you have made the first edits above: 
+
+```bash
+nano config.toml
 ```
 
-### Open the `./node2/config/config.toml` file and look for
+Under the `RPC Server Configuration Options` you will see the `laddr` settings. Change the value to the below: 
 
-Find
+| **Original Value **      | **Changed Value **       |
+|--------------------------|--------------------------|
+| laddr = "tcp://127.0.0.1:26657" | laddr = "tcp://127.0.0.1:10002" |
 
-```toml
-[rpc]
-...
-laddr = "tcp://127.0.0.1:26657"
-```
+Then find the `pprof_laddr` settings and change it to the value below: 
 
-and change it to: `laddr = "tcp://127.0.0.1:10002"`
+| **Original Value **      | **Changed Value **       |
+|--------------------------|--------------------------|
+| pprof_laddr = "localhost:6060" | pprof_laddr = "localhost:6062" |
 
-Then find
 
-```toml
-pprof_laddr = "localhost:6060"
-```
+And the last thing we need to change in this file is the listen port for p2p connections. This is under the `P2P Configuration Options` and we will change the `laddr` value to the below: 
 
-And change it to: `pprof_laddr = "localhost:6062"`
+| **Original Value **      | **Changed Value **       |
+|--------------------------|--------------------------|
+| laddr = "tcp://0.0.0.0:26656" | laddr = "tcp://0.0.0.0:20002" |
 
-And the last thing we need to change is the listen port for p2p connections. Find:
-
-```toml
-[p2p]
-
-# Address to listen for incoming connections
-laddr = "tcp://0.0.0.0:26656"
-```
-
-And change it to: `laddr = "tcp://0.0.0.0:20002"`
+Save the edits to this file.
 
 ## Copy the genesis file
 
-In order to join the local test network, we need to use the same genesis file of that network.
-So let's copy it from the main node and replace it on our genesis file.
+In order to join the local test network, we need to use the same genesis file of that network. The genesis file contains all the information and parameters about the initial state of our blockchain. 
+
+Let's copy it from the main node and replace it on our genesis file.
+
+**Make sure you are in the /testnet directory before running the below command**
 
 ```bash
 cp ./node-main/config/genesis.json ./node2/config/
@@ -192,7 +232,7 @@ archwayd --home ./node2 start --p2p.seeds a118197af3c66781faa0299633cc59a1622d27
 Let's quickly install `Gex` to see the status of our node.
 
 ```bash
-go get -u github.com/cosmos/gex
+go install github.com/cosmos/gex@latest
 ```
 
 To launch a GEX in your terminal window, type:

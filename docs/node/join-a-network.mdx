@@ -7,9 +7,13 @@ import TabItem from '@theme/TabItem';
 
 # Joining a Network
 
+This guide will show you how to join your node to the available [Archway networks](https://docs.archway.io/docs/overview/network). 
+
+Please review the [Archway Network page](https://docs.archway.io/docs/overview/network) for the network information needed to complete this guide. 
+
 ## Cleaning up
 
-Let's first cleanup our network. This is needed if you already have a genesis file.
+To remove any previous previous genesis file and configuration that you have used, let's first cleanup our network. 
 
 ```bash
 rm -rf ~/.archway
@@ -21,7 +25,7 @@ This command will remove all data and configs you already set.
 
 ## Initialize the node
 
-Run the following command to initialize the genesis file which is required to establish a network.
+Now run the following command to initialize the genesis file which is required to establish a network. In this guide, we will also show example of connecting to the [Constantine Developer Testnet](https://docs.archway.io/docs/overview/network#constantine-dapp-developer-testnet).  
 
 <Tabs groupId="archwayd">
 <TabItem value="binary" label="Binary">
@@ -41,13 +45,29 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
+### **Constantine Example**
+
+Using Docker, here is how to initialize the node for the Constantine Testnet: 
+
+```bash 
+docker run -v ${HOME}/.archway:/root/.archway docker.io/archwaynetwork/archwayd:0.0.5  init munshi --chain-id constantine-1
+``` 
+
+
 ## Retrieve the Genesis file
 
-Download the genesis file from a validator node:
+Since we deleted any earlier genesis files, we now need download the genesis file from a validator node:
 
 ```bash
 curl -s "$RPC_ENDPOINT/genesis" | jq '.result.genesis' > ~/.archway/config/genesis.json
 ```
+
+### **Constantine Example**
+Below is the command to connect to the RPC Endpoint of the Constantine network to download the Genesis File 
+```bash
+curl -s https://rpc.constantine-1.archway.tech/genesis |jq -r .result.genesis > ${HOME}/.archway/config/genesis.json
+```
+
 
 ## Initialize account
 
@@ -70,6 +90,13 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 
 </TabItem>
 </Tabs>
+
+### **Constantine Example**
+
+```bash 
+docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:0.0.5 \
+  keys add my-validator-account
+``` 
 
 ## Join the network
 
@@ -97,6 +124,14 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
-### Joining a testnet
 
-To initialize a node for existing testnets, you'll need the parameters for the Chain ID, RPC Endpoint and P2P Seeds. See the [Networks page](/docs/overview/network) to find parameters for all networks currently available.
+### **Constantine Example** 
+Below is the command to join the Constantine testnet 
+
+```bash 
+docker run -v ${HOME}/.archway:/root/.archway -p 9091:9091 -p 9090:9090 -p 26656:26656 -p 26657:26657 -p 1317:1317 docker.io/archwaynetwork/archwayd:0.0.5 \ 
+  start \ 
+  --p2p.seeds e5e4a459b85e7bd3f1769e08b7f488b9d0648844@104.154.204.236:26656
+``` 
+
+
