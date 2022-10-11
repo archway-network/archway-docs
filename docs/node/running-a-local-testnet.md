@@ -264,12 +264,6 @@ git clone git@github.com:archway-network/archway.git
 cd archway
 ```
 
-Then run the following command to build the docker image:
-
-```bash
-make build-docker
-```
-
 Once the docker image is built successfully, run the following command:
 
 ```bash

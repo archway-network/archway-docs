@@ -7,22 +7,16 @@ import TabItem from '@theme/TabItem';
 
 # Running a Validator Node
 
-This guide shows how to setup a validator node in simple steps.
+This guide shows how to setup a node, run that node and create your validator.
 
-## Hardware requirements
-
-- Linux distribution
-- x86_64 processor
-- 16 GB RAM
-- 500 GB to 2 TB storage\*
-
-* Storage size for validators depends on level of pruning.
+You will need to use the [Networks page](https://docs.archway.io/docs/overview/network) to find information like the `${CHAIN_ID}` and `${RPC_URL}` of the network you would like to connect to. 
 
 ## Running your validator
 
-The first step is to run a node. See the [Node Installation](../node/install.md) and [Joining a Network](../node/join-a-network.mdx) docs for instructions on how to get your node up and running.
+The first step is to run a node. See the [Node Installation](../node/install.md) and [Joining a Network](../node/join-a-network.mdx) guides for instructions on how to get your node up and running.
 
-After your node is running and synced, you can create a validator by staking tokens:
+After your node is running and synced, you can create a validator by staking tokens.
+
 
 <Tabs groupId="archwayd">
 <TabItem value="binary" label="Binary">
@@ -60,9 +54,13 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 
 ## Run validator pre-genesis
 
-### Initialize node
+### **Initialize node**
 
-To initialize the genesis json file that is required to establish a network:
+First, we will initialize the genesis.json file that is required to establish a network by running the below command. 
+
+The genesis.json  holds the information of the initial state of the blockchain. 
+
+See this example [genesis file](https://rpc.constantine-1.archway.tech/genesis) for the Constantine testnet.
 
 <Tabs groupId="archwayd">
 <TabItem value="binary" label="Binary">
@@ -82,15 +80,12 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
-:::info
-See this example [genesis file](https://rpc.constantine-1.archway.tech/genesis) for the Constantine testnet.
-:::
 
 <!-- **Note:** The `--home ./my-validator` flag in almost all commands tells `archwayd` to work on that specific directory. -->
 
-### Initialize account
+### **Initialize account**
 
-Create a key to hold your account:
+Next, create a key to hold your account:
 
 <Tabs groupId="archwayd">
 <TabItem value="binary" label="Binary">
@@ -172,9 +167,9 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 ```
 :::
 
-### Create validator transaction
+### **Create your validator**
 
-Next, you must generate a transaction to create the validator:
+To make the node into a validator, you need to create a validator transaction by running the commande below:
 
 <Tabs groupId="archwayd">
 <TabItem value="binary" label="Binary">
@@ -204,7 +199,7 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
-### Add transaction to genesis file
+### **Add transaction to genesis file**
 
 Add the generated bonding transaction to the genesis file:
 
@@ -226,7 +221,7 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
-### Start validator node
+### **Start validator node**
 
 Now, start your validator node in the local Archway network:
 
@@ -256,7 +251,7 @@ To proceed, run each node in isolated environments (Docker containers) or edit t
 
 ## Run a validator post-genesis
 
-### Init config
+### **Init config**
 
 Initialize your validator config:
 
@@ -270,6 +265,8 @@ archwayd init ${VALIDATOR_MONIKER} --chain-id ${CHAIN_ID}
 </TabItem>
 <TabItem value="docker" label="Docker" default>
 
+
+
 ```bash
 docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWORK_NAME \
   init ${VALIDATOR_MONIKER} --chain-id ${CHAIN_ID}
@@ -278,15 +275,18 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
-### Retrieve the genesis file
+The `${VALIDATOR_MONIKER}` is the name of your validator that you can choose and will show up in the explorer. 
 
-To retrieve the genesis file, install [jq](https://stedolan.github.io/jq/download/) (lightweight and flexible command-line JSON processor). Now, retrieve the genesis file:
+### **Retrieve the genesis file**
+
+To retrieve the genesis file, install [jq](https://stedolan.github.io/jq/download/) (lightweight and flexible command-line JSON processor). Run the below command to retrive the genesis file:
 
 ```bash
 curl -s "${RPC_URL}/genesis" | jq '.result.genesis' > ~/.archway/config/genesis.json
 ```
+This will replace the default genesis file with the one connected to the network you are joining. 
 
-### Run your node
+### **Run your node**
 
 Start your node in the Docker container:
 
@@ -308,7 +308,7 @@ docker run --rm -it -v ~/.archway:/root/.archway archwaynetwork/archwayd:$NETWOR
 </TabItem>
 </Tabs>
 
-### Create your validator
+### **Create your validator**
 
 After your node is running and synced, you can create a validator by staking tokens.
 
