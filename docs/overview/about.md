@@ -58,7 +58,7 @@ Consider the following tradeoffs between building your core logic as a smart con
 |Scalability               | +            | +             | 
 
 
-<!-- Architecture : Modules -->
+<!-- Architecture: Modules -->
 
 ## Module Specifications
 
@@ -94,7 +94,7 @@ Archway seeks to provide three potential funding sources for dApps:
 
 Archway allows each dApp developer and their community to configure how the rewards are managed and distributed. When a contract is instantiated, the dApp creator specifies an `owner` address where all fees and rewards are automatically deposited. This target address can be the creator's address, a multisig, or an address that is controlled by a separate custom contract. Ownership can then be transferred to a new address as needed. Ownership transfer requires only the signature of the previous owner. 
 
-<!-- Economics : Gas Rebates -->
+<!-- Economics: Gas Rebates -->
 
 ### Gas Rebates 
 
@@ -125,7 +125,7 @@ Any surplus in rewards is contributed to the Archway community pool where the fu
 Inflationary rewards are paid out by the network on a per-block basis.
 
 
-<!-- Economics : Examples -->
+<!-- Economics: Examples -->
 
 ### Example Use Cases
 
@@ -185,7 +185,7 @@ On networks such as Ethereum, DEX users incur two sets of fees: a network fee an
 
 By deploying to Archway, DEXs could be constructed to effectively eliminate one of the network or swap fees. Instead, the DEX protocol could redistribute the earned gas rebates back to the LPs for providing liquidity to dramatically lower total transaction costs on automatic swaps and improve the user experience.
 
-<!-- Economics : Fees -->
+<!-- Economics: Fees -->
 
 ### Smart Contract Fees
 
