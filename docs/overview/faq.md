@@ -20,10 +20,6 @@ Along with a more inclusive rewards model, Archway’s technical design is optim
 
 The protocol provides a full WebAssembly (Wasm) implementation for cross-language support, a Web3-compatible API, and native bridges that connect to other networks for cross-chain communication and asset transfers.
 
-## When will Archway launch?
-
-The planned launch for the Archway is sometime in mid-2022. 
-
 ## Tokens will not be offered in the following prohibited jurisdictions:
 
 - United States of America 
