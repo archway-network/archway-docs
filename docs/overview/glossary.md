@@ -6,13 +6,19 @@ sidebar_position: 4
 
 <!-- A -->
 
+## $ARCH
+
 ## Application Blockchain Interface (ABCI)
 
 ABCI is an interface that defines the boundary between the replication engine (the blockchain), and the state machine (the application). Using a socket protocol, a consensus engine running in one process can manage an application state running in another. It's the interface between Archway and your application, and it consists of a set of methods, each with a corresponding `Request` and `Response` message type.
 
 <!-- B -->
 
+## Block Explorer 
+
 <!-- C -->
+
+## Cosmos SDK
 
 ## CosmWasm
 
@@ -21,14 +27,23 @@ A framework that allows developers to write multi-chain smart contracts using an
 
 <!-- D -->
 
-## dApp
+## Dapp
 
-An abbreviation of "decentralized application", dApps are applications built on Archway that combine smart contract functionality with a frontend web interface for users.
+An abbreviation of "decentralized application", dapps are applications built on Archway that combine smart contract functionality with a frontend web interface for users.
 
 <!-- E -->
 <!-- F -->
 
+## Faucet 
+
 <!-- G -->
+
+## Gas Fee
+
+## Governance Tokens 
+
+## gRPC 
+
 
 ## Gravity Bridge
 
@@ -36,9 +51,13 @@ An abbreviation of "decentralized application", dApps are applications built on 
 
 Archway will provide a native Gravity Bridge integration so developers can pull Ethereum assets such as ERC-20s and ERC-721s into their dApps and bring their own assets to Ethereum.
 
+
+
 <!-- H -->
 
 <!-- I -->
+
+## Inflationary rewards
 
 ## Inter-Blockchain Communication protocol (IBC)
 
@@ -53,11 +72,21 @@ Archway’s native IBC integration enables developers to future-proof their dApp
 <!-- J -->
 <!-- K -->
 <!-- L -->
+
+## Light Client Daemon (LCD)
+
+## Liquidity Mining 
 <!-- M -->
+
+## Minting 
+
+
 <!-- N -->
 <!-- O -->
 
 <!-- P -->
+
+## Proof of Stake (PoS)
 
 ## Pool account
 
@@ -65,15 +94,26 @@ A common liquidity pool that Archway dApps can fund and then use to sponsor gas 
 
 <!-- Q -->
 <!-- R -->
+
+## Remote Procedure Call (RPC)
 <!-- S -->
+
+## Smart Contract 
+
+## Staking 
+
 <!-- T -->
 
 ## Tendermint Core
 
 A byzantine fault tolerant (BFT) consensus engine for blockchain networks and generic application interface (ABCI).
 
+## Testnet 
+
 <!-- U -->
 <!-- V -->
+
+## Validator 
 
 <!-- W -->
 
