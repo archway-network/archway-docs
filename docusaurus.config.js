@@ -47,6 +47,9 @@ module.exports = {
       apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,
       indexName: 'archway',
     },
+    tagManager: {
+      trackingID: 'GTM-54W7BX3'
+    }
   },
   customFields: {
     pageCategories: [
@@ -234,6 +237,7 @@ module.exports = {
     ],
   ],
   plugins: [
+   './plugins/docusaurus-google-tag-manager-plugin', 
     async function docusaurusTailwindcssPlugin(context, options) {
       return {
         name: 'docusaurus-tailwindcss',
