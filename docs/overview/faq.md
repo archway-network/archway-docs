@@ -20,6 +20,33 @@ Along with a more inclusive rewards model, Archway’s technical design is optim
 
 The protocol provides a full WebAssembly (Wasm) implementation for cross-language support, a Web3-compatible API, and native bridges that connect to other networks for cross-chain communication and asset transfers.
 
+## How does the Archway reward system work and how are they shared amongst participants? 
+
+Archway offers 3 types of rewards and each one is shared differently: 
+
+**1) Gas Rebates** - 
+
+
+**2) Inflation** - 
+
+**3) Smart Contract Fees**- 
+
+
+
+## What can developers do with their rewards? 
+
+On Archway, developers have the complete power to choose on what they want to do with their rewards. Here are just some suggestions that might benefit your projects: 
+
+
+
+
+
+## How does Archway use the Cosmos SDK? 
+
+
+
+
+
 ## Tokens will not be offered in the following prohibited jurisdictions:
 
 - United States of America 
