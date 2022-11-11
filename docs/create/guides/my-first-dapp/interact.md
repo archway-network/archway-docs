@@ -94,6 +94,19 @@ pub fn execute(
 **Note:** `enum` attributes again are converted. `ExecuteMsg::Increment {}` becomes `{"increment": {}}` in the CLI.
 :::
 
+:::tip
+While it doesn't apply to our Increment dapp, for dapps collecting payments, the [MessageInfo](https://docs.rs/cosmwasm-std/latest/cosmwasm_std/struct.MessageInfo.html) struct is how developers can access and process incoming funds. Both native chain assets and [cw20](https://docs.cosmwasm.com/cw-plus/0.9.0/cw20/spec/) tokens are supported by the `funds` attribute of `MessageInfo`.
+
+```rs
+pub struct MessageInfo {
+  pub sender: Addr,
+  pub funds: Vec<Coin>,
+}
+```
+
+When collecting payments in Archway's native token (e.g. `ARCH` for mainnet, `CONST` for Constantine testnet) amounts sent in `funds` should use the chain's minimum denomination (e.g. `uarch` for mainnet, `uconst` for Constantine testnet). Sending payment with other denominations (e.g. `ARCH`, or `CONST`) will fail with an error.
+:::
+
 If our `{"increment": {}}` transaction succeeded and we query `count` again, it will have increased by `1`:
 
 ```bash
