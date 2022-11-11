@@ -59,16 +59,20 @@ async function connectKeplrWallet() {
       await window.keplr.experimentalSuggestChain()
       await window.keplr.enable(ChainInfo.chainId);
       const offlineSigner = await window.getOfflineSigner(ChainInfo.chainId);
-      CosmWasmClient = await SigningCosmWasmClient.connectWithSigner(ChainInfo.rpc, offlineSigner);
+      gasPrice = GasPrice.fromString('0.002' + ChainInfo.currencies[0].coinMinimalDenom);
+      CosmWasmClient = await SigningCosmWasmClient.connectWithSigner(
+        ChainInfo.rpc, 
+        offlineSigner, 
+        { gasPrice: gasPrice }
+      );
      
       // This async waits for the user to authorize your dApp
       // it returns their account address only after permissions
       // to read that address are granted
       accounts = await this.offlineSigner.getAccounts();
  
+      // A less verbose reference to handle our queries
       queryHandler = CosmWasmClient.queryClient.wasm.queryContractSmart;
-      // Gas price
-      gasPrice = GasPrice.fromString('0.002uconst');
  
       console.log('Wallet connected', {
         offlineSigner: offlineSigner,
@@ -113,24 +117,32 @@ To broadcast transactions we call the `execute` function using our previous `Cos
 1. **userAddress** - the address broadcasting the transaction
 2. **ContractAddress** - the address of the contract the user is transacting with
 3. **entrypoint** - arguments to be executed which match an entrypoint in the contract
-4. **txFee** - transaction fees calculated by the `calculateFee` function from `@cosmjs/stargate`
+4. **Fee** - transaction fees can be manually calculated by the `calculateFee` function from `@cosmjs/stargate`, or "auto" to be automatically estimated.
+
+:::tip
+To use "auto" for fee estimation, the `SigningCosmWasmClient` constructor must be initialized with a `GasPrice` value. 
+Example:
+SigningCosmWasmClient.connectWithSigner(
+  ChainInfo.rpc, 
+  offlineSigner, 
+  { gasPrice: "0.002uconst" }
+);
+:::
 
 We convert the case of entrypoint arguments to lowercase and snake case again, so `ExecuteMsg::Increment {}` from our Rust contract becomes `{increment: {}}` in our JavaScript.
 
 ```js
-import { calculateFee } from "@cosmjs/stargate";
-
 const incrementCounter = async () => {
   // Your contract address
   const ContractAddress = process.env.CONTRACT_ADDRESS;
+  
   // Tx arguments
   let entrypoint = {
     increment: {}
   };
-  // Gas fee estimation
-  let txFee = calculateFee(300000, gasPrice);
+
   // Send Tx
-  let tx = await CosmWasmClient.execute(userAddress, ContractAddress, entrypoint, txFee);
+  let tx = await CosmWasmClient.execute(userAddress, ContractAddress, entrypoint, "auto");
   console.log('Increment Tx', tx);
 }
 ```

@@ -8,7 +8,6 @@ If it's is your first time building an Archway dApp frontend, head over to the [
 ## Loading NFT the collection
 
 As we saw in the previous guide, to query a contract we need to know its address on chain. We also need an instance of `SigningCosmWasmClient` from `@cosmjs/cosmwasm-stargate` that's been connected to an Archway network such as [Constantine testnet](https://rpc.constantine-1.archway.tech/).
-
 ```js
 // For more on setting up this handler see the "Creating Your First dApp" guide (linked to above):
 const queryHandler = CosmWasmClient.queryClient.wasm.queryContractSmart;
@@ -46,15 +45,6 @@ doGetNfts();
 
 To mint from our dApp, we need to assemble the metadata fields for the NFT. We can achieve this by making a web UI with form fields where the NFT creator can add custom traits to their NFT.
 
-<!-- [screenshot goes here] -->
-
-We also need the `calculateFee` and `GasPrice` functions from the [@cosmjs/stargate](https://www.npmjs.com/package/@cosmjs/stargate) package.
-
-```js
-const gasPrice = GasPrice.fromString('0.002uconst');
-const txFee = calculateFee(300000, this.gas.price);
-```
-
 We can simplify our remaining task by writing a function which takes the required NFT metadata as parameters. With that in mind, here's what a minting function looks like in JavaScript:
 
 ```js
@@ -85,7 +75,7 @@ async function mintNft(owner, tokenId, imageUrl, name, description, attributes =
 
   try {
     // Send Tx
-    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, txFee);
+    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, "auto");
     console.log('Mint Tx', tx);
     // Refresh the NFT collection to resolve the new token
     await getNfts();
@@ -115,7 +105,7 @@ doMintNft();
 
 ## Transferring NFTs 
 
-Now that we can mint from our dApp, the form and entrypoint parameters for transferring NFTs are much simpler. Just like transfers initiated from the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), we need the recipient's Archway address and the `token_id` we are sending to them. We also need to know the address of the current owner, and the references to the `contract` address and `txFee` that we set up earlier.
+Now that we can mint from our dApp, the form and entrypoint parameters for transferring NFTs are much simpler. Just like transfers initiated from the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), we need the recipient's Archway address and the `token_id` we are sending to them. We also need to know the address of the current owner, and a reference to the `contract` address that we set up earlier. For gas fees, we can use the "auto" mode as long as we initialized our `SigningCosmWasmClient` with a gas price.
 
 Here's what a JavaScript function to transfer an Archway NFT looks like:
 
@@ -134,7 +124,7 @@ async function transferNft(owner, recipient, tokenId) {
   };
   // Send Tx
   try {
-    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, txFee);
+    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, "auto");
     console.log('Transfer Tx', tx);
     // Refresh the NFT collection
     await getNfts();
@@ -161,7 +151,7 @@ doTransferNft();
 
 ## Displaying NFTs
 
-The `getNfts` function we created returns all token ids minted by the contract, but one more step is needed before we can display NFTs from our collection in our dApp. To read an NFT's metadata we call the [nft_info](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/query.rs#L33-L39) entrypoint we executed from CLI in the [previous lesson](./interact.md).
+The `getNfts` function we created returns all token ids minted by the contract, but one more step is needed before we can display NFTs from our collection in our dApp. To read an NFT's metadata we call the [nft_info](https://github.com/CosmWasm/cw-nfts/blob/v0.9.3/contracts/cw721-base/src/query.rs#L33-L39) entrypoint we executed from CLI in the [previous lesson](https://docs.archway.io/docs/create/guides/nft-project/interact).
 
 Here's what loading token metadata looks like using JavaScript:
 
