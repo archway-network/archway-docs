@@ -48,14 +48,12 @@ module.exports = async function (context) {
           },
           {
             tagName: 'script',
-            attributes: {
-              charset: 'utf-8',
-              src: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','${trackingID}');`, },
+            innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','${trackingID}');`,
           },
         ],
         preBodyTags: [
           `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${trackingID}"
-             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`,
+          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`,
         ],
       };
     },
