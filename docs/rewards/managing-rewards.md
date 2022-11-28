@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Manging Rewards 
+# Managing Rewards 
 
 
 ## Reward Storage
