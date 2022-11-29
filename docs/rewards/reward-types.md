@@ -3,24 +3,24 @@ sidebar_position: 1
 ---
 
 # Rewards Overview 
-Rewards are a unqiue part of the Archway Network. The rewards systems is designed to rewards developers on building dapps and making contributing to the network. 
+Rewards are a unique part of the Archway Network. The rewards system is designed to reward developers for building dapps and making contributions to the network. 
 
-Within the rewards system, there are two type of rewards: **Gas Fee Rebates** and **Inflationary Rewards**. In this guide we will explore each of these reward types in more detail and how developers can access them 
+Within the rewards system, there are two types of rewards: **Gas Fee Rebates** and **Inflationary Rewards**. In this guide, we will explore each of these reward types in more detail and how developers can access them 
 
 
 ## Reward Types
 
 ### Transaction Fee Rebate Rewards 
-Each computation or operation on a blockchain comes with a cost that is referred to as "gas". When a user wants to transact with a smart contract, the use needs to pay this gas fee as a transaction fee. 
+Each computation or operation on a blockchain comes with a cost that is referred to as "gas". When a user wants to transact with a smart contract, the user needs to pay this gas fee as a transaction fee. 
 
 In most blockchain networks, these fee goes to the validator who is responsible for adding the transaction to the blockchain. On Archway, this fee is split between the validator and the dapp developer as a reward. 
 
-To more how understand more about gas fee rebate rewards are calculated and split, go to the Calculating Rewards section. 
+To understand more about gas fee rebate rewards are calculated and split, go to the [Calculating Fee Rebate Rewards](#calculating-gas) section. 
 
 ### Inflationary Rewards  
-Following the Cosmos mint module, new coins are added to the Archway network to reward stakers and other particaptors. Like the gas fee rebates, these rewards are also split between developers and validators.
+Following the Cosmos mint module, new coins are added to the Archway network to reward stakers and other participators. Like the gas fee rebates, these rewards are also split between developers and validators.
 
-The amount of tokens that are able to be rewarded will change over time as it is connected to the ratio of tokens that are being staked on the network. As this amount changes, so does the split of this reward between validators and developers. For more information on this calculation, go to the Calculating Rewards section. 
+The number of tokens that can be rewarded will change over time as it is connected to the ratio of tokens that are being staked on the network. As this amount changes, so does the split of this reward between validators and developers. For more information on this calculation, go to the [Calculating Inflationary Rewards](#calculating-inflationary-rewards) section. 
 
 ## Calculating Rewards
 
@@ -28,9 +28,9 @@ The amount of tokens that are able to be rewarded will change over time as it is
 ### Transaction Fee Rebate Rewards
 
 #### Calculating Gas 
-The transaction fee rewards are calculating by the amount of gas that a smart contract uses directly or by other contracts calling it. The more gas a contract uses, the bigger the reward. 
+The transaction fee rewards are calculated by the amount of gas that a smart contract uses directly or by other contracts calling it. The more gas a contract uses, the bigger the reward. 
 
-Each block uses gas to complete the transactions included in the block. Rewards for a contract are calculating only on the execution of that specific contract and not all contracts included in the block. 
+Each block uses gas to complete the transactions included in the block. Rewards for a contract are calculated only on the execution of that specific contract and not all the contracts that are included in the block. 
 
 #### Transaction Fee Split 
 
@@ -38,20 +38,22 @@ At the launch of the Archway Network, there will be a 50% split between develope
 
 #### Minimum Consensus Fee 
 
-In order to protect the transaction fees rewarded to developers and prevent spam attacks on the network, there is a minimum consensus fee connected to each new block. This is the minimum amount that a user must pay in gas fee for a transaction. 
+To protect the transaction fees rewarded to developers and prevent spam attacks on the network, there is a minimum consensus fee connected to each new block. This is the minimum amount that a user must pay in gas fees for a transaction. 
 
-This minimum fee is shown in one gas unit, for example 0.002 uarch. The fee should be queryed by the client before submitting a new transaction.
+This minimum fee is shown in one gas unit, for example, 0.002 uarch. The fee should be queried by the client before submitting a new transaction. If a transaction has a lower fee than the minimum consensus fee, it will be declined. 
 
-### Inflationary Rewards 
+### Calculating Inflationary Rewards 
 
-Ratio of the new minted coins 
+The inflation rate on the Archway Network follows the mint module in the Cosmos Hub. In this module, token supply can be increased between 7% to 20% annually. The increase depends on the ratio of the tokens that are being staked. 
 
-
+#### Inflationary Rewards Split 
+At the genesis block, 25% of the inflation rewards will go to developers and 75% will go to validators. So if the network sees total inflation of 8% then 2% will go to developers and 6% will be given to validators. This split is a configurable parameter so it can change over time through a governance vote by the Archway community. 
 
 
 ## Reward Distribution
 
-Rewards are sent to a storage on the blockchain. 
+After rewards are calculated, rewards are sent to an address on the Archway Network for storage. This storage is used for all the rewards of a certain smart contract. To receive these rewards, a withdrawal operation needs to be executed. 
 
+Once a withdrawal is requested, the tokens are sent to the `reward_address` that was set by the contract's owner. 
 
-To find out more about how to manage your rewards, check out the next section. 
+To find out more about how to manage your rewards, check out the next section ["Managing Rewards"](managing-rewards.md). 
