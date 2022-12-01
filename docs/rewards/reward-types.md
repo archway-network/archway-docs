@@ -3,9 +3,9 @@ sidebar_position: 1
 ---
 
 # Rewards Overview 
-Rewards are a unique part of the Archway Network. The rewards system is designed to reward developers for building dapps and making contributions to the network. 
+Rewards are a unique part of the Archway Network. The rewards system is designed to reward developers for building dapps and contributing to the network. 
 
-Within the rewards system, there are two types of rewards: **Gas Fee Rebates** and **Inflationary Rewards**. In this guide, we will explore each of these reward types in more detail and how developers can access them 
+The rewards system has two types of rewards: **Gas Fee Rebates** and **Inflationary Rewards**. This guide will explore each of these reward types in more detail and how developers can access them. 
 
 
 ## Reward Types
@@ -13,14 +13,14 @@ Within the rewards system, there are two types of rewards: **Gas Fee Rebates** a
 ### Transaction Fee Rebate Rewards 
 Each computation or operation on a blockchain comes with a cost that is referred to as "gas". When a user wants to transact with a smart contract, the user needs to pay this gas fee as a transaction fee. 
 
-In most blockchain networks, these fee goes to the validator who is responsible for adding the transaction to the blockchain. On Archway, this fee is split between the validator and the dapp developer as a reward. 
+In most blockchain networks, these fee go to the validator who is responsible for adding the transaction to the blockchain. On Archway, this fee is split between the validator and the dapp developer as a reward. 
 
-To understand more about gas fee rebate rewards are calculated and split, go to the [Calculating Fee Rebate Rewards](#calculating-gas) section. 
+To understand how gas fee rebate rewards are calculated and split, go to the [Calculating Fee Rebate Rewards](#calculating-gas) section. 
 
 ### Inflationary Rewards  
 Following the Cosmos mint module, new coins are added to the Archway network to reward stakers and other participators. Like the gas fee rebates, these rewards are also split between developers and validators.
 
-The number of tokens that can be rewarded will change over time as it is connected to the ratio of tokens that are being staked on the network. As this amount changes, so does the split of this reward between validators and developers. For more information on this calculation, go to the [Calculating Inflationary Rewards](#calculating-inflationary-rewards) section. 
+The number of coins that can be rewarded will change over time as it is connected to the ratio of coins that are being staked on the network. As this amount changes, so does the reward split between validators and developers. For more information on this calculation, go to the [Calculating Inflationary Rewards](#calculating-inflationary-rewards) section. 
 
 ## Calculating Rewards
 
@@ -40,7 +40,7 @@ At the launch of the Archway Network, there will be a 50% split between develope
 
 To protect the transaction fees rewarded to developers and prevent spam attacks on the network, there is a minimum consensus fee connected to each new block. This is the minimum amount that a user must pay in gas fees for a transaction. 
 
-This minimum fee is shown in one gas unit, for example, 0.002 uarch. The fee should be queried by the client before submitting a new transaction. If a transaction has a lower fee than the minimum consensus fee, it will be declined. 
+A transaction will be declined if it has a lower gas price than the minimum consensus fee.This minimum fee is shown in one gas unit, for example, `0.002 uarch`. The client should query the fee before submitting a new transaction. 
 
 ### Calculating Inflationary Rewards 
 

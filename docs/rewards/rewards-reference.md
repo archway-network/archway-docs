@@ -19,7 +19,7 @@ This guide is a list of the availabe queries and commands related to the rewards
 
 ``archwayd query rewards pool`` - Query the undistributed rewards pool (ready for withdrawal) and the treasury pool funds
 
-``archwayd query rewards-records`` - Query rewards records stored for a given address (the address set in contract(s) metadata rewards_address field) with pagination 
+``archwayd query rewards rewards-records`` - Query rewards records stored for a given address (the address set in contract(s) metadata rewards_address field) with pagination 
 
 ## Transaction Commands 
 
