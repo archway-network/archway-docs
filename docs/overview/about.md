@@ -118,7 +118,7 @@ The Archway protocol then shares a portion of these total inflation rewards dire
 
 The dapp rewards pool (2% in the previous example) is then proportionally distributed based on the relative amount of gas fees that each dapp generates within a given epoch. For example, a dapp that is responsible for 10% of gas consumption is awarded 10% of the available pool.
 
-To mitigate potential Sybil attacks and ensure spamming transactions is not profitable, each dApp has a max inflation rewards cap. At network launch, there is a hard cap based on the total gas fees paid per dapp. A contract deployed to Archway cannot earn rewards greater than the total gas it generates within an epoch. Implementation of a dynamic rewards cap is being actively researched and can be updated through future governance. Transitioning to a floating cap provides more flexible distribution and further incentivizes developers to continuously improve their dapps.
+To mitigate potential Sybil attacks and ensure spamming transactions is not profitable, each dapp has a max inflation rewards cap. At network launch, there is a hard cap based on the total gas fees paid per dapp. A contract deployed to Archway cannot earn rewards greater than the total gas it generates within an epoch. Implementation of a dynamic rewards cap is being actively researched and can be updated through future governance. Transitioning to a floating cap provides more flexible distribution and further incentivizes developers to continuously improve their dapps.
 
 Any surplus in rewards is contributed to the Archway community pool where the funds are managed through governance.
 
