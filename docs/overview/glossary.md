@@ -12,7 +12,7 @@ sidebar_position: 4
 
 ## Application Blockchain Interface (ABCI)
 
-ABCI is an interface that defines the boundary between the replication engine (the blockchain), and the state machine (the application). Using a socket protocol, a consensus engine running in one process can manage an application state running in another. It's the interface between Archway and your application, and it consists of a set of methods, each with a corresponding `Request` and `Response` message type.
+ABCI is an interface that defines the boundary between the replication engine (the blockchain), and the state machine (the application). Using a socket protocol, a consensus engine running in one process can manage an application state running in another. It's the interface between Archway and your application, and it consists of a set of methods each with a corresponding `Request` and `Response` message type.
 
 <!-- B -->
 
@@ -60,7 +60,7 @@ gRPC is an open-source RPC framework that was created by Google built for high p
 
 ## Gravity Bridge
 
-[Gravity Bridge](https://github.com/cosmos/gravity-bridge) is a bidirectional bridge to Ethereum and eventually other Ethereum Virtual Machine (EVM)-based chains
+[Gravity Bridge](https://github.com/cosmos/gravity-bridge) is a bidirectional bridge to Ethereum and eventually other Ethereum Virtual Machine (EVM)-based chains.
 
 Archway will provide a native Gravity Bridge integration so developers can pull Ethereum assets such as ERC-20s and ERC-721s into their dApps and bring their own assets to Ethereum.
 
@@ -119,13 +119,13 @@ A common liquidity pool that Archway dApps can fund and then use to sponsor gas 
 
 ## Remote Procedure Call (RPC)
 
-A RPC is a process that allows for the remote communication between servers and applications in different locations. This process allows for an application or dapp to interact and receive data about a blockchain via a server node.
+An RPC is a process that allows for the remote communication between servers and applications in different locations. This process allows for an application or dapp to interact and receive data about a blockchain via a server node.
 
 <!-- S -->
 
 ## Smart Contract 
 
-A smart contract is a program deployed on a blockchain that automatically executes upon defined conditions such as a transaction between two users. These programs provide trust and efficiency to transactions as third party are not required to be involved to process and complete any requests.
+A smart contract is a program deployed on a blockchain that automatically executes upon defined conditions such as a transaction between two users. These programs provide trust and efficiency to transactions as a third party is not required to be involved to process and complete any requests.
 
 ## Staking 
 
@@ -135,11 +135,11 @@ Staking is the process of rewarding token holders that have chosen to stake thei
 
 ## Tendermint Core
 
-A byzantine fault tolerant (BFT) consensus engine for blockchain networks and generic application interface (ABCI).
+A Byzantine fault tolerant (BFT) consensus engine for blockchain networks and generic application interface (ABCI).
 
 ## Testnet 
 
-Testnets are test networks of a blockchain where developers can deploy and test their smart contracts with little to no risk and cost. Typically, the transactions that occur on a testnet have not connection to those on the mainnet. Testnets usually aim to provide similar functionality as to their mainnet counterparts.
+Testnets are test networks of a blockchain where developers can deploy and test their smart contracts with little to no risk and cost. Typically, the transactions that occur on a testnet do not have a connection to those on the mainnet. Testnets usually aim to provide similar functionality as to their mainnet counterparts.
 
 <!-- U -->
 <!-- V -->
