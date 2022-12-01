@@ -9,9 +9,9 @@ Network configurations for Archway Mainnet and Testnets.
 ## Triomphe (Mainnet) 
 Coming Later
 
-## Constantine (dApp Developer Testnet)
+## Constantine (Dapp Developer Testnet)
 
-Stable testing network for dApp developers building dApps.
+Stable testing network for dapp developers building dapps.
 
 - Chain ID: `constantine-1`
 - RPC: https://rpc.constantine-1.archway.tech 

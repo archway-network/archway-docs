@@ -8,5 +8,5 @@ description: Your launchpad into Cosmos and beyond. Level up your ecosystem with
 
 Your launchpad into Cosmos and beyond.
 
-- [Build Your First dApp](./my-first-dapp/start.md)
+- [Build Your First dapp](./my-first-dapp/start.md)
 - [Build With NFTs](./nft-project/start.md)

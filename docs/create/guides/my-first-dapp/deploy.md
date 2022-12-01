@@ -34,7 +34,7 @@ archway store
 
 ## Instatiating the contract
 
-To skip the CLI asking for default values required by your dApp, include constructor arguments using the `--args` parameter. Format your constructor parameters as a `JSON` encoded string.
+To skip the CLI asking for default values required by your dapp, include constructor arguments using the `--args` parameter. Format your constructor parameters as a `JSON` encoded string.
 
 ```bash
 archway instantiate --args '{"my_key":"my value"}'
@@ -49,7 +49,7 @@ archway instantiate --args '{"count":0}'
 ```
 
 :::note
-If you instantiate without using `--args` you'll be prompted by the CLI to enter that information. If your dApp contract doesn't take any constructor arguments use `'{}'` to denote `null` arguments.
+If you instantiate without using `--args` you'll be prompted by the CLI to enter that information. If your dapp contract doesn't take any constructor arguments use `'{}'` to denote `null` arguments.
 :::
 
 So why are we sending our constructor as `{"count":0}` and how can we verify it's correct?

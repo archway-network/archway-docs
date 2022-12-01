@@ -21,9 +21,9 @@ A framework that allows developers to write multi-chain smart contracts using an
 
 <!-- D -->
 
-## dApp
+## Dapp
 
-An abbreviation of "decentralized application", dApps are applications built on Archway that combine smart contract functionality with a frontend web interface for users.
+An abbreviation of "decentralized application", dapps are applications built on Archway that combine smart contract functionality with a frontend web interface for users.
 
 <!-- E -->
 <!-- F -->
@@ -44,11 +44,11 @@ Archway will provide a native Gravity Bridge integration so developers can pull 
 
 [IBC](https://docs.cosmos.network/master/ibc/overview.html) is a generalized cross-chain communication protocol for transferring value and data between independent networks.
 
-The IBC protocol makes it possible for blockchains to connect to each other. Built on Cosmos, Archway natively integrates IBC so users can frictionlessly exchange assets and data with other Cosmos-enabled chains. dApps deploy straight to Archway and plug directly into IBC without additional development or the need to spin up an independent chain.
+The IBC protocol makes it possible for blockchains to connect to each other. Built on Cosmos, Archway natively integrates IBC so users can frictionlessly exchange assets and data with other Cosmos-enabled chains. dapps deploy straight to Archway and plug directly into IBC without additional development or the need to spin up an independent chain.
 
 This native integration helps expand a developer’s addressable market by opening up access to users and liquidity from other chains, while also allowing their token to be ported and utilized elsewhere.
 
-Archway’s native IBC integration enables developers to future-proof their dApps. Rather than betting on a single isolated chain or scaling solution and then being locked into that ecosystem, dApps built on the Archway protocol exist across an interconnected network of chains and can be migrated with ease if needed.
+Archway’s native IBC integration enables developers to future-proof their dapps. Rather than betting on a single isolated chain or scaling solution and then being locked into that ecosystem, dapps built on the Archway protocol exist across an interconnected network of chains and can be migrated with ease if needed.
 
 <!-- J -->
 <!-- K -->
@@ -61,7 +61,7 @@ Archway’s native IBC integration enables developers to future-proof their dApp
 
 ## Pool account
 
-A common liquidity pool that Archway dApps can fund and then use to sponsor gas payments for end users.
+A common liquidity pool that Archway dapps can fund and then use to sponsor gas payments for end users.
 
 <!-- Q -->
 <!-- R -->

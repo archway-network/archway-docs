@@ -5,7 +5,7 @@ sidebar_position: 3
 # Producing Wasm executables
 
 Since we've tested and built our contract, we're still operating under the assumption that everything works.
-However, to test our dApp on Archway, we'll need to build it as a `wasm` executable, then upload and instantiate it on chain.
+However, to test our dapp on Archway, we'll need to build it as a `wasm` executable, then upload and instantiate it on chain.
 
 For that, you'll need the `wasm32-unknown-unknown` target installed in your toolchain as well. You can add it using:
 
