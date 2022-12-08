@@ -22,10 +22,10 @@ Contract Metadata is the metadata that instructs the Archway Network who owns th
 The contract metadata must be set up by using the `MsgSetContractMetadata` transaction which a contract admin must sign.
 
 ```json  
-message ContractMetadata { 
-  string contract_address =  "archway14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sy85n2u";
-  string owner_address = "archway12reqvcenxgv5s7z96pkytzajtl4lf2epyfman2";
-  string rewards_address = "archway12reqvcenxgv5s7z96pkytzajtl4lf2epyfman2";
+{ 
+  "contract_address": "archway14hj2tavq8fpesdwxxcu44rty3hh90vhujrvcmstl4zr3txmfvw9sy85n2u",
+  "owner_address": "archway12reqvcenxgv5s7z96pkytzajtl4lf2epyfman2",
+  "rewards_address": "archway12reqvcenxgv5s7z96pkytzajtl4lf2epyfman2"
 }
 ``` 
 ### Updating the Contract Metadata 
