@@ -10,7 +10,7 @@ Now, let's try querying and transacting with our deployed contract.
 
 Queries read from the blockchain. They don't modify anything stored on chain, so they don't cost a fee.
 
-There are several types of queries we could do, but a common type we're interested in is `contract-state`, which we'll call in `smart` mode. This lets us run queries with arguments, as opposed to dumping the entire contract data or metadata.
+There are several types of queries we could do, but a common type we're interested in is `contract-state`, which we will call in `smart` mode. This lets us run queries with arguments, as opposed to dumping the entire contract data or metadata.
 
 If we query the `count` before modifying any state, we get the value we set during instantiation:
 
@@ -29,7 +29,7 @@ Ok!
 
 Why was the query argument `'{"get_count": {}}'`?
 
-If we open `src/contract.rs` and inspect the function `pub fn query`, we'll see the case matching statement that matches our JSON query:
+If we open `src/contract.rs` and inspect the function `pub fn query`, we will see the case matching statement that matches our JSON query:
 ```rust
 pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
   match msg {
@@ -39,12 +39,20 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
 ```
 
 :::info
-**Note:** `QueryMsg` is an `enum` with the `GetCount` property, defined in the `src/msg.rs` file. It's good to be aware of the format here, as the enum attribute is uppercase without spaces in Rust, but lowercase with snake case when converted to JSON arguments. This is controlled by the attribute `#[serde(rename_all = "snake_case")]` right above the `QueryMsg` definition.
+**Note:** `QueryMsg` is an `enum` with the `GetCount` property, defined in the `src/msg.rs` file. It is good to be aware of the format here, as the enum attribute is uppercase without spaces in Rust, but lowercase with snake case when converted to JSON arguments. This is controlled by the attribute `#[serde(rename_all = "snake_case")]` right above the `QueryMsg` definition.
 :::
 
 ## Transacting
 
 Transactions write to the blockchain and cost a gas fee for modifying a contract's state securely.
+
+Before submitting a transaction, it is required to know the Minimum Consensus fee of the current block. This is the lowest amount of gas fee that is required to be paid for a transaction to be successful. 
+
+This fee can be found by using the below command. The fee is shown in on transaction gas unit. 
+
+```bash 
+archwayd query rewards estimate-fees [gas-limit] [flags]
+``` 
 
 By default, gas estimation mode is `auto`, but you've got granular control. To modify gas settings edit the `gas` values inside the `network` object of your `config.json`. However, for most cases, the default gas settings are preferable.
 

@@ -20,7 +20,7 @@ Here you'll find instructions for troubleshooting common issues and problems tha
 
 ### Process exited with code 1 (ChildProcess)
 
-There are times during development where you may encounter vague error responses from the developer CLI. This can leave you wondering how to proceed, because the error response itself doesn't explain what part of the command failed. These errors are usually triggered by Node's [Child Process](https://nodejs.org/api/child_process.html) module panicking and failing to complete a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+There are times during development where you may recieve unclear error responses from the developer CLI. This can be because the error response itself doesn't explain what part of the command failed. These errors are usually triggered by Node's [Child Process](https://nodejs.org/api/child_process.html) module panicking and failing to complete a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 ```bash
 Failed to deploy project
@@ -56,7 +56,7 @@ cargo install cargo-run-script
 
 ### CosmWasm Rust optimizer fails
 
-If you're having trouble with the `cosmwasm/rust-optimizer`, you may need to update Cargo.toml at the root of your project with another version of the optimizer.
+If you are having trouble with the `cosmwasm/rust-optimizer`, you may need to update Cargo.toml at the root of your project with another version of the optimizer.
 
 Example (Old Cargo.toml): 
 
@@ -209,7 +209,7 @@ For help finding the source of problems with transaction aguments, see [how to d
 
 This can happen if the RPC node you're connecting is running a different version of `archwayd`. 
 
-If you're using the Docker version of `archwayd`, pull again from Docker Hub to get the latest image.
+If you are using the Docker version of `archwayd`, pull again from Docker Hub to get the latest image.
 
 Example: 
 
@@ -217,7 +217,7 @@ Example:
  docker pull archwaynetwork/archwayd:constantine
 ```
 
-If you installed `archwayd` locally from GitHub, you'll need to pull the latest changes and reinstall `archwayd`.
+If you have installed `archwayd` locally from GitHub, you will need to pull the latest changes and reinstall `archwayd`.
 
 Example:
 
@@ -233,9 +233,9 @@ make install
 Error: rpc error: code = InvalidArgument desc = account sequence mismatch, expected 13898, got 13884: incorrect account sequence: invalid request
 ```
 
-The above error isn't caused by your code. It seems to occur during periods of high network activity. We're tracking the problem in [this](https://github.com/archway-network/archway/issues/157) GitHub thread. 
+The above error isn't caused by your code. It seems to occur during periods of high network activity. We are tracking the problem in [this](https://github.com/archway-network/archway/issues/157) GitHub thread. 
 
-We're actively looking for ways to solve it, but in the meantime your best bet is to continue broadcasting the transaction until it works. In some cases, you may also be able to get your transaction through by switching the `--broadcast-mode` flag sent to `archwayd`. The developer CLI currently defaults to `--broadcast-mode block`, to switch to `--broadcast-mode sync` you'll need to call `archwayd` directly.
+We are actively looking for ways to solve it, but in the meantime your best bet is to continue broadcasting the transaction until it works. In some cases, you may also be able to get your transaction through by switching the `--broadcast-mode` flag sent to `archwayd`. The developer CLI currently defaults to `--broadcast-mode block`, to switch to `--broadcast-mode sync` you'll need to call `archwayd` directly.
 
 Example (Instantiate):
 

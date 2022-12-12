@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Requesting Testnet funds
 
-If you're working on a testnet you'll want testnet `$ARCH` for paying gas costs to deploy your dApp code on chain.
+If you're working on a testnet you will need testnet `$ARCH` for paying gas costs to deploy your dapp code on chain.
 
 After [creating an account](../../getting-started/setup.md#creating-an-account), to request funds from the faucet use our Discord channel.
 

@@ -1,18 +1,18 @@
 ---
 sidebar_position: 4
-title: Building the NFT dApp
+title: Building the NFT dapp
 ---
 
-If it's is your first time building an Archway dApp frontend, head over to the [Creating Your First dApp](../my-first-dapp/dapp.mdx) guide to learn how to setup your basic project scaffolding. Once you're serving a web page that connects to [Keplr](https://wallet.keplr.app/), you'll be ready to follow the next steps.
+If this is your first time building an Archway dapp frontend, head over to the [Creating Your First dapp](../my-first-dapp/dapp.mdx) guide to learn how to setup your basic project scaffolding. Once you're serving a web page that connects to [Keplr](https://wallet.keplr.app/), you'll be ready to follow the next steps.
 
 ## Loading NFT the collection
 
 As we saw in the previous guide, to query a contract we need to know its address on chain. We also need an instance of `SigningCosmWasmClient` from `@cosmjs/cosmwasm-stargate` that's been connected to an Archway network such as [Constantine testnet](https://rpc.constantine-1.archway.tech/).
 ```js
-// For more on setting up this handler see the "Creating Your First dApp" guide (linked to above):
-const queryHandler = CosmWasmClient.queryClient.wasm.queryContractSmart;
+// For more on setting up this handler see the "Creating Your First dapp" guide (linked to above):
+const client = await ArchwayClient.connect('https://rpc.constantine-1.archway.tech');
 // Replace this empty string with your deployed contract address
-const contract = "";
+const contractAddress = "";
 ```
 
 Using the above two variables we can write JavaScript to query the NFT collection for its token ids like this:
@@ -41,9 +41,9 @@ async function doGetNfts() {
 doGetNfts();
 ```
 
-## Minting from the dApp
+## Minting from the dapp
 
-To mint from our dApp, we need to assemble the metadata fields for the NFT. We can achieve this by making a web UI with form fields where the NFT creator can add custom traits to their NFT.
+To mint from our dapp, we need to assemble the metadata fields for the NFT. We can achieve this by making a web UI with form fields where the NFT creator can add custom traits to their NFT.
 
 We can simplify our remaining task by writing a function which takes the required NFT metadata as parameters. With that in mind, here's what a minting function looks like in JavaScript:
 
@@ -95,7 +95,7 @@ async function doMintNft() {
     tokenId = '2', 
     imageUrl = "ipfs://QmY8Ei2NQkMg8rCFiUkcXH2NPWPNKMoWLBYDwBeMNsP5sr", 
     name = "Archway NFT #2", 
-    description = "Building With NFTs (and dApps)", 
+    description = "Building With NFTs (and dapps)", 
     attributes = [{"trait_type": "tutorial","value": "https://docs.archway.io/docs/create/guides/nft-project/deploy"}]
   );
   console.log('Mint tx', mintTx);
@@ -105,7 +105,7 @@ doMintNft();
 
 ## Transferring NFTs 
 
-Now that we can mint from our dApp, the form and entrypoint parameters for transferring NFTs are much simpler. Just like transfers initiated from the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), we need the recipient's Archway address and the `token_id` we are sending to them. We also need to know the address of the current owner, and a reference to the `contract` address that we set up earlier. For gas fees, we can use the "auto" mode as long as we initialized our `SigningCosmWasmClient` with a gas price.
+Now that we can mint from our dapp, the form and entrypoint parameters for transferring NFTs are much simpler. Just like transfers initiated from the [Developer CLI](https://www.npmjs.com/package/@archwayhq/cli), we need the recipient's Archway address and the `token_id` we are sending to them. We also need to know the address of the current owner, and a reference to the `contract` address that we set up earlier. For gas fees, we can use the "auto" mode as long as we initialized our `SigningCosmWasmClient` with a gas price.
 
 Here's what a JavaScript function to transfer an Archway NFT looks like:
 
@@ -124,7 +124,10 @@ async function transferNft(owner, recipient, tokenId) {
   };
   // Send Tx
   try {
-    let tx = await CosmWasmClient.execute(owner, contract, entrypoint, "auto");
+    let tx = await SigningArchwayClient.connectWithSigner(network.endpoint, wallet, {
+  ...defaultSigningClientOptions,
+  prefix: network.prefix,
+});
     console.log('Transfer Tx', tx);
     // Refresh the NFT collection
     await getNfts();
