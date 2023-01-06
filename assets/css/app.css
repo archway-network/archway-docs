@@ -1,0 +1,28 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  html {
+    @apply font-sans font-normal text-base;
+  }
+
+  body {
+    @apply min-h-screen bg-white dark:bg-black text-black dark:text-white;
+  }
+
+  #__nuxt {
+    @apply min-h-screen flex flex-col;
+  }
+
+  a {
+    @apply hover:text-black-warm;
+  }
+  ::selection {
+    @apply bg-orange text-white;
+  }
+
+  .split-text-word {
+    @apply whitespace-nowrap;
+  }
+}

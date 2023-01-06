@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt build && nuxt generate && copy-files-from-to",
+    "start": "nuxt start",
+    "deploy": "npm run generate && firebase hosting:channel:deploy preview --expires 14d",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:js"
+  },
+  "dependencies": {
+    "@headlessui/tailwindcss": "^0.1.0",
+    "@headlessui/vue": "^1.7.3",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "@vueuse/core": "^9.9.0",
+    "gsap": "npm:@gsap/shockingly@^3.10.4",
+    "nuxt": "^3.0.0",
+    "tailwindcss": "^3.1.4"
+  },
+  "devDependencies": {
+    "@nuxt/content": "^2.3.0",
+    "autoprefixer": "^10.4.7",
+    "copy-files-from-to": "^3.2.2",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1"
+  },
+  "copyFiles": [
+    {
+      "from": ".output/public/404/index.html",
+      "to": ".output/public/404.html"
+    }
+  ]
+}
