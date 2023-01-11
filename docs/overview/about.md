@@ -17,15 +17,15 @@ The overarching goal of Archway is to foster an array of diverse and sustainable
 
 The internet helped democratize access to information, but it hasn't fully democratized access to capital and value. The mission of Archway is to give access to entrepreneurs and developers worldwide who lack access to the same opportunities as their counterparts in more developed nations.
 
-Built into the protocol itself, Archway rewards developers based on the value and impact of their dapp, rather based on someone's personal connections or close ties to funding. This will level the playing field for many who are locked out of the world of raising capital.  
+Built into the protocol, Archway rewards developers based on the value and impact of their dapp rather than based on someone's connections or close ties to funding. This will level the playing field for many locked out of the world of raising capital.  
 
-Unlike early Web 3 and Web 2.0 platforms, the entrepreneurs and developers who are building on Archway get a true stake in the growth and governance of the protocol itself as all contributors are rewarded.
+Unlike early Web 3 and Web 2.0 platforms, entrepreneurs and developers building on Archway get an actual stake in the growth and governance of the protocol itself, as all contributors are rewarded.
 
 <!-- Architecture -->
 
 ## Architectural Overview
 
-Archway is a Cosmos SDK blockchain that uses powered by [Tendermint](https://tendermint.com/)  for the networking and consensus layers. The network uses modified Cosmos modules to manage inflation and rewards system including: 
+Archway is a Cosmos SDK blockchain powered by [Tendermint](https://tendermint.com/) for the networking and consensus layers. The network uses modified Cosmos modules to manage inflation and rewards system, including: 
 
 - **Minting** - Responsible for minting tokens and managing inflation.
 - **CosmWasm** - A runtime for WebAssembly Smart Contracts.
@@ -36,11 +36,11 @@ Archway is a Cosmos SDK blockchain that uses powered by [Tendermint](https://ten
 In addition to using the predefined Cosmos modules, Archways uses two custom modules for additional features of the network:
 
 - **Rewards** - Calculates and distributes rewards to smart contracts based on the transaction volume it brings to the network.
-- **Tracking** - Enables the tracking of gas consumption on a per transaction basis.
+- **Tracking** - Enables the tracking of gas consumption on a transaction basis.
 
 Archway creates a Cosmos SDK-based chain with support for WASM smart contract execution that rewards developers for using the deployed smart contracts.
 
-The combination of both predefined Comsos modules and customs Archway modules allow the network to deliver the below features:
+The combination of both predefined Cosmos modules and customs Archway modules allows the network to deliver the following features:
 
 - [Fee reward to the developers](#economic-overview)
 - [Gas rebate to end users](#gas-rebates)
