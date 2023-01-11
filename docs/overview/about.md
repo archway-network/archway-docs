@@ -49,7 +49,7 @@ The combination of both predefined Cosmos modules and customs Archway modules al
 
 ## Smart Contracts
 
-The Archway protocol uses [CosmWasm](./glossary.md#cosmwasm), WebAssembly (Wasm), and Rust. Over 40 high-level programming languages support Wasm, including C and C++, Python, Go, Rust, Java, and PHP.
+The Archway protocol uses [CosmWasm](./glossary.md#cosmwasm), WebAssembly (Wasm), Go, and Rust. Over 40 high-level programming languages support Wasm, including C and C++, TypeScript, Python, and Java.
 
 ### **Difference Between Smart Contracts and Cosmos Chains**
 
