@@ -53,7 +53,7 @@ The Archway protocol uses [CosmWasm](./glossary.md#cosmwasm), WebAssembly (Wasm)
 
 ### **Difference Between Smart Contracts and Cosmos Chains**
 
-While Comsos makes it easier for developers to create their own self-sovereign chains, developers still need to attract and sufficiently incentive a strong community validators to run the network. In many cases, it makes sense for a project to first deploy as a dapp.
+While Cosmos makes it easier for developers to create their self-sovereign chains, developers still need to attract and sufficiently incentive a strong community of validators to run the network. In many cases, it makes sense for a project to deploy as a dapp first.
 
 Consider the following tradeoffs between building your core logic as a smart contract versus building your logic as an independent Cosmos blockchain.
 
