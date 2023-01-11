@@ -13,7 +13,7 @@ The protocol gives developers the tools to quickly build and launch scalable cro
 
 ## The Archway Mission
 
-The overarching goal of Archway is to foster an array of diverse and sustainable applications by empowering and rewarding developers that build on the network
+The overarching goal of Archway is to foster an array of diverse and sustainable applications by empowering and rewarding developers that build on the network.
 
 The internet helped democratize access to information, but it hasn't fully democratized access to capital and value. The mission of Archway is to give access to entrepreneurs and developers worldwide who lack access to the same opportunities as their counterparts in more developed nations.
 
