@@ -6,7 +6,7 @@ sidebar_position: 4
 
 When you are ready to deploy an on-chain build, we can use either granular commands or the bundled `archway deploy` command. While the granular commands give you total control of the deployment workflow, `archway deploy` bundles them into one command, but will be harder to navigate if you have a failing deployment.
 
-It's recommended to avoid relying on `archway deploy` unless already have a good understanding of the granular commands.
+It's recommended to avoid relying on `archway deploy` unless you already have a good understanding of the granular commands.
 
 The granular workflow follows this process:
 
