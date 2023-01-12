@@ -6,7 +6,7 @@ description: Getting started with development on the Archway Network
 
 # Available Guides 
 
-Here are the available guides to help get you started building on the Archway Network: 
+Here are the available guides to help you get started building on the Archway Network: 
 
 - ### [Build Your First dapp](./my-first-dapp/start.md) -  A step-by-step guide on storing and configuring a smart contract on Archway.
 - ### [Build With NFTs](./nft-project/start.md) - A guide on how to deploy, mint and manage NFTs on Archway. 
