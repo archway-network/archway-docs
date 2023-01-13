@@ -1,5 +1,3 @@
-<script lang="ts" setup></script>
-
 <template>
   <div class="pb-12">
     <h1 class="hero-1 uppercase">Make it happen.</h1>

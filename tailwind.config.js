@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const typographyPlugin = require('./tailwindcss.plugins/typography');
+const prose = require('./tailwindcss.plugins/prose');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -63,55 +64,7 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 20s linear infinite',
       },
-      typography: theme => ({
-        DEFAULT: {
-          css: {
-            h2: {
-              fontSize: '2rem',
-              lineHeight: '130%',
-            },
-            'h2 > em': {
-              color: theme('colors.orange.DEFAULT'),
-              fontSize: '4rem',
-              fontWeight: '400',
-              fontStyle: 'normal',
-              lineHeight: '130%',
-            },
-            h3: {
-              fontSize: '1rem',
-              fontWeight: '700',
-              lineHeight: '150%',
-            },
-            a: {
-              color: theme('colors.orange.DEFAULT'),
-              fontWeight: '400',
-              textDecoration: 'no-underline',
-            },
-            ol: {
-              listStyle: 'none',
-              counterReset: 'listStyle',
-              paddingLeft: 0,
-            },
-            'ol > li': {
-              counterIncrement: 'listStyle',
-              display: 'flex',
-              alignItems: 'flex-start',
-              '&:before': {
-                display: 'block',
-                paddingRight: '2rem',
-                content: 'counter(listStyle, upper-alpha)',
-                color: theme('colors.orange.DEFAULT'),
-                fontSize: '40px',
-                lineHeight: '120%',
-                fontWeight: '400',
-              },
-            },
-            'ol > li > p:first-of-type': {
-              marginTop: '.75rem',
-            },
-          },
-        },
-      }),
+      typography: prose,
     },
     container: {
       center: true,

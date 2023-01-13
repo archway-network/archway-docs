@@ -1,0 +1,36 @@
+<script lang="ts" setup>
+  import { computed, PropType } from 'vue';
+  import { InfoIcon, StarIcon, SuccessIcon } from '@/components/Ui';
+
+  const props = defineProps({
+    variant: { type: String as PropType<'default' | 'warning' | 'error' | 'success'>, default: 'default' },
+  });
+
+  const isWarning = computed(() => props.variant === 'warning');
+  const isError = computed(() => props.variant === 'error');
+  const isSuccess = computed(() => props.variant === 'success');
+</script>
+
+<template>
+  <div
+    class="border-l-[3px] pl-8 space-y-6"
+    :class="{
+      'border-orange text-orange': isWarning,
+      'border-red text-red': isError,
+      'border-green text-green': isSuccess,
+      'border-gray-600 text-gray-600': !isWarning && !isError && !isSuccess,
+    }"
+  >
+    <div class="not-prose flex items-center space-x-4">
+      <InfoIcon class="w-4 h-6" v-if="isError" />
+      <SuccessIcon class="w-4 h-6" v-else-if="isSuccess" />
+      <StarIcon class="w-4 h-6" v-else />
+      <div>
+        <slot name="title" />
+      </div>
+    </div>
+    <div>
+      <ContentSlot :use="$slots.default" />
+    </div>
+  </div>
+</template>
