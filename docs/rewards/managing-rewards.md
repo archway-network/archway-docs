@@ -13,7 +13,7 @@ Contract Metadata is the metadata that instructs the Archway Network who owns th
 
 `owner_address` - The address of the contract's owner. This field can be both an account or contract address.
 
-`rewards_address` - The account address that will receive the contract's rewards. This field can be both an account or contract address. Tokens are sent to this address after executing a [withdrawal function](#withdrawing-awards) is executed. If this field is not set, the contract will not receive rewards. 
+`rewards_address` - The account address that will receive the contract's rewards. This field can be both an account or contract address. Tokens are sent to this address after executing a [withdrawal function](#withdrawing-awards). If this field is not set, the contract will not receive rewards. 
 
 **All above addresses are bech32-encoded.**
 
