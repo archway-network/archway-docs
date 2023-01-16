@@ -1,7 +1,10 @@
 ---
 sidebar_position: 4
 ---
+> **Warning**
+>The Rewards module is currently enabled **ONLY** on [Titus](https://docs.archway.io/docs/overview/network/#titus-experimental-testnet)
 
+>We are in the process of releasing an updated version of Constantine, which will include the Rewards module too. In the meantime, if you want to try the Rewards module, make sure to set up your node for the Titus experimental testnet
 # Minimum Consensus Fee Overview  
 
 The minimum consensus fee is an important part of transacting on the Archway Network. This guide will explain what the minimum consensus fee is and how to get this information.
