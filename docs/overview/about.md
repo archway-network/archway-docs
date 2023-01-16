@@ -83,12 +83,9 @@ To achieve the Archway architecture [desired properties](#the-archway-mission), 
   
 2) During BeginBlock, the recorded information is brought to memory and processed to determine rewards for each of the contracts executed in the last block. 
 
-3) Developers can choose to take the rewards or give the gas rebate to end users to subsidize transaction costs. To enable that choice, use a proxy wrapper. 
-    The wrapper expects the developer to specify configuration parameters during the instantiate call. The parameters are related to the gas reward and the instantiation request body. This body is consumed by the wrapper and the contract is sent only instantiation requests which means the contract interface does not need to be changed.
+3) Rewards are calculated at a later block than the correspondent transaction with the smart contract
 
-4)  Developer reward payout can happen on demand or automatically at BeginBlock. 
-    The disadvantage of on-demand reward is an inferior user experience and results in more transactions just to transfer the rewards. 
-    The advantage of on-demand reward is that the reward is automatically transferred to the designated reward address when it crosses a certain threshold.  
+Rewards need to be intentionally claimed through a separate transaction. Also note that while the owner address is allowed to change smart contract metadata, rewards can be claimed **only** by the address specified for receiving rewards
 
 #### Drawbacks
 
