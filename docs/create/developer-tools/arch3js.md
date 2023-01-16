@@ -29,7 +29,7 @@ import { ArchwayClient } from '@archwayhq/arch3.js';
 
 const client = await ArchwayClient.connect('https://rpc.constantine-1.archway.tech');
 
-const contractAddress = 'archway14v952t75xgnufzlrft52ekltt8nsu9gxqh4xz55qfm6wqslc0spqspc5lm';
+const contractAddress = 'archway1dd8xfz4msg7aufxcc4sjjzusg4rsp98kza2z7zjprhgwvmpdzncq6jrg99';
 const msg = {
   get_count: {},
 };
