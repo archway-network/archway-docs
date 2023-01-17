@@ -53,7 +53,7 @@ The Archway protocol uses [CosmWasm](./glossary.md#cosmwasm), WebAssembly (Wasm)
 
 ### **Difference Between Smart Contracts and Cosmos Chains**
 
-While Cosmos makes it easier for developers to create their self-sovereign chains, developers still need to attract and sufficiently incentive a strong community of validators to run the network. In many cases, it makes sense for a project to deploy as a dapp first.
+While Cosmos makes it easier for developers to create their self-sovereign chains, developers still need to attract and sufficiently incentivize a strong community of validators to run the network. In many cases, it makes sense for a project to deploy as a dapp first.
 
 Consider the following tradeoffs between building your core logic as a smart contract versus building your logic as an independent Cosmos blockchain.
 
@@ -104,7 +104,7 @@ Archway seeks to provide three potential funding sources for dapps:
 - [Share of inflationary rewards](#inflation)
 - [Smart contract fees (optional)](#smart-contract-fees)
 
-Archway allows each dapp developer and their community to configure how the rewards are managed and distributed. When a contract is instantiated, the dapp creator specifies an `owner` address where all fees and rewards are automatically deposited. This target address can be the creator's address, a multisig, or an address that is controlled by a separate custom contract. Ownership can then be transferred to a new address as needed. Ownership transfer requires only the signature of the previous owner. 
+Archway allows each dapp developer and their community to configure how rewards are managed and distributed. When a contract is instantiated, the dapp creator specifies an `owner` address where all fees and rewards are automatically deposited. This target address can be the creator's address, a multisig address, or an address that is controlled by a separate custom contract. Ownership can then be transferred to a new address as needed. Ownership transfer requires only the signature of the previous owner. 
 
 <!-- Economics : Gas Rebates -->
 
@@ -130,7 +130,7 @@ The Archway protocol then shares a portion of these total inflation rewards dire
 
 The dapp rewards pool (2% in the previous example) is then proportionally distributed based on the relative amount of gas fees that each dapp generates within a given epoch. For example, a dapp that is responsible for 10% of gas consumption is awarded 10% of the available pool.
 
-To mitigate potential Sybil attacks and ensure spamming transactions is not profitable, each dapp has a max inflation rewards cap. At network launch, there is a hard cap based on the total gas fees paid per dapp. A contract deployed to Archway cannot earn rewards greater than the total gas it generates within an epoch. Implementation of a dynamic rewards cap is being actively researched and can be updated through future governance. Transitioning to a floating cap provides more flexible distribution and further incentivizes developers to continuously improve their dapps.
+To mitigate potential Sybil attacks and ensure spamming transactions is not profitable, each dapp has a max inflation rewards cap. At network launch, there is a hard cap based on the total gas fees paid per dapp. A contract deployed to Archway cannot earn rewards greater than the total gas it generates within an epoch. The implementation of a dynamic rewards cap is being actively researched and can be updated through future governance. Transitioning to a floating cap provides more flexible distribution and further incentivizes developers to continuously improve their dapps.
 
 Any surplus in rewards is contributed to the Archway community pool where the funds are managed through governance.
 
@@ -142,13 +142,13 @@ Inflationary rewards are paid out by the network on a per-block basis.
 
 Smart contract platforms today charge network fees (“gas”) based on the amount of computational processing required by on-chain transactions. While this method of measurement works for the underlying economics of a network, it does not support use cases where a developer has to cover additional costs such as distributed storage, access to off-chain processing, external data sources, or other premium features such as audited and insured contracts. 
 
-With Archway, developers of dApps can define custom fees for interacting with their smart contracts. Also known as the _take rate_, this fee provides developers a flexible option to charge different fee levels that are based on their specific use case and operational needs.
+With Archway, developers of dapps can define custom fees for interacting with their smart contracts. Also known as the _take rate_, this fee provides developers with a flexible option to charge different fee levels that are based on their specific use case and operational needs.
 
-By default, the smart contract fee is set to 0 $ARCH. On initial deployment, the dapp developer can define their fee. The fee is configurable and the dapp owner can adjust it any time, even after the contract has been deployed.
+By default, the smart contract fee is set to 0 $ARCH. On initial deployment, the dapp developer can define their fee. The fee is configurable and the dapp owner can adjust it at any time, even after the contract has been deployed.
 
 To streamline the user experience, the smart contract fee is embedded directly in the network fee, so end users are simply presented with a single combined fee when signing a transaction.
 
-Since most dapps are composed of smaller, more modular pieces of code and layers of contracts, individual developers can focus on building even smaller snippets of code. They can write and monetize a single contract rather than a fully featured dapp. Since contracts can be integrated into multiple dapps, developers can earn multiple lines of fees across any user base that interacts with their code. Imagine, for example, the rapid app development that would happen if every NPM package earns fees for computational use.
+Since most dapps are composed of smaller, more modular pieces of code and layers of contracts, individual developers can focus on building even smaller snippets of code. They can write and monetize a single contract rather than a fully featured dapp. Since contracts can be integrated into multiple dapps, developers can earn multiple lines of fees across any user base that interacts with their code. Imagine, for example, the rapid app development that would happen if every NPM package earned fees for computational use.
 
 
 <!-- Economics : Examples -->
@@ -159,7 +159,7 @@ Dapps can choose to allocate the rewards they accrue in whatever way is most ben
 
 #### Governance Rewards
 
-A recent trend has dapps issuing governance tokens to incentivize and bootstrap early communities. This token distribution has proved to be very successful in a number of cases,  despite the dapp not having any clear mechanism for value capture for fees or revenues. Some of these tokens merely grant voting rights, but have still been the subject of intense growth due to speculation of future utility of the dapp or potential rights to cash flows by governance token holders. 
+A recent trend has dapps issuing governance tokens to incentivize and bootstrap early communities. This token distribution has proved to be very successful in a number of cases,  despite the dapp not having any clear mechanism for value capture for fees or revenues. Some of these tokens merely grant voting rights, but have still been the subject of intense growth due to speculation of the future utility of the dapp or potential rights to cash flows by governance token holders. 
 
 In the Archway model, dapp developers can redistribute their share of network rewards directly to their governance token holders, subject to local securities laws. The Archway model turns standard governance tokens into productive, yield-generating assets. 
 
@@ -195,9 +195,9 @@ Although similar matching and subsidy programs have been run elsewhere as tempor
 
 #### Fund a Decentralized Autonomous Organization (DAO)
 
-Rewards generated by a dapp can be contributed to a community-owned DAO that is focused on coordinating and funding critical work for its ecosystem. These rewards can be continuously deposited to the DAO treasury that allows members to collectively manage and deploy the assets based on specific needs of the project.
+Rewards generated by a dapp can be contributed to a community-owned DAO that is focused on coordinating and funding critical work for its ecosystem. These rewards can be continuously deposited to the DAO treasury that allows members to collectively manage and deploy assets based on the specific needs of the project.
 
-This DAO could then vote to fund core development teams, sponsor events and hackathons, commission code audits, open bug bounties, launch education programs, subsidize third-party integrations, and so on. DAO funding could be available to anything and everything that could potentially benefit and impact the ecosystem.
+This DAO could then vote to fund core development teams, sponsor events and hackathons, commission code audits, open bug bounties, launch education programs, subsidize third-party integrations, and so on. DAO funding could be available for anything and everything that could potentially benefit and impact the ecosystem.
 
 The DAO itself can exist and operate as a set of smart contracts on top of Archway, so the entire process is automated and transparent throughout initial rewards collection, voting, grants distribution, and so on.
 

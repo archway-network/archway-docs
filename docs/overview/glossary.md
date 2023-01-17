@@ -18,7 +18,7 @@ ABCI is an interface that defines the boundary between the replication engine (t
 
 ## Block Explorer 
 
-Block Explorers are tools that allow the blocks, transactions, addresses of a blockchain to be searched both in real-time and for historical purposes. 
+Block Explorers are tools that allow users to view and search for transactions, addresses, blocks, and other information on a blockchain. 
 
 <!-- C -->
 
@@ -42,27 +42,27 @@ An abbreviation of "decentralized application", dapps are applications built on 
 
 ## Faucet 
 
-Faucets are websites or applications that give small amounts of tokens for free or by completing small tasks like sharing a link. These websites are popular for getting tokens to use for testnets.
+Faucets are websites or applications that enable users to earn a small number of tokens at no cost or by completing small tasks like sharing a link. These websites are popular for getting tokens to use for testnets.
 
 <!-- G -->
 
 ## Gas Fee
 
-Gas Fees are the transaction fees paid by users in order for the transaction to be completed on the blockchain. In traditional networks, this fee is given to the validators. On the Archway Network, this fee is split between the validators and developers of the dapp. 
+Gas Fees are transaction fees paid by users in order for transactions to be completed on the blockchain. In traditional networks, this fee is given to validators. On the Archway Network, this fee is split between validators and dapp developers. 
 
 ## Governance Tokens 
 
-Governance tokens are tokens that are connected to voting power of the token holder. These tokens allow the holder to create and vote on proposals on the direction of various types of blockchain projects. 
+Governance tokens are tokens that allow token holders to create, vote on proposals and make decisions about the direction and management of a blockchain. 
 
 ## gRPC 
 
-gRPC is an open-source RPC framework that was created by Google built for high performance. 
+gRPC is an open-source framework that was created by Google for building high-performance remote procedure call (RPC) APIs. 
 
 ## Gravity Bridge
 
 [Gravity Bridge](https://github.com/cosmos/gravity-bridge) is a bidirectional bridge to Ethereum and eventually other Ethereum Virtual Machine (EVM)-based chains.
 
-Archway will provide a native Gravity Bridge integration so developers can pull Ethereum assets such as ERC-20s and ERC-721s into their dApps and bring their own assets to Ethereum.
+Archway will provide a native Gravity Bridge integration so developers can pull Ethereum assets such as ERC-20s and ERC-721s into their dapps and bring their own assets to Ethereum.
 
 
 
@@ -72,7 +72,7 @@ Archway will provide a native Gravity Bridge integration so developers can pull 
 
 ## Inflation rewards
 
-Inflation rewards are tokens that are sent to a specific address as new tokens are introduced into the network. These are rewards to existing holders of that token. Each network can have a different mechanism on when and to whom will receive these rewards.  
+Inflation rewards are newly minted tokens that are distributed to stakers of a blockchain network as a reward for their participation in network security and consensus. Each network can have a different mechanism for when and to whom rewards are given.  
 
 ## Inter-Blockchain Communication protocol (IBC)
 
@@ -90,16 +90,16 @@ Archway’s native IBC integration enables developers to future-proof their dApp
 
 ## Light Client Daemon (LCD)
 
-Light clients are software that allow users to interact with the blockchain by connecting to full nodes. These clients do not store the entire blockchain so they take significantly less storage and resources to run. 
+Light clients are software that allows users to interact with the blockchain by connecting to full nodes. These clients do not store the entire blockchain, so they require significantly less storage and resources to operate. 
 
 ## Liquidity Mining 
 
-Liquidity Mining is when users lend their assets to a decentralized exchange to make it easier for other users to trade. In return these users receive an award usually in the form of a share of the fee or interest. 
+Liquidity Mining refers to the practice of providing assets to a decentralized exchange to make it easier for other users to trade. In return, these users are usually rewarded with a portion of the trading fees or interest earned on the assets. 
 <!-- M -->
 
 ## Minting 
 
-Minting is the process of creating new tokens on a blockchain through a process that includes validation, creation of new blocks and then recording that information to the blockchain. 
+Minting is the process of creating new tokens on a blockchain through a process that includes validation, creation of new blocks and recording that information to the blockchain. 
 
 <!-- N -->
 <!-- O -->
@@ -108,7 +108,7 @@ Minting is the process of creating new tokens on a blockchain through a process 
 
 ## Proof of Stake (PoS)
 
-Proof of Stake is a consensus mechanism that is used by Tendermint as well as other blockchains. In PoS, validators are selected by the proportion of the token they hold or their "stake" in the network. The validator to write the next block is chosen by random but a higher stake increases the chances that a specific validator will be chosen.  
+Proof of Stake is a consensus mechanism where validators are selected by the proportion of tokens they hold or "stake" in the network. The validator to write the next block is chosen at random but a higher stake increases the chances that a specific validator will be chosen. 
 
 ## Pool account
 
@@ -119,7 +119,7 @@ A common liquidity pool that Archway dApps can fund and then use to sponsor gas 
 
 ## Remote Procedure Call (RPC)
 
-An RPC is a process that allows for the remote communication between servers and applications in different locations. This process allows for an application or dapp to interact and receive data about a blockchain via a server node.
+RPC is a process that allows for the remote communication between servers and applications in different locations. This process allows for an application or dapp to interact and receive data about a blockchain via a server node.
 
 <!-- S -->
 
@@ -129,7 +129,7 @@ A smart contract is a program deployed on a blockchain that automatically execut
 
 ## Staking 
 
-Staking is the process of rewarding token holders that have chosen to stake their tokens. Staking tokens typically involves locking those tokens from being transferred. In turn, these tokens are used to power the network by being part of the validation process in a Proof of Stake consensus model. 
+Staking is the process of locking tokens in a blockchain network via validators in order to support and secure the blockchain. Token holders who are called delegators are rewarded through block rewards which are generated through inflation. Additionally, staking also allows token holders to participate in the governance of the network.
 
 <!-- T -->
 
@@ -139,14 +139,14 @@ A Byzantine fault tolerant (BFT) consensus engine for blockchain networks and ge
 
 ## Testnet 
 
-Testnets are test networks of a blockchain where developers can deploy and test their smart contracts with little to no risk and cost. Typically, the transactions that occur on a testnet do not have a connection to those on the mainnet. Testnets usually aim to provide similar functionality as to their mainnet counterparts.
+Testnets are versions of a blockchain network used for testing and development purposes where developers can deploy and test their smart contracts without using real assets, thus not incurring any risks or costs. Typically, transactions that occur on a testnet do not have a connection to those on the mainnet. Testnets usually aim to provide similar functionality to their mainnet counterparts.
 
 <!-- U -->
 <!-- V -->
 
 ## Validator 
 
-Validators are responsible for the verification of transactions on a blockchain. These validators add new blocks to the blockchain and receive rewards for staking the token of the blockchain. 
+Validators are responsible for the verification of transactions on a blockchain. These validators add new blocks to the blockchain and are chosen based on the number of tokens they hold and "stake" as collateral. They are incentivized through block rewards and transaction fees for maintaining the integrity of the network.
 <!-- W -->
 
 ## WebAssembly (WASM) 
