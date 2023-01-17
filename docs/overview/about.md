@@ -40,7 +40,7 @@ In addition to using the predefined Cosmos modules, Archways uses two custom mod
 
 Archway creates a Cosmos SDK-based chain with support for WASM smart contract execution that rewards developers for using the deployed smart contracts.
 
-The combination of both predefined Cosmos modules and customs Archway modules allows the network to deliver the following features:
+The combination of both predefined Cosmos modules and custom Archway modules allows the network to deliver the following features:
 
 - [Fee reward to the developers](#economic-overview)
 - [Gas rebate to end users](#gas-rebates)
