@@ -13,7 +13,7 @@ Contract Metadata is the metadata that instructs the Archway Network who owns th
 
 `owner_address` - The address of the contract's owner. This field can be both an account or contract address.
 
-`rewards_address` - The account address that will receive the contract's rewards. This field can be both an account or contract address. Tokens are sent to this address after executing a [withdrawal function](#withdrawing-awards). If this field is not set, the contract will not receive rewards. 
+`rewards_address` - The account address that will receive the contract's rewards. This field can be either an account or a contract address. Tokens are sent to this address after executing a [withdrawal function](#withdrawing-awards). If this field is not set, the contract will not receive rewards. 
 
 **All above addresses are bech32-encoded.**
 
@@ -34,7 +34,7 @@ The `owner_address` is the only address that can update the metadata of a contra
 If the `owner_address` is a smart contract, updates to the metadata can only be performed by using the WASM bindings. 
 
 ## Reward Storage
-The rewards owed to a specific contract are stored as a seperated record on the blockchain. To receive these rewards, a [withdrawal operation](#withdrawing-awards) must be executed. Developers can also track these rewards by using the [RewardsRecord object](#tracking-reward-amounts). 
+The rewards owed to a specific contract are stored as a separate record on the blockchain. To receive these rewards, a [withdrawal operation](#withdrawing-awards) must be executed. Developers can also track these rewards by using the [RewardsRecord object](#tracking-reward-amounts). 
 
 ## Tracking Reward Amounts 
 The `RewardsRecord` object is used to track the rewards that have been calculated for a specific `rewards_address`. 
