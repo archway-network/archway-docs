@@ -23,6 +23,6 @@ This guide is a list of the availabe queries and commands related to the rewards
 
 ## Transaction Commands 
 
-``archwayd tx set-contract-metadata`` -  Create / modify contract metadata (contract rewards parameters)
+``archwayd tx rewards set-contract-metadata`` -  Create / modify contract metadata (contract rewards parameters)
 
 ``archwayd tx rewards withdraw-rewards`` - Withdraw current credited rewards for the transaction sender
