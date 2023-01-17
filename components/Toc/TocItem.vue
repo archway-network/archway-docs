@@ -25,7 +25,11 @@
     <div :class="{ 'pl-[24px]': !mainSection }">
       <Link :href="selectedItemID"
         ><p
-          :class="{ 'text-orange': selectedSection === selectedItemID, 'pl-[24px]': !selectedItem.children }"
+          :class="{
+            'text-orange': selectedSection === selectedItemID,
+            'pl-[24px]': !selectedItem.children,
+            'text-black-light': selectedSection !== selectedItemID,
+          }"
           class="min-h-[40px] items-center flex"
         >
           {{ selectedItem.text }}
