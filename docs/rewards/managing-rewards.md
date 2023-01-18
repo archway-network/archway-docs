@@ -100,7 +100,7 @@ archwayd tx rewards withdraw-rewards --records-limit 100000 --from "${rewards_ad
 
  ### Response 
 
-If the Withdraw Rewards operations iss successful, the response will show the number of reward records processed and the total amount of rewards that have been transferred to the `rewards_address`. 
+If the Withdraw Rewards operations is successful, the response will show the number of reward records processed and the total amount of rewards that have been transferred to the `rewards_address`. 
 
 
 
