@@ -5,7 +5,7 @@ title: arch3.js
 
 # arch3.js 
 
-[`arch3.js`](https://www.npmjs.com/package/@archwayhq/arch3-core) is a JavaScript library that enables the interaction between front-end web applications and the Archway Protocol. It is a replacement using the [CosmJS](https://github.com/cosmos/cosmjs) clients. 
+[`arch3.js`](https://www.npmjs.com/package/@archwayhq/arch3-core) is a JavaScript library that enables the interaction between front-end web applications and the Archway Protocol. It is a replacement for using the [CosmJS](https://github.com/cosmos/cosmjs) client. 
 
 
 ## Installation 
