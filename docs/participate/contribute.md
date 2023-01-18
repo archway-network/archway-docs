@@ -48,7 +48,7 @@ Other useful resources:
 
 #### Developer docs:
 
-_Developer docs_ refers to documentation for smart contract and dApp developers. It's content to help users build and scale dApps on Archway network and contains information that is pertinent to:
+_Developer docs_ refers to documentation for smart contract and dapp developers. It's content to help users build and scale dapps on Archway network and contains information that is pertinent to:
 - Smart Contract development
 - Web and UI frontends that connect to Archway network
 - The [Archway developer CLI](https://www.npmjs.com/package/@archwayhq/cli)
@@ -57,7 +57,7 @@ Developer docs are located in folder [/docs/create](https://github.com/archway-n
 
 #### Developer guides (tutorials):
 
-_Developer guides_ are tutorials for developing Archway smart contract and dApp projects. Each guide includes step by step instructions and final source code for a completed project to be run on Archway network.
+_Developer guides_ are tutorials for developing Archway smart contract and dapp projects. Each guide includes step by step instructions and final source code for a completed project to be run on Archway network.
 
 Developer guides are located in the folder [/docs/create/guides](https://github.com/archway-network/archway-docs/tree/main/docs/create/guides)
 

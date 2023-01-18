@@ -61,7 +61,7 @@ async function connectKeplrWallet() {
         { gasPrice: gasPrice }
       );
      
-      // This async waits for the user to authorize your dApp
+      // This async waits for the user to authorize your dapp
       // it returns their account address only after permissions
       // to read that address are granted
       accounts = await this.offlineSigner.getAccounts();
