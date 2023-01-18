@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Setup
+# Project Setup
 
 A new Archway project is a Rust project that will compile to `wasm` using the `archwayd` binary, which is an implementation of a cosmos zone with `wasm` smart contracts enabled.
 
@@ -45,7 +45,7 @@ archway new
 
 Example Output: 
 ```bash
-Creating new Archway dApp...
+Creating new Archway dapp...
 
 Configure environment (Y/N default: N)?: Y
 
@@ -81,7 +81,7 @@ Config file location: /home/first-archway-project/config.json
 
 ## Configuring a project
 
-When you've created a new project, navigate to the folder where the project was installed and print your config using the command `archway configure`. 
+When you have created a new project, navigate to the folder where the project was installed and print your config using the command `archway configure`. 
 
 If this configuration isn't to your liking, you can always modify it by editing the `config.json` file in the root folder of the project. 
 

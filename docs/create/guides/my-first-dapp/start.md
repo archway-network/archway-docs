@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Starting out
+# Project Setup 
 
 This guide follows the below workflow:
 

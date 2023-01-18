@@ -15,15 +15,15 @@ This guide follows the below workflow:
 
 ## Introduction
 
-Non-Fungible Tokens, or NFTs, have been a hot topic during this past year. They've quickly become an essential component of the decentralized digital world. 
+Non-Fungible Tokens, or NFTs are an important part of the decentralized digital world. 
 
-In this guide, we will learn how to write, deploy, mint and transfer our own NFTs. We'll also learn how to build a dapp website we can share with other users, so they can also mint and transfer tokens.
+In this guide, we will learn how to write, deploy, mint and transfer our own NFTs. We will also learn how to build a dapp website we can share with other users, so they can also mint and transfer tokens.
 
 ## Creating your project
 
 In the [Setup](../../getting-started/setup.md) section we learned how to create and configure a new Archway project.
 
-If you haven't created a project before, navigate to [Setup](../../getting-started/setup.md) to learn what to install and familiarize yourself with so you can complete this step.
+If you have not created a project before, navigate to [Setup](../../getting-started/setup.md) to learn what to install and familiarize yourself with so you can complete this step.
 
 Now let’s create a new project, and on the template selection list select the _CW721 with on-chain metadata_ template.
 
@@ -50,7 +50,7 @@ $ cd basic-nft
 
 ## Designing Your Tokens
 
-The asset metadata is a critical element for any NFT. It defines information like the name, image URL, and other properties that can be pulled by NFT marketplaces to show relevant information for the users. Things like rarity, custom traits, etc., all are stored here.
+The asset metadata is a critical element for any NFT. It defines information like the name, image URL, and other properties that can be pulled by NFT marketplaces to show relevant information for the users. Information like rarity, custom traits, etc., all are stored here.
 
 In this example, we will keep our metadata on-chain. In other words, the contract will store the metadata in its internal state.
 

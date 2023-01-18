@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Deploying your contract on chain
 
-When you're ready to deploy an on-chain build, we can use either granular commands or the bundled `archway deploy` command. While the granular commands give you total control of the deployment workflow, `archway deploy` bundles them into one command, but will be troublesome to navigate if you have a failing deployment.
+When you are ready to deploy an on-chain build, we can use either granular commands or the bundled `archway deploy` command. While the granular commands give you total control of the deployment workflow, `archway deploy` bundles them into one command, but will be harder to navigate if you have a failing deployment.
 
-It's recommended to avoid relying on `archway deploy` unless you've already a good understanding of the granular commands.
+It's recommended to avoid relying on `archway deploy` unless you already have a good understanding of the granular commands.
 
 The granular workflow follows this process:
 
@@ -26,7 +26,7 @@ The commands for achieving this workflow are:
 
 Only `wasm` files optimized with the `cosmwasm/rust-optimizer` can be stored on chain. If your local project does not have an `artifacts` folder, or, if the `artifacts` folder is empty. Go back to the [previous guide step](./wasm.md) for information on producing _CosmWasm_ optimized executables.
 
-When the executable is ready to be stored on chain, run the command:
+When the executable is ready to be stored on chain, run the following command:
 
 ```
 archway store
@@ -108,7 +108,7 @@ Printing deployments...
 
 ## Configuring the deployed contract
 
-Now that the dApp is deployed it's recommended to set its metadata. This will configure the smart contract to collect developer premiums, rewards and can be used to enable gas rebates with a pooling account.
+Now that the dapp is deployed it's recommended to set its metadata. This will configure the smart contract to collect developer premiums, rewards and can be used to enable gas rebates with a pooling account.
 
 To set contract metadata, use the command:
 

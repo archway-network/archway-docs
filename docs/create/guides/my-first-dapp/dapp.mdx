@@ -4,21 +4,16 @@ sidebar_position: 6
 
 # Building a dapp frontend
 
-For building web frontends, you'll need the following [npm](https://www.npmjs.com/) packages to connect your web page to Archway Network.
+For building web frontends, you'll need the arch3.js [npm](https://www.npmjs.com/) packages to connect your web page to Archway Network.
 
-- [@cosmjs/stargate](https://www.npmjs.com/package/@cosmjs/stargate)
-- [@cosmjs/cosmwasm-stargate](https://www.npmjs.com/package/@cosmjs/cosmwasm-stargate)
+- [@archwayhq/arch3.js](https://www.npmjs.com/package/@archwayhq/arch3.js)
 
-#### @cosmjs/stargate
-`@cosmjs/stargate` is client library for the Cosmos SDK.
-
-#### @cosmjs/cosmwasm-stargate
-`@cosmjs/cosmwasm-stargate` is an SDK to build CosmWasm clients. It extends `@cosmjs/stargate` with functionality for [CosmWasm](https://cosmwasm.com/) contracts.
+You will also need to `@cosmjs/stargate`, a client library for the Cosmos SDK.
 
 
 ### Connecting to Archway
 
-We’ll need our dApp to connect to users’ wallets with a browser extension like [Keplr](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap) wallet.
+We’ll need our dapp to connect to users’ wallets with a browser extension like [Keplr](https://chrome.google.com/webstore/detail/keplr/dmkamcknogkgcdfhhbddcghachkejeap) wallet.
 
 After installing the extension, you’ll notice Keplr is exposed to web pages as a property of the JavaScript window object of the active page.
 
@@ -48,7 +43,7 @@ const ChainInfo = {
 Now we can use `ChainInfo` to set up Keplr for Constantine testnet.
 
 ```js
-import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate';
+import { SigningArchwayClient } from '@archwayhq/arch3.js';
 import { GasPrice } from "@cosmjs/stargate";
  
 let accounts, CosmWasmClient, queryHandler, gasPrice;
@@ -149,7 +144,7 @@ const incrementCounter = async () => {
 
 ## Clone it and try yourself
 
-You'll find working examples of dapp frontends for the Increment starter code template in the [dapp examples repository](https://github.com/archway-network/dApp-examples). Examples are given in both [Vue.js](https://vuejs.org/) and [React](https://reactjs.org/).
+You will find working examples of dapp frontends for the Increment starter code template in the [dapp examples repository](https://github.com/archway-network/dApp-examples). Examples are given in both [Vue.js](https://vuejs.org/) and [React](https://reactjs.org/).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

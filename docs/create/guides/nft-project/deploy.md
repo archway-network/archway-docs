@@ -13,7 +13,7 @@ As we saw in the [My First dapp](../my-first-dapp/deploy.md) guide, deployment o
 
 ## Generate an optimized build
 
-First we'll need to produce an optimized `wasm` build and upload it to the blockchain.
+First we will need to produce an optimized `wasm` build and upload it to the blockchain.
 
 Optimized builds are produced by passing the `--optimize` flag to `archway build`:
 
@@ -35,7 +35,7 @@ There are many tips and tricks you can use when storing your optimized `wasm`. F
 
 ## Instantiate the NFT collection
 
-Now we're ready to instantiate the contract. The contract instantiation requires three parameters:
+Now we are ready to instantiate the contract. The contract instantiation requires three parameters:
 
 - `name` (the NFT collection name)
 - `symbol` (a token symbol to represent it)
@@ -47,7 +47,7 @@ When we run the `archway instantiate` command, we add our values for `name`, `sy
 archway instantiate --args '{ "name": "Test Collection", "symbol": "NFTEST", "minter": "archway1f395p0gg67mmfd5zcqvpnp9cxnu0hg6r9hfczq" }'
 ```
 
-Once instantiation succeeds, you're able to mint your first token of the collection. Read on to learn more about interacting with this contract.
+Once instantiation succeeds, you are able to mint your first token of the collection. Read on to learn more about interacting with this contract.
 
 ## Configure the deployed contract
 

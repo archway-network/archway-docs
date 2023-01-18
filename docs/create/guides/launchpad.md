@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
-title: Launchpad
-description: Your launchpad into Cosmos and beyond. Level up your ecosystem with these ready to build dApp guides and source code templates
+title: Guides Overview 
+description: Getting started with development on the Archway Network 
 ---
 
-# Table of contents
+# Available Guides 
 
-Your launchpad into Cosmos and beyond.
+Here are the available guides to help you get started building on the Archway Network: 
 
-- [Build Your First dapp](./my-first-dapp/start.md)
-- [Build With NFTs](./nft-project/start.md)
+- ### [Build Your First dapp](./my-first-dapp/start.md) -  A step-by-step guide on storing and configuring a smart contract on Archway.
+- ### [Build With NFTs](./nft-project/start.md) - A guide on how to deploy, mint and manage NFTs on Archway. 
