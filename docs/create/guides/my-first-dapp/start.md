@@ -12,7 +12,7 @@ This guide follows the below workflow:
 4. [Produce _default_ and _CosmWasm_ `wasm` binaries](./wasm.md)
 5. [Deploy to a testnet](./deploy.md)
 6. [Query and transact with a deployed contract](./interact.md)
-7. [Building a dApp frontend](./dapp.mdx)
+7. [Building a dapp frontend](./dapp.mdx)
 
 ## Creating a project
 

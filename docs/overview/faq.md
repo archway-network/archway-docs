@@ -8,11 +8,11 @@ Answers to frequently asked questions about Archway.
 
 ## What is Archway?
 
-Archway is an incentivized smart contract chain for the Cosmos ecosystem that allows developers to deploy high-performance dApps and get rewarded for the value they contribute to the network.
+Archway is an incentivized smart contract chain for the Cosmos ecosystem that allows developers to deploy high-performance dapps and get rewarded for the value they contribute to the network.
 
 ## Why Archway?
 
-When developers build and launch impactful dApps that generate usage on Archway, they can earn a proportional share of network fees and rewards. 
+When developers build and launch impactful dapps that generate usage on Archway, they can earn a proportional share of network fees and rewards. 
 
 This shared earning model enables developers to potentially access recurring rewards and participate in the upside of the underlying protocol. 
 

@@ -10,14 +10,14 @@ This guide follows the below workflow:
 2. [Customizing your token parameters](#designing-your-tokens)
 3. [Deploying your token contract](./deploy.md)
 4. [Minting and sending tokens](./interact.md)
-5. [Building the NFT dApp](./dapp.mdx)
+5. [Building the NFT dapp](./dapp.mdx)
 
 
 ## Introduction
 
 Non-Fungible Tokens, or NFTs, have been a hot topic during this past year. They've quickly become an essential component of the decentralized digital world. 
 
-In this guide, we will learn how to write, deploy, mint and transfer our own NFTs. We'll also learn how to build a dApp website we can share with other users, so they can also mint and transfer tokens.
+In this guide, we will learn how to write, deploy, mint and transfer our own NFTs. We'll also learn how to build a dapp website we can share with other users, so they can also mint and transfer tokens.
 
 ## Creating your project
 

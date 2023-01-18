@@ -7,7 +7,6 @@ description: A self-sovereign blockchain network that allows developers to expre
 # About Archway
 
 Archway is an incentivized smart contract platform that rewards developers that build on the network with baked in incentives and rewards.
- 
 
 The protocol gives developers the tools to quickly build and launch scalable cross-chain dapps and get rewarded for the value the dapps contribute to the network.
 

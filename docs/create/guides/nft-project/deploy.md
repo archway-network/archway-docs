@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Deploying the token contract
 
-As we saw in the [My First dApp](../my-first-dapp/deploy.md) guide, deployment on Archway is a multi-step process.
+As we saw in the [My First dapp](../my-first-dapp/deploy.md) guide, deployment on Archway is a multi-step process.
 
 1. [Generate an optimized build](#generate-an-optimized-build)
 2. [Store the optimized build on chain](#store-the-optimized-build-on-chain)
