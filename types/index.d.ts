@@ -12,3 +12,12 @@ export type Article = {
   description: any;
   path?: string;
 };
+
+export type HeaderItem = {
+  id: number;
+  title?: string;
+};
+
+export type TableRow = {
+  title?: any;
+};
