@@ -12,3 +12,9 @@ export type Article = {
   description: any;
   path?: string;
 };
+
+export type Tab = {
+  id: number;
+  title: string;
+  description: string;
+};
