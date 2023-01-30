@@ -4,7 +4,7 @@
   import { Tab } from '@/types';
 
   const props = defineProps({
-    tabData: { type: Object as PropType<TabData[{}]>, required: true },
+    tabData: { type: Object as PropType<TabData[Tab]>, required: true },
   });
 
   const selectedTab = ref<Tab>({ id: props.tabData[0]?.id, title: props.tabData[0]?.title, description: props.tabData[0]?.description });
