@@ -1,7 +1,7 @@
 class PageTOC {
   constructor(public id: string, public title: string, public text: string, public children: PageTOC[]) {}
 
-  static make(attributes: any) {
+  static make(attributes: { _id?: string; title?: string; text: string; children: PageTOC[] }) {
     return new PageTOC(
       attributes?._id || '',
       attributes?.title || '',

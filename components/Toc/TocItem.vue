@@ -6,7 +6,7 @@
 
   const props = defineProps({
     selectedItem: { type: Object as PropType<PageTOC>, required: true },
-    selectedSection: { type: Object as PropType<string>, required: true },
+    selectedSection: { type: String, required: true },
     mainSection: { type: Boolean, required: false },
   });
 
