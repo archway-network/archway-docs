@@ -18,3 +18,12 @@ export type Tab = {
   title: string;
   description: string;
 };
+
+export type HeaderItem = {
+  id: number;
+  title?: string;
+};
+
+export type TableRow = {
+  title?: any;
+};
