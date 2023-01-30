@@ -1,8 +1,22 @@
+import dotenv from 'dotenv';
+import fs from 'fs';
+import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
+
+dotenv.config({
+  path: fs.existsSync(envPath) ? envPath : defaultEnvPath
+});
 
 export default defineNuxtConfig({
   alias: {
     '@vue/devtools-api': '@vue/devtools-api',
+  },
+  runtimeConfig: {
+    algolia: {
+      appId: process.env.ALGOLIA_APPLICATION_ID,
+      searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+      writeApiKey: process.env.ALGOLIA_WRITE_API_KEY
+    }
   },
   generate: {
     routes: ['/404'],
@@ -11,7 +25,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@headlessui/vue'],
   },
-  modules: [['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }]],
+  modules: ['@nuxtjs/algolia', ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }]],
   postcss: {
     plugins: {
       tailwindcss: {},
