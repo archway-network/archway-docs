@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="pr-8">
     <Listbox v-slot="{ open }" :model-value="selectedSection" @update:model-value="switchSection">
       <ListboxLabel class="block pb-2">I want to:</ListboxLabel>
       <div class="relative">
