@@ -31,6 +31,30 @@ const defaultTheme = theme => ({
       fontSize: '16px',
       lineHeight: '150%',
     },
+    'table':{
+      ':last-child':{
+        borderBottom: 'none'
+      }    },
+    'th,td':{
+      borderLeft:`1px solid ${theme('colors.gray.400')}`,
+      textAlign:'center',
+      fontSize: "16px",
+      fontWeight: "400",
+      lineHeight: "150%",
+      paddingLeft: "0px",
+      color: theme('colors.black.DEFAULT'),
+      maxWidth:'117px'
+
+    },
+    'tr':{
+      borderBottom: `1px solid ${theme('colors.gray.400')}`,
+      ':first-child':{
+        paddingLeft:'0px',
+        borderLeft:'none',
+        textAlign:'left',
+        minWidth:'156px'
+      },
+    },
     // 'ol > li': {
     //   counterIncrement: 'listStyle',
     //   display: 'flex',
