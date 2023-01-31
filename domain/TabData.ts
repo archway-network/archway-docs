@@ -1,10 +1,10 @@
 import { Tab } from '@/types';
 
 class TabData {
-  constructor(public tabInfo: Tab[]) {}
+  constructor(public id: number, public title: string, public description: string) {}
 
-  static make(attributes: { tabInfo: Tab[] }) {
-    return new TabData(attributes?.tabInfo || [{}]);
+  static make(attributes: Tab) {
+    return new TabData(attributes.id, attributes.title, attributes.description);
   }
 }
 
