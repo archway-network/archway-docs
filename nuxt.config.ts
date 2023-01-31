@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@vue/devtools-api': '@vue/devtools-api',
   },
   runtimeConfig: {
+    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
     algolia: {
       appId: process.env.ALGOLIA_APPLICATION_ID,
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
@@ -25,7 +26,28 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@headlessui/vue'],
   },
-  modules: ['@nuxtjs/algolia', ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }]],
+  modules: [
+    [
+      './modules/algoliaIndexer',
+      {
+        paths: [
+          {
+            name: '1.overview',
+            cleanName: 'overview',
+            index: 'dev_ARCHWAY_DOCS',
+            fields: ['title', 'description', 'parentSection'],
+          }
+        ]
+      }
+    ],
+    [
+      '@nuxtjs/algolia', {
+        apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+        applicationId: process.env.ALGOLIA_APPLICATION_ID
+      }
+    ], 
+    ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }]
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},
