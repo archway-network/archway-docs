@@ -1,12 +1,13 @@
 import { defineNuxtModule } from '@nuxt/kit';
 import algoliasearch from 'algoliasearch';
 import { readdir } from 'fs/promises';
-import { readFileSync, statSync } from 'fs';
+import { readFileSync, Dirent, statSync } from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
 /// @ts-ignore
-import MarkdownIt from 'markdown-it';
-/// @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
+/// @ts-ignore
+import MarkdownIt from 'markdown-it';
 
 export default defineNuxtModule({
     meta: {
@@ -19,32 +20,36 @@ export default defineNuxtModule({
     async setup(options, nuxt) {
         const mdParser = new MarkdownIt();
         nuxt.hook('build:done', async () => {               
-            // runs through the modules paths array for each content folder      
-            for (let i = 0; i < options.paths.length; i++) {                
-                const path = options.paths[i];
-                const indexName = path.index;
-                const files = (await readdir(`./content/${path.name}`, { withFileTypes: true }))
-                    .filter(file => file.isFile())
-                    .map(file => file.name);
+            const topDirs = (await readdir('./content', { withFileTypes: true }))
+                .filter(obj => obj.isDirectory())
+                .map(folder => folder.name);
+            console.log("topDirs", topDirs);
+            const indexName = nuxt.options.runtimeConfig.docIndex;
 
-                const docs = Array(files.length).fill(0);
-                for (let f = 0; f < 1; f++) { // todo: switch to files.length
-                    const filePath = `./content/${path.name}/${files[f]}`;
+            for (let i = 0; i < topDirs.length; i++) {                
+                const dirName = topDirs[i];                
+                const fileObjects = (await getFilesRecursive(`./content/${dirName}`));
+
+                const docs = Array(fileObjects.length).fill(0); // preallocate large array to avoid push
+                for (let f = 0; f < fileObjects.length; f++) {
+                    const fileObj = fileObjects[f];
+                    const filePath = fileObj.filePath;
                     const markdown = readFileSync(filePath, 'utf8');
                     const fileStats = statSync(filePath);
-                    let { data: frontMatter, content } = matter(markdown);                    
-                    const contentObj = mdParser.parse(content);
-                    
+                    let { data: frontMatter, content } = matter(markdown);
+                                        
+                    const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
                     const indexObj = {
-                        objectID: uuidv4(),
-                        title: frontMatter.title,
+                        objectID: frontMatter.objectID || uuidv4(),
+                        title: frontMatter.title || (firstHeader ? firstHeader[0] : ''),
                         description: frontMatter.description,
                         parentSection: frontMatter.parentSection,
-                        //content: contentObj,
+                        content,
                         modified: fileStats.mtimeMs,
                         viewed: 0
                     };
-                    console.log("content:", indexObj);
+                    
+                    console.log(`indexObj: path: ${fileObj.filePath}, title: ${indexObj.title}`);
                     docs[f] = indexObj;
                 }
                                               
@@ -69,3 +74,23 @@ export default defineNuxtModule({
         });
     }
 });
+
+async function getFilesRecursive(dirPath: string): Promise<{ filePath: string, fileName: string }[]> {
+    const fsObjects = (await readdir(dirPath, { withFileTypes: true }));
+    let filesOnly: { filePath: string, fileName: string }[] = [];
+
+    // this is not an error do not use forEach for larger arrays
+    for (let i = 0; i < fsObjects.length; i++) {
+        const fsObj = fsObjects[i];
+        let filePathWithFs = path.resolve(dirPath, fsObj.name);
+
+        if (fsObj.isDirectory()) {
+            // todo: need to optimize, spread is very slow
+            filesOnly = [...filesOnly, ...(await getFilesRecursive(filePathWithFs))];
+        } else {
+            filesOnly.push({ filePath: filePathWithFs, fileName: fsObj.name });
+        }
+    };
+
+    return filesOnly;
+}
