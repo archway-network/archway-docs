@@ -1,3 +1,5 @@
+import { uniqueId } from '@/utils';
+
 type SectionCategory = {
   id: string;
   category?: string;
