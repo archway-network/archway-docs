@@ -18,7 +18,8 @@ export default defineNuxtModule({
     },
     async setup(options, nuxt) {
         const mdParser = new MarkdownIt();
-        nuxt.hook('build:done', async () => {                     
+        nuxt.hook('build:done', async () => {               
+            // runs through the modules paths array for each content folder      
             for (let i = 0; i < options.paths.length; i++) {                
                 const path = options.paths[i];
                 const indexName = path.index;
@@ -54,63 +55,17 @@ export default defineNuxtModule({
                 //     return newDoc
                 // })
                 
-                const client = algoliasearch(nuxt.options.runtimeConfig.appId, nuxt.options.runtimeConfig.apiKey)
-                const index = client.initIndex(indexName)
+                // const client = algoliasearch(nuxt.options.runtimeConfig.appId, nuxt.options.runtimeConfig.apiKey)
+                // const index = client.initIndex(indexName)
         
-                // clear the index in case any documents were removed
-                await index.clearObjects()
+                // // clear the index in case any documents were removed
+                // await index.clearObjects()
                 
-                const { objectIDs } = await index.saveObjects(docs)
-                console.log(
-                    `Indexed ${objectIDs.length} records in Algolia for: ${indexName}`
-                );
+                // const { objectIDs } = await index.saveObjects(docs)
+                // console.log(
+                //     `Indexed ${objectIDs.length} records in Algolia for: ${indexName}`
+                // );
             }
         });
     }
 });
-
-// export function algoliaModule(moduleOptions = {}) {
-//     this.options.nuxtContentAlgolia = this.options.nuxtContentAlgolia || {}
-//     const config = {
-//         hook: 'generate:done',
-//         ...this.options.nuxtContentAlgolia,
-//         ...moduleOptions,
-//     }
-    
-//     if (!config.appId || !config.apiKey) {
-//         consola.error(
-//             new Error('appId and apiKey are required for nuxt-algolia module')
-//         )
-//         return
-//     }
-    
-//     this.nuxt.hook(config.hook, async (nuxt) => {
-//         const { $content } = require(`${nuxt.options.srcDir}/node_modules/@nuxt/content`)
-//         for (let i = 0; i < config.paths.length; i++) {
-//             const path = config.paths[i]
-//             const indexName = path.index || path.name
-//             const deep = path.deep;
-//             let docs = await $content(path.name, { deep }).fetch()
-            
-//             docs = docs.map((doc) => {
-//                 const newDoc = {}
-//                 path.fields.forEach((field) => (newDoc[field] = doc[field]))
-//                 newDoc.objectID = doc.slug
-//                 return newDoc
-//             })
-            
-//             const client = algoliasearch(config.appId, config.apiKey)
-//             const index = client.initIndex(indexName)
-    
-//             // clear the index in case any documents were removed
-//             await index.clearObjects()
-            
-//             const { objectIDs } = await index.saveObjects(docs)
-//             consola.success(
-//                 `Indexed ${objectIDs.length} records in Algolia for: ${indexName}`
-//             )
-//         }
-//     })
-// }
-
-//module.exports.meta = require('./package.json')
