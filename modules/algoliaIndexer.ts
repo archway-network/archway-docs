@@ -17,30 +17,33 @@ export default defineNuxtModule({
             nuxt: '^3.0.0'
         }
     },
-    async setup(options, nuxt) {
-        const mdParser = new MarkdownIt();
+    async setup(options, nuxt) {        
         nuxt.hook('build:done', async () => {               
             const topDirs = (await readdir('./content', { withFileTypes: true }))
                 .filter(obj => obj.isDirectory())
-                .map(folder => folder.name);
+                .map(folder => folder.name);            
+            const indexName = nuxt.options.runtimeConfig.algolia.docIndex;
+            const appId = nuxt.options.runtimeConfig.algolia.appId;
+            const apiKey = nuxt.options.runtimeConfig.algolia.writeApiKey;
             console.log("topDirs", topDirs);
-            const indexName = nuxt.options.runtimeConfig.docIndex;
-
+            
             for (let i = 0; i < topDirs.length; i++) {                
                 const dirName = topDirs[i];                
-                const fileObjects = (await getFilesRecursive(`./content/${dirName}`));
+                const allFileObjects = (await getFilesRecursive(`./content/${dirName}`));
+                const fileObjects = allFileObjects.filter(fsObj => fsObj.fileName != "index.md");
 
                 const docs = Array(fileObjects.length).fill(0); // preallocate large array to avoid push
                 for (let f = 0; f < fileObjects.length; f++) {
                     const fileObj = fileObjects[f];
                     const filePath = fileObj.filePath;
+                    
                     const markdown = readFileSync(filePath, 'utf8');
                     const fileStats = statSync(filePath);
                     let { data: frontMatter, content } = matter(markdown);
                                         
                     const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
                     const indexObj = {
-                        objectID: frontMatter.objectID || uuidv4(),
+                        objectID: uuidv4(), //frontMatter.objectID || uuidv4(),
                         title: frontMatter.title || (firstHeader ? firstHeader[0] : ''),
                         description: frontMatter.description,
                         parentSection: frontMatter.parentSection,
@@ -49,27 +52,20 @@ export default defineNuxtModule({
                         viewed: 0
                     };
                     
-                    console.log(`indexObj: path: ${fileObj.filePath}, title: ${indexObj.title}`);
                     docs[f] = indexObj;
                 }
-                                              
-                // docs = docs.map((doc) => {
-                //     const newDoc = {}
-                //     path.fields.forEach((field) => (newDoc[field] = doc[field]))
-                //     newDoc.objectID = doc.slug
-                //     return newDoc
-                // })
-                
-                // const client = algoliasearch(nuxt.options.runtimeConfig.appId, nuxt.options.runtimeConfig.apiKey)
-                // const index = client.initIndex(indexName)
+                console.log("objectIDs", docs.map(doc => doc.objectID));
+                const requestOptions = { headers: { "x-algolia-application-id": appId } };
+                const client = algoliasearch(appId, apiKey);
+                const index = client.initIndex(indexName);
         
-                // // clear the index in case any documents were removed
-                // await index.clearObjects()
+                // clear the index in case any documents were removed
+                await index.clearObjects(requestOptions);                
+                const { objectIDs } = await index.saveObjects(docs, requestOptions);
                 
-                // const { objectIDs } = await index.saveObjects(docs)
-                // console.log(
-                //     `Indexed ${objectIDs.length} records in Algolia for: ${indexName}`
-                // );
+                console.log(
+                    `Indexed ${objectIDs.length} records in Algolia for: ${indexName}`
+                );
             }
         });
     }

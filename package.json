@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "NODE_ENV=development nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt build && nuxt generate && copy-files-from-to",
     "start": "nuxt start",

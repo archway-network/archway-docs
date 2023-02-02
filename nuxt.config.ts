@@ -3,6 +3,7 @@ import fs from 'fs';
 import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
 
+console.log("envPath", envPath);
 dotenv.config({
   path: fs.existsSync(envPath) ? envPath : defaultEnvPath
 });
@@ -12,7 +13,7 @@ export default defineNuxtConfig({
     '@vue/devtools-api': '@vue/devtools-api',
   },
   runtimeConfig: {
-    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,    
     algolia: {
       appId: process.env.ALGOLIA_APPLICATION_ID,
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
