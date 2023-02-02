@@ -13,6 +13,13 @@ export type Article = {
   path?: string;
 };
 
+export type ArticleInput = { 
+  _id: string,
+  title: string,
+  description: string,
+  _path: string,
+};
+
 export type Tab = {
   id: number;
   title: string;

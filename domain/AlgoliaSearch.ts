@@ -55,7 +55,6 @@ export default class AlgoliaSearch {
                 ]
             });
         } else if (replica === SortingReplicas.DocsByModified) {
-            console.log("ranking modified");
             this.index.setSettings({
                 ranking: [
                     'desc(modified)'
