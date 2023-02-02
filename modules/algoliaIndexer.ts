@@ -1,14 +1,13 @@
 import { defineNuxtModule } from '@nuxt/kit';
-import algoliasearch from 'algoliasearch';
 import { readdir } from 'fs/promises';
-import { readFileSync, Dirent, statSync } from 'fs';
+import { readFileSync, statSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 /// @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
-/// @ts-ignore
-import MarkdownIt from 'markdown-it';
+import AlgoliaSearch from '../domain/AlgoliaSearch';
 
+/// *** NOTE MODULE RUNS AT build:done LIFECYCLE NOT RUNTIME ***
 export default defineNuxtModule({
     meta: {
         name: 'algoliaIndexer',
@@ -18,13 +17,14 @@ export default defineNuxtModule({
         }
     },
     async setup(options, nuxt) {        
-        nuxt.hook('build:done', async () => {               
+        nuxt.hook('build:done', async () => {                           
             const topDirs = (await readdir('./content', { withFileTypes: true }))
                 .filter(obj => obj.isDirectory())
                 .map(folder => folder.name);            
             const indexName = nuxt.options.runtimeConfig.algolia.docIndex;
             const appId = nuxt.options.runtimeConfig.algolia.appId;
             const apiKey = nuxt.options.runtimeConfig.algolia.writeApiKey;
+            const algoliaSearch = new AlgoliaSearch(appId, apiKey, indexName);
             console.log("topDirs", topDirs);
             
             for (let i = 0; i < topDirs.length; i++) {                
@@ -40,6 +40,7 @@ export default defineNuxtModule({
                     const markdown = readFileSync(filePath, 'utf8');
                     const fileStats = statSync(filePath);
                     let { data: frontMatter, content } = matter(markdown);
+                    if (!frontMatter.objectID) throw new Error("Front-matter must have a unique objectID (based on file path)!");
                                         
                     const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
                     const indexObj = {
@@ -48,23 +49,25 @@ export default defineNuxtModule({
                         description: frontMatter.description,
                         parentSection: frontMatter.parentSection,
                         content: content.trim(),
-                        modified: fileStats.mtimeMs,
-                        viewed: 0
+                        modified: fileStats.mtimeMs / 1000, // convert to Unix seconds for Algolia
+                        // viewed: 0 // this field will be added from UI upon screen load
                     };
                     
                     docs[f] = indexObj;
                 }
-                console.log("objectIDs", docs.map(doc => doc.objectID));
-                const requestOptions = { headers: { "x-algolia-application-id": appId } };
-                const client = algoliasearch(appId, apiKey);
-                const index = client.initIndex(indexName);
-        
-                // clear the index in case any documents were removed
-                const { objectIDs } = await index.saveObjects(docs, requestOptions);
                 
-                console.log(
-                    `Indexed ${objectIDs.length} records in Algolia for: ${indexName}`
-                );
+                // algoliaSearch.findObject((hit) => hit.objectID === docs[0].objectID)
+                //     .then(obj => {
+                //         console.log("findObject", docs[0].objectID);
+                //         console.log("obj", obj.object.objectID);
+                //     });
+                
+                algoliaSearch.updateObjectsPartially(docs)
+                    .then(objs => {
+                        console.log(
+                            `Indexed ${objs.objectIDs.length} records in Algolia for: ${indexName}`
+                        );
+                    });                               
             }
         });
     }
@@ -74,7 +77,7 @@ async function getFilesRecursive(dirPath: string): Promise<{ filePath: string, f
     const fsObjects = (await readdir(dirPath, { withFileTypes: true }));
     let filesOnly: { filePath: string, fileName: string }[] = [];
 
-    // this is not an error do not use forEach for larger arrays
+    // use of for let is not an error do not use forEach for larger arrays
     for (let i = 0; i < fsObjects.length; i++) {
         const fsObj = fsObjects[i];
         let filePathWithFs = path.resolve(dirPath, fsObj.name);
