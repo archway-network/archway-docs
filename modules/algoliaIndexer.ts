@@ -43,11 +43,11 @@ export default defineNuxtModule({
                                         
                     const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
                     const indexObj = {
-                        objectID: uuidv4(), //frontMatter.objectID || uuidv4(),
-                        title: frontMatter.title || (firstHeader ? firstHeader[0] : ''),
+                        objectID: frontMatter.objectID || uuidv4(),
+                        title: frontMatter.title || (firstHeader ? firstHeader[0].trim() : ''),
                         description: frontMatter.description,
                         parentSection: frontMatter.parentSection,
-                        content,
+                        content: content.trim(),
                         modified: fileStats.mtimeMs,
                         viewed: 0
                     };
@@ -60,7 +60,6 @@ export default defineNuxtModule({
                 const index = client.initIndex(indexName);
         
                 // clear the index in case any documents were removed
-                await index.clearObjects(requestOptions);                
                 const { objectIDs } = await index.saveObjects(docs, requestOptions);
                 
                 console.log(
