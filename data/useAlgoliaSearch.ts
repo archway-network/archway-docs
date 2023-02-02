@@ -6,7 +6,7 @@ import { SortingReplicas } from '~~/domain/AlgoliaSearch';
 export const useAlgoliaSearch: () => Promise<{
   findObject: (searchPredicate: (hit: any) => boolean) => Promise<any>,
   updateObjectsPartially: (objs: any[], createIfNotExists?: boolean) => Promise<any>,
-  search: (query: string) => Promise<any>
+  search: (query: string, sortingReplica: SortingReplicas) => Promise<any>
 }> = async () => {
     const { algolia } = useRuntimeConfig();
     const algoliaSearch = new AlgoliaSearch(algolia.appId, algolia.writeApiKey, algolia.docIndex);
@@ -19,8 +19,8 @@ export const useAlgoliaSearch: () => Promise<{
         return await algoliaSearch.updateObjectsPartially(objs, createIfNotExists);
     }
 
-    const search = async (query: string) => {
-        return await algoliaSearch.search(query, SortingReplicas.DocsByModified);
+    const search = async (query: string, sortingReplica: SortingReplicas) => {
+        return await algoliaSearch.search(query, sortingReplica);
     }
 
   return { findObject, updateObjectsPartially, search };

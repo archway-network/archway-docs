@@ -2,7 +2,8 @@ import algoliasearch, { SearchClient, SearchIndex } from 'algoliasearch';
 
 export enum SortingReplicas {
     Main = 'Main',
-    DocsByModified = 'docs_by_modified'   
+    DocsByModified = 'docs_by_modified',
+    DocsByViewed = 'docs_by_viewed'
 };
 
 export default class AlgoliaSearch {
@@ -18,7 +19,8 @@ export default class AlgoliaSearch {
         this.index = this.client.initIndex(this.mainIndexName);
         this.index.setSettings({
             replicas: [
-                SortingReplicas.DocsByModified
+                SortingReplicas.DocsByModified,
+                SortingReplicas.DocsByViewed
             ]
         });
     }
@@ -44,7 +46,21 @@ export default class AlgoliaSearch {
         return await this.index.search(query, this.requestOptions);
     }
 
-    private resetIndexForSorting(replica: SortingReplicas) {        
+    private resetIndexForSorting(replica: SortingReplicas) {
         this.index = this.client.initIndex(replica === SortingReplicas.Main ? this.mainIndexName : replica);
+        if (replica === SortingReplicas.DocsByViewed) {
+            this.index.setSettings({
+                ranking: [
+                    'desc(viewed)'
+                ]
+            });
+        } else if (replica === SortingReplicas.DocsByModified) {
+            console.log("ranking modified");
+            this.index.setSettings({
+                ranking: [
+                    'desc(modified)'
+                ]
+            });
+        }
     }
 }
