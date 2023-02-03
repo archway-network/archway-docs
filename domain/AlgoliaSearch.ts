@@ -35,7 +35,7 @@ export default class AlgoliaSearch {
     }
 
     async updateObjectsPartially(objs: any[], createIfNotExists: boolean = true) {
-        const requestOptions = this.requestOptions;
+        const requestOptions = { ...this.requestOptions };
         requestOptions.createIfNotExists = createIfNotExists;
         return await this.index.partialUpdateObjects(objs, this.requestOptions);
     }

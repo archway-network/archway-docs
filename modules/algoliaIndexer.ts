@@ -55,13 +55,7 @@ export default defineNuxtModule({
                     
                     docs[f] = indexObj;
                 }
-                
-                // algoliaSearch.findObject((hit) => hit.objectID === docs[0].objectID)
-                //     .then(obj => {
-                //         console.log("findObject", docs[0].objectID);
-                //         console.log("obj", obj.object.objectID);
-                //     });
-                
+                                
                 algoliaSearch.updateObjectsPartially(docs)
                     .then(objs => {
                         console.log(
