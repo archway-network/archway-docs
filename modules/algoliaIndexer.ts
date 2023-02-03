@@ -3,9 +3,17 @@ import { readdir } from 'fs/promises';
 import { readFileSync, statSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-/// @ts-ignore
-import { v4 as uuidv4 } from 'uuid';
 import AlgoliaSearch from '../domain/AlgoliaSearch';
+
+type AlgoliaArticleIndex = {
+    objectID: string,
+    title: string,
+    description: string,
+    parentSection: string,
+    content: string,
+    modified: number, // Unix seconds
+    viewed?: number // this field is here only to document complete indexing object
+};
 
 /// *** NOTE MODULE RUNS AT build:done LIFECYCLE NOT RUNTIME ***
 export default defineNuxtModule({
@@ -43,13 +51,13 @@ export default defineNuxtModule({
                     if (!frontMatter.objectID) throw new Error("Front-matter must have a unique objectID (based on file path)!");
                                         
                     const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
-                    const indexObj = {
-                        objectID: frontMatter.objectID || uuidv4(),
+                    const indexObj: AlgoliaArticleIndex = {
+                        objectID: frontMatter.objectID,
                         title: frontMatter.title || (firstHeader ? firstHeader[0].trim() : ''),
                         description: frontMatter.description,
                         parentSection: frontMatter.parentSection,
                         content: content.trim(),
-                        modified: fileStats.mtimeMs / 1000, // convert to Unix seconds for Algolia
+                        modified: convertMsToUnixSeconds(fileStats.mtimeMs),
                         // viewed: 0 // this field will be added from UI upon screen load
                     };
                     
@@ -66,6 +74,10 @@ export default defineNuxtModule({
         });
     }
 });
+
+function convertMsToUnixSeconds(ms: number) {
+    return ms / 1000;
+}
 
 async function getFilesRecursive(dirPath: string): Promise<{ filePath: string, fileName: string }[]> {
     const fsObjects = (await readdir(dirPath, { withFileTypes: true }));

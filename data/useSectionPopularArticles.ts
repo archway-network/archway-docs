@@ -10,8 +10,7 @@ export const useSectionPopularArticles: (section?: string) => Promise<{
   isLoading: ComputedRef<boolean>;
 }> = async (section?: string) => {
   const searchAlgolia = await useAlgoliaSearch();
-  const asyncKey = section ? `most-popular-articles-${section}` : 'most-popular-articles';
-  // const { data, pending } = await useAsyncData(cacheKey, () => {});
+  const asyncKey = section ? `most-popular-articles-${section}` : 'most-popular-articles';  
   const data = ref<ArticleInput[]>([]);
   const pending = ref(false);
 
@@ -41,5 +40,5 @@ export const useSectionPopularArticles: (section?: string) => Promise<{
     return (data.value || []).map(item => Article.make(item));
   });
 
-  return { articles, refresh, isLoading: computed(() => false) };
+  return { articles, refresh, isLoading: computed(() => pending.value) };
 };
