@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { Link } from '@/components/Ui';
   import { PropType, ref } from 'vue';
+
+  import { Link } from '@/components/Ui';
   import { PageTOC } from '@/domain';
   import TocItem from '@/components/Toc/TocItem.vue';
 
@@ -16,17 +17,20 @@
 <template>
   <div
     :key="selectedItemID"
-    :class="{
-      'border-orange': selectedSection === selectedItemID,
-      'pl-[24px]': selectedItem.children,
-    }"
+    :class="[
+      `toc-item ${props.selectedItem.id}`,
+      {
+        // 'border-orange': selectedSection === selectedItemID,
+        'pl-[24px]': selectedItem.children,
+      },
+    ]"
     class="border-l"
   >
     <div :class="{ 'pl-[24px]': !mainSection }">
       <Link :href="selectedItemID"
         ><p
           :class="{
-            'text-orange': selectedSection === selectedItemID,
+            // 'text-orange': selectedSection === selectedItemID,
             'pl-[24px]': !selectedItem.children,
             'text-black-light': selectedSection !== selectedItemID,
           }"
@@ -39,3 +43,12 @@
   </div>
   <TocItem :key="selectedItemID" v-for="item in selectedItem.children" :selectedItem="item" :selectedSection="selectedSection" />
 </template>
+
+<style scoped>
+  .toc-item.selected {
+    @apply border-orange;
+  }
+  .toc-item.selected div a p {
+    @apply text-orange;
+  }
+</style>
