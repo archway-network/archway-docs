@@ -65,7 +65,7 @@ export default {
                       <div>
                         <div className="flex !flex-col justify-start space-y-2">
                           <div className="pt-4">
-                            <h1 className="text-lg">
+                            <h1 className="text-lg font-bold">
                               {`${rootDir.charAt(0).toUpperCase()}${rootDir.slice(1)}`}
                             </h1>
                           </div >
