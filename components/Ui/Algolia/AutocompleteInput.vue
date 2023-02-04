@@ -22,29 +22,14 @@ export default {
       btn[0].click();
     });
     const { indexName, algoliaRef, articles } = props;
-    
+    let lastRootDir = '';
+
     onMounted(() => {
       autocomplete({
         container: '#autocomplete',
         openOnFocus: true,
         detachedMediaQuery: '',
-        navigator: {
-          navigate({ itemUrl }) {
-            window.location.assign(itemUrl);
-          },
-          navigateNewTab({ itemUrl }) {
-            const windowReference = window.open(itemUrl, '_blank', 'noopener');
-
-            if (windowReference) {
-              windowReference.focus();
-            }
-          },
-          navigateNewWindow({ itemUrl }) {
-            window.open(itemUrl, '_blank', 'noopener');
-          },
-        },
         getSources({ query }) {
-          console.log("index ref", indexName, algoliaRef);
           return [
             {
               sourceId: 'articles',
@@ -70,26 +55,64 @@ export default {
               templates: {
                 item({ item, components }) {                  
                   const path = articles.find(article => article.objectID === item.objectID)?._path;
-                  console.log("path", path);
-                  return (
-                    <div className="aa-ItemWrapper">
-                      <div className="aa-ItemContent">
-                        <div className="aa-ItemContentBody">
-                          <a href={path}>
-                            <div className="aa-ItemContentTitle">
-                              <components.Snippet hit={item} attribute="title" />
+                  const rootDir = item.objectID.split('|')[0];
+                  console.log("rootDir", rootDir);
+
+                  if (!lastRootDir || lastRootDir != rootDir) { // start of new category section
+                    lastRootDir = rootDir;
+                    return (
+                      <div>
+                        <div className="flex !flex-col justify-start space-y-2">
+                          <div className="pt-4">
+                            <h1 className="text-lg">
+                              {`${rootDir.charAt(0).toUpperCase()}${rootDir.slice(1)}`}
+                            </h1>
+                          </div >
+                          <div className="aa-ItemWrapper">
+                            <div className="aa-ItemContent">
+                              <div className="pl-4">
+                                <div className="aa-ItemContentBody">
+                                  <a href={path}>
+                                    <div className="aa-ItemContentTitle">
+                                      <components.Snippet hit={item} attribute="title" />
+                                    </div>
+                                    <div className="aa-ItemContentDescription">
+                                      <components.Snippet
+                                        hit={item}
+                                        attribute="description"
+                                      />
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
                             </div>
-                            <div className="aa-ItemContentDescription">
-                              <components.Snippet
-                                hit={item}
-                                attribute="description"
-                              />
-                            </div>
-                          </a>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
+                    );
+                  } else {
+                    return (
+                      <div className="aa-ItemWrapper">
+                        <div className="aa-ItemContent">
+                          <div className="pl-4">
+                            <div className="aa-ItemContentBody">
+                              <a href={path}>
+                                <div className="aa-ItemContentTitle">
+                                  <components.Snippet hit={item} attribute="title" />
+                                </div>
+                                <div className="aa-ItemContentDescription">
+                                  <components.Snippet
+                                    hit={item}
+                                    attribute="description"
+                                  />
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
                 },
               },
             },
