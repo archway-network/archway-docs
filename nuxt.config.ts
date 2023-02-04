@@ -3,7 +3,7 @@ import fs from 'fs';
 import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
 
-console.log("envPath", envPath);
+console.log("envPath", fs.existsSync(envPath) ? envPath : defaultEnvPath);
 dotenv.config({
   path: fs.existsSync(envPath) ? envPath : defaultEnvPath
 });
@@ -28,13 +28,21 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@headlessui/vue'],
   },
+  algolia: {
+    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+    applicationId: process.env.ALGOLIA_APPLICATION_ID,
+    instantSearch: {
+      theme: 'algolia',
+    }
+  },
   modules: [
+    '@nuxt/ui',
     [
       './modules/algoliaIndexer'
     ],
     [
       '@nuxtjs/algolia', {
-        apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+        apiKey: process.env.ALGOLIA_WRITE_API_KEY,
         applicationId: process.env.ALGOLIA_APPLICATION_ID
       }
     ], 

@@ -18,6 +18,9 @@ export default class AlgoliaSearch {
         this.mainIndexName = indexName;        
         this.index = this.client.initIndex(this.mainIndexName);
         this.index.setSettings({
+            attributesForFaceting: [
+                'searchable(parentSection)'
+            ],
             replicas: [
                 SortingReplicas.DocsByModified,
                 SortingReplicas.DocsByViewed

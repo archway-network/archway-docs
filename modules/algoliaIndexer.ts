@@ -4,16 +4,7 @@ import { readFileSync, statSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import AlgoliaSearch from '../domain/AlgoliaSearch';
-
-type AlgoliaArticleIndex = {
-    objectID: string,
-    title: string,
-    description: string,
-    parentSection: string,
-    content: string,
-    modified: number, // Unix seconds
-    viewed?: number // this field is here only to document complete indexing object
-};
+import { AlgoliaArticleIndex } from '@/types';
 
 /// *** NOTE MODULE RUNS AT build:done LIFECYCLE NOT RUNTIME ***
 export default defineNuxtModule({

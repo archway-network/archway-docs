@@ -1,4 +1,3 @@
-import { computed, ref, ComputedRef, Ref } from 'vue';
 import { AlgoliaSearch } from '@/domain';
 import { useRuntimeConfig } from '#app';
 import { SortingReplicas } from '~~/domain/AlgoliaSearch';
