@@ -20,7 +20,6 @@
     :class="[
       `toc-item ${props.selectedItem.id}`,
       {
-        // 'border-orange': selectedSection === selectedItemID,
         'pl-[24px]': selectedItem.children,
       },
     ]"
@@ -30,7 +29,6 @@
       <Link :href="selectedItemID"
         ><p
           :class="{
-            // 'text-orange': selectedSection === selectedItemID,
             'pl-[24px]': !selectedItem.children,
             'text-black-light': selectedSection !== selectedItemID,
           }"
@@ -45,6 +43,7 @@
 </template>
 
 <style scoped>
+  /* When the selected class is added by the gsap scroll trigger, apply orange colors */
   .toc-item.selected {
     @apply border-orange;
   }

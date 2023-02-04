@@ -6,7 +6,7 @@
 <template>
   <div>
     <Header />
-    <main class="flex-1 h-full container flex pt-[96px]">
+    <main id="main-container" class="flex-1 h-full container flex pt-[96px]">
       <div
         class="hidden xl:block xl:sticky xl:top-24 xl:h-[calc(100vh-6rem)] overflow-y-auto w-[304px] flex-shrink-0 border-r border-gray-400 py-8"
       >
@@ -29,7 +29,10 @@
 </template>
 
 <style scoped>
-  .page-content :deep() h2,
+  /* Add margin to intrapage links moving scroll to content titles */
+  .page-content :deep() h2 {
+    scroll-margin-top: 3.5em;
+  }
   .page-content :deep() h3 {
     scroll-margin-top: 7em;
   }
