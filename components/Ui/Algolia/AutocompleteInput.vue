@@ -23,6 +23,21 @@ export default {
         container: '#autocomplete',
         openOnFocus: true,
         detachedMediaQuery: '',
+        navigator: {
+          navigate({ itemUrl }) {
+            window.location.assign(itemUrl);
+          },
+          navigateNewTab({ itemUrl }) {
+            const windowReference = window.open(itemUrl, '_blank', 'noopener');
+
+            if (windowReference) {
+              windowReference.focus();
+            }
+          },
+          navigateNewWindow({ itemUrl }) {
+            window.open(itemUrl, '_blank', 'noopener');
+          },
+        },
         getSources({ query }) {
           console.log("index ref", indexName, algoliaRef);
           return [
@@ -79,10 +94,16 @@ export default {
 };
 </script>
 
-<style>
+<style>  
   .aa-DetachedSearchButton {
     background-color: rgb(247, 247, 247);
     border: 0;
-    border-radius: 12px;
+    border-radius: 12px;    
+  }
+  .aa-DetachedSearchButtonIcon {
+    display: none;
+  }
+  .aa-DetachedSearchButtonPlaceholder {
+    padding-left: 10px;
   }
 </style>
