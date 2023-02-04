@@ -1,5 +1,5 @@
 <template>
-  <div className="container">
+  <div className="w-40">
     <div id="autocomplete" />
   </div>
 </template>
@@ -78,3 +78,11 @@ export default {
   },
 };
 </script>
+
+<style>
+  .aa-DetachedSearchButton {
+    background-color: rgb(247, 247, 247);
+    border: 0;
+    border-radius: 12px;
+  }
+</style>

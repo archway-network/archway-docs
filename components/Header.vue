@@ -12,7 +12,7 @@
     <div class="fixed inset-x-0 bg-white dark:bg-black z-50">
       <div class="container">
         <Popover as="header" ref="header" :key="route.path" class="relative border-b border-gray-400">
-          <div class="h-24 flex items-start py-4 lg:space-x-10">
+          <div class="h-24 flex items-center py-4 lg:space-x-10">
             <div class="flex justify-start">
               <NuxtLink to="/">
                 <span class="sr-only">Archway</span>
@@ -24,13 +24,15 @@
               </NuxtLink>
             </div>
             <div class="grow"></div>
-            <div class="flex-1 hidden lg:flex justify-end items-start space-x-6">
+            <div class="flex-1 hidden lg:flex justify-end items-center space-x-8">
               <Link href="https://github.com/archway-network" :social="true">
                 <BrandGithub class="flex-shrink-0 w-6 h-6 text-gray-700" aria-hidden="true" />
               </Link>
-              <SwitchColorMode />
+              <SwitchColorMode />       
               <AutocompleteSearch />
-              <Link href="https://archway.io" class="min-w-md">Back to Archway</Link>
+              <div>
+                <Link href="https://archway.io" class="min-w-md">Back to Archway</Link>
+              </div>
             </div>
             <div class="flex-1 flex justify-end items-center lg:hidden">
               <PopoverButton
