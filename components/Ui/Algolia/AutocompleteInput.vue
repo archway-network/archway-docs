@@ -34,7 +34,9 @@ export default {
             {
               sourceId: 'articles',
               getItemUrl({ item }) {
-                return item.url;
+                const path = articles.find(article => article.objectID === item.objectID)?._path;
+                
+                return path;
               },
               getItems() {
                 return getAlgoliaResults({
@@ -56,7 +58,6 @@ export default {
                 item({ item, components }) {                  
                   const path = articles.find(article => article.objectID === item.objectID)?._path;
                   const rootDir = item.objectID.split('|')[0];
-                  console.log("rootDir", rootDir);
 
                   if (!lastRootDir || lastRootDir != rootDir) { // start of new category section
                     lastRootDir = rootDir;
