@@ -20,6 +20,7 @@ export type Article = {
 };
 
 export type ArticleInput = { 
+  objectID?: string,
   _id: string,
   title: string,
   description: string,

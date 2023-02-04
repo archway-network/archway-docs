@@ -12,29 +12,32 @@ import '@algolia/autocomplete-theme-classic';
 export default {
   props: {
     indexName: { type: String, required: true },
-    algoliaRef: { type: Object, required: true }
+    algoliaRef: { type: Object, required: true },
+    articles: { type: Array, required: true }
   },
   setup(props) {
+    const { indexName, algoliaRef, articles } = props;
+    
     onMounted(() => {
       autocomplete({
         container: '#autocomplete',
         openOnFocus: true,
         detachedMediaQuery: '',
         getSources({ query }) {
-          console.log("index ref", props.indexName, props.algoliaRef);
+          console.log("index ref", indexName, algoliaRef);
           return [
             {
               sourceId: 'articles',
               getItems() {
                 return getAlgoliaResults({
-                  searchClient: props.algoliaRef,
+                  searchClient: algoliaRef,
                   queries: [
                     {
-                      indexName: props.indexName,
+                      indexName: indexName,
                       query,
                       params: {
                         hitsPerPage: 10,
-                        attributesToSnippet: ['name:10', 'description:35'],
+                        attributesToSnippet: ['title:10', 'description:35'],
                         snippetEllipsisText: '…',
                       },
                     },
@@ -42,20 +45,24 @@ export default {
                 });
               },
               templates: {
-                item({ item, components }) {
+                item({ item, components }) {                  
+                  const path = articles.find(article => article.objectID === item.objectID)?._path;
+                  console.log("path", path);
                   return (
                     <div className="aa-ItemWrapper">
                       <div className="aa-ItemContent">
                         <div className="aa-ItemContentBody">
-                          <div className="aa-ItemContentTitle">
-                            <components.Snippet hit={item} attribute="title" />
-                          </div>
-                          <div className="aa-ItemContentDescription">
-                            <components.Snippet
-                              hit={item}
-                              attribute="description"
-                            />
-                          </div>
+                          <a href={path}>
+                            <div className="aa-ItemContentTitle">
+                              <components.Snippet hit={item} attribute="title" />
+                            </div>
+                            <div className="aa-ItemContentDescription">
+                              <components.Snippet
+                                hit={item}
+                                attribute="description"
+                              />
+                            </div>
+                          </a>
                         </div>
                       </div>
                     </div>
