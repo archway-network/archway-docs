@@ -7,6 +7,7 @@
 <script lang="jsx" allowJs>
 import { h, Fragment, render, onMounted } from 'vue';
 import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
+import { onKeyStroke } from '@vueuse/core';
 import '@algolia/autocomplete-theme-classic';
 
 export default {
@@ -16,6 +17,10 @@ export default {
     articles: { type: Array, required: true }
   },
   setup(props) {
+    onKeyStroke(['Command', 'k'], (e) => {
+      const btn = document.getElementsByClassName('aa-DetachedSearchButton');
+      btn[0].click();
+    });
     const { indexName, algoliaRef, articles } = props;
     
     onMounted(() => {
@@ -43,6 +48,9 @@ export default {
           return [
             {
               sourceId: 'articles',
+              getItemUrl({ item }) {
+                return item.url;
+              },
               getItems() {
                 return getAlgoliaResults({
                   searchClient: algoliaRef,
