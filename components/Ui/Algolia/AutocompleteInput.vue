@@ -7,6 +7,7 @@
   import { createWidgetMixin } from 'vue-instantsearch/vue3/es';
   import { connectSearchBox } from 'instantsearch.js/es/connectors';
   import { autocomplete } from '@algolia/autocomplete-js';
+  import { createLocalStorageRecentSearchesPlugin } from '@algolia/autocomplete-plugin-recent-searches';
   import '@algolia/autocomplete-theme-classic';
   
   export default {
@@ -30,12 +31,27 @@
         }));
       }
 
+      const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
+        key: 'recentSearch',
+        limit: 3,
+        transformSource({ source }) {
+          return {
+            ...source,
+            onSelect({ item }) {
+              setInstantSearchUiState({ query: item.label });
+            },
+          };
+        },
+      });
+
       const initialState = instantSearchInstance.mainIndex.getHelper()?.state || {};
 
       this.autocompleteInstance = autocomplete({
         container: this.$refs.autocompleteContainer,
         placeholder: 'Search',
         detachedMediaQuery: '',
+        openOnFocus: '',
+        plugins: [recentSearchesPlugin],
         initialState: { query: initialState.query || '' },
         onSubmit({ state }) {
           setInstantSearchUiState({ query: state.query });
