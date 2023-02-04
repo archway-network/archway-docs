@@ -1,76 +1,73 @@
 <template>
-  <div ref="autocompleteContainer"></div>
+  <div className="container">
+    <div id="autocomplete" />
+  </div>
 </template>
 
 <script lang="jsx" allowJs>
-  import { h as createElement, Fragment, render } from 'vue';
-  import { createWidgetMixin } from 'vue-instantsearch/vue3/es';
-  import { connectSearchBox } from 'instantsearch.js/es/connectors';
-  import { autocomplete } from '@algolia/autocomplete-js';
-  import { createLocalStorageRecentSearchesPlugin } from '@algolia/autocomplete-plugin-recent-searches';
-  import '@algolia/autocomplete-theme-classic';
-  
-  export default {
-    props: {
-      indexName: { type: String, required: true }
-    },
-    mixins: [createWidgetMixin({ connector: connectSearchBox })],
-    mounted() {
-      const { instantSearchInstance, $props } = this;
-      console.log("indexName", $props.indexName);
+import { h, Fragment, render, onMounted } from 'vue';
+import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
+import '@algolia/autocomplete-theme-classic';
 
-      function setInstantSearchUiState({ query }) {
-        instantSearchInstance.setUiState((uiState) => ({
-          ...uiState,
-          [$props.indexName]: {
-            ...uiState[$props.indexName],
-            // We reset the page when the search state changes
-            page: 1,
-            query,
-          },
-        }));
-      }
-
-      const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
-        key: 'recentSearch',
-        limit: 3,
-        transformSource({ source }) {
-          return {
-            ...source,
-            onSelect({ item }) {
-              setInstantSearchUiState({ query: item.label });
-            },
-          };
-        },
-      });
-
-      const initialState = instantSearchInstance.mainIndex.getHelper()?.state || {};
-
-      this.autocompleteInstance = autocomplete({
-        container: this.$refs.autocompleteContainer,
-        placeholder: 'Search',
+export default {
+  props: {
+    indexName: { type: String, required: true },
+    algoliaRef: { type: Object, required: true }
+  },
+  setup(props) {
+    onMounted(() => {
+      autocomplete({
+        container: '#autocomplete',
+        openOnFocus: true,
         detachedMediaQuery: '',
-        openOnFocus: '',
-        plugins: [recentSearchesPlugin],
-        initialState: { query: initialState.query || '' },
-        onSubmit({ state }) {
-          setInstantSearchUiState({ query: state.query });
+        getSources({ query }) {
+          console.log("index ref", props.indexName, props.algoliaRef);
+          return [
+            {
+              sourceId: 'articles',
+              getItems() {
+                return getAlgoliaResults({
+                  searchClient: props.algoliaRef,
+                  queries: [
+                    {
+                      indexName: props.indexName,
+                      query,
+                      params: {
+                        hitsPerPage: 10,
+                        attributesToSnippet: ['name:10', 'description:35'],
+                        snippetEllipsisText: '…',
+                      },
+                    },
+                  ],
+                });
+              },
+              templates: {
+                item({ item, components }) {
+                  return (
+                    <div className="aa-ItemWrapper">
+                      <div className="aa-ItemContent">
+                        <div className="aa-ItemContentBody">
+                          <div className="aa-ItemContentTitle">
+                            <components.Snippet hit={item} attribute="title" />
+                          </div>
+                          <div className="aa-ItemContentDescription">
+                            <components.Snippet
+                              hit={item}
+                              attribute="description"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                },
+              },
+            },
+          ];
         },
-        onReset() {
-          setInstantSearchUiState({ query: '' });
-        },
-        onStateChange({ prevState, state }) {
-          if (prevState.query !== state.query) {
-            setInstantSearchUiState({ query: state.query });
-          }
-        },
-        // Use Vue implementation of createElement and Fragment
-        // instead of those provided with Autocomplete
-        renderer: { createElement, Fragment, render },
+        renderer: { createElement: h, Fragment, render },
       });
-    },
-    beforeUnmount() {
-      this.autocompleteInstance?.destroy();
-    }
-  };
+    });
+  },
+};
 </script>
