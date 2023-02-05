@@ -1,6 +1,10 @@
 <template>
-  <div className="w-40">
-    <div id="autocomplete" />
+  <div class="auto-container min-w-38 bg-[#F7F7F7] rounded-2xl">
+    <div id="autocomplete"></div>
+    <div class="keys">
+      <kbd class="key">⌘</kbd>
+      <kbd class="key">K</kbd>
+    </div>
   </div>
 </template>
 
@@ -127,10 +131,40 @@ export default {
 </script>
 
 <style>  
-  .aa-DetachedSearchButton {
+  .keys {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;    
+    margin-right: 6px !important;
+  }
+  .key {
+    align-items: center!important;
+    background-image: none!important;
+    border: 1px solid #a5a5a5!important;
+    border-radius: 0.5rem!important;
+    display: flex!important;
+    font-size: .875rem!important;
+    height: 1.5rem!important;
+    justify-content: center!important;
+    line-height: 1.25rem!important;
+    margin: 0!important;
+    padding: 0!important;
+    top: auto!important;
+    width: 1.5rem!important;
+    color: rgba(128,126,162,0.6);    
+    margin-right: 6px !important;
+  }
+  .auto-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 4px;
+  }
+  .aa-DetachedSearchButton {    
     background-color: rgb(247, 247, 247);
-    border: 0;
-    border-radius: 12px;    
+    border: 0;    
   }
   .aa-DetachedSearchButtonIcon {
     display: none;
