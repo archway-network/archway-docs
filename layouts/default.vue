@@ -1,6 +1,96 @@
 <script lang="ts" setup>
+  import { gsap, ScrollTrigger } from 'gsap/all';
+
   import { PageBreadcrumbs, PageTOC } from '@/components/Ui';
   import Navigation from '@/components/Navigation.vue';
+
+  const { toc, displayTOC } = useTOC();
+  const route = useRoute();
+  const { page, isParentSection } = useCurrentPage();
+
+  const currentTitle = ref<string>(page.value.title);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onMounted(() => {
+    setTimeout(() => {
+      refreshAnimation();
+    }, 400);
+  });
+
+  watch(
+    () => page.value.title,
+    () => {
+      currentTitle.value = page.value.title;
+    }
+  );
+
+  watch(
+    () => JSON.stringify(toc?.value?.links),
+    () => refreshAnimation()
+  );
+
+  const refreshAnimation = () => {
+    removeScrollTriggers();
+
+    if (!displayTOC) return;
+
+    const marginPageHeader = 96; // 96px for the fixed header at the top
+    const marginTop = 20; // 26px for scroll trigger to leave some additional margin
+
+    // Get the list of ids
+    const ids: string[] = [];
+    for (const item of toc.value.links) {
+      ids.push(item.id);
+      if (item.children) {
+        for (const children of item.children) {
+          ids.push(children.id);
+        }
+      }
+    }
+
+    // End of component
+    let lastEnd = gsap.utils.toArray('#main-container')?.[0]?.getBoundingClientRect().bottom;
+
+    // Go from last to first, saving the start of the each element to use as the next's end
+    ids.forEach((tocId, index) => {
+      // Set the .selected class on scroll enter
+      const handleEnter = (element: any) => {
+        gsap.utils.toArray(`.toc-item.${tocId}`)?.forEach((item: any) => item.classList.add('selected'));
+        currentTitle.value = element?.trigger?.innerText || currentTitle.value;
+      };
+      // Remove the .selected class on leave
+      const handleLeave = () => gsap.utils.toArray(`.toc-item.${tocId}`)?.forEach((item: any) => item.classList.remove('selected'));
+      ScrollTrigger.create({
+        trigger: `#${tocId}`,
+        // Area starts at top of header with some margin
+        start: (instance: any) => Math.max(instance.trigger?.getBoundingClientRect().top - marginPageHeader - marginTop, 0) || undefined,
+        // Area ends at top of next header (or end of the component)
+        end: () =>
+          index < ids.length - 1
+            ? gsap.utils.toArray(`#${ids[index + 1]}`)?.[0]?.getBoundingClientRect().top - marginPageHeader - marginTop - 1 || lastEnd
+            : lastEnd,
+        onEnter: handleEnter,
+        onEnterBack: handleEnter,
+        onLeave: handleLeave,
+        onLeaveBack: handleLeave,
+      });
+    });
+  };
+
+  const handleToggleMobileToc = () => {
+    ScrollTrigger.refresh();
+  };
+
+  const removeScrollTriggers = () => {
+    ScrollTrigger.getAll().forEach((instance: any) => {
+      instance.kill();
+    });
+  };
+
+  onUnmounted(() => {
+    removeScrollTriggers();
+  });
 </script>
 
 <template>
@@ -18,13 +108,16 @@
           <slot />
         </div>
       </div>
-      <div class="sticky top-24 py-8 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-visible">
+      <div class="hidden lg:block sticky top-24 py-8 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-visible">
         <ClientOnly>
           <PageTOC />
         </ClientOnly>
       </div>
     </main>
     <Footer />
+    <div v-if="displayTOC" class="sm:hidden fixed inset-x-0 bottom-0 z-50">
+      <UiPageMobileTOC @toggle-mobile-top="handleToggleMobileToc" :title="currentTitle" />
+    </div>
   </div>
 </template>
 
