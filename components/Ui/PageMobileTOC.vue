@@ -15,7 +15,7 @@
         <DisclosureButton @click="$emit('toggle-mobile-toc')" class="p-4 flex w-full justify-between items-center text-left">
           <span class="px-2">{{ title }}</span>
           <UiButtonsIconButton>
-            <UiIconsChevronDownIcon :class="{ 'rotate-180 transform': open }" class="h-5 w-5 text-purple-500" />
+            <UiIconsChevronDownIcon :class="{ 'rotate-180 transform': open }" class="h-5 w-5" />
           </UiButtonsIconButton>
         </DisclosureButton>
         <DisclosurePanel class="px-6 py-4 border-t border-gray-100 max-h-[50vh] overflow-y-auto">

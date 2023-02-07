@@ -11,7 +11,7 @@
 
 <template>
   <button @click.prevent="toggleDarkMode">
-    <DarkModeIcon class="w-6 h-6 text-gray-700" v-if="isDark" />
+    <DarkModeIcon class="w-6 h-6 text-gray-300" v-if="isDark" />
     <LightModeIcon class="w-6 h-6 text-gray-700" v-if="!isDark" />
   </button>
 </template>

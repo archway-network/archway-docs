@@ -5,8 +5,7 @@
   import Navigation from '@/components/Navigation.vue';
 
   const { toc, displayTOC } = useTOC();
-  const route = useRoute();
-  const { page, isParentSection } = useCurrentPage();
+  const { page } = useCurrentPage();
 
   const currentTitle = ref<string>(page.value.title);
 
@@ -27,7 +26,11 @@
 
   watch(
     () => JSON.stringify(toc?.value?.links),
-    () => refreshAnimation()
+    () => {
+      setTimeout(() => {
+        refreshAnimation();
+      }, 400);
+    }
   );
 
   const refreshAnimation = () => {
@@ -98,9 +101,9 @@
     <Header />
     <main id="main-container" class="flex-1 h-full container flex pt-[96px]">
       <div
-        class="hidden xl:block xl:sticky xl:top-24 xl:h-[calc(100vh-6rem)] overflow-y-auto w-[304px] flex-shrink-0 border-r border-gray-400 py-8"
+        class="hidden lg:block lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] overflow-y-auto w-[304px] flex-shrink-0 border-r border-gray-400 py-8"
       >
-        <Navigation />
+        <Navigation class="pr-8" />
       </div>
       <div class="flex-1 p-8">
         <div class="page-content flex-1 space-y-8">
