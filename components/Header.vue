@@ -1,9 +1,13 @@
 <script setup>
-  import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue';
-  import { Link, SwitchColorMode, ArchwayBrand, ArchwayBrandAndLogo, ArchwayLogo, CloseIcon, MenuIcon, SearchIcon } from '@/components/Ui';
+  import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
+  import { Link, SwitchColorMode, ArchwayBrand, ArchwayLogo, CloseIcon, MenuIcon, SearchIcon } from '@/components/Ui';
+  import AutocompleteSearch from '@/components/Ui/Algolia/AutocompleteSearch.vue';
   import BrandGithub from '@/components/Ui/Brands/Github.vue';
 
-  const route = useRoute();
+  const openSearch = () => {
+    const btn = document.getElementsByClassName('aa-DetachedSearchButton');
+    btn[0].click();
+  };
 </script>
 
 <template>
@@ -26,11 +30,12 @@
               <BrandGithub class="flex-shrink-0 w-6 h-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
             </Link>
             <SwitchColorMode />
-            <Link href="https://archway.io">Back to Archway</Link>
+            <AutocompleteSearch />
+            <Link href="https://archway.io" :external-icon="false">Back to Archway</Link>
           </div>
           <div class="flex-1 flex justify-end items-center lg:hidden space-x-2">
             <UiButtonsIconButton aria-hidden="true">
-              <SearchIcon class="h-6 w-6" />
+              <SearchIcon @click="openSearch" class="h-6 w-6" />
             </UiButtonsIconButton>
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton
