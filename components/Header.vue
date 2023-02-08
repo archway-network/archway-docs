@@ -1,6 +1,7 @@
 <script setup>
   import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue';
   import { Link, SwitchColorMode, ArchwayBrand, ArchwayBrandAndLogo, ArchwayLogo, CloseIcon, MenuIcon } from '@/components/Ui';
+  import AutocompleteSearch from '@/components/Ui/Algolia/AutocompleteSearch.vue';
   import BrandGithub from '@/components/Ui/Brands/Github.vue';
 
   const route = useRoute();
@@ -22,12 +23,16 @@
                 </span>
               </NuxtLink>
             </div>
-            <div class="flex-1 hidden lg:flex justify-end items-center space-x-6">
+            <div class="grow"></div>
+            <div class="flex-1 hidden lg:flex justify-end items-center space-x-8">
               <Link href="https://github.com/archway-network" :social="true">
                 <BrandGithub class="flex-shrink-0 w-6 h-6 text-gray-700" aria-hidden="true" />
               </Link>
-              <SwitchColorMode />
-              <Link href="https://archway.io">Back to Archway</Link>
+              <SwitchColorMode />       
+              <AutocompleteSearch />
+              <div>
+                <Link href="https://archway.io" class="min-w-md">Back to Archway</Link>
+              </div>
             </div>
             <div class="flex-1 flex justify-end items-center lg:hidden">
               <PopoverButton

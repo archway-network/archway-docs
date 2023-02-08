@@ -1,11 +1,18 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
   import Articles from '@/components/Articles.vue';
   import { useRecentArticles } from '@/data';
 
-  const { articles } = await useRecentArticles();
+  const { articles, refresh } = await useRecentArticles();
+  const hasArticles = ref(false);
 
-  const hasArticles = computed(() => articles.value.length > 0);
+  onMounted(async () => {
+    await refresh();
+  });
+
+  watch(articles, (newArticles) => {
+    hasArticles.value = newArticles.length > 0;
+  });
+
 </script>
 
 <template>
