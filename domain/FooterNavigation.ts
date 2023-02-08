@@ -9,7 +9,7 @@ class FooterNavigation {
     return [
       { label: 'Quick Start', url: 'https://archway.io/quick-start' },
       { label: 'Github', url: 'https://github.com/archway-network' },
-      // { label: 'Docs', url: 'https://docs.archway.io/' },
+      // { label: 'Docs', url: '/' },
       { label: 'Dev Academy', url: 'https://area-52.io' },
       { label: 'Lightpaper', url: 'https://archway.io/lightpaper' },
       { label: 'Tech Sheet', url: 'https://archway.io/tech' },
@@ -18,8 +18,8 @@ class FooterNavigation {
 
   static networkResources(): MenuItem[] {
     return [
-      { label: 'Validators', url: 'https://docs.archway.io/docs/validator/overview' },
-      { label: 'Block Explorer', url: 'https://docs.archway.io/docs/overview/network' },
+      { label: 'Validators', url: '/validators' },
+      { label: 'Block Explorer', url: '/overview/networks' },
       { label: 'Status Page', url: 'https://archway-network.statuspage.io' },
     ];
   }

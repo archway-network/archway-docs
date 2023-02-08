@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { Link } from '@/components/Ui';
   import { useCurrentPage } from '@/composables/useCurrentPage';
 
   const { page, isParentSection } = useCurrentPage();
@@ -8,10 +7,12 @@
 <template>
   <ul class="flex space-x-2 divider-x whitespace-nowrap">
     <li class="text-gray-500 dark:text-gray-300">
-      <Link href="/" class="hover:underline">Docs</Link>
+      <UiButtonsLink href="/" class="hover:underline">Docs</UiButtonsLink>
     </li>
     <li class="text-gray-500 dark:text-gray-300" v-if="!isParentSection">
-      <Link :href="page.parentSectionPath" class="hover:underline" v-if="page.parentSectionPath">{{ page.parentSection }}</Link>
+      <UiButtonsLink :href="page.parentSectionPath" class="hover:underline" v-if="page.parentSectionPath">
+        {{ page.parentSection }}
+      </UiButtonsLink>
       <span v-else>{{ page.parentSection }}</span>
     </li>
     <li class="text-gray-500 dark:text-gray-300">{{ page.title }}</li>
