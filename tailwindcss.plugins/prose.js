@@ -1,5 +1,14 @@
 const defaultTheme = theme => ({
   css: {
+    '*' :{scrollbarWidth:'thin'},
+    'pre::-webkit-scrollbar':{
+      width:'6px',
+      height:'6px',
+      borderRadius:'10px'
+    },
+    'pre::-webkit-scrollbar-thumb':{
+      background:theme('colors.gray.200')
+    },
     a: {
       color: theme('colors.orange.DEFAULT'),
       '&:hover': {
@@ -55,6 +64,28 @@ const defaultTheme = theme => ({
         minWidth:'156px'
       },
     },
+    'pre':{
+      backgroundColor:theme('colors.gray.1000'),
+      borderRadius:'1rem',
+      color:theme('colors.black.DEFAULT'),
+      padding:'32px'
+    },
+    'code::before': {
+      content: '',
+    },
+    'code::after': {
+      content: '',
+    },
+    'code':{
+      backgroundColor: theme('colors.gray.1000'),
+      border: "0.1rem solid rgba(0,0,0,.1)",
+      borderRadius: '8px',
+      padding:'8px',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: '14px',
+      lineHeight: '150%'
+  }
     // 'ol > li': {
     //   counterIncrement: 'listStyle',
     //   display: 'flex',
@@ -74,6 +105,7 @@ const defaultTheme = theme => ({
     // },
   },
 });
+
 
 module.exports = theme => {
   return {

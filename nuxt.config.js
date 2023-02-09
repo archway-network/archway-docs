@@ -1,4 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config';
+import shiki from 'shiki';
+
+
 
 export default defineNuxtConfig({
   alias: {
@@ -60,5 +63,29 @@ export default defineNuxtConfig({
       //   },
       // ],
     },
+  },
+  content: {
+    highlight: {
+      preload: [
+        'c',
+        'cpp',
+        'java',
+        'js',
+        'rust',
+        'json',
+        'bash'
+      ]
+    },
+        markdown: {
+      async highlighter() {
+        const highlighter = await shiki.getHighlighter({
+          // Complete themes: https://github.com/shikijs/shiki/tree/master/packages/themes
+          theme: 'nord'
+        })
+        return (rawCode, lang) => {
+          return highlighter.codeToHtml(rawCode, lang)
+        }
+      }
+    }
   },
 });

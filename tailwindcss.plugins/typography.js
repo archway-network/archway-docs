@@ -206,6 +206,6 @@ module.exports = plugin(({ addComponents, theme }) => {
     caption,
     label,
     small,
-    tiny,
-  ]);
+    tiny
+    ]);
 });
