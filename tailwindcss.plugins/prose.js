@@ -79,6 +79,7 @@ const defaultTheme = theme => ({
     },
     'code':{
       backgroundColor: theme('colors.gray.1000'),
+      color:theme('colors.black.DEFAULT'),
       border: "0.1rem solid rgba(0,0,0,.1)",
       borderRadius: '8px',
       padding:'8px',
