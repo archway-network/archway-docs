@@ -4,3 +4,4 @@ export { default as PageTOC } from './PageTOC';
 export { default as FooterNavigation } from './FooterNavigation';
 export { default as TabData } from './TabData';
 export { default as TableData } from './TableData';
+export { default as AlgoliaSearch } from './AlgoliaSearch';

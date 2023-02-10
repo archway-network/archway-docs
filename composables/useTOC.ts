@@ -6,7 +6,7 @@ export const useTOC = (): {
 } => {
   const { page, toc } = useContent();
 
-  const displayTOC = computed(() => !['/developers', '/validators', '/community'].includes(page?.value._path) || false);
+  const displayTOC = computed(() => !['/developers', '/validators', '/community'].includes(page.value?._path));
 
   return { toc, displayTOC };
 };

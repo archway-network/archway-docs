@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div class="prose">
+  <div class="prose dark:prose-invert">
     <div class="flex border border-solid border-gray-100 rounded-lg w-max">
       <div
         @click="switchTab(index)"

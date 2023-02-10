@@ -13,6 +13,6 @@
 <template>
   <div>
     <SectionsToggle @switch="switchSection" />
-    <NavigationItems :key="selectedSection.id" class="pt-6 pr-8" :selected-section="selectedSection" v-if="!!selectedSection?.path" />
+    <NavigationItems :key="selectedSection.id" class="pt-6" :selected-section="selectedSection" v-if="!!selectedSection?.path" />
   </div>
 </template>

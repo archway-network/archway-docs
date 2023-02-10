@@ -13,12 +13,12 @@
 </script>
 
 <template>
-  <NuxtLink :to="href" class="text-black hover:text-black-warm" v-if="isInternalRoute">
+  <NuxtLink :to="href" class="text-black dark:text-white hover:text-black-warm dark:hover:text-gray-400" v-if="isInternalRoute">
     <slot />
   </NuxtLink>
   <a
     :href="href"
-    class="text-black hover:text-black-warm"
+    class="text-black dark:text-white hover:text-black-warm dark:hover:text-gray-400"
     :class="{ external: isExternal && !social && externalIcon }"
     target="_blank"
     rel="noopener noreferrer"

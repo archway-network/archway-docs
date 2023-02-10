@@ -63,7 +63,7 @@
       <div class="pt-4 border-t border-black/20">
         <p class="label text-gray-700">
           The ARCH tokens will not be offered in the United States or to U.S. persons or to residents of certain other prohibited
-          jurisdictions. <Link href="https://docs.archway.io/docs/overview/faq">Learn more here</Link>. The information provided in this
+          jurisdictions. <Link href="/overview/faq">Learn more here</Link>. The information provided in this
           website is for general informational purposes only. It does not constitute, and should not be considered, a formal offer to sell
           or a solicitation of an offer to buy any security in any jurisdiction, legal advice, investment advice, or tax advice. If you are
           in need of legal advice, investment advice or tax advice, please consult with a professional adviser. The Archway protocol is

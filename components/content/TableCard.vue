@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="prose">
+  <div class="prose dark:prose-invert">
     <table class="mt-[48px]">
       <tr>
         <th class="px-[26px] py-[17px]" v-for="item in tableData.header" :key="item.title">

@@ -20,7 +20,7 @@
 </script>
 
 <template>
-  <div class="bg-gray-100 rounded-2xl px-6 md:px-8 py-12">
+  <div class="bg-gray-100 dark:bg-black-warm rounded-2xl px-6 md:px-8 py-12">
     <h1 class="heading-1">
       Welcome,<br />
       <span class="text-orange"> {{ title }} </span>{{ '.' }}

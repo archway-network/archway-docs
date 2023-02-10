@@ -21,7 +21,7 @@
   </a>
   <button :class="className" v-else>
     <span class="flex-1 flex justify-center items-center" v-if="loading">
-      <LoadingIcon class="w-5 h-5 text-white animate-spin" />
+      <LoadingIcon class="w-5 h-5 text-white dark:text-black animate-spin" />
     </span>
     <slot v-else></slot>
   </button>

@@ -23,7 +23,7 @@
       'border-gray-600 text-gray-600 bg-gray-1100': !isWarning && !isError && !isSuccess,
     }"
   >
-    <div class="not-prose flex items-center space-x-4">
+    <div class="not-prose dark:not-prose-invert flex items-center space-x-4">
       <InfoIcon class="w-4 h-6" v-if="isError || isInfo" />
       <SuccessIcon class="w-4 h-6" v-else-if="isSuccess" />
       <StarIcon class="w-4 h-6" v-else />

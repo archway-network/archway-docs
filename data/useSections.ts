@@ -20,7 +20,7 @@ export const useSections = async (): Promise<{
     return (data.value || []).map(({ _id, title, description, _path }) => ({ id: _id, title, description, path: _path || '' }));
   });
 
-  const selectedSection = computed(() => sections.value.find(({ path }) => route.path.includes(path || '')));
+  const selectedSection = computed(() => sections.value.find(({ path }) => route.path.startsWith(path || '')));
 
   return { sections, selectedSection, isLoading: computed(() => pending.value) };
 };
