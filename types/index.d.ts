@@ -16,7 +16,7 @@ export type Article = {
 export type Tab = {
   id: number;
   title: string;
-  description: string;
+  description?: string;
 };
 
 export type HeaderItem = {

@@ -68,7 +68,8 @@ const defaultTheme = theme => ({
       backgroundColor:theme('colors.gray.1000'),
       borderRadius:'1rem',
       color:theme('colors.black.DEFAULT'),
-      padding:'32px'
+      padding:'32px',
+      width:'100%'
     },
     'code::before': {
       content: '',
