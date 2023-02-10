@@ -162,7 +162,8 @@ export default {
     align-items: center;
     padding-right: 4px;
   }
-  .aa-DetachedSearchButton {    
+  .aa-DetachedSearchButton { 
+    border-radius: 1em;   
     background-color: rgb(247, 247, 247);
     border: 0;    
   }

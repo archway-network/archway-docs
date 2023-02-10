@@ -1,20 +1,21 @@
 <script setup lang="ts">
-  import { Link } from '@/components/Ui';
   import { useCurrentPage } from '@/composables/useCurrentPage';
 
   const { page, isParentSection } = useCurrentPage();
 </script>
 
 <template>
-  <ul class="flex space-x-2 divider-x">
-    <li class="text-gray-500">
-      <Link href="/" class="hover:underline">Docs</Link>
+  <ul class="flex space-x-2 divider-x whitespace-nowrap">
+    <li class="text-gray-500 dark:text-gray-300">
+      <UiButtonsLink href="/" class="hover:underline">Docs</UiButtonsLink>
     </li>
-    <li class="text-gray-500" v-if="!isParentSection">
-      <Link :href="page.parentSectionPath" class="hover:underline" v-if="page.parentSectionPath">{{ page.parentSection }}</Link>
+    <li class="text-gray-500 dark:text-gray-300" v-if="!isParentSection">
+      <UiButtonsLink :href="page.parentSectionPath" class="hover:underline" v-if="page.parentSectionPath">
+        {{ page.parentSection }}
+      </UiButtonsLink>
       <span v-else>{{ page.parentSection }}</span>
     </li>
-    <li class="text-gray-500">{{ page.title }}</li>
+    <li class="text-gray-500 dark:text-gray-300">{{ page.title }}</li>
   </ul>
 </template>
 

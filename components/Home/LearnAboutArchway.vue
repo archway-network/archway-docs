@@ -16,15 +16,15 @@
       <Link
         :key="id"
         :href="path"
-        class="flex space-x-4 bg-white rounded-2xl shadow py-10 px-6"
+        class="flex space-x-4 bg-white dark:bg-black rounded-2xl shadow dark:shadow-gray py-10 px-6"
         v-for="{ id, title, description, path } in articles"
       >
         <div class="flex-shrink-0">
-          <ArchwayLogo class="w-6 h-6 text-black" />
+          <ArchwayLogo class="w-6 h-6" />
         </div>
         <div class="space-y-2.5">
           <h2 class="font-bold">{{ title }}</h2>
-          <p class="caption text-gray-600">{{ description }}</p>
+          <p class="caption text-gray-600 dark:text-gray-300">{{ description }}</p>
         </div>
       </Link>
     </div>

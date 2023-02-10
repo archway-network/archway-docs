@@ -33,11 +33,11 @@
   <div>
     <div v-if="item.children.length" class="flex items-center cursor-pointer" @click="shouldOpen = !shouldOpen">
       <p class="mr-2 ease-in-out duration-300" :class="{ 'rotate-90': shouldOpen }"><ChevronRightIcon class="w-4 h-4" /></p>
-      <p class="text-black-light">{{ item.title }}</p>
+      <p class="text-black-light dark:text-gray-400">{{ item.title }}</p>
     </div>
     <div v-else>
       <Link :href="item.path"
-        ><p :class="{ 'text-orange': selectedSection === item.path, 'text-black-light': selectedSection !== item.path }">
+        ><p :class="{ 'text-orange': selectedSection === item.path, 'text-black-light dark:text-gray-400': selectedSection !== item.path }">
           {{ item.title }}
         </p></Link
       >
