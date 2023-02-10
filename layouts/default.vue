@@ -36,7 +36,7 @@
   const refreshAnimation = () => {
     removeScrollTriggers();
 
-    if (!displayTOC) return;
+    if (!displayTOC || !toc?.value?.links) return;
 
     const marginPageHeader = 96; // 96px for the fixed header at the top
     const marginTop = 20; // 26px for scroll trigger to leave some additional margin

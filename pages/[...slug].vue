@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { useAlgoliaSearch } from '@/data';
+  import Page404 from '@/pages/404.vue'
 
   const searchAlgolia = await useAlgoliaSearch();
 
@@ -16,6 +17,10 @@
 
 <template>
   <div class="prose dark:prose-invert">
-    <ContentDoc />
+    <ContentDoc>
+      <template #not-found>
+        <Page404 />
+      </template>
+    </ContentDoc>
   </div>
 </template>
