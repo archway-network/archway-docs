@@ -32,6 +32,8 @@ export { default as MenuIcon } from './Icons/MenuIcon.vue';
 export { default as SearchIcon } from './Icons/SearchIcon.vue';
 export { default as StarIcon } from './Icons/StarIcon.vue';
 export { default as SuccessIcon } from './Icons/SuccessIcon.vue';
+export { default as CopyIcon } from './Icons/CopyIcon.vue';
+export { default as TickIcon } from './Icons/TickIcon.vue';
 
-export { default as AutocompleteSearch } from './Algolia/AutocompleteSearch.vue'
-export { default as AutocompleteInput } from './Algolia/AutocompleteInput.vue'
+export { default as AutocompleteSearch } from './Algolia/AutocompleteSearch.vue';
+export { default as AutocompleteInput } from './Algolia/AutocompleteInput.vue';

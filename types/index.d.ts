@@ -42,7 +42,7 @@ export type AlgoliaAutocompleteTemplateItem = { item: BaseItem, components: Auto
 export type Tab = {
   id: number;
   title: string;
-  description: string;
+  description?: string;
 };
 
 export type HeaderItem = {

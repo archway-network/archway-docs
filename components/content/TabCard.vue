@@ -1,39 +1,36 @@
 <script lang="ts" setup>
-  import { PropType, ref } from 'vue';
-  import { TabData } from '@/domain';
-  import { Tab } from '@/types';
-
   const props = defineProps({
-    tabData: { type: Object as PropType<TabData[]>, required: true },
+    noOfTabs: { type: String, required: true },
   });
 
-  const selectedTab = ref<Tab>({ id: props.tabData[0]?.id, title: props.tabData[0]?.title, description: props.tabData[0]?.description });
+  const totalTabs = Array(Number(props.noOfTabs)).fill('');
+  const selectedTab = ref<Number>(0);
 
-  const switchTab = (tabInfo: Tab) => {
-    selectedTab.value = tabInfo;
+  const switchTab = (value: Number) => {
+    selectedTab.value = value;
   };
 </script>
 
 <template>
   <div class="prose dark:prose-invert">
-    <div class="flex border border-solid border-gray-100 rounded-lg w-min">
+    <div class="flex border border-solid border-gray-100 rounded-lg w-max">
       <div
-        @click="switchTab(item)"
-        class="flex items-center justify-center w-[116px] px-3 py-6 bg-white cursor-pointer h-12"
-        v-for="(item, index) in tabData"
-        :key="item.id"
+        @click="switchTab(index)"
+        class="flex items-center justify-center px-3 py-6 bg-white cursor-pointer h-12"
+        v-for="(item, index) in totalTabs"
+        :key="index"
         :class="{
-          'text-orange drop-shadow-[0_15px_54px_rgba(0,0,0,0.08)]': selectedTab.id === item.id,
-          'text-gray-700': selectedTab.id !== item.id,
+          'text-orange drop-shadow-[0_15px_54px_rgba(0,0,0,0.08)]': selectedTab === index,
+          'text-gray-700': selectedTab !== index,
           'rounded-l-lg': index === 0,
-          'rounded-r-lg': index === tabData.length - 1,
+          'rounded-r-lg': index === totalTabs.length - 1,
         }"
       >
-        {{ item.title }}
+        <ContentSlot :use="$slots[`title${index}`]" />
       </div>
     </div>
-    <div class="mt-6 mb-[27px]" v-for="item in tabData" :key="item.id" v-show="selectedTab.id === item.id">
-      <h3>{{ item.description }}</h3>
+    <div class="mt-6 mb-[27px]" v-for="(item, index) in totalTabs" :key="index" v-show="selectedTab === index">
+      <h3><ContentSlot :use="$slots[`desc${index}`]" /></h3>
     </div>
   </div>
 </template>

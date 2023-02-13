@@ -2,6 +2,9 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
+import shiki from 'shiki';
+
+
 
 console.log("envPath", fs.existsSync(envPath) ? envPath : defaultEnvPath);
 dotenv.config({
@@ -95,5 +98,29 @@ export default defineNuxtConfig({
       //   },
       // ],
     },
+  },
+  content: {
+    highlight: {
+      preload: [
+        'c',
+        'cpp',
+        'java',
+        'js',
+        'rust',
+        'json',
+        'bash'
+      ]
+    },
+        markdown: {
+      async highlighter() {
+        const highlighter = await shiki.getHighlighter({
+          // Complete themes: https://github.com/shikijs/shiki/tree/master/packages/themes
+          theme: 'nord'
+        })
+        return (rawCode, lang) => {
+          return highlighter.codeToHtml(rawCode, lang)
+        }
+      }
+    }
   },
 });
