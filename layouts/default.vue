@@ -55,7 +55,7 @@
     // End of component
     let lastEnd = gsap.utils.toArray('#main-container')?.[0]?.getBoundingClientRect().bottom;
 
-    // Go from last to first, saving the start of the each element to use as the next's end
+    // Loop through titles, from first to last
     ids.forEach((tocId, index) => {
       // Set the .selected class on scroll enter
       const handleEnter = (element: any) => {
@@ -66,8 +66,9 @@
       const handleLeave = () => gsap.utils.toArray(`.toc-item.${tocId}`)?.forEach((item: any) => item.classList.remove('selected'));
       ScrollTrigger.create({
         trigger: `#${tocId}`,
-        // Area starts at top of header with some margin
-        start: (instance: any) => Math.max(instance.trigger?.getBoundingClientRect().top - marginPageHeader - marginTop, 0) || undefined,
+        // Area starts at top of header with some margin (or first element starts at -1)
+        start: (instance: any) =>
+          index === 0 ? -1 : Math.max(instance.trigger?.getBoundingClientRect().top - marginPageHeader - marginTop, 0) || undefined,
         // Area ends at top of next header (or end of the component)
         end: () =>
           index < ids.length - 1
