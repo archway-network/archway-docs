@@ -8,6 +8,9 @@ dotenv.config({
 });
 
 export default defineNuxtConfig({
+  nitro: {
+    preset: 'firebase',
+  },
   alias: {
     '@vue/devtools-api': '@vue/devtools-api',
   },
@@ -105,9 +108,6 @@ export default defineNuxtConfig({
         sepia: 'monokai',
       },
       preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
-    },
-    nitro: {
-      preset: 'firebase',
     },
   },
 });

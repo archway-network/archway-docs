@@ -12,7 +12,6 @@
   },
   "functions": [
     {
-      "runtime": "nodejs16",
       "source": ".output/server",
       "predeploy": ["cd .output/server && npm i"]
     }
