@@ -102,19 +102,12 @@ export default defineNuxtConfig({
         // Theme used if `html.dark`
         dark: 'github-dark',
         // Theme used if `html.sepia`
-        sepia: 'monokai'
+        sepia: 'monokai',
       },
-      preload: [
-        'c',
-        'cpp',
-        'java',
-        'js',
-        'rust',
-        'json',
-        'bash'
-      ]
+      preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
     },
-  nitro: {
-    preset: 'firebase',
+    nitro: {
+      preset: 'firebase',
+    },
   },
 });
