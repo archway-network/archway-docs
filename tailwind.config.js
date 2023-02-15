@@ -17,6 +17,7 @@ module.exports = {
       },
       gray: {
         DEFAULT: '#e4e4e4',
+        18: '#181818',
         100: '#f2efed',
         200: '#c0c0c0',
         300: '#cccccc',
@@ -52,7 +53,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        card: '16px 32px 128px -8px rgba(0, 0, 0, 0.7)',
+        card: '16px 32px 128px -8px rgba(0, 0, 0, 0.07)',
       },
       borderColor: {
         DEFAULT: '#C2BFBE',

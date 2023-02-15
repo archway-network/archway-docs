@@ -21,16 +21,16 @@
               <span class="flex items-center space-x-2">
                 <ArchwayLogo class="h-6" />
                 <ArchwayBrand class="h-6" />
-                <span class="text-gray-500 dark:text-gray-300">Docs</span>
+                <span class="text-gray-500 dark:text-gray-800">Docs</span>
               </span>
             </NuxtLink>
           </div>
           <div class="flex-1 hidden lg:flex justify-end items-center space-x-6">
             <Link href="https://github.com/archway-network" :social="true">
-              <BrandGithub class="flex-shrink-0 w-6 h-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+              <BrandGithub class="flex-shrink-0 w-6 h-6 text-black/60 dark:text-white" aria-hidden="true" />
             </Link>
             <SwitchColorMode />
-            <AutocompleteSearch />
+            <AutocompleteSearch detached />
             <Link href="https://archway.io" :external-icon="false">Back to Archway</Link>
           </div>
           <div class="flex-1 flex justify-end items-center lg:hidden space-x-2">
