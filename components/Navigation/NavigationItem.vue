@@ -44,7 +44,7 @@
     </div>
     <div class="pl-[8px] mt-2">
       <Transition :duration="300">
-        <div :class="{ 'border-l border-gray-400 pl-[32px]': isNestedChild }" class="pt-2" v-if="item.children.length" v-show="shouldOpen">
+        <div :class="{ 'border-l border-gray-400 pl-[32px]': isNestedChild }" class="pt-2 space-y-4" v-if="item.children.length" v-show="shouldOpen">
           <NavigationItem :item="child" v-for="child in item.children" :selectedSection="selectedSection" />
         </div>
       </Transition>

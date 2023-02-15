@@ -1,6 +1,6 @@
 <template>
   <div class="auto-container min-w-38 bg-[#F7F7F7] rounded-2xl">
-    <div id="autocomplete"></div>
+    <div :id="componentId" class="w-full"></div>
     <div class="keys">
       <kbd class="key">⌘</kbd>
       <kbd class="key">K</kbd>
@@ -18,21 +18,24 @@ export default {
   props: {
     indexName: { type: String, required: true },
     algoliaRef: { type: Object, required: true },
-    articles: { type: Array, required: true }
+    articles: { type: Array, required: true },
+    componentId: { type: String, default: 'autocomplete' },
+    detached: { type: Boolean, default: false },
   },
   setup(props) {
     onKeyStroke(['Command', 'k'], (e) => {
       const btn = document.getElementsByClassName('aa-DetachedSearchButton');
       btn[0].click();
     });
-    const { indexName, algoliaRef, articles } = props;
+    const { componentId, detached, indexName, algoliaRef, articles } = props;
     let lastRootDir = '';
 
     onMounted(() => {
       autocomplete({
-        container: '#autocomplete',
+        container: `#${componentId}`,
         openOnFocus: true,
-        detachedMediaQuery: '',
+        detachedMediaQuery: detached ? '' : undefined,
+        placeholder: detached ? undefined : 'Search',
         getSources({ query }) {
           return [
             {
@@ -130,7 +133,7 @@ export default {
 };
 </script>
 
-<style>  
+<style>
   .keys {
     display: flex;
     flex-direction: row;
@@ -161,13 +164,24 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding-right: 4px;
+    --aa-search-input-height: 48px;
   }
-  .aa-DetachedSearchButton { 
+  .aa-DetachedSearchButton,
+  .aa-Form { 
     border-radius: 1em;   
     background-color: rgb(247, 247, 247);
-    border: 0;    
+    border: none;
   }
-  .aa-DetachedSearchButtonIcon {
+  .aa-Input {
+    width: 100%;
+    padding: 0 1em;
+  }
+  .aa-DetachedSearchButton:focus,
+  .aa-Form:focus-within {
+    box-shadow: none;
+  }
+  .aa-DetachedSearchButtonIcon,
+  .aa-InputWrapperPrefix {
     display: none;
   }
   .aa-DetachedSearchButtonPlaceholder {

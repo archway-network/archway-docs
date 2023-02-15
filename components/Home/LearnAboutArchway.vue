@@ -8,15 +8,13 @@
 <template>
   <div>
     <h2 class="heading-2 pb-5">Learn more about Archway</h2>
-    <p>
-      Archway is an incentivized smart contract platform that rewards developers. Explore our documentation and guides to level up your
-      workflow.
-    </p>
+    <p>Archway is an incentivized smart contract platform that rewards developers.</p>
+    <p>Explore our documentation and guides to level up your workflow.</p>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-x-8 lg:gap-y-6 pt-12">
       <Link
         :key="id"
         :href="path"
-        class="flex space-x-4 bg-white dark:bg-black rounded-2xl shadow dark:shadow-gray py-10 px-6"
+        class="flex space-x-4 bg-white dark:bg-gray-18 rounded-2xl shadow-card dark:shadow-black py-10 px-6"
         v-for="{ id, title, description, path } in articles"
       >
         <div class="flex-shrink-0">

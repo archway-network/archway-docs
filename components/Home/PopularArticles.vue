@@ -6,7 +6,6 @@
   onMounted(async () => {
     await refresh();
   });
-  
 </script>
 
 <template>
