@@ -5,6 +5,6 @@
       Discover why and how to build, run a node, and participate on Archway, the incentivized smart contract platform that rewards dapp
       <span class="text-orange">architects.</span>
     </p>
-    <UiAlgoliaAutocompleteSearch class="w-6/12 min-h-" component-id="hero-autocomplete" />
+    <UiAlgoliaAutocompleteSearch class="w-full lg:w-6/12 min-h-" component-id="hero-autocomplete" />
   </div>
 </template>
