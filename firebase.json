@@ -1,9 +1,20 @@
 {
   "hosting": {
-    "site": "beta-archway-docs",
     "public": ".output/public",
     "cleanUrls": true,
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "redirects": []
-  }
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "server"
+      }
+    ]
+  },
+  "functions": [
+    {
+      "runtime": "nodejs16",
+      "source": ".output/server",
+      "predeploy": ["cd .output/server && npm i"]
+    }
+  ]
 }
