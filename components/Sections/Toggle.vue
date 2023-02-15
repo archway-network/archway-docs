@@ -8,8 +8,10 @@
   const router = useRouter();
   const { sections, selectedSection } = await useSections();
 
+  const selectedWithDefault = computed(() => selectedSection.value || sections.value[0])
+
   watch(
-    selectedSection,
+    selectedWithDefault,
     (current, old) => {
       if (current === old) return;
       emit('switch', current);
@@ -26,11 +28,11 @@
 
 <template>
   <div>
-    <Listbox v-slot="{ open }" :model-value="selectedSection" @update:model-value="switchSection">
+    <Listbox v-slot="{ open }" :model-value="selectedWithDefault" @update:model-value="switchSection">
       <ListboxLabel class="block pb-2">I want to:</ListboxLabel>
       <div class="relative">
         <ListboxButton class="relative w-full cursor-default rounded-lg bg-gray-100 dark:bg-black-warm px-4 py-4 text-left focus:outline-none">
-          <span class="block truncate caption" :class="{ 'text-gray-600 dark:text-gray-400': !open, 'text-orange': open }">{{ selectedSection?.title }}</span>
+          <span class="block truncate caption" :class="{ 'text-gray-600 dark:text-gray-400': !open, 'text-orange': open }">{{ selectedWithDefault?.title }}</span>
           <span class="pointer-events-none flex items-center absolute inset-y-0 right-0 pr-2">
             <ChevronDownIcon class="w-4 h-4" :class="{ 'rotate-180 transform': open }" />
           </span>
