@@ -20,7 +20,7 @@
       'border-blue text-blue': isInfo,
       'border-red text-red': isError,
       'border-green text-green': isSuccess,
-      'border-gray-600 text-gray-600 bg-gray-1100': !isWarning && !isError && !isSuccess,
+      'border-gray-600 text-gray-600': !isWarning && !isError && !isSuccess,
     }"
   >
     <div class="not-prose dark:not-prose-invert flex items-center space-x-4">
