@@ -30,7 +30,7 @@
         ><p
           :class="{
             'pl-6': !selectedItem.children,
-            'text-black-light dark:text-gray-400': selectedSection !== selectedItemID,
+            'text-black-light dark:text-gray-900': selectedSection !== selectedItemID,
           }"
           class="py-2 items-center flex"
         >

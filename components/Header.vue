@@ -4,10 +4,6 @@
   import AutocompleteSearch from '@/components/Ui/Algolia/AutocompleteSearch.vue';
   import BrandGithub from '@/components/Ui/Brands/Github.vue';
 
-  const props = defineProps({
-    hideMobileMenu: { type: Boolean, default: false },
-  });
-
   const openSearch = () => {
     const btn = document.getElementsByClassName('aa-DetachedSearchButton');
     btn[0].click();
@@ -18,7 +14,7 @@
   <ClientOnly>
     <div class="fixed inset-x-0 bg-white dark:bg-black z-50">
       <div class="container">
-        <div class="relative border-b border-gray-400 h-24 flex items-center py-4 lg:space-x-10">
+        <div class="relative border-b border-gray-400 dark:border-gray-900 h-24 flex items-center py-4 lg:space-x-10">
           <div class="flex justify-start">
             <NuxtLink to="/" class="dark:hover:text-gray-400">
               <span class="sr-only">Archway</span>
@@ -41,7 +37,7 @@
             <UiButtonsIconButton aria-hidden="true">
               <SearchIcon @click="openSearch" class="h-6 w-6" />
             </UiButtonsIconButton>
-            <Popover v-if="!hideMobileMenu" class="relative" v-slot="{ open }">
+            <Popover class="relative" v-slot="{ open }">
               <PopoverButton
                 class="bg-transparent text-black rounded-full inline-flex items-center justify-center hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
               >
