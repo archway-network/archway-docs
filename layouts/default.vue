@@ -3,6 +3,7 @@
 
   import { PageBreadcrumbs, PageTOC } from '@/components/Ui';
   import Navigation from '@/components/Navigation.vue';
+  import { useTOC, useCurrentPage } from '@/composables';
 
   const { toc, displayTOC } = useTOC();
   const { page } = useCurrentPage();
