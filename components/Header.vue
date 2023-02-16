@@ -4,6 +4,10 @@
   import AutocompleteSearch from '@/components/Ui/Algolia/AutocompleteSearch.vue';
   import BrandGithub from '@/components/Ui/Brands/Github.vue';
 
+  const props = defineProps({
+    hideMobileMenu: { type: Boolean, default: false },
+  });
+
   const openSearch = () => {
     const btn = document.getElementsByClassName('aa-DetachedSearchButton');
     btn[0].click();
@@ -21,23 +25,23 @@
               <span class="flex items-center space-x-2">
                 <ArchwayLogo class="h-6" />
                 <ArchwayBrand class="h-6" />
-                <span class="text-gray-500 dark:text-gray-300">Docs</span>
+                <span class="text-gray-500 dark:text-gray-800">Docs</span>
               </span>
             </NuxtLink>
           </div>
           <div class="flex-1 hidden lg:flex justify-end items-center space-x-6">
             <Link href="https://github.com/archway-network" :social="true">
-              <BrandGithub class="flex-shrink-0 w-6 h-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+              <BrandGithub class="flex-shrink-0 w-6 h-6 text-black/60 dark:text-white" aria-hidden="true" />
             </Link>
             <SwitchColorMode />
-            <AutocompleteSearch />
+            <AutocompleteSearch detached />
             <Link href="https://archway.io" :external-icon="false">Back to Archway</Link>
           </div>
           <div class="flex-1 flex justify-end items-center lg:hidden space-x-2">
             <UiButtonsIconButton aria-hidden="true">
               <SearchIcon @click="openSearch" class="h-6 w-6" />
             </UiButtonsIconButton>
-            <Popover class="relative" v-slot="{ open }">
+            <Popover v-if="!hideMobileMenu" class="relative" v-slot="{ open }">
               <PopoverButton
                 class="bg-transparent text-black rounded-full inline-flex items-center justify-center hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
               >

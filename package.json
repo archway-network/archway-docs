@@ -2,10 +2,10 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development nuxt dev",
-    "build": "nuxt build",
+    "build": "NITRO_PRESET=firebase nuxt build",
     "generate": "nuxt build && nuxt generate && copy-files-from-to",
     "start": "nuxt start",
-    "deploy": "npm run generate && firebase hosting:channel:deploy preview --expires 14d",
+    "deploy": "npm run build && firebase hosting:channel:deploy preview --expires 14d",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
@@ -40,6 +40,9 @@
     "@nuxt/content": "^2.3.0",
     "autoprefixer": "^10.4.7",
     "copy-files-from-to": "^3.2.2",
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.1",
+    "firebase-functions-test": "^3.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1"
   },

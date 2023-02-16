@@ -2,13 +2,9 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
-import shiki from 'shiki';
 
-
-
-console.log("envPath", fs.existsSync(envPath) ? envPath : defaultEnvPath);
 dotenv.config({
-  path: fs.existsSync(envPath) ? envPath : defaultEnvPath
+  path: fs.existsSync(envPath) ? envPath : defaultEnvPath,
 });
 
 export default defineNuxtConfig({
@@ -16,13 +12,13 @@ export default defineNuxtConfig({
     '@vue/devtools-api': '@vue/devtools-api',
   },
   runtimeConfig: {
-    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,    
+    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
     algolia: {
       appId: process.env.ALGOLIA_APPLICATION_ID,
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
       writeApiKey: process.env.ALGOLIA_WRITE_API_KEY,
       docIndex: process.env.ALGOLIA_INDEX,
-    }
+    },
   },
   generate: {
     routes: ['/404'],
@@ -36,19 +32,18 @@ export default defineNuxtConfig({
     applicationId: process.env.ALGOLIA_APPLICATION_ID,
     instantSearch: {
       theme: 'algolia',
-    }
+    },
   },
   modules: [
+    ['./modules/algoliaIndexer'],
     [
-      './modules/algoliaIndexer'
-    ],
-    [
-      '@nuxtjs/algolia', {
+      '@nuxtjs/algolia',
+      {
         apiKey: process.env.ALGOLIA_WRITE_API_KEY,
-        applicationId: process.env.ALGOLIA_APPLICATION_ID
-      }
-    ], 
-    ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }]
+        applicationId: process.env.ALGOLIA_APPLICATION_ID,
+      },
+    ],
+    ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
   ],
   postcss: {
     plugins: {
@@ -101,26 +96,18 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      preload: [
-        'c',
-        'cpp',
-        'java',
-        'js',
-        'rust',
-        'json',
-        'bash'
-      ]
+      theme: {
+        // Default theme (same as single string)
+        default: 'github-light',
+        // Theme used if `html.dark`
+        dark: 'github-dark',
+        // Theme used if `html.sepia`
+        sepia: 'monokai',
+      },
+      preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
     },
-        markdown: {
-      async highlighter() {
-        const highlighter = await shiki.getHighlighter({
-          // Complete themes: https://github.com/shikijs/shiki/tree/master/packages/themes
-          theme: 'nord'
-        })
-        return (rawCode, lang) => {
-          return highlighter.codeToHtml(rawCode, lang)
-        }
-      }
-    }
+    nitro: {
+      preset: 'firebase',
+    },
   },
 });

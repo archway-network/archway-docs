@@ -65,11 +65,12 @@ const defaultTheme = theme => ({
       },
     },
     'pre':{
-      backgroundColor:theme('colors.gray.1000'),
+      color:'var(--tw-prose-pre)',
       borderRadius:'1rem',
-      color:theme('colors.black.DEFAULT'),
       padding:'32px',
-      width:'100%'
+      width:'100%',
+      marginBottom:'0px',
+      marginTop:'0px'
     },
     'code::before': {
       content: '',
@@ -78,16 +79,20 @@ const defaultTheme = theme => ({
       content: '',
     },
     'code':{
-      backgroundColor: theme('colors.gray.1000'),
-      color:theme('colors.black.DEFAULT'),
+      backgroundColor:'var(--tw-prose-code)',
+      color:'var(--tw-prose-pre)',
       border: "0.1rem solid rgba(0,0,0,.1)",
       borderRadius: '8px',
       padding:'8px',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: '14px',
-      lineHeight: '150%'
-  }
+      lineHeight:'2.75rem'
+  },
+  '--tw-prose-pre-bg':theme('colors.gray.1000'),
+  '--tw-prose-invert-pre-bg':theme('colors.black.warm'),
+  '--tw-prose-code':theme('colors.gray.1000'),
+  '--tw-prose-invert-code':theme('colors.black.100')
     // 'ol > li': {
     //   counterIncrement: 'listStyle',
     //   display: 'flex',
