@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { PropType, ref } from 'vue';
+  import { PropType } from 'vue';
 
   import { Link } from '@/components/Ui';
   import { PageTOC } from '@/domain';
@@ -20,19 +20,19 @@
     :class="[
       `toc-item ${props.selectedItem.id}`,
       {
-        'pl-[24px]': selectedItem.children,
+        'pl-6': selectedItem.children,
       },
     ]"
     class="border-l"
   >
-    <div :class="{ 'pl-[24px]': !mainSection }">
+    <div :class="{ 'pl-6': !mainSection }">
       <Link :href="selectedItemID"
         ><p
           :class="{
-            'pl-[24px]': !selectedItem.children,
+            'pl-6': !selectedItem.children,
             'text-black-light dark:text-gray-400': selectedSection !== selectedItemID,
           }"
-          class="min-h-[40px] items-center flex"
+          class="py-2 items-center flex"
         >
           {{ selectedItem.text }}
         </p></Link

@@ -1,6 +1,6 @@
 ---
 title: Rewards
 description: Documentation for Rewards
-parentSection: ''
+parentSection: 'Learn More'
 parentSectionPath: ''
 ---
