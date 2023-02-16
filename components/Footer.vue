@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <footer class="border-t border-gray-400">
+  <footer class="border-t border-gray-400 dark:border-gray-900">
     <div class="container py-10 lg:py-20 relative">
       <div>
         <div class="lg:flex">

@@ -39,6 +39,7 @@ const defaultTheme = theme => ({
     'h3, h4, h5': {
       fontSize: '16px',
       lineHeight: '150%',
+      fontWeight: '700'
     },
     table: {
       ':last-child': {

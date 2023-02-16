@@ -37,7 +37,7 @@
     </div>
     <div v-else>
       <Link :href="item.path"
-        ><p :class="{ 'text-orange': selectedSection === item.path, 'text-black-light dark:text-gray-400': selectedSection !== item.path }">
+        ><p :class="{ 'text-orange': selectedSection === item.path, 'text-black-light dark:text-gray-900': selectedSection !== item.path }">
           {{ item.title }}
         </p></Link
       >

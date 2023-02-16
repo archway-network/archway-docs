@@ -33,7 +33,7 @@ export default {
     onMounted(() => {
       autocomplete({
         container: `#${componentId}`,
-        openOnFocus: true,
+        openOnFocus: detached,
         detachedMediaQuery: detached ? '' : undefined,
         placeholder: detached ? undefined : 'Search',
         getSources({ query }) {
