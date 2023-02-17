@@ -29,8 +29,8 @@
         <ContentSlot :use="$slots[`title${index}`]" />
       </div>
     </div>
-    <div class="mt-6 mb-[27px]" v-for="(item, index) in totalTabs" :key="index" v-show="selectedTab === index">
-      <h3><ContentSlot :use="$slots[`desc${index}`]" /></h3>
+    <div class="mb-[27px]" v-for="(item, index) in totalTabs" :key="index" v-show="selectedTab === index">
+      <ContentSlot :use="$slots[`desc${index}`]" />
     </div>
   </div>
 </template>
