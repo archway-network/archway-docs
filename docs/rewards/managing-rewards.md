@@ -66,7 +66,7 @@ archwayd q rewards rewards-records "${rewards_address}" --node "${node_url}" --o
 
 `rewards_address` - The account address that will receive the contract's rewards. Tokens are sent to this address after executing a [withdrawal function](#withdrawing-awards) . If not set, the contract will not receive rewards. 
 
-`denom`- The token type/denmoination. uarch is the default token of the Archway Network.  
+`denom`- The token type/denomination. uarch is the default token of the Archway Network.  
 
 `amount`- The calculated reward amount. 
 
@@ -112,4 +112,4 @@ To track what rewards have not been withdrawn and sent to the `rewards_adress` y
 archwayd q rewards outstanding-rewards "${rewards_address}" --node "${node_url}" --output json | jq .
 ``` 
 
-Go to the [Rewards Reference](./rewards-reference.md) page for more information on the availabled queries and parameters connected to the rewards.
+Go to the [Rewards Reference](./rewards-reference.md) page for more information on the available queries and parameters connected to the rewards.
