@@ -19,7 +19,7 @@ This minimum fee is shown in one gas unit, for example, `0.002 uarch`. The clien
 
 ## Minimum Fee Calculation 
 
-The minimum consensus fee is calculated for each new block and shown in one gas unit like `0.002` arch. The formula for the calculating the fee is below; 
+The minimum consensus fee is calculated for each new block and shown in one gas unit like `0.002` arch. The formula for calculating the fee is below; 
 
  `Inflation Block Rewards` /  `Block Gas Limit` * `Transaction Fee Rebate Ratio` - `Block Gas Limit` 
 
