@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Create a new Wallet
 
-New wallets can be created a number of ways but this guide will focus on using the `archwayd` core daemon or the [Developer CLI](/docs/create/cli/developer-cli). For installing and accessing `archwayd` see the [Archway Docker installation instructions](/docs/create/getting-started/install#install-archwayd-using-docker). For instructions on how to install and setup the developer CLI review our [installation guide](/docs/create/getting-started/install).
+New wallets can be created in a number of ways but this guide will focus on using the `archwayd` core daemon or the [Developer CLI](/docs/create/cli/developer-cli). For installing and accessing `archwayd` see the [Archway Docker installation instructions](/docs/create/getting-started/install#install-archwayd-using-docker). For instructions on how to install and setup the developer CLI review our [installation guide](/docs/create/getting-started/install).
 
 :::note
 While additional options for creating wallets are covered in this article, 3rd party tools are not supported or maintained by Archway directly
@@ -18,7 +18,7 @@ The command to add a new account using the `archwayd` daemon is:
 archwayd keys add ${ACCOUNT_LABEL}
 ```
 
-Where `${ACCOUNT_LABEL}` represents a human readable label for you account. Account labels help keep track of which account is which, especially pertinent if you're managing multiple Archway accounts.
+Where `${ACCOUNT_LABEL}` represents a human readable label for your account. Account labels help keep track of which account is which, especially pertinent if you're managing multiple Archway accounts.
 
 Example account creation:
 
