@@ -40,7 +40,7 @@ On Archway, developers have the complete power to choose on what they want to do
 
 **Support for Core Development Team** - Development teams typically have to rely on insider token sales and grants for fundraising and support. These can put development teams in a position to make decisions that have a negative effect on token distribution and technology used. Through the reward system of Archway, development teams can be funded without compromises to their dapp and ecosystem. 
 
-**Fund a DAO** - DAOs require a treasury to empower it's members to deliver projects like sponsoring hackathons, launching education programs and other important DAO initiatives. DAOs that support the ecosystem and are connected to a dapp on Archway can use the reward system to fund these type of activities. 
+**Fund a DAO** - DAOs require a treasury to empower its members to deliver projects like sponsoring hackathons, launching education programs and other important DAO initiatives. DAOs that support the ecosystem and are connected to a dapp on Archway can use the reward system to fund these types of activities. 
   
 
 ## How does Archway use the Cosmos SDK? 
