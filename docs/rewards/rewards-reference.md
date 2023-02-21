@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 
 # Rewards Reference 
-This guide is a list of the availabe queries and commands related to the rewards system.
+This guide is a list of the available queries and commands related to the rewards system.
 
 ## Rewards Queries 
 
