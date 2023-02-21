@@ -48,7 +48,7 @@ Other useful resources:
 
 #### Developer docs:
 
-_Developer docs_ refers to documentation for smart contract and dapp developers. It's content to help users build and scale dapps on Archway network and contains information that is pertinent to:
+_Developer docs_ refers to documentation for smart contract and dapp developers. Its content helps users build and scale dapps on Archway network and contains information that is pertinent to:
 - Smart Contract development
 - Web and UI frontends that connect to Archway network
 - The [Archway developer CLI](https://www.npmjs.com/package/@archwayhq/cli)
@@ -138,7 +138,7 @@ Docusaurus website is running at "http://localhost:8080/".
 ℹ ｢wds｣: 404s will fallback to /index.html
 ```
 
-5. You can now view the docs site in your web browser using the URL `http://localhost:8080/`. Hot-reload is enabled. That means you won't need to stop and restart the server everytime you make changes to the docs or code.
+5. You can now view the docs site in your web browser using the URL `http://localhost:8080/`. Hot-reload is enabled. That means you won't need to stop and restart the server every time you make changes to the docs or code.
 
 ### Preview PRs on a deployed preview
 
