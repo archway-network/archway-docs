@@ -153,7 +153,7 @@ Select a fee for the transaction and select the `Set Fee` button.
 
 ![](../assets/staking11.png)
 
-After a few moments, you ycan see the updates on our account.
+After a few moments, you can see the updates on our account.
 
 ![](../assets/staking12.png)
 
