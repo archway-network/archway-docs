@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import fs from 'fs';
-import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
+import { defaultEnvPath, envPath } from './env.config';
 
 dotenv.config({
   path: fs.existsSync(envPath) ? envPath : defaultEnvPath,
@@ -105,9 +105,6 @@ export default defineNuxtConfig({
         sepia: 'monokai',
       },
       preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
-    },
-    nitro: {
-      preset: 'firebase',
     },
   },
 });
