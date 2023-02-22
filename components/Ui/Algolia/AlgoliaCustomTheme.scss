@@ -433,6 +433,7 @@ html:not(.dark) {
     padding: 0;
     position: relative;
     overflow-y: auto;
+    padding: 0 1.5rem 1.5rem;
     // Minus height of footer
     height: calc(100% - 65px);
   }
@@ -513,10 +514,16 @@ body:not(.aa-DetachedContainer) > .aa-Panel .aa-SourceFooter {
   cursor: pointer;
   display: grid;
   min-height: calc(var(--aa-spacing) * 2.5);
+  margin-top: 0.5rem;
   // padding: calc(var(--aa-spacing-half) / 2);
   // When the result is active
   &[aria-selected='true'] {
-    background-color: rgba(var(--aa-selected-color-rgb), var(--aa-selected-color-alpha));
+    // background-color: rgba(var(--aa-selected-color-rgb), var(--aa-selected-color-alpha));
+
+    .aa-ItemWrapper {
+      box-shadow: 0px 0px 64px -8px rgba(0, 0, 0, 0.07);
+    }
+
     .aa-ItemActionButton,
     .aa-ActiveOnly {
       visibility: visible;
@@ -690,6 +697,9 @@ body:not(.aa-DetachedContainer) > .aa-Panel .aa-SourceFooter {
     grid-auto-flow: column;
     justify-content: space-between;
     width: 100%;
+    &:hover {
+      box-shadow: 0px 0px 64px -8px rgba(0, 0, 0, 0.07);
+    }
   }
   @at-root .aa-ItemLink {
     color: inherit;
@@ -732,6 +742,14 @@ body:not(.aa-DetachedContainer) > .aa-Panel .aa-SourceFooter {
   }
   @at-root .aa-ActiveOnly {
     visibility: hidden;
+  }
+}
+
+// On dark theme highlighted and selected styles
+html.dark .aa-Item {
+  &[aria-selected='true'] .aa-ItemWrapper,
+  .aa-ItemWrapper:hover {
+    background-color: #181818;
   }
 }
 

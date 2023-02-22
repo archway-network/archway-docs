@@ -70,23 +70,22 @@
                       // start of new category section
                       lastRootDir = rootDir;
                       return (
-                        <div className="flex !flex-col justify-start space-y-2">
-                          <div className="pt-4">
-                            <h1 className="text-lg font-bold">{`${rootDir.charAt(0).toUpperCase()}${rootDir.slice(1)}`}</h1>
+                        <div class="flex !flex-col justify-start space-y-4">
+                          <div class="mt-2">
+                            <h1 class="font-bold">{`${rootDir.charAt(0).toUpperCase()}${rootDir.slice(1)}`}</h1>
                           </div>
-                          <div className="aa-ItemWrapper">
-                            <div className="aa-ItemContent">
-                              <div className="pl-4">
-                                <div className="aa-ItemContentBody">
-                                  <a href={path}>
-                                    <div className="aa-ItemContentTitle">
-                                      <components.Snippet hit={item} attribute="title" />
-                                    </div>
-                                    <div className="aa-ItemContentDescription">
-                                      <components.Snippet hit={item} attribute="description" />
-                                    </div>
-                                  </a>
-                                </div>
+                          <div class="aa-ItemWrapper !block">
+                            <div class="aa-ItemContent p-4 border border-gray-warm dark:border-gray-600 rounded-lg w-full relative">
+                              <div class="aa-ItemContentBody">
+                                <a class="truncate hover:text-[inherit]" href={path}>
+                                  <div class="aa-ItemContentTitle">
+                                    <components.Snippet hit={item} attribute="title" />
+                                  </div>
+                                  <div class="aa-ItemContentDescription caption !text-gray-700">
+                                    <components.Snippet hit={item} attribute="description" />
+                                  </div>
+                                  <div class="aa-ActiveOnly absolute right-4 top-[calc(50%-10px)]">↵</div>
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -94,19 +93,18 @@
                       );
                     } else {
                       return (
-                        <div className="aa-ItemWrapper">
-                          <div className="aa-ItemContent">
-                            <div className="pl-4">
-                              <div className="aa-ItemContentBody">
-                                <a href={path}>
-                                  <div className="aa-ItemContentTitle">
-                                    <components.Snippet hit={item} attribute="title" />
-                                  </div>
-                                  <div className="aa-ItemContentDescription">
-                                    <components.Snippet hit={item} attribute="description" />
-                                  </div>
-                                </a>
-                              </div>
+                        <div class="aa-ItemWrapper !block">
+                          <div class="aa-ItemContent p-4 border border-gray-warm dark:border-gray-600 rounded-lg w-full relative">
+                            <div class="aa-ItemContentBody">
+                              <a class="truncate hover:text-[inherit]" href={path}>
+                                <div class="aa-ItemContentTitle">
+                                  <components.Snippet hit={item} attribute="title" />
+                                </div>
+                                <div class="aa-ItemContentDescription caption !text-gray-700">
+                                  <components.Snippet hit={item} attribute="description" />
+                                </div>
+                                <div class="aa-ActiveOnly absolute right-4 top-[calc(50%-10px)]">↵</div>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -118,18 +116,18 @@
                   },
                   footer() {
                     return (
-                      <div class="flex pt-4 mx-6 mb-6 border-t border-black/30 text-black/30 space-x-6">
+                      <div class="flex pt-4 mx-6 mb-6 border-t border-black/30 text-black/30 dark:border-gray-600 dark:text-gray-600 space-x-6">
                         <div class="flex items-center space-x-2">
-                          <kbd class="key !text-base">↵</kbd>
+                          <kbd class="key !text-base dark:!border-gray-600 dark:!text-gray-600">↵</kbd>
                           <span>to Select</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                          <kbd class="key !text-base">↑️</kbd>
-                          <kbd class="key !text-base !ml-1">↓</kbd>
+                          <kbd class="key !text-base dark:!border-gray-600 dark:!text-gray-600">↑️</kbd>
+                          <kbd class="key !text-base !ml-1 dark:!border-gray-600 dark:!text-gray-600">↓</kbd>
                           <span>to Navigate</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                          <kbd class="key !text-2xl">␛</kbd>
+                          <kbd class="key !text-2xl dark:!border-gray-600 dark:!text-gray-600">␛</kbd>
                           <span>to Close</span>
                         </div>
                       </div>
