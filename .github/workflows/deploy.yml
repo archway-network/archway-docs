@@ -1,23 +1,32 @@
 name: PROD Deployment
 
 on:
-  release:
-    types: [published]
+  push:
+    tags: [v*]
 
 jobs:
-  build_and_deploy:
+  build:
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      environment: production
+    secrets: inherit
+
+  deploy:
     runs-on: ubuntu-latest
-    environment: production
+    needs: build
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Cache node_modules
-        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+          fetch-depth: 0
+
+      - name: Test outputs
+        run: |
+          echo "image-version=${{ needs.build.outputs.image-version }}"
+          echo "image-tags=${{ needs.build.outputs.image-tags }}"
+
+      # -v- Everything bellow shall be replaced with the Kubernetes deployment -v-
 
       - name: Setup node
         uses: actions/setup-node@v2
@@ -31,15 +40,15 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          ALGOLIA_APPLICATION_ID: '${{ secrets.ALGOLIA_APPLICATION_ID }}'
-          ALGOLIA_SEARCH_API_KEY: '${{ secrets.ALGOLIA_SEARCH_API_KEY }}'
-          ALGOLIA_WRITE_API_KEY: '${{ secrets.ALGOLIA_WRITE_API_KEY }}'
-          ALGOLIA_INDEX: '${{ secrets.ALGOLIA_INDEX }}'
+          ALGOLIA_APPLICATION_ID: "${{ secrets.ALGOLIA_APPLICATION_ID }}"
+          ALGOLIA_SEARCH_API_KEY: "${{ secrets.ALGOLIA_SEARCH_API_KEY }}"
+          ALGOLIA_WRITE_API_KEY: "${{ secrets.ALGOLIA_WRITE_API_KEY }}"
+          ALGOLIA_INDEX: "${{ secrets.ALGOLIA_INDEX }}"
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARCHWAY_NETWORK_DOCS }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARCHWAY_NETWORK_DOCS }}"
           channelId: live
           projectId: archway-network-docs
