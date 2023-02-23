@@ -37,6 +37,8 @@ ENV PATH ./node_modules/.bin/:${PATH}
 # Builder for the production image
 FROM base AS builder
 
+ENV NITRO_PRESET=node-server
+
 COPY . .
 
 RUN \
@@ -50,12 +52,12 @@ RUN \
   && npm ci \
   && npm cache clean --force \
   && ( set +x \
-    # Disable command tracing to avoid leaking secrets
-    && ALGOLIA_INDEX=$(cat /run/secrets/ALGOLIA_INDEX) \
-    ALGOLIA_APPLICATION_ID=$(cat /run/secrets/ALGOLIA_APPLICATION_ID) \
-    ALGOLIA_SEARCH_API_KEY=$(cat /run/secrets/ALGOLIA_SEARCH_API_KEY) \
-    ALGOLIA_WRITE_API_KEY=$(cat /run/secrets/ALGOLIA_WRITE_API_KEY) \
-    npm run build \
+  # Disable command tracing to avoid leaking secrets
+  && ALGOLIA_INDEX=$(cat /run/secrets/ALGOLIA_INDEX) \
+  ALGOLIA_APPLICATION_ID=$(cat /run/secrets/ALGOLIA_APPLICATION_ID) \
+  ALGOLIA_SEARCH_API_KEY=$(cat /run/secrets/ALGOLIA_SEARCH_API_KEY) \
+  ALGOLIA_WRITE_API_KEY=$(cat /run/secrets/ALGOLIA_WRITE_API_KEY) \
+  npx nuxt build \
   )
 
 
