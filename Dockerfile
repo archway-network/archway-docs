@@ -40,6 +40,8 @@ FROM base AS builder
 COPY . .
 
 RUN \
+  # Those environment variables are required both for building and running the image.
+  # The reason to use secrets is to avoid persisting and leaking them during the build process.
   --mount=type=secret,id=ALGOLIA_INDEX \
   --mount=type=secret,id=ALGOLIA_APPLICATION_ID \
   --mount=type=secret,id=ALGOLIA_SEARCH_API_KEY \
