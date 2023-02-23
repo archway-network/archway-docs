@@ -64,6 +64,8 @@ USER node
 
 WORKDIR /opt/app
 
+ENV NODE_ENV=production
+
 COPY --from=builder --chown=node:node /usr/src/app/.output/ ./
 
 ENTRYPOINT ["node", "server/index.mjs"]
