@@ -1,0 +1,11 @@
+.cache
+.env
+.github
+.nitro
+.nuxt
+.output
+.vscode
+*.log*
+dist
+node_modules
+npm-debug.log
