@@ -56,7 +56,15 @@
       <span class="text-orange"> {{ title }} </span>{{ '.' }}
     </h1>
     <p class="title-1 pt-8 relative z-20" v-html="description" />
-    <img class="hidden sm:block dark:!hidden h-5/6 absolute bottom-0 z-10" :src="image?.src" :style="{ height: image?.height, right: image?.right }" />
-    <img class="hidden dark:sm:block h-5/6 absolute bottom-0 z-10" :src="image?.darkSrc" :style="{ height: image?.height, right: image?.right }" />
+    <img
+      class="hidden sm:block dark:!hidden h-5/6 absolute bottom-0 z-10"
+      :src="image?.src"
+      :style="{ height: image?.height, right: image?.right }"
+    />
+    <img
+      class="hidden dark:sm:block h-5/6 absolute bottom-0 z-10"
+      :src="image?.darkSrc"
+      :style="{ height: image?.height, right: image?.right }"
+    />
   </div>
 </template>

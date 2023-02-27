@@ -103,11 +103,11 @@
     <Header />
     <main id="main-container" class="flex-1 h-full container flex pt-[96px]">
       <div
-        class="hidden lg:block lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] overflow-y-auto w-[304px] flex-shrink-0 border-r border-gray-400 dark:border-gray-900 py-8"
+        class="hidden lg:block lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] overflow-y-auto w-[304px] flex-shrink-0 border-r border-gray-400 dark:border-gray-900 dark:border-opacity-20 py-8"
       >
-        <Navigation class="pr-8" />
+        <Navigation />
       </div>
-      <div class="flex-1 p-8">
+      <div class="flex-1 py-8 pl-8">
         <div class="page-content flex-1 space-y-8">
           <PageBreadcrumbs />
           <slot />
