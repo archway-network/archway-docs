@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: archway-docs-staging
+  name: archway-docs-staging
+  namespace: archway-docs-staging
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: archway-docs-staging
+  template:
+    metadata:
+      labels:
+        app: archway-docs-staging
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - image: ghcr.io/archway-network/archway-docs:IMAGE_VERSION
+        imagePullPolicy: Always
+        name: archway-docs
+        resources: {}
+        env:
+        - name: ALGOLIA_SEARCH_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: archway-docs-staging
+              key: ALGOLIA_SEARCH_API_KEY
+        - name: ALGOLIA_WRITE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: archway-docs-staging
+              key: ALGOLIA_WRITE_API_KEY
+        - name: ALGOLIA_APPLICATION_ID
+          valueFrom:
+            secretKeyRef:
+              name: archway-docs-staging
+              key: ALGOLIA_APPLICATION_ID
+        - name: ALGOLIA_INDEX
+          valueFrom:
+            secretKeyRef:
+              name: archway-docs-staging
+              key: ALGOLIA_INDEX
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: archway-docs-staging
+  name: archway-docs-staging
+  namespace: archway-docs-staging
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: archway-docs-staging
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/auth-type: basic
+    # basic-auth secret was created manually and credentials stored in 1password
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+  labels:
+    app.kubernetes.io/name: archway-docs-staging
+  name: archway-docs-staging
+  namespace: archway-docs-staging
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: stage.docs.archway.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: archway-docs-staging
+                port:
+                  number: 3000
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - stage.docs.archway.io
+      secretName: archway-docs-staging-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: archway-docs-staging
+type: Opaque
+data:
+  ALGOLIA_SEARCH_API_KEY: ALGOLIA_SEARCH_API_KEY_B64
+  ALGOLIA_WRITE_API_KEY: ALGOLIA_WRITE_API_KEY_B64
+  ALGOLIA_APPLICATION_ID: ALGOLIA_APPLICATION_ID_B64
+  ALGOLIA_INDEX: ALGOLIA_INDEX_STAGING_B64
+
+
