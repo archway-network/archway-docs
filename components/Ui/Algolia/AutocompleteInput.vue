@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center pr-4 min-w-45 bg-gray-100 dark:bg-black-18 rounded-2xl">
+  <div class="flex justify-between items-center pr-4 min-w-45 min-h-[3rem] bg-gray-100 dark:bg-black-18 rounded-2xl">
     <div :id="componentId" class="w-full"></div>
     <div class="flex flex-row justify-between items-center space-x-1">
       <kbd class="key">⌘</kbd>
@@ -12,7 +12,7 @@
   import { h, Fragment, render, onMounted } from 'vue';
   import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
   import { onKeyStroke } from '@vueuse/core';
-  import './AlgoliaCustomTheme.scss';
+  import './AlgoliaCustomTheme.css';
 
   export default {
     props: {
@@ -112,7 +112,7 @@
                     }
                   },
                   noResults() {
-                    return 'No matches found.';
+                    return <div class="px-2">No matches found.</div>;
                   },
                   footer() {
                     return (
