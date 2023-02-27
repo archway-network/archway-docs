@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { useAlgoliaSearch } from '@/data';
+  import NextPrevArticle from '@/components/NextPrevArticle.vue';
   import Page404 from '@/pages/404.vue';
 
   const searchAlgolia = await useAlgoliaSearch();
@@ -30,5 +31,6 @@
 <template>
   <div class="prose dark:prose-invert">
     <ContentDoc />
+    <NextPrevArticle />
   </div>
 </template>

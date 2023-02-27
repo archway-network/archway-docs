@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { computed, PropType } from 'vue';
-  import { InfoIcon, StarIcon, SuccessIcon } from '@/components/Ui';
+  import { InfoIcon, StarIcon, SuccessIcon, WarningIcon } from '@/components/Ui';
 
   const props = defineProps({
     variant: { type: String as PropType<'default' | 'warning' | 'error' | 'success' | 'info'>, default: 'default' },
@@ -26,6 +26,7 @@
     <div class="not-prose dark:not-prose-invert flex items-center space-x-4">
       <InfoIcon class="w-4 h-6" v-if="isError || isInfo" />
       <SuccessIcon class="w-4 h-6" v-else-if="isSuccess" />
+      <WarningIcon class="w-4 h-6" v-else-if="isWarning" />
       <StarIcon class="w-4 h-6" v-else />
       <div>
         <slot name="title" />

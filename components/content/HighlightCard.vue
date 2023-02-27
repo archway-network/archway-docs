@@ -21,7 +21,7 @@
   <div class="rounded-2xl mb-6 prose dark:prose-invert bg-gray-1000 dark:bg-black-warm">
     <div class="flex relative" ref="selectedSlot" @mouseover="showIcon = true" @mouseleave="showIcon = false">
       <ContentSlot :use="$slots.default" />
-      <div v-if="showIcon" class="flex absolute right-0 p-8 pb-0 justify-end">
+      <div v-if="showIcon" class="flex absolute right-0 p-8 pb-0 justify-end white dark:black">
         <TickIcon v-if="copied" />
         <CopyIcon v-if="showIcon && !copied" class="cursor-pointer" @click="copyText()" />
       </div>
