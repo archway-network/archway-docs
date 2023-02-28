@@ -13,6 +13,7 @@ jobs:
     # build only if new tagged commit is on feature/rebranding branch
     if: github.ref == 'refs/heads/feature/rebranding'
     runs-on: ubuntu-latest
+    environment: production
     outputs:
       image-version: ghcr.io/archway-network/archway-docs:${{ steps.meta.outputs.version }}
     steps:
