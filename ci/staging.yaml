@@ -18,7 +18,7 @@ spec:
       imagePullSecrets:
       - name: regcred
       containers:
-      - image: ghcr.io/archway-network/archway-docs:latest
+      - image: ghcr.io/archway-network/archway-docs:IMAGE_VERSION
         imagePullPolicy: Always
         name: archway-docs
         resources: {}
@@ -101,5 +101,3 @@ data:
   ALGOLIA_WRITE_API_KEY: ALGOLIA_WRITE_API_KEY_B64
   ALGOLIA_APPLICATION_ID: ALGOLIA_APPLICATION_ID_B64
   ALGOLIA_INDEX: ALGOLIA_INDEX_B64
-
-
