@@ -71,5 +71,5 @@ jobs:
       - name: Deploy
         uses: steebchen/kubectl@v2.0.0
         with:
-          config: ${{ secrets.GKE_SHARED_NONPROD_ARCHWAY_DOCS_KUBECONFIG }}
+          config: ${{ secrets.GKE_SHARED_NONPROD_KUBECONFIG_B64 }}
           command: apply -n archway-docs-staging -f ci/staging.yaml
