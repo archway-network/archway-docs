@@ -41,7 +41,7 @@ jobs:
       - name: Build and push docker image
         uses: docker/build-push-action@v4
         with:
-          push: false
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
