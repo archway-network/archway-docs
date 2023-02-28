@@ -62,7 +62,7 @@ jobs:
     if: github.ref == 'refs/heads/feature/rebranding'
     runs-on: ubuntu-latest
     needs:
-      - build
+      - docker-build
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
