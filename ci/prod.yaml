@@ -18,7 +18,7 @@ spec:
       imagePullSecrets:
       - name: regcred
       containers:
-      - image: ghcr.io/archway-network/archway-docs:IMAGE_VERSION
+      - image: IMAGE_VERSION
         imagePullPolicy: Always
         name: archway-docs
         resources: {}

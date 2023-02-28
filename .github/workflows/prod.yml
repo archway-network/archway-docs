@@ -68,7 +68,7 @@ jobs:
           fetch-depth: 0
       - name: Update Manifests
         run: |
-          sed -i -e "s|IMAGE_VERSION|${{ needs.build.outputs.image-version }}|g" ci/prod.yaml
+          sed -i -e "s|IMAGE_VERSION|${{ needs.docker-build.outputs.image-version }}|g" ci/prod.yaml
           sed -i -e "s|ALGOLIA_APPLICATION_ID_B64|$(echo -n ${{ secrets.ALGOLIA_APPLICATION_ID }}| base64)|g" ci/prod.yaml
           sed -i -e "s|ALGOLIA_SEARCH_API_KEY_B64|$(echo -n ${{ secrets.ALGOLIA_SEARCH_API_KEY }}| base64)|g" ci/prod.yaml
           sed -i -e "s|ALGOLIA_WRITE_API_KEY_B64|$(echo -n ${{ secrets.ALGOLIA_WRITE_API_KEY }}| base64)|g" ci/prod.yaml
