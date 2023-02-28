@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development nuxt dev",
-    "build": "NITRO_PRESET=firebase nuxt build",
+    "build": "nuxt build",
+    "build:firebase": "NITRO_PRESET=firebase nuxt build",
     "generate": "nuxt build && nuxt generate && copy-files-from-to",
     "start": "nuxt start",
     "deploy": "npm run build && firebase hosting:channel:deploy preview --expires 14d",
