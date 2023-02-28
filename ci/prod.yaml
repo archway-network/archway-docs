@@ -76,7 +76,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: stage.docs.archway.io
+    - host: docs.archway.io
       http:
         paths:
           - backend:
@@ -88,7 +88,7 @@ spec:
             pathType: ImplementationSpecific
   tls:
     - hosts:
-        - stage.docs.archway.io
+        - docs.archway.io
       secretName: archway-docs-cert
 ---
 apiVersion: v1
