@@ -59,6 +59,7 @@ jobs:
     # Deploy only if new tagged commit is on feature/rebranding branch
     if: github.ref == 'refs/heads/feature/rebranding'
     runs-on: ubuntu-latest
+    environment: production
     needs:
       - docker-build
     steps:
