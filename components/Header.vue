@@ -33,11 +33,11 @@
             </Link>
             <SwitchColorMode />
             <AutocompleteSearch detached />
-            <Link href="https://archway.io" :external-icon="false">Back to Archway</Link>
+            <Link href="https://archway.io" :external-icon="false" class="caption">Back to Archway</Link>
           </div>
           <div class="flex-1 flex justify-end items-center lg:hidden space-x-2">
-            <UiButtonsIconButton aria-hidden="true">
-              <SearchIcon @click="openSearch" class="h-6 w-6" />
+            <UiButtonsIconButton @click="openSearch" aria-hidden="true">
+              <SearchIcon class="h-6 w-6" />
             </UiButtonsIconButton>
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton
