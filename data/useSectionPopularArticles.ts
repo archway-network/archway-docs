@@ -19,7 +19,9 @@ export const useSectionPopularArticles: (section?: string) => Promise<{
     // get the last modified docs
     const objs = await searchAlgolia.search('', SortingReplicas.DocsByViewed);
     // take top 5
-    const topFive = objs.hits.slice(0, 5);
+    const topFive = !section 
+      ? objs.hits.slice(0, 5)
+      : objs.hits.filter((art: ArticleInput) => art.objectID?.includes(section + '|')).slice(0, 5);
     // convert to expected type
     const finalList: ArticleInput[] = [];
     for (let i = 0; i < topFive.length; i++) {
