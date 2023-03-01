@@ -54,7 +54,9 @@
     }
 
     // End of component
-    let lastEnd = gsap.utils.toArray('#main-container')?.[0]?.getBoundingClientRect().bottom;
+    const containerElement = gsap.utils.toArray('#main-container')?.[0];
+    let lastElementEnd = containerElement?.clientHeight || 0;
+    let containerTop = containerElement?.getBoundingClientRect().top || 0;
 
     // Loop through titles, from first to last
     ids.forEach((tocId, index) => {
@@ -69,12 +71,18 @@
         trigger: `#${tocId}`,
         // Area starts at top of header with some margin (or first element starts at -1)
         start: (instance: any) =>
-          index === 0 ? -1 : Math.max(instance.trigger?.getBoundingClientRect().top - marginPageHeader - marginTop, 0) || undefined,
+          index === 0
+            ? -1
+            : Math.max(instance.trigger?.getBoundingClientRect().top - containerTop - marginPageHeader - marginTop, 0) || undefined,
         // Area ends at top of next header (or end of the component)
         end: () =>
           index < ids.length - 1
-            ? gsap.utils.toArray(`#${ids[index + 1]}`)?.[0]?.getBoundingClientRect().top - marginPageHeader - marginTop - 1 || lastEnd
-            : lastEnd,
+            ? gsap.utils.toArray(`#${ids[index + 1]}`)?.[0]?.getBoundingClientRect().top -
+                containerTop -
+                marginPageHeader -
+                marginTop -
+                1 || lastElementEnd
+            : lastElementEnd,
         onEnter: handleEnter,
         onEnterBack: handleEnter,
         onLeave: handleLeave,
@@ -101,19 +109,19 @@
 <template>
   <div>
     <Header />
-    <main id="main-container" class="flex-1 h-full container flex pt-[96px]">
+    <main id="main-container" class="flex h-full container pt-24">
       <div
-        class="hidden lg:block lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] overflow-y-auto w-[304px] flex-shrink-0 border-r border-gray-400 dark:border-gray-900 py-8"
+        class="w-[304px] min-w-0 hidden lg:block sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto flex-shrink-0 border-r border-gray-400 dark:border-gray-900 py-8"
       >
         <Navigation class="pr-8" />
       </div>
-      <div class="flex-1 p-8">
+      <div class="flex-1 min-w-0 p-8">
         <div class="page-content flex-1 space-y-8">
           <PageBreadcrumbs />
           <slot />
         </div>
       </div>
-      <div class="hidden lg:block sticky top-24 py-8 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-hidden">
+      <div class="w-[200px] min-w-0 hidden lg:block sticky top-24 py-8 pr-1 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-hidden">
         <ClientOnly>
           <PageTOC />
         </ClientOnly>
