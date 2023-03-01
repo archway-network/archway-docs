@@ -20,9 +20,9 @@ const sectionCategories: Record<string, SectionCategory[]> = {
     {
       id: `category-${uniqueId()}`,
       category: 'How to’s',
-      title: 'Guides & Tutorials',
-      description: 'Guides and How to’s for building common web3 usecases, on the Archway chain.',
-      articlePath: '/overview',
+      title: 'Guides',
+      description: 'Instructions on how to build common web3 use cases on the Archway chain',
+      articlePath: '/developers/guides/guides-overview',
     },
   ],
   '/validators': [
