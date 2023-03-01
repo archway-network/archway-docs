@@ -19,11 +19,27 @@ pnpm install --shamefully-hoist
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+Start the development server on [http://localhost:3000](http://localhost:3000)
 
 ```bash
 npm run dev
 ```
+
+### Using Docker
+
+You can also spin up the development environment using Docker. First, you have to add the Algolia secrets to the `.env` file. You can use the example file for that:
+
+```bash
+cp .env.example .env
+```
+
+After adding the secrets to the file, simply use Docker Compose to start the server:
+
+```bash
+docker compose up
+```
+
+The website will be available on [http://localhost:3000](http://localhost:3000)
 
 ## Production
 
