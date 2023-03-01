@@ -2,7 +2,11 @@
   import Articles from '@/components/Articles.vue';
   import { useSectionPopularArticles } from '@/data';
 
-  const { articles, refresh } = await useSectionPopularArticles();
+  const props = defineProps({
+    rootSection: { type: String, required: true }
+  });
+
+  const { articles, refresh } = await useSectionPopularArticles(props.rootSection);
   onMounted(async () => {
     await refresh();
   });

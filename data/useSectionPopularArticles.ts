@@ -17,7 +17,9 @@ export const useSectionPopularArticles: (section?: string) => Promise<{
   const refresh = async () => {
     pending.value = true;
     // get the last modified docs
-    const objs = await searchAlgolia.search('', SortingReplicas.DocsByViewed);
+    const objs = section 
+      ? await searchAlgolia.search('', SortingReplicas.DocsByViewed, `group:${section}`)
+      : await searchAlgolia.search('', SortingReplicas.DocsByViewed);
     // take top 5
     const topFive = objs.hits.slice(0, 5);
     // convert to expected type

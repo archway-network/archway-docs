@@ -7,7 +7,8 @@ export enum SortingReplicas {
 };
 
 export default class AlgoliaSearch {
-    private requestOptions: { headers: { "x-algolia-application-id": string }, createIfNotExists?: boolean };
+    // note: you must set the the facet fields in the dashboard if you are to filter on them!!!
+    private requestOptions: { headers: { "x-algolia-application-id": string }, createIfNotExists?: boolean, filters?: string };
     private client: SearchClient;
     private index: SearchIndex
     private mainIndexName: string
@@ -40,13 +41,18 @@ export default class AlgoliaSearch {
     async updateObjectsPartially(objs: any[], createIfNotExists: boolean = true) {
         const requestOptions = { ...this.requestOptions };
         requestOptions.createIfNotExists = createIfNotExists;
-        return await this.index.partialUpdateObjects(objs, this.requestOptions);
+        return await this.index.partialUpdateObjects(objs, requestOptions);
     }
 
-    async search(query: string, sortingReplica: SortingReplicas) {
+    async search(query: string, sortingReplica: SortingReplicas, filters?: string) {
         this.resetIndexForSorting(sortingReplica);
 
-        return await this.index.search(query, this.requestOptions);
+        const requestOptions = { ...this.requestOptions };
+        if (filters) {
+            requestOptions.filters = filters;
+        }
+
+        return await this.index.search(query, requestOptions);
     }
 
     private resetIndexForSorting(replica: SortingReplicas) {

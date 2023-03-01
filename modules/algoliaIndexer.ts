@@ -49,6 +49,7 @@ export default defineNuxtModule({
                         parentSection: frontMatter.parentSection,
                         content: content.trim(),
                         modified: convertMsToUnixSeconds(fileStats.mtimeMs),
+                        group: frontMatter.objectID ? frontMatter.objectID.split('|')[0] : ""
                         // viewed: 0 // this field will be added from UI upon screen load
                     };
                     
