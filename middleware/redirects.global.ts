@@ -1,5 +1,6 @@
 const redirects: Record<string, string> = {
   '/overview': '/overview/about',
+  '/resources': '/resources/networks',
 };
 
 export default defineNuxtRouteMiddleware(to => {
