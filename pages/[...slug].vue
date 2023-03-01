@@ -29,7 +29,7 @@
 </script>
 
 <template>
-  <div class="prose dark:prose-invert">
+  <div class="prose dark:prose-invert min-w-full">
     <ContentDoc />
     <NextPrevArticle />
   </div>
