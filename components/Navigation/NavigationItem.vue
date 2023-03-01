@@ -46,13 +46,16 @@
 
 <template>
   <div>
-    <div v-if="item.children.length" class="flex items-center cursor-pointer text-black-light dark:text-gray-400 hover:text-orange" @click="isOpen = !isOpen">
-      <p class="mr-2 ease-in-out duration-300" :class="{ 'rotate-90': isOpen }"><ChevronRightIcon class="w-4 h-4" /></p>
-      <p>{{ item.title }}</p>
+    <div v-if="item.children.length" class="flex items-center cursor-pointer" @click="isOpen = !isOpen">
+      <p class="mr-2 ease-in-out duration-300 dark:text-gray-900" :class="{ 'rotate-90': isOpen }">
+        <ChevronRightIcon class="w-4 h-4" />
+      </p>
+      <p class="text-black-light dark:text-gray-900">{{ item.title }}</p>
     </div>
     <div v-else>
       <Link :href="item.path"
         ><p
+          class="pl-6"
           :class="[
             'hover:text-orange',
             { 'text-orange': selectedSection === item.path, 'text-black-light dark:text-gray-900': selectedSection !== item.path },
@@ -65,7 +68,7 @@
     <div class="pl-[8px] mt-2">
       <Transition :duration="300">
         <div
-          :class="{ 'border-l border-gray-400 pl-[32px]': isNestedChild }"
+          :class="{ 'border-l border-gray-400 dark:border-gray-900 dark:border-opacity-20': isNestedChild }"
           class="pt-2 space-y-4"
           v-if="item.children.length"
           v-show="isOpen"

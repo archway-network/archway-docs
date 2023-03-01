@@ -111,17 +111,19 @@
     <Header />
     <main id="main-container" class="flex h-full container pt-24">
       <div
-        class="w-[304px] min-w-0 hidden lg:block sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto flex-shrink-0 border-r border-gray-400 dark:border-gray-900 py-8"
+        class="w-[304px] min-w-0 hidden lg:block sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto flex-shrink-0 border-r border-gray-400 dark:border-gray-900 dark:border-opacity-20 py-8"
       >
-        <Navigation class="pr-8" />
+        <Navigation />
       </div>
-      <div class="flex-1 min-w-0 p-8">
+      <div class="flex-1 min-w-0 py-8 pl-8">
         <div class="page-content flex-1 space-y-8">
           <PageBreadcrumbs />
           <slot />
         </div>
       </div>
-      <div class="w-[200px] min-w-0 hidden lg:block sticky top-24 py-8 pr-1 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-hidden">
+      <div
+        class="w-[200px] min-w-0 hidden lg:block sticky top-24 py-8 pr-1 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-hidden"
+      >
         <ClientOnly>
           <PageTOC />
         </ClientOnly>

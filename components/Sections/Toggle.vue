@@ -8,7 +8,7 @@
   const router = useRouter();
   const { sections, selectedSection } = await useSections();
 
-  const selectedWithDefault = computed(() => selectedSection.value || sections.value[0])
+  const selectedWithDefault = computed(() => selectedSection.value || sections.value[0]);
 
   watch(
     selectedWithDefault,
@@ -27,12 +27,16 @@
 </script>
 
 <template>
-  <div>
+  <div class="pr-8">
     <Listbox v-slot="{ open }" :model-value="selectedWithDefault" @update:model-value="switchSection">
       <ListboxLabel class="block pb-2">I want to:</ListboxLabel>
       <div class="relative">
-        <ListboxButton class="relative w-full cursor-default rounded-lg bg-gray-100 dark:bg-black-warm px-4 py-4 text-left focus:outline-none">
-          <span class="block truncate caption" :class="{ 'text-gray-600 dark:text-gray-400': !open, 'text-orange': open }">{{ selectedWithDefault?.title }}</span>
+        <ListboxButton
+          class="relative w-full cursor-default rounded-lg bg-gray-100 dark:bg-black-warm px-4 py-4 text-left focus:outline-none"
+        >
+          <span class="block truncate caption" :class="{ 'text-gray-600 dark:text-gray-400': !open, 'text-orange': open }">{{
+            selectedWithDefault?.title
+          }}</span>
           <span class="pointer-events-none flex items-center absolute inset-y-0 right-0 pr-2">
             <ChevronDownIcon class="w-4 h-4" :class="{ 'rotate-180 transform': open }" />
           </span>
@@ -41,14 +45,14 @@
         <transition leave-active-class="transition duration-100 ease-in" leave-from-class="opacity-100" leave-to-class="opacity-0">
           <ListboxOptions
             :class="[
-              'absolute mt-2 max-h-90 overflow-auto px-4 py-4 space-y-1',
-              'rounded-2xl bg-white dark:bg-black focus:outline-none shadow-[40px_64px_128px_-8px_rgba(0,0,0,0.14)] dark:shadow-[40px_64px_128px_-8px_rgba(255,255,255,0.14)]',
+              'absolute mt-2 max-h-90 overflow-auto px-4 py-4 space-y-1 z-10',
+              'rounded-2xl bg-white dark:bg-black-warm  focus:outline-none shadow-[40px_64px_128px_-8px_rgba(0,0,0,0.14)] dark:shadow-[40px_64px_128px_-8px_rgba(255,255,255,0.14)]',
             ]"
           >
             <ListboxOption v-slot="{ active, selected }" v-for="section in sections" :key="section.title" :value="section" as="template">
               <li
                 :class="[
-                  active || selected ? 'bg-gray-100 dark:bg-black-warm text-orange' : 'bg-white dark:bg-black',
+                  active || selected ? 'bg-gray-100 dark:bg-black  text-orange' : 'bg-white dark:bg-black-warm',
                   'relative cursor-default select-none rounded-lg',
                   'space-y-2 px-4 py-4',
                 ]"
@@ -62,4 +66,5 @@
       </div>
     </Listbox>
   </div>
+  <div class="relative border-b border-gray-400 dark:border-gray-900 dark:border-opacity-20 mt-8 pr-[-8px]"></div>
 </template>
