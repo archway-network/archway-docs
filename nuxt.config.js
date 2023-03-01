@@ -106,8 +106,5 @@ export default defineNuxtConfig({
       },
       preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
     },
-    nitro: {
-      preset: 'firebase',
-    },
   },
 });

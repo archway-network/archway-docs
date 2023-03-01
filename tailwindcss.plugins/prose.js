@@ -61,7 +61,6 @@ const defaultTheme = theme => ({
       ':first-child': {
         paddingLeft: '0px',
         borderLeft: 'none',
-        textAlign: 'left',
         minWidth: '156px',
       },
     },
