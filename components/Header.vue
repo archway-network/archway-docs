@@ -14,9 +14,7 @@
   <ClientOnly>
     <div class="fixed inset-x-0 bg-white dark:bg-black z-50">
       <div class="container">
-        <div
-          class="relative border-b border-gray-400 dark:border-gray-900 dark:border-opacity-20 h-24 flex items-center py-4 lg:space-x-10"
-        >
+        <div class="relative border-b border-gray-400 dark:border-gray-900 dark:border-opacity-20 h-24 flex items-center py-4">
           <div class="flex justify-start">
             <NuxtLink to="/" class="dark:hover:text-gray-400">
               <span class="sr-only">Archway</span>
