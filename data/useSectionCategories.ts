@@ -12,10 +12,10 @@ const sectionCategories: Record<string, SectionCategory[]> = {
   '/developers': [
     {
       id: `category-${uniqueId()}`,
-      category: 'Clarification',
-      title: 'Documentation',
-      description: 'Collection of Informational and reference articles that you’ll need to be aware of to build on Archway.',
-      articlePath: '/overview',
+      category: 'Build & Earn',
+      title: 'Rewards',
+      description: 'Learn how the rewards system incentivizes developers to build dapps and contribute to the growth of the network.',
+      articlePath: '/developers/rewards/managing-rewards',
     },
     {
       id: `category-${uniqueId()}`,

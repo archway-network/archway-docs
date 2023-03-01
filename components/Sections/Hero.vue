@@ -19,7 +19,7 @@
 
   const description = computed(() => {
     return {
-      developers: 'Are you looking for clarifications,<br />or a full guide to get you started?',
+      developers: 'Are you looking for more information<br/>or comprehensive guides to help you get started?',
       validators: 'Trying to install and run an Archway node?<br />Or interested in becoming a validator?',
       community: 'How can we help you be part of the network?',
     }[route.name as string];
