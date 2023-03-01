@@ -1,8 +1,9 @@
 <script lang="ts" setup>
   import Articles from '@/components/Articles.vue';
-  import { useRecentArticles } from '@/data';
+  import { useHighlightedArticles } from '@/data';
+  import { SortingReplicas } from '@/domain/AlgoliaSearch';
 
-  const { articles, refresh } = await useRecentArticles();
+  const { articles, refresh } = await useHighlightedArticles(SortingReplicas.DocsByModified);
   const hasArticles = ref(false);
 
   onMounted(async () => {
