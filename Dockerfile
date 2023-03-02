@@ -1,3 +1,8 @@
+# syntax=docker/dockerfile:1
+#
+# To build the production image:
+# > source .env && docker build --secret id=ALGOLIA_INDEX (repeat for all secrets...) -t archwaynetwork/docs .
+
 FROM node:lts-alpine AS base
 
 RUN set -eux \
