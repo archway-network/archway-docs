@@ -67,8 +67,7 @@ const defaultTheme = theme => ({
     'pre':{
       color:'var(--tw-prose-pre)',
       borderRadius:'1rem',
-      padding:'32px',
-      width:'100%',
+      padding:'16px',
       marginBottom:'0px',
       marginTop:'0px'
     },
