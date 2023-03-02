@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  const developers = "developers";
+  import { SortingReplicas } from '@/domain/AlgoliaSearch';
 </script>
 
 <template>
   <div>
     <SectionsHero />
     <SectionsCategories />
-    <SectionsPopularArticles :root-section="developers" />
+    <UiPopularArticles :sorting-replica="SortingReplicas.DocsByViewed" title="Most popular articles" css-class="grid grid-cols-1 pt-16 space-y-8 w-full" root-section="developers" />
   </div>
 </template>
