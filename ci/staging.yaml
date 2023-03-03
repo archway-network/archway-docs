@@ -46,7 +46,7 @@ spec:
         - name: ENV
           valueFrom:
             secretKeyRef:
-              name: archway-docs
+              name: archway-docs-staging
               key: ENV
 ---
 apiVersion: v1
