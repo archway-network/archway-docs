@@ -72,6 +72,7 @@ jobs:
           sed -i -e "s|ALGOLIA_SEARCH_API_KEY_B64|$(echo -n ${{ secrets.ALGOLIA_SEARCH_API_KEY }}| base64)|g" ci/prod.yaml
           sed -i -e "s|ALGOLIA_WRITE_API_KEY_B64|$(echo -n ${{ secrets.ALGOLIA_WRITE_API_KEY }}| base64)|g" ci/prod.yaml
           sed -i -e "s|ALGOLIA_INDEX_B64|$(echo -n ${{ secrets.ALGOLIA_INDEX }}| base64)|g" ci/prod.yaml
+          sed -i -e "s|ENV_B64|$(echo -n ${{ vars.ENV }}| base64)|g" ci/staging.yaml
       - name: Deploy
         uses: steebchen/kubectl@v2.0.0
         with:

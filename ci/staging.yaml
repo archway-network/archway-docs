@@ -43,6 +43,11 @@ spec:
             secretKeyRef:
               name: archway-docs-staging
               key: ALGOLIA_INDEX
+        - name: ENV
+          valueFrom:
+            secretKeyRef:
+              name: archway-docs
+              key: ENV
 ---
 apiVersion: v1
 kind: Service
@@ -101,3 +106,4 @@ data:
   ALGOLIA_WRITE_API_KEY: ALGOLIA_WRITE_API_KEY_B64
   ALGOLIA_APPLICATION_ID: ALGOLIA_APPLICATION_ID_B64
   ALGOLIA_INDEX: ALGOLIA_INDEX_B64
+  ENV: ENV_B64
