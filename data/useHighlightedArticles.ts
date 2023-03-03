@@ -4,11 +4,11 @@ import { Article } from '@/domain';
 import { useAlgoliaSearch } from '@/data/useAlgoliaSearch';
 import { SortingReplicas } from '@/domain/AlgoliaSearch';
 
-export const useSectionPopularArticles: (section?: string) => Promise<{
+export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?: string) => Promise<{
   articles: ComputedRef<Article[]>;
-  refresh: () => void;
+  refresh: () => Promise<void>;
   isLoading: ComputedRef<boolean>;
-}> = async (section?: string) => {
+}> = async (sortingReplica: SortingReplicas, section?: string) => {
   const searchAlgolia = await useAlgoliaSearch();
   const asyncKey = section ? `most-popular-articles-${section}` : 'most-popular-articles';  
   const data = ref<ArticleInput[]>([]);
@@ -18,8 +18,8 @@ export const useSectionPopularArticles: (section?: string) => Promise<{
     pending.value = true;
     // get the last modified docs
     const objs = section 
-      ? await searchAlgolia.search('', SortingReplicas.DocsByViewed, `group:${section}`)
-      : await searchAlgolia.search('', SortingReplicas.DocsByViewed);
+      ? await searchAlgolia.search('', sortingReplica, `group:${section}`)
+      : await searchAlgolia.search('', sortingReplica);
     // take top 5
     const topFive = objs.hits.slice(0, 5);
     // convert to expected type
@@ -39,7 +39,7 @@ export const useSectionPopularArticles: (section?: string) => Promise<{
   }
 
   const articles = computed(() => {
-    return (data.value || []).map(item => Article.make(item));
+    return (data.value || []).map((item: any) => Article.make(item));
   });
 
   return { articles, refresh, isLoading: computed(() => pending.value) };

@@ -5,11 +5,8 @@ on:
     tags:
     - "*"
 
-
 jobs:
   docker-build:
-    # build only if new tagged commit is on feature/rebranding branch
-    if: github.ref == 'refs/heads/feature/rebranding'
     runs-on: ubuntu-latest
     environment: production
     outputs:
@@ -56,8 +53,6 @@ jobs:
           cache-to: type=gha,mode=max
   
   deploy:
-    # Deploy only if new tagged commit is on feature/rebranding branch
-    if: github.ref == 'refs/heads/feature/rebranding'
     runs-on: ubuntu-latest
     environment: production
     needs:
