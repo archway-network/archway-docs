@@ -7,8 +7,8 @@ export const useAlgoliaSearch: () => Promise<{
   updateObjectsPartially: (objs: any[], createIfNotExists?: boolean) => Promise<any>,
   search: (query: string, sortingReplica: SortingReplicas, filters?: string) => Promise<any>
 }> = async () => {
-    const { algolia } = useRuntimeConfig();
-    const algoliaSearch = new AlgoliaSearch(algolia.appId, algolia.writeApiKey, algolia.docIndex);
+    const runtimeConfig = useRuntimeConfig();
+    const algoliaSearch = new AlgoliaSearch(runtimeConfig.algolia.appId, runtimeConfig.algolia.writeApiKey, runtimeConfig.algolia.docIndex, runtimeConfig.algolia.env);
 
     const findObject = async (searchPredicate: (hit: any) => boolean) => {
         return await algoliaSearch.findObject(searchPredicate);

@@ -4,7 +4,9 @@ on:
   push:
     branches:
     - 'feature/rebranding'
-
+env:
+  ENV: ${{ vars.ENV }}
+  
 jobs:
   docker-build:
     runs-on: ubuntu-latest
