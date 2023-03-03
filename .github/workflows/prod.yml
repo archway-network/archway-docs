@@ -4,6 +4,8 @@ on:
   push:
     tags:
     - "*"
+env:
+  ENV: ${{ vars.ENV }}
 
 jobs:
   docker-build:
