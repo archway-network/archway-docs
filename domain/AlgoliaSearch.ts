@@ -1,5 +1,7 @@
 import algoliasearch, { SearchClient, SearchIndex } from 'algoliasearch';
 
+// note: Algolia dashboard and index settings will use an environment prefix in the name
+// for example staging_docs_by_modified
 export enum SortingReplicas {
     Main = 'Main',
     DocsByModified = 'docs_by_modified',
@@ -13,18 +15,21 @@ export default class AlgoliaSearch {
     private index: SearchIndex
     private mainIndexName: string
 
-    constructor(appId: string, apiKey: string, indexName: string) {
+    // env is the deployment environment: staging, production, etc.
+    constructor(appId: string, apiKey: string, indexName: string, env: string) {
         this.requestOptions = { headers: { "x-algolia-application-id": appId } };
         this.client = algoliasearch(appId, apiKey);     
         this.mainIndexName = indexName;        
         this.index = this.client.initIndex(this.mainIndexName);
+
+        
         this.index.setSettings({
             attributesForFaceting: [
                 'searchable(parentSection)'
             ],
             replicas: [
-                SortingReplicas.DocsByModified,
-                SortingReplicas.DocsByViewed
+                env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByModified,
+                env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByViewed
             ]
         });
     }
