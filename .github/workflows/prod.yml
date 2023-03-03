@@ -51,6 +51,7 @@ jobs:
             ALGOLIA_SEARCH_API_KEY=${{ secrets.ALGOLIA_SEARCH_API_KEY }}
             ALGOLIA_WRITE_API_KEY=${{ secrets.ALGOLIA_WRITE_API_KEY }}
             ALGOLIA_INDEX=${{ secrets.ALGOLIA_INDEX }}
+            ENV=${{ vars.ENV }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
   
