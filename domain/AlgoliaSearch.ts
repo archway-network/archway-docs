@@ -3,7 +3,6 @@ import algoliasearch, { SearchClient, SearchIndex } from 'algoliasearch';
 // note: Algolia dashboard and index settings will use an environment prefix in the name
 // for example staging_docs_by_modified
 export enum SortingReplicas {
-    Main = 'Main',
     DocsByModified = 'docs_by_modified',
     DocsByViewed = 'docs_by_viewed'
 };
@@ -25,7 +24,8 @@ export default class AlgoliaSearch {
         
         this.index.setSettings({
             attributesForFaceting: [
-                'searchable(parentSection)'
+                'searchable(parentSection)',
+                'filterOnly(group)'
             ],
             replicas: [
                 env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByModified,
@@ -61,7 +61,6 @@ export default class AlgoliaSearch {
     }
 
     private resetIndexForSorting(replica: SortingReplicas) {
-        this.index = this.client.initIndex(replica === SortingReplicas.Main ? this.mainIndexName : replica);
         if (replica === SortingReplicas.DocsByViewed) {
             this.index.setSettings({
                 ranking: [
