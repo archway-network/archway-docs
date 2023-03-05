@@ -3,6 +3,8 @@ import { ArticleInput } from '@/types';
 import { Article } from '@/domain';
 import { useAlgoliaSearch } from '@/data/useAlgoliaSearch';
 import { SortingReplicas } from '@/domain/AlgoliaSearch';
+/// @ts-ignore
+import { v4 as uuidv4 } from 'uuid';
 
 export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?: string) => Promise<{
   articles: ComputedRef<Article[]>;
@@ -10,7 +12,7 @@ export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?:
   isLoading: ComputedRef<boolean>;
 }> = async (sortingReplica: SortingReplicas, section?: string) => {
   const searchAlgolia = await useAlgoliaSearch();
-  const asyncKey = section ? `most-popular-articles-${section}` : 'most-popular-articles';  
+  const asyncKey = section ? `highlighted-articles-${section}-${sortingReplica}` : `highlighted-articles-${sortingReplica}`;  
   const data = ref<ArticleInput[]>([]);
   const pending = ref(false);
 
@@ -26,7 +28,7 @@ export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?:
     const finalList: ArticleInput[] = [];
     for (let i = 0; i < topFive.length; i++) {
       const item = topFive[i];
-      const { data: queryData } = await useAsyncData(asyncKey, () => queryContent().where({ objectID: item.objectID }).findOne());      
+      const { data: queryData } = await useAsyncData(`${asyncKey}-${uuidv4()}`, () => queryContent().where({ objectID: item.objectID }).findOne());      
       finalList.push({ 
         _id: queryData.value?._id, 
         title: queryData.value?.title, 
