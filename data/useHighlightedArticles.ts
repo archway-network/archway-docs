@@ -10,18 +10,23 @@ export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?:
   articles: ComputedRef<Article[]>;
   refresh: () => Promise<void>;
   isLoading: ComputedRef<boolean>;
+  search: (searchSortingReplica: SortingReplicas, searchSection?: string) => Promise<Article[]>;
 }> = async (sortingReplica: SortingReplicas, section?: string) => {
   const searchAlgolia = await useAlgoliaSearch();
   const asyncKey = section ? `highlighted-articles-${section}-${sortingReplica}` : `highlighted-articles-${sortingReplica}`;  
-  const data = ref<ArticleInput[]>([]);
+  const data = ref<Article[]>([]);
   const pending = ref(false);
 
   const refresh = async () => {
+    data.value = await search(sortingReplica, section);
+  }
+
+  const search = async (searchSortingReplica: SortingReplicas, searchSection?: string) => {
     pending.value = true;
     // get the last modified docs
-    const objs = section 
-      ? await searchAlgolia.search('', sortingReplica, `group:${section}`)
-      : await searchAlgolia.search('', sortingReplica);
+    const objs = searchSection 
+      ? await searchAlgolia.search('', searchSortingReplica, `group:${searchSection}`)
+      : await searchAlgolia.search('', searchSortingReplica);
     // take top 5
     const topFive = objs.hits.slice(0, 5);
     // convert to expected type
@@ -36,13 +41,14 @@ export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?:
         _path: queryData.value?._path 
       });
     };
-    data.value = finalList;
     pending.value = false;
+    
+    return (finalList || []).map((item: any) => Article.make(item));
   }
 
   const articles = computed(() => {
-    return (data.value || []).map((item: any) => Article.make(item));
+    return data.value;
   });
 
-  return { articles, refresh, isLoading: computed(() => pending.value) };
+  return { articles, refresh, isLoading: computed(() => pending.value), search };
 };
