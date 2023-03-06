@@ -14,26 +14,16 @@ export default class AlgoliaSearch {
     private client: SearchClient;
     private index: SearchIndex;
     private mainIndexName: string;
-    private env: string;
 
     // env is the deployment environment: staging, production, etc.
-    constructor(appId: string, apiKey: string, indexName: string, env: string) {
+    constructor(appId: string, apiKey: string, indexName: string, env: string, sortingReplica?: SortingReplicas) {
         this.requestOptions = { headers: { "x-algolia-application-id": appId } };
-        this.client = algoliasearch(appId, apiKey);     
-        this.mainIndexName = indexName;        
-        this.index = this.client.initIndex(this.mainIndexName);
-        this.env = env;
+        this.client = algoliasearch(appId, apiKey);    
 
-        this.index.setSettings({
-            attributesForFaceting: [
-                'searchable(parentSection)',
-                'filterOnly(group)'
-            ],
-            replicas: [
-                this.env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByModified,
-                this.env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByViewed
-            ]
-        });
+        this.mainIndexName = sortingReplica 
+        ? (sortingReplica === SortingReplicas.DocsByModified ? env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByModified : env.toLocaleLowerCase() + "_" + SortingReplicas.DocsByViewed)
+        : indexName;
+        this.index = this.client.initIndex(this.mainIndexName);
     }
 
     async saveObjects(docs: any[]) {
@@ -51,9 +41,7 @@ export default class AlgoliaSearch {
         return await this.index.partialUpdateObjects(objs, requestOptions);
     }
 
-    async search(query: string, sortingReplica: SortingReplicas, filters?: string) {
-        await this.resetIndexForSorting(sortingReplica);
-
+    async search(query: string, filters?: string) {
         const requestOptions = { ...this.requestOptions };
         if (filters) {
             requestOptions.filters = filters;
@@ -62,30 +50,4 @@ export default class AlgoliaSearch {
         return await this.index.search(query, requestOptions);
     }
 
-    // note: NOTICE THE SLEEP ADDED! This is because there is an async delay to the setting 
-    // of the index search settings and their effect.
-    // In other words you must wait a bit after setting a ranking before you can actually attempt 
-    // to use that sort order!
-    private async resetIndexForSorting(replica: SortingReplicas) {
-        const currentIndexSetting = await this.index.getSettings();
-        if (replica === SortingReplicas.DocsByViewed) {
-            if (!currentIndexSetting.ranking?.includes('desc(viewed)')) {
-                await this.index.setSettings({
-                    ranking: [
-                        'desc(viewed)'
-                    ]
-                });
-                await new Promise(r => setTimeout(r, 2500));
-            }
-        } else if (replica === SortingReplicas.DocsByModified) {
-            if (!currentIndexSetting.ranking?.includes('desc(modified)')) {
-                await this.index.setSettings({
-                    ranking: [
-                        'desc(modified)'
-                    ]
-                });
-                await new Promise(r => setTimeout(r, 2500));
-            }
-        }
-    }
 }

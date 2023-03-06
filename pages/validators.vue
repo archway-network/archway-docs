@@ -7,7 +7,7 @@
   let popularArticles = ref<Article[]>([]);
 
   onMounted(async () => {
-    popularArticles.value = await search(SortingReplicas.DocsByViewed, "validators");
+    popularArticles.value = await search("validators");
   });
 </script>
 

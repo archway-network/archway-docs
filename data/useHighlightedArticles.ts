@@ -10,23 +10,23 @@ export const useHighlightedArticles: (sortingReplica: SortingReplicas, section?:
   articles: ComputedRef<Article[]>;
   refresh: () => Promise<void>;
   isLoading: ComputedRef<boolean>;
-  search: (searchSortingReplica: SortingReplicas, searchSection?: string) => Promise<Article[]>;
+  search: (searchSection?: string) => Promise<Article[]>;
 }> = async (sortingReplica: SortingReplicas, section?: string) => {
-  const searchAlgolia = await useAlgoliaSearch();
+  const searchAlgolia = await useAlgoliaSearch(sortingReplica);
   const asyncKey = section ? `highlighted-articles-${section}-${sortingReplica}` : `highlighted-articles-${sortingReplica}`;  
   const data = ref<Article[]>([]);
   const pending = ref(false);
 
   const refresh = async () => {
-    data.value = await search(sortingReplica, section);
+    data.value = await search(section);
   }
 
-  const search = async (searchSortingReplica: SortingReplicas, searchSection?: string) => {
+  const search = async (searchSection?: string) => {
     pending.value = true;
     // get the last modified docs
     const objs = searchSection 
-      ? await searchAlgolia.search('', searchSortingReplica, `group:${searchSection}`)
-      : await searchAlgolia.search('', searchSortingReplica);
+      ? await searchAlgolia.search('', `group:${searchSection}`)
+      : await searchAlgolia.search('');
     // take top 5
     const topFive = objs.hits.slice(0, 5);
     // convert to expected type
