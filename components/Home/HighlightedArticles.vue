@@ -11,10 +11,10 @@
 
   onMounted(async () => {
     // when simulataneous calls are made they must be done sequentially
-    recentArticles.value = await searchRecent(SortingReplicas.DocsByModified);
+    recentArticles.value = await searchRecent();
     console.log(SortingReplicas.DocsByModified, "search data", recentArticles.value);
 
-    popularArticles.value = await searchPopular(SortingReplicas.DocsByViewed);
+    popularArticles.value = await searchPopular();
     console.log(SortingReplicas.DocsByViewed, "search data", popularArticles.value);
   });
 </script>
