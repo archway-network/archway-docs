@@ -3,7 +3,7 @@
   import { FileIcon, Link } from '@/components/Ui';
   import { Article } from '@/domain';
 
-  const props = defineProps({
+  defineProps({
     articles: { type: Array as PropType<Article[]>, required: true },
   });
 </script>
