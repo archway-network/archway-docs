@@ -5,7 +5,7 @@
   import { Article } from '@/domain';
 
   const articles = ref<Article[]>([]);
-  const { search, isLoading } = await useHighlightedArticles(SortingReplicas.DocsByModified);
+  const { search, isLoading } = await useHighlightedArticles(SortingReplicas.DocsByViewed);
 
   onMounted(async () => {
     articles.value = await search();
@@ -14,6 +14,6 @@
 
 <template>
   <div>
-    <ArticlesSection title="Recent Articles" :articles="articles" :loading="isLoading" />
+    <ArticlesSection title="Popular Articles" :articles="articles" :loading="isLoading" />
   </div>
 </template>
