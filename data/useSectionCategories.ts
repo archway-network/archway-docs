@@ -31,7 +31,7 @@ const sectionCategories: Record<string, SectionCategory[]> = {
       category: 'Node Operators',
       title: 'Running a Node',
       description: 'Reference for installing, configuring, and runnning a node, as well as joining a network.',
-      articlePath: '/validators/running-a-validator-node',
+      articlePath: '/validators/running-a-node',
     },
     {
       id: `category-${uniqueId()}`,
