@@ -1,8 +1,8 @@
 const redirects: Record<string, string> = {
   '/overview': '/overview/about',
   '/resources': '/resources/networks',
-  '/validators/running-a-node': '/validators/node/prerequisites',
-  '/validators/requirements': '/validators/validator/requirements'
+  '/validators/running-a-node': '/validators/running-a-node/prerequisites',
+  '/validators/requirements': '/validators/becoming-a-validator/requirements'
 
 };
 
