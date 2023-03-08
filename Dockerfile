@@ -1,3 +1,8 @@
+# syntax=docker/dockerfile:1
+#
+# To build the production image:
+# > source .env && docker build --secret id=ALGOLIA_INDEX (repeat for all secrets...) -t archwaynetwork/docs .
+
 FROM node:lts-alpine AS base
 
 RUN set -eux \
@@ -40,6 +45,7 @@ RUN \
   --mount=type=secret,id=ALGOLIA_APPLICATION_ID,required=true \
   --mount=type=secret,id=ALGOLIA_SEARCH_API_KEY,required=true \
   --mount=type=secret,id=ALGOLIA_WRITE_API_KEY,required=true \
+  --mount=type=secret,id=ENV,required=true \
   set -eux \
   && npm ci \
   && npm cache clean --force \
@@ -49,6 +55,7 @@ RUN \
   ALGOLIA_APPLICATION_ID=$(cat /run/secrets/ALGOLIA_APPLICATION_ID) \
   ALGOLIA_SEARCH_API_KEY=$(cat /run/secrets/ALGOLIA_SEARCH_API_KEY) \
   ALGOLIA_WRITE_API_KEY=$(cat /run/secrets/ALGOLIA_WRITE_API_KEY) \
+  ENV=$(cat /run/secrets/ENV) \
   npx nuxt build \
   )
 

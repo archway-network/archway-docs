@@ -23,7 +23,8 @@ export default defineNuxtModule({
             const indexName = nuxt.options.runtimeConfig.algolia.docIndex;
             const appId = nuxt.options.runtimeConfig.algolia.appId;
             const apiKey = nuxt.options.runtimeConfig.algolia.writeApiKey;
-            const algoliaSearch = new AlgoliaSearch(appId, apiKey, indexName);
+            const env = nuxt.options.runtimeConfig.algolia.env;            
+            const algoliaSearch = new AlgoliaSearch(appId, apiKey, indexName, env);
             console.log("topDirs", topDirs);
             
             for (let i = 0; i < topDirs.length; i++) {                
@@ -49,6 +50,7 @@ export default defineNuxtModule({
                         parentSection: frontMatter.parentSection,
                         content: content.trim(),
                         modified: convertMsToUnixSeconds(fileStats.mtimeMs),
+                        group: frontMatter.objectID ? frontMatter.objectID.split('|')[0] : ""
                         // viewed: 0 // this field will be added from UI upon screen load
                     };
                     

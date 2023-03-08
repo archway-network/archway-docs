@@ -34,6 +34,7 @@ export type AlgoliaArticleIndex = {
   parentSection: string,
   content: string,
   modified: number, // Unix seconds
+  group: string, // should be set to root parent folder. e.g. community
   viewed?: number // this field is here only to document complete indexing object
 };
 

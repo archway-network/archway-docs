@@ -115,7 +115,7 @@
       >
         <Navigation />
       </div>
-      <div class="flex-1 min-w-0 py-8 pl-8">
+      <div class="flex-1 min-w-0 p-8">
         <div class="page-content flex-1 space-y-8">
           <PageBreadcrumbs />
           <slot />

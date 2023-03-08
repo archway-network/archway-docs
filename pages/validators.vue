@@ -2,6 +2,6 @@
   <div>
     <SectionsHero />
     <SectionsCategories />
-    <SectionsPopularArticles />
+    <SectionsMostPopularArticles section="validators" />
   </div>
 </template>
