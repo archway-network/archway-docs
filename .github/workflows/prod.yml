@@ -1,9 +1,9 @@
 name: Build and Deploy Prod
 
 on:
-  push:
-    tags:
-    - "*"
+  release:
+    types: [published]
+
 env:
   ENV: ${{ vars.ENV }}
 
@@ -54,7 +54,7 @@ jobs:
             ENV=${{ vars.ENV }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-  
+
   deploy:
     runs-on: ubuntu-latest
     environment: production
