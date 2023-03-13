@@ -92,37 +92,6 @@ spec:
         - docs.archway.io
       secretName: archway-docs-cert
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/auth-type: basic
-    # basic-auth secret was created manually and credentials stored in 1password
-    nginx.ingress.kubernetes.io/auth-secret: basic-auth
-    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
-  labels:
-    app.kubernetes.io/name: archway-docs
-  name: archway-docs-locked
-  namespace: archway-docs
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: prod.docs.archway.io
-      http:
-        paths:
-          - backend:
-              service:
-                name: archway-docs
-                port:
-                  number: 3000
-            path: /
-            pathType: ImplementationSpecific
-  tls:
-    - hosts:
-        - prod.docs.archway.io
-      secretName: prod.archway-docs-cert
----
 apiVersion: v1
 kind: Secret
 metadata:
