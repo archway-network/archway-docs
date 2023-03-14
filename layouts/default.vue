@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { gsap, ScrollTrigger } from 'gsap/all';
 
-  import { PageBreadcrumbs, PageTOC } from '@/components/Ui';
+  import { PageBreadcrumbs, PageTOC, PageMobileTOC } from '@/components/Ui';
   import Navigation from '@/components/Navigation.vue';
   import { useTOC, useCurrentPage } from '@/composables';
 
@@ -115,14 +115,15 @@
       >
         <Navigation />
       </div>
-      <div class="flex-1 min-w-0 p-8">
-        <div class="page-content flex-1 space-y-8">
+      <div class="flex-1 min-w-0 py-8">
+        <div class="page-content flex-1 space-y-8 lg:pl-8 overflow-hidden" :class="{ 'lg:pr-8': displayTOC }">
           <PageBreadcrumbs />
           <slot />
         </div>
       </div>
       <div
-        class="w-[200px] min-w-0 hidden lg:block sticky top-24 py-8 pr-1 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-hidden"
+        class="w-[200px] min-w-0 hidden xl:block sticky top-24 py-8 pr-1 h-[calc(100vh-6rem)] flex-shrink-0 overflow-y-auto overflow-x-hidden"
+        v-if="displayTOC"
       >
         <ClientOnly>
           <PageTOC />
@@ -130,8 +131,8 @@
       </div>
     </main>
     <Footer />
-    <div v-if="displayTOC" class="sm:hidden fixed inset-x-0 bottom-0 z-50">
-      <UiPageMobileTOC @toggle-mobile-top="handleToggleMobileToc" :title="currentTitle" />
+    <div class="sm:hidden fixed inset-x-0 bottom-0 z-50" v-if="displayTOC">
+      <PageMobileTOC @toggle-mobile-top="handleToggleMobileToc" :title="currentTitle" />
     </div>
   </div>
 </template>
