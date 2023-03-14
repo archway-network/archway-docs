@@ -15,7 +15,7 @@ module.exports = {
         18: '#181818',
         warm: '#242424',
         light: '#000000aa',
-        100:'#181818'
+        100: '#181818',
       },
       gray: {
         DEFAULT: '#e4e4e4',
@@ -29,7 +29,7 @@ module.exports = {
         800: '#888888',
         900: '#999999',
         1000: '#f7f7f7',
-        1100: '#F6F7F8'
+        1100: '#F6F7F8',
       },
       orange: {
         100: '#FFE2D6',
@@ -75,6 +75,10 @@ module.exports = {
     container: {
       center: true,
       padding: '1.5rem',
+      // default breakpoints but with 40px removed
+      screens: {
+        xl: defaultTheme.screens['2xl'],
+      },
     },
   },
   plugins: [

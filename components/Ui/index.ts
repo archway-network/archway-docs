@@ -13,6 +13,7 @@ export { default as Movie } from './Movie.vue';
 export { default as SwitchColorMode } from './SwitchColorMode.vue';
 export { default as PageBreadcrumbs } from './PageBreadcrumbs.vue';
 export { default as PageTOC } from './PageTOC.vue';
+export { default as PageMobileTOC } from './PageMobileTOC.vue';
 
 export { default as AlertIcon } from './Icons/AlertIcon.vue';
 export { default as ArrowRightIcon } from './Icons/ArrowRightIcon.vue';
