@@ -37,15 +37,9 @@ export default defineNuxtConfig({
   },
   modules: [
     ['./modules/algoliaIndexer'],
-    [
-      '@nuxtjs/algolia',
-      {
-        apiKey: process.env.ALGOLIA_WRITE_API_KEY,
-        applicationId: process.env.ALGOLIA_APPLICATION_ID,
-      },
-    ],
+    ['@nuxtjs/algolia'],
     ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
   ],
   postcss: {
     plugins: {
@@ -61,18 +55,33 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       title: 'Archway Docs',
       meta: [
-        { key: 'description', name: 'description', content: 'Learn how to build & launch decentralized apps (dapps) & smart contracts, including how to run a node OR participate in the Archway Ecosystem.' },
+        {
+          key: 'description',
+          name: 'description',
+          content:
+            'Learn how to build & launch decentralized apps (dapps) & smart contracts, including how to run a node OR participate in the Archway Ecosystem.',
+        },
         { key: 'og:url', property: 'og:url', content: 'https://docs.archway.io' },
         { key: 'og:type', property: 'og:type', content: 'website' },
         { key: 'og:title', property: 'og:title', content: 'Archway Docs' },
-        { key: 'og:description', property: 'og:description', content: 'Learn how to build & launch decentralized apps (dapps) & smart contracts, including how to run a node OR participate in the Archway Ecosystem.' },
+        {
+          key: 'og:description',
+          property: 'og:description',
+          content:
+            'Learn how to build & launch decentralized apps (dapps) & smart contracts, including how to run a node OR participate in the Archway Ecosystem.',
+        },
         { key: 'og:site_name', property: 'og:site_name', content: 'Archway Docs' },
         { key: 'og:image', property: 'og:image', content: 'https://archway.io/og-image.jpg' },
         { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
         { key: 'twitter:domain', name: 'twitter:domain', content: 'docs.archway.io' },
         { key: 'twitter:site', name: 'twitter:site', content: '@cosmos' },
         { key: 'twitter:title', name: 'twitter:title', content: 'Archway Docs' },
-        { key: 'twitter:description', name: 'twitter:description', content: 'Learn how to build & launch decentralized apps (dapps) & smart contracts, including how to run a node OR participate in the Archway Ecosystem.' },
+        {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Learn how to build & launch decentralized apps (dapps) & smart contracts, including how to run a node OR participate in the Archway Ecosystem.',
+        },
         { key: 'twitter:image', name: 'twitter:image', content: 'https://archway.io/og-image.jpg' },
         { key: 'twitter:image:alt', name: 'twitter:image:alt', content: 'Archway Docs' },
         { key: 'theme-color-light', name: 'theme-color', content: '#ff4d00', media: '(prefers-color-scheme: light)' },
