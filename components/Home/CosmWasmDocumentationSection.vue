@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { Link } from '@/components/Ui';
+  import { Link, ChevronRightIcon } from '@/components/Ui';
   import CosmWasmDocumentation from '@/assets/images/cosmwasm-documentation.png';
 </script>
 
@@ -8,13 +8,23 @@
     <p class="text-base text-gray-600 mb-4 dark:text-gray-900 leading-[150%]">Featured</p>
     <Link
       href="/developers/cosm_wasm/introduction"
-      class="grounded-radiants border-transparent rounded-2xl bg-white dark:bg-black-18 shadow-card dark:shadow-black"
+      class="grounded-radiants relative border border-transparent rounded-2xl bg-white dark:bg-black-18 shadow-card dark:shadow-black"
     >
-      <div class="flex">
-        <img class="w-[115px] mx-8 my-6" :src="CosmWasmDocumentation" />
-        <div class="mt-11">
-          <p class="text-gray-500 dark:text-gray-900">Dapp Developers</p>
-          <h2 class="heading-3 mt-1">Learn CosmWasm</h2>
+      <div class="flex justify-between">
+        <div class="flex">
+          <img class="w-[115px] mx-8 my-6" :src="CosmWasmDocumentation" />
+          <div class="flex">
+            <div class="flex">
+              <div class="mt-11">
+                <p class="text-gray-500 dark:text-gray-900">Dapp Developers</p>
+                <h2 class="heading-3 mt-1">Learn CosmWasm</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center mx-8 justify-between w-[10%]">
+          <p class="text-orange">Documentation</p>
+          <ChevronRightIcon class="w-4 h-4 text-orange" />
         </div>
       </div>
     </Link>
@@ -22,12 +32,6 @@
 </template>
 
 <style scoped>
-  .grounded-radiants {
-    position: relative;
-    border: 1px solid transparent;
-    border-radius: 16px;
-  }
-
   .grounded-radiants::after {
     position: absolute;
     top: -4px;
