@@ -3,6 +3,7 @@
   import { Link, SwitchColorMode, ArchwayBrand, ArchwayLogo, CloseIcon, MenuIcon, SearchIcon } from '@/components/Ui';
   import AutocompleteSearch from '@/components/Ui/Algolia/AutocompleteSearch.vue';
   import BrandGithub from '@/components/Ui/Brands/Github.vue';
+  import BrandDiscord from '@/components/Ui/Brands/Discord.vue';
 
   const openSearch = () => {
     const btn = document.getElementsByClassName('aa-DetachedSearchButton');
@@ -26,6 +27,9 @@
             </NuxtLink>
           </div>
           <div class="flex-1 hidden lg:flex justify-end items-center space-x-6">
+            <Link href="https://discord.gg/5FVvx3WGfa" :social="true">
+              <BrandDiscord class="flex-shrink-0 w-6 h-6 text-black/60 dark:text-white" aria-hidden="true" />
+            </Link>
             <Link href="https://github.com/archway-network" :social="true">
               <BrandGithub class="flex-shrink-0 w-6 h-6 text-black/60 dark:text-white" aria-hidden="true" />
             </Link>
