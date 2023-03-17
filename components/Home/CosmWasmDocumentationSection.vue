@@ -7,7 +7,7 @@
   <div class="grid pb-16">
     <p class="text-base text-gray-600 mb-4 dark:text-gray-900 leading-[150%]">Featured</p>
     <Link
-      href="/developers/cosm_wasm/introduction"
+      href="developers/cosm_wasm-documentation/introduction"
       class="grounded-radiants relative border border-transparent rounded-2xl bg-white dark:bg-black-18 shadow-card dark:shadow-black"
     >
       <div class="flex justify-between">
