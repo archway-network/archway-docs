@@ -36,40 +36,48 @@ const defaultTheme = theme => ({
       fontSize: '32px',
       lineHeight: '130%',
     },
-    'h3, h4, h5': {
+    'h3, h4, h5,h3>a,h4>a,h5>a': {
       fontSize: '16px',
       lineHeight: '150%',
-      fontWeight: '700'
+      fontWeight: '700',
+      fontFamily: 'TWK Everett',
     },
     table: {
       ':last-child': {
         borderBottom: 'none',
       },
+      'code':{
+        borderBottom:"0.1rem solid rgba(0,0,0,.1)!important",
+      }
     },
     'th,td': {
       borderLeft: `1px solid ${theme('colors.gray.400')}`,
-      textAlign: 'center',
       fontSize: '16px',
       fontWeight: '400',
       lineHeight: '150%',
-      paddingLeft: '0px',
       color: 'var(--tw-prose-headings)',
       maxWidth: '117px',
     },
     tr: {
       borderBottom: `1px solid ${theme('colors.gray.400')}`,
       ':first-child': {
-        paddingLeft: '0px',
         borderLeft: 'none',
         minWidth: '156px',
       },
+      'code':{
+        border: "0.1rem solid rgba(0,0,0,.1)!important",
+        minWidth: '156px',
+      }
     },
     'pre':{
       color:'var(--tw-prose-pre)',
       borderRadius:'1rem',
       padding:'16px',
       marginBottom:'0px',
-      marginTop:'0px'
+      marginTop:'0px',
+      overflowX:'none',
+      width:'-webkit-fill-available',
+      whiteSpace:'break-spaces'
     },
     'code::before': {
       content: '',
@@ -82,11 +90,11 @@ const defaultTheme = theme => ({
       color:'var(--tw-prose-pre)',
       border: "0.1rem solid rgba(0,0,0,.1)",
       borderRadius: '8px',
-      padding:'8px',
+      padding:'4px',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: '14px',
-      lineHeight:'2.75rem'
+      display:'inline-block'
   },
   '--tw-prose-pre-bg':theme('colors.gray.1000'),
   '--tw-prose-invert-pre-bg':theme('colors.black.warm'),

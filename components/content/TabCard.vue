@@ -13,10 +13,10 @@
 
 <template>
   <div class="prose dark:prose-invert">
-    <div class="flex border border-solid border-gray-100 dark:border-black rounded-lg w-max">
+    <div class="flex border border-solid border-gray-100 dark:border-black rounded-lg min-w-[246px] w-max">
       <div
         @click="switchTab(index)"
-        class="flex items-center justify-center px-3 py-6 bg-white dark:bg-black cursor-pointer h-12"
+        class="flex items-center justify-center px-3 py-6 bg-white dark:bg-black cursor-pointer h-12 m-[5px] min-w-[116px] w-max"
         v-for="(item, index) in totalTabs"
         :key="index"
         :class="{
