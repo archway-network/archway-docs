@@ -22,7 +22,7 @@
       );
     } catch (err: any) {
       if (err?.name === 'FetchError' && err?.status === 404) {
-        window.history.pushState({}, '', '/404');
+        router.replace({ path: '/404' });
       }
     }
   });
