@@ -5,7 +5,6 @@
 
   const searchAlgolia = await useAlgoliaSearch();
   const router = useRouter();
-  router.replace('/404');
 
   onMounted(async () => {
     try {
@@ -23,7 +22,7 @@
       );
     } catch (err: any) {
       if (err?.name === 'FetchError' && err?.status === 404) {
-        router.replace('/404');
+        window.history.pushState({}, '', '/404');
       }
     }
   });
@@ -31,7 +30,9 @@
 
 <template>
   <div class="prose dark:prose-invert min-w-full">
-    <ContentDoc />
+    <ContentDoc>
+      <template #not-found><Page404 /></template>
+    </ContentDoc>
     <NextPrevArticle />
   </div>
 </template>
