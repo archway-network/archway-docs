@@ -22,7 +22,7 @@
       );
     } catch (err: any) {
       if (err?.name === 'FetchError' && err?.status === 404) {
-        router.replace('/404');
+        router.replace({ path: '/404' });
       }
     }
   });
@@ -30,7 +30,9 @@
 
 <template>
   <div class="prose dark:prose-invert min-w-full">
-    <ContentDoc />
+    <ContentDoc>
+      <template #not-found><Page404 /></template>
+    </ContentDoc>
     <NextPrevArticle />
   </div>
 </template>
