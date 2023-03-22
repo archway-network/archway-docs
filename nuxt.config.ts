@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    ['./modules/algoliaIndexer'],
     ['@nuxtjs/algolia'],
     ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
     '@nuxtjs/robots',
