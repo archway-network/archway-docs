@@ -10,7 +10,7 @@ export const useAlgoliaSearch: (sortingReplica?: SortingReplicas) => Promise<{
   const runtimeConfig = useRuntimeConfig();
   const algoliaSearch = new AlgoliaSearch(
     runtimeConfig.algolia.appId,
-    runtimeConfig.algolia.writeApiKey || runtimeConfig.algolia.searchApiKey,
+    runtimeConfig.algolia.searchApiKey,
     runtimeConfig.algolia.docIndex,
     runtimeConfig.algolia.env,
     sortingReplica

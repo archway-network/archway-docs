@@ -12,12 +12,10 @@ export default defineNuxtConfig({
     '@vue/devtools-api': '@vue/devtools-api',
   },
   runtimeConfig: {
-    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
     algolia: {
       env: process.env.ENV,
       appId: process.env.ALGOLIA_APPLICATION_ID,
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
-      writeApiKey: process.env.ALGOLIA_WRITE_API_KEY,
       docIndex: process.env.ALGOLIA_INDEX,
     },
   },
