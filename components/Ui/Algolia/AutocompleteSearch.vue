@@ -2,6 +2,7 @@
   import algoliasearch from 'algoliasearch/lite';
 
   import AutocompleteInput from '@/components/Ui/Algolia/AutocompleteInput.vue';
+  import { ParsedContent } from '@nuxt/content/dist/runtime/types';
 
   defineProps({
     componentId: { type: String, default: 'autocomplete' },
@@ -9,7 +10,12 @@
   });
   const { algolia } = useRuntimeConfig();
   const algoliaRef = algolia.appId === 'mock' ? undefined : algoliasearch(algolia.appId, algolia.searchApiKey, { headers: { 'x-algolia-application-id': algolia.appId } });
-  const articles = ref(await queryContent('/').find());
+  const articles = ref<ParsedContent[]|undefined>()
+  onMounted(() => {
+    (async () => {
+    articles.value = await queryContent('/').find()
+    })();
+  })
 </script>
 
 <template>

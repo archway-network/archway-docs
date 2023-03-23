@@ -20,7 +20,7 @@
     props: {
       indexName: { type: String },
       algoliaRef: { type: Object },
-      articles: { type: Array, required: true },
+      articles: { type: Array },
       componentId: { type: String, default: 'autocomplete' },
       detached: { type: Boolean, default: false },
     },
@@ -43,9 +43,7 @@
               {
                 sourceId: 'articles',
                 getItemUrl({ item }) {
-                  const path = articles.find(article => article.objectID === item.objectID)?._path;
-
-                  return path;
+                  return articles?.find(article => article.objectID === item.objectID)?._path;
                 },
                 getItems() {
                   if (!algoliaRef || !indexName) return mockSearchResults;
@@ -67,7 +65,7 @@
                 },
                 templates: {
                   item({ item, components }) {
-                    const path = articles.find(article => article.objectID === item.objectID)?._path;
+                    const path = articles?.find(article => article.objectID === item.objectID)?._path;
                     const rootDir = item.objectID.split('|')[0];
 
                     if (!lastRootDir || lastRootDir != rootDir) {
