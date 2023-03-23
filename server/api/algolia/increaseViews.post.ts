@@ -9,6 +9,8 @@ export default defineEventHandler(async (event: H3Event) => {
   const docIndex = config.algolia?.docIndex;
   const apiKey = process.env?.ALGOLIA_WRITE_API_KEY;
 
+  if (appId === 'mock') return {};
+
   if (!appId || !apiKey)
     throw createError({
       statusCode: 500,

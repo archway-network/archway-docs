@@ -1,22 +1,10 @@
 <script lang="ts" setup>
-  import { SortingReplicas } from '@/domain/AlgoliaSearch';
-  import { useHighlightedArticles } from '@/data/useHighlightedArticles';
   import { Article } from '@/domain';
   import RecentArticles from './RecentArticles.vue';
   import PopularArticles from './PopularArticles.vue';
 
-  // const { search: searchPopular } = await useHighlightedArticles(SortingReplicas.DocsByViewed);
-  // const { search: searchRecent } = await useHighlightedArticles(SortingReplicas.DocsByModified);
   const popularArticles = ref<Article[]>([]);
   const recentArticles = ref<Article[]>([]);
-
-  // onMounted(async () => {
-  //   const popularResult = searchPopular();
-  //   const recentResult = searchRecent();
-
-  //   popularArticles.value = await popularResult;
-  //   recentArticles.value = await recentResult;
-  // });
 </script>
 
 <template>

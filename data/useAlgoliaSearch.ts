@@ -1,6 +1,8 @@
-import { AlgoliaSearch } from '@/domain';
 import { useRuntimeConfig } from '#app';
-import { SortingReplicas } from '~~/domain/AlgoliaSearch';
+
+import { AlgoliaSearch } from '@/domain';
+import { SortingReplicas } from '@/domain/AlgoliaSearch';
+import MockAlgoliaSearch from '@/domain/MockAlgoliaSearch';
 
 export const useAlgoliaSearch: (sortingReplica?: SortingReplicas) => Promise<{
   findObject: (searchPredicate: (hit: any) => boolean) => Promise<any>;
@@ -8,13 +10,16 @@ export const useAlgoliaSearch: (sortingReplica?: SortingReplicas) => Promise<{
   search: (query: string, filters?: string) => Promise<any>;
 }> = async (sortingReplica?: SortingReplicas) => {
   const runtimeConfig = useRuntimeConfig();
-  const algoliaSearch = new AlgoliaSearch(
-    runtimeConfig.algolia.appId,
-    runtimeConfig.algolia.searchApiKey,
-    runtimeConfig.algolia.docIndex,
-    runtimeConfig.algolia.env,
-    sortingReplica
-  );
+  const algoliaSearch =
+    runtimeConfig.algolia.appId === 'mock'
+      ? new MockAlgoliaSearch()
+      : new AlgoliaSearch(
+          runtimeConfig.algolia.appId,
+          runtimeConfig.algolia.searchApiKey,
+          runtimeConfig.algolia.docIndex,
+          runtimeConfig.algolia.env,
+          sortingReplica
+        );
 
   const findObject = async (searchPredicate: (hit: any) => boolean) => {
     return await algoliaSearch.findObject(searchPredicate);

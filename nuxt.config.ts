@@ -13,8 +13,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     algolia: {
-      env: process.env.ENV,
-      appId: process.env.ALGOLIA_APPLICATION_ID,
+      env: process.env.ENV || 'staging',
+      appId: process.env.ALGOLIA_APPLICATION_ID || 'mock',
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
       docIndex: process.env.ALGOLIA_INDEX,
     },
@@ -27,8 +27,8 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue'],
   },
   algolia: {
-    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
-    applicationId: process.env.ALGOLIA_APPLICATION_ID,
+    apiKey: process.env.ALGOLIA_SEARCH_API_KEY || 'mock',
+    applicationId: process.env.ALGOLIA_APPLICATION_ID || 'mock',
     instantSearch: {
       theme: 'algolia',
     },

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import algoliasearch from 'algoliasearch/lite';
+
   import AutocompleteInput from '@/components/Ui/Algolia/AutocompleteInput.vue';
 
   defineProps({
@@ -7,7 +8,7 @@
     detached: { type: Boolean, default: false },
   });
   const { algolia } = useRuntimeConfig();
-  const algoliaRef = algoliasearch(algolia.appId, algolia.searchApiKey, { headers: { 'x-algolia-application-id': algolia.appId } });
+  const algoliaRef = algolia.appId === 'mock' ? undefined : algoliasearch(algolia.appId, algolia.searchApiKey, { headers: { 'x-algolia-application-id': algolia.appId } });
   const articles = ref(await queryContent('/').find());
 </script>
 
