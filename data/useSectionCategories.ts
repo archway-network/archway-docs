@@ -36,7 +36,7 @@ const sectionCategories: Record<string, SectionCategory[]> = {
     {
       id: `category-${uniqueId()}`,
       category: 'Validators',
-      title: 'Becoming a validator',
+      title: 'Becoming a Validator',
       description: 'Be part of the network. Understand the requirements and steps to becoming a validator.',
       articlePath: '/validators/requirements',
     },
@@ -44,7 +44,7 @@ const sectionCategories: Record<string, SectionCategory[]> = {
   '/community': [
     {
       id: `category-${uniqueId()}`,
-      title: 'Create a new Wallet',
+      title: 'Create a new wallet',
       description: 'What to consider and how to create a wallet.',
       articlePath: '/community/wallet',
     },
