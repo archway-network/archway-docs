@@ -1,14 +1,14 @@
 ---
 objectID: developers|developer-tools|arch3js
 title: arch3.js
-description: Provides information on the Arch3JS library
+description: Provides information on the arch3.js library
 parentSection: Developers
 parentSectionPath: /developers
 ---
 
 # arch3.js
 
-<a href="https://www.npmjs.com/package/@archwayhq/arch3-core" target="_blank" >arch3.js</a> is a JavaScript library that enables the interaction between front-end web applications and the Archway Protocol. It is a replacement for using the <a href="https://github.com/cosmos/cosmjs" target="_blank" >CosmJS</a> client.
+<a href="https://www.npmjs.com/package/@archwayhq/arch3-core" target="_blank" >arch3.js</a> is a JavaScript library that enables the interaction between front-end web applications and the Archway Protocol. It is a replacement for using the <a href="https://github.com/cosmos/cosmjs" target="_blank" >cosmJS</a> client.
 
 ## Installation
 
