@@ -12,13 +12,15 @@
   import { h, Fragment, render, onMounted } from 'vue';
   import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
   import { onKeyStroke } from '@vueuse/core';
+
+  import { mockSearchResults } from '@/domain/MockAlgoliaSearch';
   import './AlgoliaCustomTheme.css';
 
   export default {
     props: {
-      indexName: { type: String, required: true },
-      algoliaRef: { type: Object, required: true },
-      articles: { type: Array, required: true },
+      indexName: { type: String },
+      algoliaRef: { type: Object },
+      articles: { type: Array },
       componentId: { type: String, default: 'autocomplete' },
       detached: { type: Boolean, default: false },
     },
@@ -41,11 +43,11 @@
               {
                 sourceId: 'articles',
                 getItemUrl({ item }) {
-                  const path = articles.find(article => article.objectID === item.objectID)?._path;
-
-                  return path;
+                  return articles?.find(article => article.objectID === item.objectID)?._path;
                 },
                 getItems() {
+                  if (!algoliaRef || !indexName) return mockSearchResults;
+
                   return getAlgoliaResults({
                     searchClient: algoliaRef,
                     queries: [
@@ -63,7 +65,7 @@
                 },
                 templates: {
                   item({ item, components }) {
-                    const path = articles.find(article => article.objectID === item.objectID)?._path;
+                    const path = articles?.find(article => article.objectID === item.objectID)?._path;
                     const rootDir = item.objectID.split('|')[0];
 
                     if (!lastRootDir || lastRootDir != rootDir) {
@@ -151,53 +153,4 @@
   .dark .key {
     @apply text-gray-100 border-gray-100;
   }
-  /* .aa-DetachedSearchButton,
-  .aa-Form {
-    border-radius: 1em;
-    border: none;
-    @apply bg-gray-100 text-black/30;
-  }
-  .dark .aa-DetachedSearchButton,
-  .dark .aa-Form {
-    @apply bg-black-18 text-gray-100;
-  }
-  .dark .aa-ClearIcon {
-    @apply text-gray-100;
-  }
-  .aa-Input {
-    width: 100%;
-    padding: 0 1em;
-    @apply caret-white text-white placeholder-white;
-  }
-  .dark .aa-Input {
-    @apply caret-white text-white placeholder-white;
-  }
-  .dark .aa-DetachedContainer {
-    --aa-background-color-rgb: 0, 0, 0;
-  }
-  .dark .aa-Panel {
-    --aa-background-color-rgb: 24, 24, 24;
-  }
-  .dark .aa-DetachedCancelButton {
-    @apply text-white;
-  }
-  .aa-DetachedSearchButton:focus,
-  .aa-Form:focus-within {
-    box-shadow: none;
-  }
-  .aa-DetachedSearchButtonIcon,
-  .aa-InputWrapperPrefix {
-    display: none;
-  }
-  .aa-DetachedSearchButtonPlaceholder {
-    padding-left: 10px;
-  }
-  .dark .aa-Panel {
-    @apply text-gray-100;
-  }
-  .dark .aa-PanelLayout .aa-ItemContentDescription {
-    @apply text-gray-100;
-  }
-  .dark .aa-GradientBottom {
-  } */
 </style>

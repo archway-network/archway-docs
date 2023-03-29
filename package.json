@@ -9,7 +9,8 @@
     "deploy": "npm run build && firebase hosting:channel:deploy preview --expires 14d",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
+    "lint": "npm run lint:js",
+    "algolia:index": "tsx ./scripts/algoliaIndexer.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.7.4",
@@ -46,7 +47,8 @@
     "firebase-functions": "^4.2.1",
     "firebase-functions-test": "^3.0.0",
     "postcss": "^8.4.14",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "tsx": "^3.12.6"
   },
   "copyFiles": [
     {
