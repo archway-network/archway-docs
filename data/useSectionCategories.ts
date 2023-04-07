@@ -36,7 +36,7 @@ const sectionCategories: Record<string, SectionCategory[]> = {
     {
       id: `category-${uniqueId()}`,
       category: 'Validators',
-      title: 'Becoming a validator',
+      title: 'Becoming a Validator',
       description: 'Be part of the network. Understand the requirements and steps to becoming a validator.',
       articlePath: '/validators/requirements',
     },
