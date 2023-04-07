@@ -44,15 +44,15 @@ const sectionCategories: Record<string, SectionCategory[]> = {
   '/community': [
     {
       id: `category-${uniqueId()}`,
-      title: 'Create a new Wallet',
+      title: 'Create a new wallet',
       description: 'What to consider and how to create a wallet.',
-      articlePath: '/community/wallet',
+      articlePath: '/community/wallet-setup/wallet',
     },
     {
       id: `category-${uniqueId()}`,
       title: 'Staking',
       description: 'How to provide network security.',
-      articlePath: '/community/staking',
+      articlePath: '/community/staking/staking',
     },
     {
       id: `category-${uniqueId()}`,
