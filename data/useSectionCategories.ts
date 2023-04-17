@@ -50,7 +50,7 @@ const sectionCategories: Record<string, SectionCategory[]> = {
     },
     {
       id: `category-${uniqueId()}`,
-      title: 'Start Staking',
+      title: 'Start staking',
       description: 'How to provide network security.',
       articlePath: '/community/staking/overview',
     },
