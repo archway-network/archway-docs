@@ -10,7 +10,7 @@
         <p class="title-1">Learn how to set up and use the tools you need to be part of the Archway community.</p>
       </div>
       <YoutubeMovie
-        class="w-full lg:max-w-[640px] min-h-[200px] md:min-h-[415px] lg:min-h-[360px]"
+        class="w-full min-h-[200px] md:min-h-[415px] lg:min-h-[360px]"
         src="https://www.youtube.com/embed/TxkLv0ZhAtQ"
         title=""
       />
