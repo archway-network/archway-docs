@@ -7,7 +7,7 @@
 <template>
   <HomeHero />
   <HomeSections />
-  <HomeCosmWasmDocumentationSection />
+  <HomeFeaturedSections />
   <HomeHighlightedArticles />
   <HomeLearnAboutArchway />
 </template>
