@@ -47,7 +47,7 @@
           <component :is="getLogo(logo)" class="w-6 h-6" />
         </div>
         <div class="space-y-2.5">
-          <h2 class="font-bold">{{ title }}</h2>
+          <h2 class="font-medium">{{ title }}</h2>
           <p class="caption text-gray-600 dark:text-gray-300">{{ description }}</p>
         </div>
       </Link>

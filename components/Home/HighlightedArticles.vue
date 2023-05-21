@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+  import RecentArticles from '@/components/Home/RecentArticles.vue';
+  import PopularArticles from '@/components/Home/PopularArticles.vue';
+
   import { Article } from '@/domain';
-  import RecentArticles from './RecentArticles.vue';
-  import PopularArticles from './PopularArticles.vue';
 
   const popularArticles = ref<Article[]>([]);
   const recentArticles = ref<Article[]>([]);

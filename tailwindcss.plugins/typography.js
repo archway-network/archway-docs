@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = plugin(({ addComponents, theme }) => {
-  const regular = {
+  const TWKEverettRegular = {
     '@font-face': {
       'font-family': 'TWK Everett',
       src: 'url(/fonts/TWKEverett-Regular.eot)',
@@ -13,8 +13,7 @@ module.exports = plugin(({ addComponents, theme }) => {
       'font-style': 'normal',
     },
   };
-
-  const regularItalic = {
+  const TWKEverettRegularItalic = {
     '@font-face': {
       'font-family': 'TWK Everett',
       src: 'url(/fonts/TWKEverett-RegularItalic.eot)',
@@ -26,7 +25,31 @@ module.exports = plugin(({ addComponents, theme }) => {
       'font-style': 'italic',
     },
   };
-  const bold = {
+  const TWKEverettMedium = {
+    '@font-face': {
+      'font-family': 'TWK Everett',
+      src: 'url(/fonts/TWKEverett-Medium.eot)',
+      src: "url(/fonts/TWKEverett-Medium.eot?#iefix) format('embedded-opentype')",
+      src: "url(/fonts/TWKEverett-Medium.woff2) format('woff2')",
+      src: "url(/fonts/TWKEverett-Medium.woff) format('woff')",
+      src: "url(/fonts/TWKEverett-Medium.ttf) format('truetype')",
+      'font-weight': '500',
+      'font-style': 'normal',
+    },
+  };
+  const TWKEverettMediumItalic = {
+    '@font-face': {
+      'font-family': 'TWK Everett',
+      src: 'url(/fonts/TWKEverett-MediumItalic.eot)',
+      src: "url(/fonts/TWKEverett-MediumItalic.eot?#iefix) format('embedded-opentype')",
+      src: "url(/fonts/TWKEverett-MediumItalic.woff2) format('woff2')",
+      src: "url(/fonts/TWKEverett-MediumItalic.woff) format('woff')",
+      src: "url(/fonts/TWKEverett-MediumItalic.ttf) format('truetype')",
+      'font-weight': '500',
+      'font-style': 'italic',
+    },
+  };
+  const TWKEverettBold = {
     '@font-face': {
       'font-family': 'TWK Everett',
       src: 'url(/fonts/TWKEverett-Bold.eot)',
@@ -38,8 +61,7 @@ module.exports = plugin(({ addComponents, theme }) => {
       'font-style': 'normal',
     },
   };
-
-  const boldItalic = {
+  const TWKEverettBoldItalic = {
     '@font-face': {
       'font-family': 'TWK Everett',
       src: 'url(/fonts/TWKEverett-BoldItalic.eot)',
@@ -117,7 +139,7 @@ module.exports = plugin(({ addComponents, theme }) => {
     '.title-1': {
       'font-size': '16px',
       'line-height': '150%',
-      [`@media (min-width: ${theme('screens').lg})`]: {
+      [`@media (min-width: ${theme('screens').md})`]: {
         'font-size': '24px',
         'line-height': '130%',
       },
@@ -189,10 +211,12 @@ module.exports = plugin(({ addComponents, theme }) => {
   };
 
   addComponents([
-    regular,
-    regularItalic,
-    bold,
-    boldItalic,
+    TWKEverettRegular,
+    TWKEverettRegularItalic,
+    TWKEverettMedium,
+    TWKEverettMediumItalic,
+    TWKEverettBold,
+    TWKEverettBoldItalic,
     hero1,
     hero2,
     heading1,
@@ -206,6 +230,6 @@ module.exports = plugin(({ addComponents, theme }) => {
     caption,
     label,
     small,
-    tiny
-    ]);
+    tiny,
+  ]);
 });
