@@ -6,6 +6,7 @@ const prose = require('./tailwindcss.plugins/prose');
 module.exports = {
   darkMode: 'class',
   content: ['./components/**/*.{js,vue,ts}', './layouts/**/*.vue', './pages/**/*.vue', './plugins/**/*.{js,ts}'],
+  safelist: [{ pattern: /(w|h)-/, variants: ['sm', 'md', 'lg', 'xl', '2xl'] }],
   theme: {
     colors: {
       transparent: 'transparent',
