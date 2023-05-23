@@ -29,7 +29,7 @@
 
 <template>
   <section class="pt-24">
-    <h2 class="heading-2">What's next?</h2>
+    <h2 class="heading-3">What's next?</h2>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 pt-12">
       <Link
         :href="url"

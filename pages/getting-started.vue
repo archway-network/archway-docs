@@ -7,7 +7,7 @@
 <template>
   <div>
     <GettingStartedHero />
-    <GettingStartedCreateCosmosAddressScreencasts />
+    <GettingStartedFirstSteps />
     <GettingStartedLearnArticles />
     <GettingStartedScreencasts />
     <GettingStartedWhatsNext />

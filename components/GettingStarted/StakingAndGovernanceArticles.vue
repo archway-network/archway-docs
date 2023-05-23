@@ -4,22 +4,28 @@
 
   const articles: Article[] = [
     {
-      id: '1',
-      title: 'How to interact with Archway dapps',
+      id: 'community|send-tokens',
+      title: 'How to send tokens',
+      description: 'Discover how to send tokens within the Archway networks.',
+      path: '/community/managing-tokens/send-tokens',
+    },
+    {
+      id: 'community|wallet|archwayd|ledger|keplr',
+      title: 'How to interact with Archway dApp',
       description: 'A guide on how to interact with Archway DApps using Keplr and a Ledger device.',
-      path: '',
+      path: '/community/wallet-setup/ledger-setup',
     },
     {
-      id: '2',
-      title: 'Navigating Archway block explorers',
-      description: 'Instructions for tracking transactions and account activities.',
-      path: '',
+      id: 'community|governance|voting',
+      title: 'How to participate in governance',
+      description: 'Discover how to submit and vote on governance proposals.',
+      path: '/community/governance/vote',
     },
     {
-      id: '3',
-      title: 'Understanding Archway rewards system',
-      description: 'Guide on how rewards are generated and managed.',
-      path: '',
+      id: 'community|staking',
+      title: 'How to stake tokens',
+      description: 'Learn how to stake and delegate tokens to secure the Archway network.',
+      path: '/community/staking/overview',
     },
   ];
 </script>
