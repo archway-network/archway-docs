@@ -1,7 +1,8 @@
 <script lang="ts" setup>
   import { gsap, ScrollTrigger } from 'gsap/all';
 
-  import { PageBreadcrumbs, PageTOC, PageMobileTOC } from '@/components/Ui';
+  import { PageTOC, PageMobileTOC } from '@/components/Ui';
+  import PageBreadcrumbs from '@/components/Ui/PageBreadcrumbs.vue';
   import Navigation from '@/components/Navigation.vue';
   import { useTOC, useCurrentPage } from '@/composables';
 

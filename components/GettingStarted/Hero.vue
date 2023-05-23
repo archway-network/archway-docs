@@ -11,8 +11,8 @@
       </div>
       <YoutubeMovie
         class="w-full min-h-[200px] md:min-h-[415px] lg:min-h-[360px]"
-        src="https://www.youtube.com/embed/TxkLv0ZhAtQ"
-        title=""
+        src="https://www.youtube.com/embed/Z9FLBDI91SM"
+        title="Learn how to set up and use the tools you need to be part of the Archway community."
       />
     </div>
   </section>

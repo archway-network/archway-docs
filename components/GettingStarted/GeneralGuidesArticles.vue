@@ -4,22 +4,28 @@
 
   const articles: Article[] = [
     {
-      id: '1',
-      title: 'How to interact with Archway dapps',
-      description: 'A guide on how to interact with Archway DApps using Keplr and a Ledger device.',
-      path: '',
+      id: 'overview|cosmos_ibc_cosmwasm',
+      title: 'Cosmos SDK, IBC and CosmWasm',
+      description: 'Overview of the tech powering Archway.',
+      path: '/overview/cosmos_ibc_cosmwasm',
     },
     {
-      id: '2',
-      title: 'Navigating Archway block explorers',
-      description: 'Instructions for tracking transactions and account activities.',
-      path: '',
-    },
-    {
-      id: '3',
+      id: 'overview|reward-types',
       title: 'Understanding Archway rewards system',
-      description: 'Guide on how rewards are generated and managed.',
-      path: '',
+      description: 'Learn more on how rewards are generated and managed.',
+      path: '/overview/rewards',
+    },
+    {
+      id: 'community|wallet|navigating-an-archway-block-explorer',
+      title: 'Navigating block explorers',
+      description: 'Instructions for tracking transactions, account and network activities.',
+      path: '/community/wallet-setup/navigating-an-archway-block-explorer',
+    },
+    {
+      id: ' overview|about',
+      title: 'A deep dive into Archway',
+      description: 'Learn how Archway works under the hood.',
+      path: '/overview/about',
     },
   ];
 </script>
