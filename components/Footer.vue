@@ -1,6 +1,6 @@
 <script lang="tsx" setup>
   import { ArchwayBrandAndLogo, Link } from '@/components/Ui';
-  import useConfig from '@/composables/useConfig';
+  import { useConfig } from '@/composables';
   import { FooterNavigation } from '@/domain';
 
   import { MenuItem } from '@/types';

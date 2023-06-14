@@ -1,7 +1,7 @@
 <script lang="tsx" setup>
   import { Link } from '@/components/Ui';
   import { EmailIcon, TwitterBrand, DiscordBrand } from '@/components/Ui';
-  import useConfig from '@/composables/useConfig';
+  import { useConfig } from '@/composables';
 
   const config = useConfig();
 
