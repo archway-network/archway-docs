@@ -23,6 +23,7 @@ export default defineAppConfig({
     ARCHWAY_GOVERNANCE_FORUM: 'https://gov.archway.io',
     ARCH3JS_REPO: 'https://github.com/archway-network/arch3.js',
     ARCHWAY_CLI_REPO: 'https://github.com/archway-network/archway-cli',
+    ARCHWAY_NETWORKS_RAW: 'https://raw.githubusercontent.com/archway-network/networks/main',
     AREA_52: 'https://area-52.io',
     DISCORD: 'https://discord.gg/5FVvx3WGfa',
     TELEGRAM: 'https://t.me/archway_hq',

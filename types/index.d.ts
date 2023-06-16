@@ -1,6 +1,8 @@
 import { AutocompleteComponents, HTMLTemplate } from '@algolia/autocomplete-js';
 import { BaseItem } from '@algolia/autocomplete-core';
 
+export * from './IBCRelayer';
+
 export type AppConfigFeatures = {
   ARCHWAY_ECOSYSTEM: boolean;
   ARCHWAY_CONNECT: boolean;
@@ -26,6 +28,7 @@ export type AppConfigExternalLinks = {
   ARCHWAY_GOVERNANCE_FORUM: string;
   ARCH3JS_REPO: string;
   ARCHWAY_CLI_REPO: string;
+  ARCHWAY_NETWORKS_RAW: string;
   AREA_52: string;
   DISCORD: string;
   TELEGRAM: string;

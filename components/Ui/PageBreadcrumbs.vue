@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useCurrentPage } from '@/composables/useCurrentPage';
+  import { useCurrentPage } from '@/composables';
   import { Link } from '@/components/Ui';
 
   const { page, isParentSection } = useCurrentPage();
