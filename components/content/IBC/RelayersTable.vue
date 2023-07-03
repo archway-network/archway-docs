@@ -12,9 +12,12 @@
   // --------------------------------------------------------------------------------
   // Update here to add chain names with their chain id
   const chainIds = {
-    Osmosis: 'osmo-test-5',
-    Axelar: 'axelar-testnet-lisbon-3',
-    'Cosmos Hub': 'theta-testnet-001',
+    'osmo-test-5': 'Osmosis',
+    'axelar-testnet-lisbon-3': 'Axelar',
+    'theta-testnet-001': 'Cosmos Hub',
+    'osmosis-1': 'Osmosis',
+    'axelar-dojo-1': 'Axelar',
+    'cosmoshub-4': 'Cosmos Hub',
   };
   // --------------------------------------------------------------------------------
 
@@ -30,12 +33,14 @@
     () =>
       relayers.value
         ?.map(relayer =>
-          relayer.channels.map(
-            channel =>
-              `| ${channel.chain_1.channel_id} | ${
-                Object.entries(chainIds).find(item => item[1] === relayer.chain_2.chain_name)?.[0] || ''
-              } | ${relayer.chain_2.chain_name} | ${channel.chain_2.channel_id} |`
-          ).join('\n')
+          relayer.channels
+            .map(
+              channel =>
+                `| ${channel.chain_1.channel_id} | ${
+                  Object.entries(chainIds).find(item => item[0] === relayer.chain_2.chain_name)?.[1] || ''
+                } | ${relayer.chain_2.chain_name} | ${channel.chain_2.channel_id} |`
+            )
+            .join('\n')
         )
         .join('\n') || ''
   );
