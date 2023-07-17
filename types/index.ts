@@ -2,6 +2,7 @@ import { AutocompleteComponents, HTMLTemplate } from '@algolia/autocomplete-js';
 import { BaseItem } from '@algolia/autocomplete-core';
 
 export * from './EcosystemPartner';
+export * from './Chain';
 export * from './IBCRelayer';
 
 export type AppConfigFeatures = {

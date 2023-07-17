@@ -1,7 +1,7 @@
 export { default as Article } from './Article';
+export { default as Chains } from './Chains';
 export { default as EcosystemPartners } from './EcosystemPartners';
 export { default as NavigationItem } from './NavigationItem';
-export { default as Networks } from './Networks';
 export { default as PageTOC } from './PageTOC';
 export { default as FooterNavigation } from './FooterNavigation';
 export { default as Relayers } from './Relayers';

@@ -3,7 +3,7 @@
   import markdownParser from '@nuxt/content/transformers/markdown';
   import { PropType } from 'vue';
 
-  import { Networks } from '@/domain';
+  import { Chains } from '@/domain';
 
   import { IBCRelayer } from '@/types';
 
@@ -25,7 +25,7 @@
             relayer?.channels
               .map(
                 channel =>
-                  `| ${channel.chain_1.channel_id} | ${Networks.getChainNameByChainId(relayer.chain_2.chain_name) || ''} | ${
+                  `| ${channel.chain_1.channel_id} | ${Chains.getNameById(relayer.chain_2.chain_name) || ''} | ${
                     relayer.chain_2.chain_name
                   } | ${channel.chain_2.channel_id} |`
               )
