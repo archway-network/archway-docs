@@ -33,7 +33,6 @@ You can vote either via:
 - [Archway Connect](/community/governance/vote/vote-connect)
 - [Cosmostation](/community/governance/vote/vote-cosmostation)
 - [Leap](/community/governance/vote/vote-leap)
-- [Keplr](/community/governance/vote/vote-keplr)
 - [archwayd](/community/governance/vote/vote-archwayd)
 
 
