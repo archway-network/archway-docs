@@ -18,6 +18,12 @@ export default defineNuxtConfig({
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
       docIndex: process.env.ALGOLIA_INDEX,
     },
+    meilisearch: {
+      env: process.env.ENV || 'staging',
+      searchKey: process.env.MEILISEARCH_SEARCH_KEY,
+      adminKey: process.env.MEILISEARCH_ADMIN_KEY,
+      docIndex: process.env.MEILISEARCH_INDEX,
+    },
   },
   generate: {
     routes: ['/404'],
@@ -33,11 +39,7 @@ export default defineNuxtConfig({
       theme: 'algolia',
     },
   },
-  modules: [
-    ['@nuxtjs/algolia'],
-    ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
-    '@nuxtjs/robots',
-  ],
+  modules: [['@nuxtjs/algolia'], ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }], '@nuxtjs/robots'],
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -10,7 +10,8 @@
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "algolia:index": "tsx ./scripts/algoliaIndexer.ts"
+    "algolia:index": "tsx ./scripts/algoliaIndexer.ts",
+    "meilisearch:index": "tsx ./scripts/meilisearchIndexer.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.7.4",
@@ -32,6 +33,7 @@
     "gray-matter": "^4.0.3",
     "gsap": "npm:@gsap/shockingly@^3.10.4",
     "markdown-it": "^13.0.1",
+    "meilisearch": "^0.33.0",
     "nuxt": "^3.0.0",
     "nuxt-clipboard": "^0.0.7",
     "shiki": "^0.14.0",
