@@ -36,7 +36,7 @@ You can vote either via:
 - [archwayd](/community/governance/vote/vote-archwayd)
 
 
-The easiest way to vote on governance proposals is through [Archway Connect](/community/archway-connect). However, you can also vote on governance proposals through a [wallet](wallet.md) or directly via [archwayd](../developers/developer-tools/daemon).
+The easiest way to vote on governance proposals is through [Archway Connect](/community/archway-connect). However, you can also vote on governance proposals through a [wallet](wallet.md) such as [Cosmostation](/community/governance/vote/vote-cosmostation) and [Leap](/community/governance/vote/vote-leap), or directly via [archwayd](/community/governance/vote/vote-archwayd).
 
 
 Note that: 
@@ -45,27 +45,6 @@ Note that:
 - By voting **NO**, you disagree with the proposal and would not like to see it passed in its current state.
 - By voting **ABSTAIN**, you are recognizing this proposal is irrelevant to you and would not want your vote to be counted in either direction.
 - Voting **NO WITH VETO** By voting no with veto, you fundamentally disagree with the proposal and would not like to see it reworked nor revisited. 
-
-### Voting on governance proposals via Archway Connect
-
-- Connect to Archway connect by pressing **Connect your wallet**:
-![](/images/docs/ac_vote_1.png)
-and select the wallet you want to connect with:
-![](/images/docs/ac_vote_2.png)
-
-Then select the **Vote** section, on the side menu:
-![](/images/docs/ac_vote_3.png)
-
-Review the governance proposals currently in the **Voting** phase and click on the desired proposal for more details.
-![](/images/docs/ac_vote_4.png)
-
-Read the governance proposal's details, and click on **Vote**:
-![](/images/docs/ac_vote_5.png)
-
-Cast your vote by selecting one of the available options:
-![](/images/docs/ac_vote_6.png)
-Confirm the transaction on the wallet:
-![](/images/docs/ac_vote_7.png)
 
 That's it!
 Once the voting period ends you can check the results.
