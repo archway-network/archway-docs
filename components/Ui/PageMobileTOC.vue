@@ -10,9 +10,9 @@
 
 <template>
   <div class="w-full border-t border-gray-100">
-    <div class="w-full bg-white">
+    <div class="w-full bg-white dark:bg-black">
       <Disclosure v-slot="{ open }">
-        <DisclosureButton @click="$emit('toggle-mobile-toc')" class="p-4 flex w-full justify-between items-center text-left">
+        <DisclosureButton as="div" @click="$emit('toggle-mobile-toc')" class="p-4 flex w-full justify-between items-center text-left">
           <span class="px-2">{{ title }}</span>
           <UiButtonsIconButton>
             <UiIconsChevronDownIcon :class="{ 'rotate-180 transform': open }" class="h-5 w-5" />
