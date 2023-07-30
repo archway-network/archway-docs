@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import fs from 'fs';
-import { envPath, defaultEnvPath } from './env.config';
+import { envPath, defaultEnvPath } from './config';
 import { defineNuxtConfig } from 'nuxt/config';
 
 dotenv.config({
@@ -12,11 +12,13 @@ export default defineNuxtConfig({
     '@vue/devtools-api': '@vue/devtools-api',
   },
   runtimeConfig: {
-    algolia: {
-      env: process.env.ENV || 'staging',
-      appId: process.env.ALGOLIA_APPLICATION_ID || 'mock',
-      searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
-      docIndex: process.env.ALGOLIA_INDEX,
+    public: {
+      algoliaParams: {
+        env: process.env.ENV || 'staging',
+        appId: process.env.ALGOLIA_APPLICATION_ID || 'mock',
+        searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+        docIndex: process.env.ALGOLIA_INDEX,
+      },
     },
   },
   generate: {
@@ -33,11 +35,7 @@ export default defineNuxtConfig({
       theme: 'algolia',
     },
   },
-  modules: [
-    ['@nuxtjs/algolia'],
-    ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
-    '@nuxtjs/robots',
-  ],
+  modules: [['@nuxtjs/algolia'], ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }], '@nuxtjs/robots'],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -124,5 +122,8 @@ export default defineNuxtConfig({
   },
   robots: {
     configPath: 'robots.config.js',
+  },
+  nitro: {
+    // plugins: ['@/server/plugins/content.ts'],
   },
 });

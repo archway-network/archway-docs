@@ -9,7 +9,9 @@
     detached: { type: Boolean, default: false },
   });
 
-  const { algolia } = useRuntimeConfig();
+  const {
+    public: { algoliaParams: algolia },
+  } = useRuntimeConfig();
 
   const algoliaRef =
     algolia.appId === 'mock'

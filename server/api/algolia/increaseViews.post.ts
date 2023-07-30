@@ -3,10 +3,12 @@ import { H3Event } from 'h3';
 
 export default defineEventHandler(async (event: H3Event) => {
   const body = await readBody(event);
-  const config = useRuntimeConfig();
+  const {
+    public: { algoliaParams: algolia },
+  } = useRuntimeConfig();
 
-  const appId = config.algolia?.appId;
-  const docIndex = config.algolia?.docIndex;
+  const appId = algolia?.appId;
+  const docIndex = algolia?.docIndex;
   const apiKey = process.env?.ALGOLIA_WRITE_API_KEY;
 
   if (appId === 'mock') return {};

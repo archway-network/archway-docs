@@ -9,17 +9,13 @@ export const useAlgoliaSearch: (sortingReplica?: SortingReplicas) => Promise<{
   updateObjectsPartially: (objs: any[], createIfNotExists?: boolean) => Promise<any>;
   search: (query: string, filters?: string) => Promise<any>;
 }> = async (sortingReplica?: SortingReplicas) => {
-  const runtimeConfig = useRuntimeConfig();
+  const {
+    public: { algoliaParams: algolia },
+  } = useRuntimeConfig();
   const algoliaSearch =
-    runtimeConfig.algolia.appId === 'mock'
+    algolia.appId === 'mock'
       ? new MockAlgoliaSearch()
-      : new AlgoliaSearch(
-          runtimeConfig.algolia.appId,
-          runtimeConfig.algolia.searchApiKey,
-          runtimeConfig.algolia.docIndex,
-          runtimeConfig.algolia.env,
-          sortingReplica
-        );
+      : new AlgoliaSearch(algolia.appId, algolia.searchApiKey, algolia.docIndex, algolia.env, sortingReplica);
 
   const findObject = async (searchPredicate: (hit: any) => boolean) => {
     return await algoliaSearch.findObject(searchPredicate);
