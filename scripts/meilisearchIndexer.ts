@@ -8,7 +8,7 @@ import { MeiliSearch } from 'meilisearch';
 const updateMeilisearchIndexes = async () => {
   dotenv.config();
   const indexName = process.env.MEILISEARCH_INDEX;
-  const apiKey = process.env.MEILISEARCH_WRITE_KEY;
+  const apiKey = process.env.MEILISEARCH_WRITE_API_KEY;
   const host = process.env.MEILISEARCH_HOST;
   const env = process.env.ENV;
 

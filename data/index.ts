@@ -5,3 +5,4 @@ export * from './useRelayers';
 export * from './useSectionCategories';
 export * from './useHighlightedArticles';
 export * from './useAlgoliaSearch';
+export * from './useContentSearch';

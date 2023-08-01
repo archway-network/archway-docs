@@ -1,7 +1,8 @@
 import dotenv from 'dotenv';
 import fs from 'fs';
-import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
+
+import { envPath, defaultEnvPath } from './env.config';
 
 dotenv.config({
   path: fs.existsSync(envPath) ? envPath : defaultEnvPath,
@@ -18,11 +19,13 @@ export default defineNuxtConfig({
       searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
       docIndex: process.env.ALGOLIA_INDEX,
     },
-    meilisearch: {
-      env: process.env.ENV || 'staging',
-      searchKey: process.env.MEILISEARCH_SEARCH_KEY,
-      adminKey: process.env.MEILISEARCH_ADMIN_KEY,
-      docIndex: process.env.MEILISEARCH_INDEX,
+    public: {
+      meilisearch: {
+        env: process.env.ENV || 'staging',
+        searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
+        docIndex: process.env.MEILISEARCH_INDEX,
+        host: process.env.MEILISEARCH_HOST,
+      },
     },
   },
   generate: {
