@@ -2,7 +2,6 @@ import { AutocompleteComponents, HTMLTemplate } from '@algolia/autocomplete-js';
 import { BaseItem } from '@algolia/autocomplete-core';
 
 export * from './IBCRelayer';
-export * from './Content';
 
 export type AppConfigFeatures = {
   ARCHWAY_ECOSYSTEM: boolean;

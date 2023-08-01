@@ -3,12 +3,12 @@ import { useQuery } from '@tanstack/vue-query';
 import MeiliSearch from 'meilisearch';
 import { useRuntimeConfig } from '#app';
 
-import { MeilisearchContentResult } from '@/types';
+import { ContentMetadata } from '@/domain';
 
 export const useContentSearch = async (
   query: Ref<string | undefined>
 ): Promise<{
-  data: Ref<MeilisearchContentResult[] | undefined>;
+  data: Ref<ContentMetadata[] | undefined>;
   loading: Ref<boolean>;
 }> => {
   const {
@@ -24,7 +24,7 @@ export const useContentSearch = async (
 
       const result = await client.index(docIndex).search(query);
 
-      return result.hits;
+      return result?.hits?.map(item => ContentMetadata.make(item)) || [];
     },
   });
 

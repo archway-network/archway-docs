@@ -7,8 +7,7 @@
   import { useContentSearch } from '@/data';
   import PageInfo from './PageInfo.vue';
   import SearchKeysInfo from './SearchKeysInfo.vue';
-
-  import { MeilisearchContentResult } from '@/types';
+  import { ContentMetadata } from '@/domain';
 
   onMounted(() => {
     (async () => {
@@ -30,7 +29,7 @@
     debounceFunc.value(event);
   };
 
-  const onSelectOption = (item: MeilisearchContentResult) => {
+  const onSelectOption = (item: ContentMetadata) => {
     if (!item) return;
 
     return navigateTo(articles.value?.find(article => article.objectID === item.objectID)?._path);

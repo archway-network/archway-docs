@@ -1,10 +1,10 @@
 <script lang="ts" setup>
   import { PropType } from 'vue';
 
-  import { MeilisearchContentResult } from '@/types';
+  import { ContentMetadata } from '@/domain';
 
   defineProps({
-    value: { type: Object as PropType<MeilisearchContentResult>, default: false },
+    value: { type: Object as PropType<ContentMetadata>, default: false },
     active: { type: Boolean, default: false },
   });
 </script>
