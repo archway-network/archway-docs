@@ -27,7 +27,7 @@ npm run dev
 
 ### Using Docker
 
-You can also spin up the development environment using Docker. First, you have to add the Algolia secrets to the `.env` file. You can use the example file for that:
+You can also spin up the development environment using Docker. First, you have to add the Meilisearch secrets to the `.env` file. You can use the example file for that:
 
 ```bash
 cp .env.example .env

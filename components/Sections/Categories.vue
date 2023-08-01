@@ -10,7 +10,7 @@
     <Link
       :key="id"
       :href="articlePath"
-      class="bg-white dark:bg-black-18 rounded-2xl shadow-card px-6 py-8"
+      class="bg-white dark:bg-black-100 rounded-2xl shadow-card px-6 py-8"
       v-for="{ id, category, title, description, articlePath } in categories"
     >
       <label class="block text-black/20 dark:text-white/60 pb-6" v-if="!!category">{{ category }}</label>

@@ -40,7 +40,7 @@
       <Link
         :key="id"
         :href="path"
-        class="flex space-x-4 bg-white dark:bg-black-18 rounded-2xl shadow-card dark:shadow-black py-10 px-6"
+        class="flex space-x-4 bg-white dark:bg-black-100 rounded-2xl shadow-card dark:shadow-black py-10 px-6"
         v-for="{ id, title, description, path, logo } in articles"
       >
         <div class="flex-shrink-0">

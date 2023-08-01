@@ -33,7 +33,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 pt-12">
       <Link
         :href="url"
-        class="flex space-x-4 bg-white dark:bg-black-18 rounded-2xl shadow-card dark:shadow-black py-10 px-6"
+        class="flex space-x-4 bg-white dark:bg-black-100 rounded-2xl shadow-card dark:shadow-black py-10 px-6"
         :external-icon="false"
         v-for="{ title, description, url, icon } in steps"
       >

@@ -13,7 +13,7 @@
   <div
     class="relative cursor-default select-none p-4 mt-2 border border-gray-warm rounded-lg"
     :class="{
-      'shadow-card !cursor-pointer': active,
+      'shadow-card dark:bg-black-100 !cursor-pointer': active,
     }"
   >
     <div>
