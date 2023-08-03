@@ -5,8 +5,8 @@
   import BrandDiscord from '@/components/Ui/Brands/Discord.vue';
 
   const openSearch = () => {
-    const btn = document.getElementsByClassName('aa-DetachedSearchButton');
-    btn[0].click();
+    const btn = document.getElementById('open-search-modal');
+    btn.click();
   };
 </script>
 

@@ -24,6 +24,8 @@ export const useContentSearch = async (
   const { data, isLoading } = useQuery({
     queryKey: [{ scope: 'meilisearch', entity: 'search', query }],
     queryFn: async ({ queryKey: [{ query }] }): Promise<ContentMetadata[]> => {
+      if (!host || !apiKey || !docIndex) return [];
+
       const client = new MeiliSearch({ host, apiKey });
 
       const result = await client.index(docIndex).search(query);

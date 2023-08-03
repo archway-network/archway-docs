@@ -100,16 +100,16 @@
               </ComboboxOptions>
               <div class="flex pt-4 mx-6 mb-6 border-t border-black/30 text-black/30 dark:border-gray-600 dark:text-gray-600 space-x-6">
                 <div class="flex items-center space-x-2">
-                  <kbd class="key !text-base dark:!border-gray-600 dark:!text-gray-600">↵</kbd>
+                  <kbd class="flex justify-center items-center rounded-lg caption w-6 h-6 border dark:border-gray-600 dark:text-gray-600">↵</kbd>
                   <span>to Select</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                  <kbd class="key !text-base dark:!border-gray-600 dark:!text-gray-600">↑️</kbd>
-                  <kbd class="key !text-base !ml-1 dark:!border-gray-600 dark:!text-gray-600">↓</kbd>
+                  <kbd class="flex justify-center items-center rounded-lg caption w-6 h-6 border dark:!border-gray-600 dark:!text-gray-600">↑️</kbd>
+                  <kbd class="flex justify-center items-center rounded-lg caption w-6 h-6 border !ml-1 dark:!border-gray-600 dark:!text-gray-600">↓</kbd>
                   <span>to Navigate</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                  <kbd class="key !text-2xl dark:!border-gray-600 dark:!text-gray-600">␛</kbd>
+                  <kbd class="flex justify-center items-center rounded-lg text-2xl w-6 h-6 border dark:!border-gray-600 dark:!text-gray-600">␛</kbd>
                   <span>to Close</span>
                 </div>
               </div>
