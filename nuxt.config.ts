@@ -29,7 +29,11 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@headlessui/vue'],
   },
-  modules: [['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }], '@nuxtjs/robots'],
+  modules: [
+    ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
+    '@nuxtjs/robots',
+    'nuxt-simple-sitemap',
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -111,10 +115,19 @@ export default defineNuxtConfig({
         // Theme used if `html.sepia`
         sepia: 'monokai',
       },
-      preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
+      preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash', 'yaml', 'toml'],
     },
   },
   robots: {
     configPath: 'robots.config.js',
+  },
+  sitemap: {
+    hostname: 'https://docs.archway.io',
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+    },
   },
 });

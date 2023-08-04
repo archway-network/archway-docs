@@ -12,7 +12,9 @@ export const useArticles = async (
   const { data, isLoading } = useQuery({
     queryKey: [{ scope: 'articles', entity: 'query', query }],
     queryFn: async ({ queryKey: [{ query }] }): Promise<ParsedContent[]> => {
-      return queryContent(query || '/').find();
+      return queryContent(query || '/')
+        .without(['body'])
+        .find() as Promise<ParsedContent[]>;
     },
   });
 
