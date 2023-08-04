@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
-  import { Combobox, ComboboxInput, ComboboxOptions, ComboboxOption, ComboboxButton } from '@headlessui/vue';
+  import { Combobox, ComboboxInput, ComboboxOptions, ComboboxOption, ComboboxButton, TransitionRoot } from '@headlessui/vue';
   import debounce from 'lodash.debounce';
 
   import { useArticles, useContentSearch } from '@/data';
@@ -47,17 +47,26 @@
             </ComboboxButton>
           </div>
         </div>
-        <ComboboxOptions
-          v-if="!loading && query"
-          class="absolute max-h-[600px] w-full px-4 pt-2 pb-4 overflow-auto rounded-md bg-white dark:bg-black text-base shadow-lg ring-1 ring-black dark:ring-gray-800 ring-opacity-5 focus:outline-none z-50"
+        <TransitionRoot
+          enter="duration-300 ease-out"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="duration-200 ease-in"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
         >
-          <div v-if="data?.length === 0 && query !== ''" class="relative cursor-default select-none pt-2 text-gray-700">
-            No matches found.
-          </div>
-          <ComboboxOption v-for="aux in data" as="template" :key="aux.objectID" :value="aux" v-slot="{ active }">
-            <PageInfo :value="aux" :active="active" />
-          </ComboboxOption>
-        </ComboboxOptions>
+          <ComboboxOptions
+            v-if="!loading && query"
+            class="absolute max-h-[600px] w-full px-4 pt-2 pb-4 overflow-auto rounded-md bg-white dark:bg-black text-base shadow-lg ring-1 ring-black dark:ring-gray-800 ring-opacity-5 focus:outline-none z-50"
+          >
+            <div v-if="data?.length === 0 && query !== ''" class="relative cursor-default select-none pt-2 text-gray-700">
+              No matches found.
+            </div>
+            <ComboboxOption v-for="aux in data" as="template" :key="aux.objectID" :value="aux" v-slot="{ active }">
+              <PageInfo :value="aux" :active="active" />
+            </ComboboxOption>
+          </ComboboxOptions>
+        </TransitionRoot>
       </div>
     </Combobox>
   </div>
