@@ -10,9 +10,8 @@ const updateMeilisearchIndexes = async () => {
   const indexName = process.env.MEILISEARCH_INDEX;
   const apiKey = process.env.MEILISEARCH_WRITE_API_KEY;
   const host = process.env.MEILISEARCH_HOST;
-  const env = process.env.ENV;
 
-  if (!indexName || !apiKey || !host || !env) {
+  if (!indexName || !apiKey || !host) {
     console.log('Please set meilisearch environment variables to update the indexes.');
     return;
   }

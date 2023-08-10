@@ -11,7 +11,7 @@
 
 <template>
   <div
-    class="relative cursor-default select-none p-4 mt-2 border border-gray-warm rounded-lg"
+    class="relative cursor-default select-none py-4 pl-4 pr-12 mt-2 border border-gray-warm rounded-lg"
     :class="{
       'shadow-card dark:bg-black-100 !cursor-pointer': active,
     }"

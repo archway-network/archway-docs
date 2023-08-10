@@ -15,7 +15,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       meilisearch: {
-        env: process.env.ENV || 'staging',
         searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
         docIndex: process.env.MEILISEARCH_INDEX,
         host: process.env.MEILISEARCH_HOST,
