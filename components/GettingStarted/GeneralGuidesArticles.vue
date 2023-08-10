@@ -4,22 +4,22 @@
 
   const articles: Article[] = [
     {
-      id: 'overview|cosmos_ibc_cosmwasm',
+      id: 'overview_cosmos_ibc_cosmwasm',
       title: 'Cosmos SDK, IBC and CosmWasm',
       description: 'Overview of the tech powering Archway.',
       path: '/overview/cosmos_ibc_cosmwasm',
     },
     {
-      id: 'overview|reward-types',
+      id: 'overview_reward-types',
       title: 'Understanding Archway rewards system',
       description: 'Learn more on how rewards are generated and managed.',
       path: '/overview/rewards',
     },
     {
-      id: 'community|wallet|navigating-an-archway-block-explorer',
+      id: 'community_navigating-an-archway-block-explorer',
       title: 'Navigating block explorers',
       description: 'Instructions for tracking transactions, account and network activities.',
-      path: '/community/wallet-setup/navigating-an-archway-block-explorer',
+      path: '/community/navigating-an-archway-block-explorer',
     },
     {
       id: ' overview|about',
