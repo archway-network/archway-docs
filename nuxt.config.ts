@@ -124,6 +124,7 @@ export default defineNuxtConfig({
     hostname: 'https://docs.archway.io',
   },
   nitro: {
+    preset: 'firebase',
     prerender: {
       crawlLinks: true,
       routes: ['/'],
