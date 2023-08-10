@@ -16,7 +16,7 @@ export default defineAppConfig({
     ARCHWAY_REWARDS: 'https://rewards.archway.io',
     ARCHWAY_DOCS: '',
     ARCHWAY_CONNECT: 'https://connect.archway.io',
-    ARCHWAY_STATUS: 'https://archway-network.statuspage.io',
+    ARCHWAY_STATUS: 'https://status.archway.io',
     ARCHWAY_BLOG: 'https://blog.archway.io',
     ARCHWAY_GOT_DAPP_IDEA_FORM: 'https://docs.google.com/forms/d/e/1FAIpQLSdTYUZqtnzBlSLn1eZpH6FhKFl5ZxpKu8ndcgEN4V3A26BrhA/viewform',
     ARCHWAY_PARTNERSHIPS_FORM: 'https://docs.google.com/forms/d/e/1FAIpQLScPQwp_9Tk6Gj3QS9MFbN6xp4BcHlUOTgUa6uuPhaQlJ9xRSw/viewform',
