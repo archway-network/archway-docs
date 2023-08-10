@@ -4,25 +4,25 @@
 
   const articles: Article[] = [
     {
-      id: 'community|wallet|interact-with-dapp-using-keplr',
+      id: 'community_wallet',
       title: 'How to interact with Archway dApps',
       description: 'A guide on how to interact with Archway DApps using Keplr and a Ledger device.',
-      path: '/community/wallet-setup/interact-with-dapp-using-keplr',
+      path: '/community/wallet-setup/overview',
     },
     {
-      id: 'community|send-tokens',
+      id: 'community_send-tokens',
       title: 'How to send tokens',
       description: 'Discover how to send tokens within the Archway networks.',
       path: '/community/managing-tokens/send-tokens',
     },
     {
-      id: 'community|governance|voting',
+      id: 'community_governance_governance',
       title: 'How to participate in governance',
       description: 'Discover how to submit and vote on governance proposals.',
-      path: '/community/governance/vote',
+      path: '/community/governance/governance',
     },
     {
-      id: 'community|staking',
+      id: 'community_staking',
       title: 'How to stake tokens',
       description: 'Learn how to stake and delegate tokens to secure the Archway network.',
       path: '/community/staking/overview',

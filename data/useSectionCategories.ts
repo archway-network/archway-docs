@@ -31,14 +31,14 @@ const sectionCategories: Record<string, SectionCategory[]> = {
       category: 'Node Operators',
       title: 'Running a Node',
       description: 'Reference for installing, configuring, and runnning a node, as well as joining a network.',
-      articlePath: '/validators/running-a-node',
+      articlePath: '/validators/running-a-node/prerequisites',
     },
     {
       id: `category-${uniqueId()}`,
       category: 'Validators',
       title: 'Becoming a Validator',
       description: 'Be part of the network. Understand the requirements and steps to becoming a validator.',
-      articlePath: '/validators/requirements',
+      articlePath: '/validators/becoming-a-validator/requirements',
     },
   ],
   '/community': [

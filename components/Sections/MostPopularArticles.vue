@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <!-- <div class="pt-16">
-    <ArticlesSection title="Most Popular Articles" :articles="articles" :loading="isLoading" />
-  </div> -->
+  <div class="pt-16">
+    <!-- <ArticlesSection title="Most Popular Articles" :articles="articles" :loading="isLoading" /> -->
+  </div>
 </template>
