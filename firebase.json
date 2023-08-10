@@ -1,0 +1,37 @@
+{
+  "hosting": [
+    {
+      "target": "archway-docs",
+      "public": ".output/public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "cleanUrls": true,
+      "redirects": [
+        {
+          "source": "/overview",
+          "destination": "/overview/about",
+          "type": 301
+        },
+        {
+          "source": "/resources",
+          "destination": "/resources/networks",
+          "type": 301
+        },
+        {
+          "source": "/validators/running-a-node",
+          "destination": "/validators/running-a-node/prerequisites",
+          "type": 301
+        },
+        {
+          "source": "/validators/requirements",
+          "destination": "/validators/becoming-a-validator/requirements",
+          "type": 301
+        },
+        {
+          "source": "/community/wallet-setup/keplr-setup",
+          "destination": "/community/wallet-setup/keplr/keplr-setup",
+          "type": 301
+        }
+      ]
+    }
+  ]
+}

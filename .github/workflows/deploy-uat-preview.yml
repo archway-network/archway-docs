@@ -1,0 +1,47 @@
+name: Deploy UAT Preview
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: self-hosted
+    environment: staging
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run generate
+        env:
+          MEILISEARCH_HOST: '${{ vars.MEILISEARCH_HOST }}'
+          MEILISEARCH_INDEX: '${{ vars.MEILISEARCH_INDEX }}'
+          MEILISEARCH_SEARCH_API_KEY: '${{ secrets.MEILISEARCH_SEARCH_API_KEY }}'
+
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARCHWAY_NETWORK }}'
+          channelId: preview
+          expires: 28d
+          projectId: archway-network
+          target: 'archway-docs'
