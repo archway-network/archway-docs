@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <Link :href="url" class="relative block border border-transparent rounded-2xl bg-white dark:bg-black-18 shadow-card dark:shadow-black">
+  <Link :href="url" class="relative block border border-transparent rounded-2xl bg-white dark:bg-black-100 shadow-card dark:shadow-black">
     <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-x-6 md:space-y-0 px-6 py-8">
       <div class="flex-shrink-0">
         <slot></slot>

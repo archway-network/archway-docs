@@ -3,23 +3,22 @@ import { readdir } from 'fs/promises';
 import { readFileSync, statSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import AlgoliaSearch from '../domain/AlgoliaSearch';
-import { AlgoliaArticleIndex } from '@/types';
+import { MeiliSearch } from 'meilisearch';
 
-const updateAlgolaIndexes = async () => {
+const updateMeilisearchIndexes = async () => {
   dotenv.config();
-  const indexName = process.env.ALGOLIA_INDEX;
-  const appId = process.env.ALGOLIA_APPLICATION_ID;
-  const apiKey = process.env.ALGOLIA_WRITE_API_KEY;
+  const indexName = process.env.MEILISEARCH_INDEX;
+  const apiKey = process.env.MEILISEARCH_WRITE_API_KEY;
+  const host = process.env.MEILISEARCH_HOST;
   const env = process.env.ENV;
 
-  if (!indexName || !appId || !apiKey || !env) {
-    console.log('Please set algolia environment variables to update the indexes.');
+  if (!indexName || !apiKey || !host || !env) {
+    console.log('Please set meilisearch environment variables to update the indexes.');
     return;
   }
 
   const topDirs = (await readdir('./content', { withFileTypes: true })).filter(obj => obj.isDirectory()).map(folder => folder.name);
-  const algoliaSearch = new AlgoliaSearch(appId, apiKey, indexName, env);
+  const client = new MeiliSearch({ host, apiKey });
   console.log('topDirs', topDirs);
 
   for (let i = 0; i < topDirs.length; i++) {
@@ -38,7 +37,7 @@ const updateAlgolaIndexes = async () => {
       if (!frontMatter.objectID) throw new Error('Front-matter must have a unique objectID (based on file path)!');
 
       const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
-      const indexObj: AlgoliaArticleIndex = {
+      const indexObj = {
         objectID: frontMatter.objectID,
         title: frontMatter.title || (firstHeader ? firstHeader[0].trim() : ''),
         description: frontMatter.description,
@@ -52,9 +51,20 @@ const updateAlgolaIndexes = async () => {
       docs[f] = indexObj;
     }
 
-    algoliaSearch.updateObjectsPartially(docs).then(objs => {
-      console.log(`Indexed ${objs.objectIDs.length} records in Algolia for: ${indexName}`);
-    });
+    const res = await client.index(indexName).addDocuments(docs);
+    console.log(`Enqueued the ${res.type} for ${docs.length} records in Meilisearch with taskUid: ${res.taskUid}`);
+
+    let status = res.status;
+
+    while (status !== 'succeeded') {
+      new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Querying status...');
+      const taskInfo = await client.getTask(res.taskUid);
+      status = taskInfo.status;
+      if (status === 'failed') throw new Error(JSON.stringify(taskInfo));
+    }
+
+    console.log('Index successfully updated');
   }
 };
 
@@ -82,4 +92,4 @@ const getFilesRecursive = async (dirPath: string): Promise<{ filePath: string; f
   return filesOnly;
 };
 
-updateAlgolaIndexes();
+updateMeilisearchIndexes();

@@ -1,8 +1,6 @@
 <script lang="ts" setup>
   import { PropType } from 'vue';
   import ArticlesSection from '@/components/ArticlesSection.vue';
-  import { useHighlightedArticles } from '@/data/useHighlightedArticles';
-  import { SortingReplicas } from '@/domain/AlgoliaSearch';
   import { Article } from '@/domain';
 
   const props = defineProps({
@@ -10,11 +8,6 @@
   });
 
   const articles = ref<Article[]>([]);
-  const { search, isLoading } = await useHighlightedArticles(SortingReplicas.DocsByViewed);
-
-  onMounted(async () => {
-    articles.value = await search(props.section);
-  });
 </script>
 
 <template>

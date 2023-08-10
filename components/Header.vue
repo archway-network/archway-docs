@@ -1,13 +1,12 @@
 <script setup>
   import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
-  import { Link, SwitchColorMode, ArchwayBrand, ArchwayLogo, CloseIcon, MenuIcon, SearchIcon } from '@/components/Ui';
-  import AutocompleteSearch from '@/components/Ui/Algolia/AutocompleteSearch.vue';
+  import { Link, SwitchColorMode, ArchwayBrand, ArchwayLogo, CloseIcon, MenuIcon, SearchIcon, ContentSearchButton } from '@/components/Ui';
   import BrandGithub from '@/components/Ui/Brands/Github.vue';
   import BrandDiscord from '@/components/Ui/Brands/Discord.vue';
 
   const openSearch = () => {
-    const btn = document.getElementsByClassName('aa-DetachedSearchButton');
-    btn[0].click();
+    const btn = document.getElementById('open-search-modal');
+    btn.click();
   };
 </script>
 
@@ -34,7 +33,7 @@
               <BrandGithub class="flex-shrink-0 w-6 h-6 text-black/60 dark:text-white" aria-hidden="true" />
             </Link>
             <SwitchColorMode />
-            <AutocompleteSearch detached />
+            <ContentSearchButton />
             <Link href="https://archway.io" :external-icon="false" class="caption">Back to Archway</Link>
           </div>
           <div class="flex-1 flex justify-end items-center lg:hidden space-x-2">

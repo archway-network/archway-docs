@@ -8,6 +8,5 @@
   <HomeHero />
   <HomeSections />
   <HomeFeaturedSections />
-  <HomeHighlightedArticles />
   <HomeLearnAboutArchway />
 </template>

@@ -1,5 +1,5 @@
 ---
-objectID: community|governance|voting
+objectID: community_governance_voting
 parentSection: Participate
 parentSectionPath: /community
 title: Voting on a governance proposal

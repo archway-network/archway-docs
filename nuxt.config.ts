@@ -1,7 +1,8 @@
 import dotenv from 'dotenv';
 import fs from 'fs';
-import { envPath, defaultEnvPath } from './env.config';
 import { defineNuxtConfig } from 'nuxt/config';
+
+import { envPath, defaultEnvPath } from './env.config';
 
 dotenv.config({
   path: fs.existsSync(envPath) ? envPath : defaultEnvPath,
@@ -12,11 +13,13 @@ export default defineNuxtConfig({
     '@vue/devtools-api': '@vue/devtools-api',
   },
   runtimeConfig: {
-    algolia: {
-      env: process.env.ENV || 'staging',
-      appId: process.env.ALGOLIA_APPLICATION_ID || 'mock',
-      searchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
-      docIndex: process.env.ALGOLIA_INDEX,
+    public: {
+      meilisearch: {
+        env: process.env.ENV || 'staging',
+        searchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY,
+        docIndex: process.env.MEILISEARCH_INDEX,
+        host: process.env.MEILISEARCH_HOST,
+      },
     },
   },
   generate: {
@@ -26,17 +29,10 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@headlessui/vue'],
   },
-  algolia: {
-    apiKey: process.env.ALGOLIA_SEARCH_API_KEY || 'mock',
-    applicationId: process.env.ALGOLIA_APPLICATION_ID || 'mock',
-    instantSearch: {
-      theme: 'algolia',
-    },
-  },
   modules: [
-    ['@nuxtjs/algolia'],
     ['@nuxt/content', { documentDriven: true, navigation: { fields: ['parentSection'] } }],
     '@nuxtjs/robots',
+    'nuxt-simple-sitemap',
   ],
   postcss: {
     plugins: {
@@ -119,10 +115,19 @@ export default defineNuxtConfig({
         // Theme used if `html.sepia`
         sepia: 'monokai',
       },
-      preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash'],
+      preload: ['c', 'cpp', 'java', 'js', 'rust', 'json', 'bash', 'yaml', 'toml'],
     },
   },
   robots: {
     configPath: 'robots.config.js',
+  },
+  sitemap: {
+    hostname: 'https://docs.archway.io',
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+    },
   },
 });
