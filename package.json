@@ -26,6 +26,7 @@
     "dotenv": "^16.0.3",
     "gray-matter": "^4.0.3",
     "gsap": "npm:@gsap/shockingly@^3.10.4",
+    "js-jsonq": "^1.0.3",
     "lodash.debounce": "^4.0.8",
     "markdown-it": "^13.0.1",
     "meilisearch": "^0.33.0",

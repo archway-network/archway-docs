@@ -1,17 +1,18 @@
 <script setup lang="ts">
+  import { onMounted } from 'vue';
   import { Link } from '@/components/Ui';
 
   const { prev, next } = useContent();
 </script>
 <template>
-  <nav class="flex gap-4 mt-12">
-    <Link class="rounded-2xl grow shrink basis-0 p-6 no-underline bg-gray-1100 dark:bg-black-100" v-if="prev" :href="prev._path"
-      ><p class="my-0.5 font-medium">Previous</p>
-      <p class="my-0.5 font-bold">{{ prev.title }}</p></Link
-    >
-    <Link class="rounded-2xl grow shrink basis-0 p-6 no-underline bg-gray-1100 dark:bg-black-100" v-if="next" :href="next._path"
-      ><p class="my-0.5 font-medium">Next</p>
-      <p class="my-0.5 font-bold">{{ next.title }}</p></Link
-    >
+  <nav class="flex justify-between gap-4 mt-12">
+    <Link class="w-1/2 flex flex-col space-y-1 rounded-2xl p-6 no-underline bg-gray-1100 dark:bg-black-100" :href="prev._path" v-if="prev">
+      <span class="font-medium">Previous</span>
+      <span class="font-bold">{{ prev.title }}</span>
+    </Link>
+    <Link class="w-1/2 flex flex-col space-y-1 rounded-2xl p-6 no-underline bg-gray-1100 dark:bg-black-100" :href="next._path" v-if="next">
+      <span class="font-medium">Next</span>
+      <span class="font-bold">{{ next.title }}</span>
+    </Link>
   </nav>
 </template>

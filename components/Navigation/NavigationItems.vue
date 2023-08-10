@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { PropType } from 'vue';
   import NavigationItem from '@/components/Navigation/NavigationItem.vue';
-  import { Section, useNavigation, useSections } from '@/data';
+  import { Section, useNavigation } from '@/data';
 
   const props = defineProps({
     selectedSection: { type: Object as PropType<Section>, required: true },
