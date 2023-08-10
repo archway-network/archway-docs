@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "archway-network"
+  },
+  "targets": {
+    "archway-network": {
+      "hosting": {
+        "archway-docs": [
+          "archway-docs-f05c9"
+        ]
+      }
+    }
+  }
+}
