@@ -7,7 +7,7 @@ import { ContentMetadata } from '@/domain';
 
 export const useContentSearch = async (
   query: Ref<string | undefined>,
-  loadOnInit: boolean = false
+  loadEmptyQuery: boolean = false
 ): Promise<{
   data: Ref<ContentMetadata[] | undefined>;
   loading: Ref<boolean>;
@@ -18,7 +18,7 @@ export const useContentSearch = async (
     },
   } = useRuntimeConfig();
 
-  const isEnabled = computed(() => loadOnInit || !!query.value);
+  const isEnabled = computed(() => loadEmptyQuery || !!query.value);
   const loading = computed(() => isLoading.value && isEnabled.value);
 
   const { data, isLoading } = useQuery({
