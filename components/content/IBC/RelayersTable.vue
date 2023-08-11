@@ -18,6 +18,14 @@
     'osmosis-1': 'Osmosis',
     'axelar-dojo-1': 'Axelar',
     'cosmoshub-4': 'Cosmos Hub',
+    'crescent-1': 'Crescent',
+    'jackal-1': 'Jackal',
+    'juno-1': 'Juno',
+    'kaiyo-1': 'Kujira',
+    'core-1': 'Persistence',
+    'shentu-2.2': 'Shentu',
+    'tgrade-mainnet-1': 'Tgrade',
+    'umee-1': 'Umee',
   };
   // --------------------------------------------------------------------------------
 
