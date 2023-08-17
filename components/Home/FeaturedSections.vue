@@ -1,9 +1,10 @@
-<script lang="jsx" setup>
+<script lang="ts" setup>
   import FeaturedSection from '@/components/Home/FeaturedSection.vue';
+  import BuildersCall from '@/components/Ui/Banners/BuildersCall.vue';
 </script>
 
 <template>
-  <div class="grid pb-16">
+  <div class="grid pb-16 gap-y-4">
     <p class="text-base text-gray-600 mb-4 dark:text-gray-900 leading-[150%]">Featured</p>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
       <FeaturedSection title="New to Archway?" description="Community Members" url="/getting-started" label="Get Started">
@@ -18,5 +19,6 @@
         <img class="w-[115px]" src="@/assets/images/cosmwasm-documentation.png" />
       </FeaturedSection>
     </div>
+    <BuildersCall />
   </div>
 </template>
