@@ -12,16 +12,21 @@
   // --------------------------------------------------------------------------------
   // Update here to add chain names with their chain id
   const chainIds = {
-    'osmo-test-5': 'Osmosis',
-    'axelar-testnet-lisbon-3': 'Axelar',
-    'theta-testnet-001': 'Cosmos Hub',
-    'osmosis-1': 'Osmosis',
-    'axelar-dojo-1': 'Axelar',
-    'cosmoshub-4': 'Cosmos Hub',
-    'jackal-1': 'Jackal',
-    'juno-1': 'Juno',
-    'kaiyo-1': 'Kujira',
-    'umee-1': 'Umee',
+    'osmosistestnet': 'Osmosis',
+    'axelartestnet': 'Axelar',
+    'akashtestnet': 'Akash',
+    'agoric': 'Agoric',
+    'axelar': 'Axelar',
+    'bitcanna': 'Bitcanna',
+    'cosmoshub': 'Cosmos Hub',
+    'jackal': 'Jackal',
+    'juno': 'Juno',
+    'kujira': 'Kujira',
+    'noble': 'Noble',
+    'nois': 'Nois',
+    'osmosis': 'Osmosis',
+    'quicksilver': 'Quicksilver',
+    'umee': 'Umee',
   };
   // --------------------------------------------------------------------------------
 
@@ -30,8 +35,8 @@
 
   // Build markdown table
   const markdownHeader = `
-| **Source Channel** | **Destination** | **Destination Chain ID**     | **Destination Channel** |
-| :----------------- |:----------------|------------------------------|-------------------------|
+| **Source Channel** | **Destination** | **Destination Channel** |
+| :----------------- |:----------------|-------------------------|
 `;
   const markdownContent = computed(
     () =>
@@ -41,8 +46,8 @@
             .map(
               channel =>
                 `| ${channel.chain_1.channel_id} | ${
-                  Object.entries(chainIds).find(item => item[0] === relayer.chain_2.chain_name)?.[1] || ''
-                } | ${relayer.chain_2.chain_name} | ${channel.chain_2.channel_id} |`
+                  Object.entries(chainIds).find(item => item[0] === relayer.chain_2.chain_name)?.[1] || relayer.chain_2.chain_name
+                } | ${channel.chain_2.channel_id} |`
             )
             .join('\n')
         )
