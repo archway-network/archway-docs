@@ -35,8 +35,8 @@
 
   // Build markdown table
   const markdownHeader = `
-| **Source Channel** | **Destination** | **Destination Chain**     | **Destination Channel** |
-| :----------------- |:----------------|------------------------------|-------------------------|
+| **Source Channel** | **Destination** | **Destination Channel** |
+| :----------------- |:----------------|-------------------------|
 `;
   const markdownContent = computed(
     () =>
@@ -47,7 +47,7 @@
               channel =>
                 `| ${channel.chain_1.channel_id} | ${
                   Object.entries(chainIds).find(item => item[0] === relayer.chain_2.chain_name)?.[1] || ''
-                } | ${relayer.chain_2.chain_name} | ${channel.chain_2.channel_id} |`
+                } | ${channel.chain_2.channel_id} |`
             )
             .join('\n')
         )
