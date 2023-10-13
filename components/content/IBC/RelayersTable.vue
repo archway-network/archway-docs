@@ -7,31 +7,32 @@
 
   const props = defineProps({
     repoFiles: { type: Array as PropType<string[]>, required: true },
+    isMainnet: { type: Boolean, default: true },
   });
 
   // --------------------------------------------------------------------------------
-  // Update here to add chain names with their chain id
-  const chainIds = {
-    'osmosistestnet': 'Osmosis',
-    'axelartestnet': 'Axelar',
-    'akashtestnet': 'Akash',
-    'agoric': 'Agoric',
-    'axelar': 'Axelar',
-    'bitcanna': 'Bitcanna',
-    'cosmoshub': 'Cosmos Hub',
-    'jackal': 'Jackal',
-    'juno': 'Juno',
-    'kujira': 'Kujira',
-    'noble': 'Noble',
-    'nois': 'Nois',
-    'osmosis': 'Osmosis',
-    'quicksilver': 'Quicksilver',
-    'umee': 'Umee',
+  // Update here to display the chain names in a pretty format
+  const prettyNames = {
+    osmosistestnet: 'Osmosis',
+    axelartestnet: 'Axelar',
+    akashtestnet: 'Akash',
+    agoric: 'Agoric',
+    axelar: 'Axelar',
+    bitcanna: 'Bitcanna',
+    cosmoshub: 'Cosmos Hub',
+    jackal: 'Jackal',
+    juno: 'Juno',
+    kujira: 'Kujira',
+    noble: 'Noble',
+    nois: 'Nois',
+    osmosis: 'Osmosis',
+    quicksilver: 'Quicksilver',
+    umee: 'Umee',
   };
   // --------------------------------------------------------------------------------
 
   // Load data
-  const { relayers } = await useRelayers(Object.values(props.repoFiles));
+  const { relayers } = await useRelayers(Object.values(props.repoFiles), props.isMainnet ? '_IBC' : 'testnets/_IBC');
 
   // Build markdown table
   const markdownHeader = `
@@ -46,7 +47,7 @@
             .map(
               channel =>
                 `| ${channel.chain_1.channel_id} | ${
-                  Object.entries(chainIds).find(item => item[0] === relayer.chain_2.chain_name)?.[1] || relayer.chain_2.chain_name
+                  Object.entries(prettyNames).find(item => item[0] === relayer.chain_2.chain_name)?.[1] || relayer.chain_2.chain_name
                 } | ${channel.chain_2.channel_id} |`
             )
             .join('\n')
