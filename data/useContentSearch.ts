@@ -1,7 +1,7 @@
 import { Ref } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import MeiliSearch from 'meilisearch';
-import { useRuntimeConfig } from '#app';
+import { useRuntimeConfig } from '#imports';
 
 import { ContentMetadata } from '@/domain';
 
