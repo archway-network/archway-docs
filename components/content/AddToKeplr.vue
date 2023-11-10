@@ -1,53 +1,29 @@
 <script setup lang="ts">
+  import { PropType } from 'vue';
+
+  import constantineConfig from '@/config/constantine.config';
+  import titusConfig from '@/config/titus.config';
+  import triompheConfig from '@/config/triomphe.config';
   import { PrimaryButton } from '@/components/Ui';
 
-  const currency = {
-    coinDenom: 'ARCH',
-    coinMinimalDenom: 'aarch',
-    coinDecimals: 18,
-    coinGeckoId: 'archway',
-    coinImageUrl: 'https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/archway/aarch.png',
-  };
+  enum ChainType {
+    MAINNET = 'mainnet',
+    TESTNET = 'testnet',
+    DEVNET = 'devnet',
+  }
 
-  const archwayChainInfo = {
-    bech32Config: {
-      bech32PrefixAccAddr: 'archway',
-      bech32PrefixAccPub: 'archwaypub',
-      bech32PrefixConsAddr: 'archwayvalcons',
-      bech32PrefixConsPub: 'archwayvalconspub',
-      bech32PrefixValAddr: 'archwayvaloper',
-      bech32PrefixValPub: 'archwayvaloperpub',
-    },
-    bip44: {
-      coinType: 118,
-    },
-    chainId: 'archway-1',
-    chainName: 'Archway',
-    chainSymbolImageUrl: 'https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/archway/chain.png',
-    currencies: [currency],
-    features: ['cosmwasm'],
-    feeCurrencies: [
-      {
-        ...currency,
-        gasPriceStep: {
-          low: 1000000000000,
-          average: 1500000000000,
-          high: 2000000000000,
-        },
-      },
-    ],
-    rest: 'https://api.mainnet.archway.io',
-    rpc: 'https://rpc.mainnet.archway.io',
-    stakeCurrency: currency,
-    nodeProvider: {
-      name: 'Phi Labs',
-      email: 'support@philabs.xyz',
-      website: 'https://philabs.xyz',
-    },
-  };
+  const props = defineProps({
+    chain: { type: String as PropType<ChainType>, default: 'mainnet' },
+  });
 
   const addToKeplr = async () => {
-    await window.keplr.experimentalSuggestChain(archwayChainInfo);
+    const config = {
+      [ChainType.MAINNET]: triompheConfig,
+      [ChainType.TESTNET]: constantineConfig,
+      [ChainType.DEVNET]: titusConfig,
+    }[props.chain];
+
+    await window.keplr.experimentalSuggestChain(config);
   };
 </script>
 
