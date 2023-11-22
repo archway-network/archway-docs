@@ -7,7 +7,7 @@
 
   const props = defineProps({
     repoFiles: { type: Array as PropType<string[]>, required: true },
-    isMainnet: { type: Boolean, default: true },
+    networkType: { type: String, default: 'mainnet' },
   });
 
   // --------------------------------------------------------------------------------
@@ -31,8 +31,22 @@
   };
   // --------------------------------------------------------------------------------
 
+  // Determine the path suffix based on the network type
+const networkPath = computed(() => {
+  switch (props.networkType) {
+    case 'mainnet':
+      return '_IBC';
+    case 'testnet':
+      return 'testnets/_IBC';
+    case 'devnet':
+      return 'devnets/_IBC';
+    default:
+      return '_IBC'; // Fallback, though ideally should not reach here due to prop validation
+  }
+});
+
   // Load data
-  const { relayers } = await useRelayers(Object.values(props.repoFiles), props.isMainnet ? '_IBC' : 'testnets/_IBC');
+  const { relayers } = await useRelayers(Object.values(props.repoFiles), networkPath.value);
 
   // Build markdown table
   const markdownHeader = `
