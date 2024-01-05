@@ -43,3 +43,9 @@ jobs:
           channelId: live
           projectId: archway-network
           target: 'archway-docs'
+
+      - name: Update meilisearch index
+        run: npm run meilisearch:index
+        env:
+          MEILISEARCH_HOST: '${{ vars.MEILISEARCH_HOST }}'
+          MEILISEARCH_WRITE_API_KEY: '${{ secrets.MEILISEARCH_WRITE_API_KEY }}'
