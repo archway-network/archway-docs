@@ -18,14 +18,34 @@ const updateMeilisearchIndexes = async () => {
 
   const topDirs = (await readdir('./content', { withFileTypes: true })).filter(obj => obj.isDirectory()).map(folder => folder.name);
   const client = new MeiliSearch({ host, apiKey });
+
+  // Fetch existing entries
+  const oldEntries: Record<string, boolean> = {};
+
+  const limit = 100;
+  let offset = 0;
+  let total = 1;
+
+  while (offset < total) {
+    const res = await client.index(indexName).getDocuments({ fields: ['objectID'], limit, offset });
+    total = res.total;
+    offset += limit;
+    for (const item of res.results) {
+      oldEntries[item.objectID] = true;
+    }
+  }
+
+  // Read /content directory for the new entries
   console.log('topDirs', topDirs);
+
+  const allDocs: Record<string, any>[][] = [];
 
   for (let i = 0; i < topDirs.length; i++) {
     const dirName = topDirs[i];
     const allFileObjects = await getFilesRecursive(`./content/${dirName}`);
     const fileObjects = allFileObjects.filter(fsObj => fsObj.fileName != 'index.md');
 
-    const docs = Array(fileObjects.length).fill(0); // preallocate large array to avoid push
+    const innerDocs = Array(fileObjects.length).fill(0); // preallocate large array to avoid push
     for (let f = 0; f < fileObjects.length; f++) {
       const fileObj = fileObjects[f];
       const filePath = fileObj.filePath;
@@ -33,7 +53,12 @@ const updateMeilisearchIndexes = async () => {
       const markdown = readFileSync(filePath, 'utf8');
       const fileStats = statSync(filePath);
       let { data: frontMatter, content } = matter(markdown);
-      if (!frontMatter.objectID) throw new Error('Front-matter must have a unique objectID (based on file path)!');
+      const objectID = frontMatter.objectID;
+      if (!objectID) throw new Error('Front-matter must have a unique objectID (based on file path)!');
+      if (!/^[\da-zA-Z-_]*$/.test(objectID))
+        throw new Error(`The objectID ${objectID} is invalid. Meilisearch only allow objectIDs with: a-z A-Z 0-9 - and _`);
+
+      delete oldEntries[objectID];
 
       const firstHeader = content.match(/(?<=(^#)\s{0,1}).*/m);
       const indexObj = {
@@ -43,27 +68,46 @@ const updateMeilisearchIndexes = async () => {
         parentSection: frontMatter.parentSection,
         content: content.trim(),
         modified: convertMsToUnixSeconds(fileStats.mtimeMs),
-        group: frontMatter.objectID ? frontMatter.objectID.split('|')[0] : '',
+        group: frontMatter.objectID ? frontMatter.objectID.split('_')[0] : '',
         // viewed: 0 // this field will be added from UI upon screen load
       };
 
-      docs[f] = indexObj;
+      innerDocs[f] = indexObj;
     }
 
-    const res = await client.index(indexName).addDocuments(docs);
-    console.log(`Enqueued the ${res.type} for ${docs.length} records in Meilisearch with taskUid: ${res.taskUid}`);
+    allDocs.push(innerDocs);
+  }
 
-    let status = res.status;
+  // Write new entries
+  for (const innerDocs of allDocs) {
+    const res = await client.index(indexName).addDocuments(innerDocs);
+    console.log(`Enqueued the ${res.type} for ${innerDocs.length} records in Meilisearch with taskUid: ${res.taskUid}`);
 
-    while (status !== 'succeeded') {
-      new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Querying status...');
-      const taskInfo = await client.getTask(res.taskUid);
-      status = taskInfo.status;
-      if (status === 'failed') throw new Error(JSON.stringify(taskInfo));
-    }
+    await waitTxComplete(client, res.taskUid);
+    console.log(`${innerDocs.length} entries updated!`);
+  }
 
-    console.log('Index successfully updated');
+  // Delete old entries
+  const toDelete = Object.keys(oldEntries);
+  if (toDelete.length) {
+    const deleteRes = await client.index(indexName).deleteDocuments({ filter: `objectID IN [${toDelete.join(',')}]` });
+    console.log(`Enqueued the ${deleteRes.type} of ${toDelete.length} records`);
+    await waitTxComplete(client, deleteRes.taskUid);
+    console.log('Entries successfully deleted.');
+  }
+
+  console.log('\nSuccessfully updated all docs! :)');
+};
+
+const waitTxComplete = async (client: MeiliSearch, taskUid: number) => {
+  let status;
+
+  while (status !== 'succeeded') {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log('Querying status...');
+    const taskInfo = await client.getTask(taskUid);
+    status = taskInfo.status;
+    if (status === 'failed') throw new Error(JSON.stringify(taskInfo));
   }
 };
 
