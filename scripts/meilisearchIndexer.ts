@@ -92,7 +92,7 @@ const updateMeilisearchIndexes = async () => {
   if (toDelete.length) {
     const deleteRes = await client.index(indexName).deleteDocuments({ filter: `objectID IN [${toDelete.join(',')}]` });
     console.log(`Enqueued the ${deleteRes.type} of ${toDelete.length} records`);
-    waitTxComplete(client, deleteRes.taskUid);
+    await waitTxComplete(client, deleteRes.taskUid);
     console.log('Entries successfully deleted.');
   }
 
@@ -103,7 +103,7 @@ const waitTxComplete = async (client: MeiliSearch, taskUid: number) => {
   let status;
 
   while (status !== 'succeeded') {
-    new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     console.log('Querying status...');
     const taskInfo = await client.getTask(taskUid);
     status = taskInfo.status;
