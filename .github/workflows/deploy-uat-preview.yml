@@ -50,4 +50,5 @@ jobs:
         run: npm run meilisearch:index
         env:
           MEILISEARCH_HOST: '${{ vars.MEILISEARCH_HOST }}'
+          MEILISEARCH_INDEX: '${{ vars.MEILISEARCH_INDEX }}'
           MEILISEARCH_WRITE_API_KEY: '${{ secrets.MEILISEARCH_WRITE_API_KEY }}'
