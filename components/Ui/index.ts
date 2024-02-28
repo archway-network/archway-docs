@@ -1,6 +1,7 @@
 export { default as ArchwayBrandAndLogo } from './ArchwayBrandAndLogo.vue';
 export { default as ArchwayBrand } from './ArchwayBrand.vue';
 export { default as ArchwayLogo } from './ArchwayLogo.vue';
+export { default as NodeOpsLogo } from './NodeOpsLogo.vue';
 export { default as Link } from './Buttons/Link.vue';
 export { default as GoToLink } from './Buttons/GoToLink.vue';
 export { default as PrimaryButton } from './Buttons/PrimaryButton.vue';
@@ -9,6 +10,7 @@ export { default as TransparentButton } from './Buttons/TransparentButton.vue';
 export { default as AccordionMenu } from './Menus/AccordionMenu.vue';
 export { default as TextInput } from './Forms/DefaultTextInput.vue';
 export { default as DefaultModal } from './Modals/DefaultModal.vue';
+export { default as PlaygroundModal } from './Modals/PlaygroundModal.vue';
 export { default as Movie } from './Movie.vue';
 export { default as YoutubeMovie } from './YoutubeMovie.vue';
 export { default as SwitchColorMode } from './SwitchColorMode.vue';
