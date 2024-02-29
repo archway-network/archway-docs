@@ -3,6 +3,7 @@
   import { CopyIcon, TickIcon } from '@/components/Ui';
   import { PlaygroundModal } from '~~/components/Ui';
   import { useModals } from '@/composables';
+  import { useRuntimeConfig } from '#imports';
 
   const { isOpen, openModal, closeModal } = useModals(false);
 
@@ -23,6 +24,12 @@
     }
   };
 
+  const {
+    public: {
+      nodeops_playground_lite: { host, basicAuth, user },
+    },
+  } = useRuntimeConfig();
+
   const executeCode = async () => {
     const code = selectedSlot.value.textContent;
     openModal();
@@ -35,12 +42,12 @@
 
     isLoading.value = true;
     try {
-      const response = await fetch('NODEOPS_PALGROUNDLITE_URL', {
+      const response = await fetch(host, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Basic NODEOPS_PALGROUNDLITE_AUTH`,
-          User: `NODEOPS_PALGROUNDLITE_USER`,
+          Authorization: `Basic ${basicAuth}`,
+          User: user,
         },
         body: JSON.stringify({
           lang: 'bash',
