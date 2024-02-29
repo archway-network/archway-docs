@@ -35,6 +35,9 @@ jobs:
           MEILISEARCH_HOST: '${{ vars.MEILISEARCH_HOST }}'
           MEILISEARCH_INDEX: '${{ vars.MEILISEARCH_INDEX }}'
           MEILISEARCH_SEARCH_API_KEY: '${{ secrets.MEILISEARCH_SEARCH_API_KEY }}'
+          NODEOPS_PLAYGROUND_LITE_HOST: '${{ secrets.NODEOPS_PLAYGROUND_LITE_HOST }}'
+          NODEOPS_PLAYGROUND_LITE_BASIC_AUTH: '${{ secrets.NODEOPS_PLAYGROUND_LITE_BASIC_AUTH }}'
+          NODEOPS_PLAYGROUND_LITE_USER: '${{ secrets.NODEOPS_PLAYGROUND_LITE_USER }}'
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
