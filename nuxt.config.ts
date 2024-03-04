@@ -19,7 +19,12 @@ export default defineNuxtConfig({
         docIndex: process.env.MEILISEARCH_INDEX,
         host: process.env.MEILISEARCH_HOST,
       },
-    },
+      nodeops_playground_lite: {
+        host: process.env.NODEOPS_PLAYGROUND_LITE_HOST,
+        basicAuth: process.env.NODEOPS_PLAYGROUND_LITE_BASIC_AUTH,
+        user: process.env.NODEOPS_PLAYGROUND_LITE_USER,
+      },
+    }
   },
   generate: {
     routes: ['/404'],
