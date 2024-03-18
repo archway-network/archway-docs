@@ -145,6 +145,7 @@
     <div class="sm:hidden fixed inset-x-0 bottom-0 z-50" v-if="displayTOC">
       <PageMobileTOC @toggle-mobile-top="handleToggleMobileToc" :title="currentTitle" />
     </div>
+    <DropCampModal />
   </div>
 </template>
 
