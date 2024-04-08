@@ -4,6 +4,7 @@ const redirects: Record<string, string> = {
   '/validators/running-a-node': '/validators/running-a-node/prerequisites',
   '/validators/requirements': '/validators/becoming-a-validator/requirements',
   '/community/wallet-setup/keplr-setup': '/community/wallet-setup/keplr/keplr-setup',
+  '/community/airdrop-snapshots': '/community/dropcamp',
 };
 
 export default defineNuxtRouteMiddleware(to => {
