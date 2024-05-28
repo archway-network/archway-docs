@@ -1,3 +1,3 @@
 export const replaceValues = {
-  $$archwayVersion$$: 'v4.0.3',
+  $$archwayVersion$$: 'v7.0.1',
 };
