@@ -5,6 +5,6 @@
       <slot />
     </main>
     <Footer />
-    <DropCampModal />
+    <!--<DropCampModal />-->
   </div>
 </template>
