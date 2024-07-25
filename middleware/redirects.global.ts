@@ -8,6 +8,7 @@ const redirects: Record<string, string> = {
   '/developers/cosmwasm-documentation/getting-started/introduction': '/developers/getting-started/introduction',
   '/developers/cosmwasm-documentation/getting-started/setting-up-environment': '/developers/getting-started/install',
   '/developers/cosmwasm-documentation/getting-started/compile-contract': '/developers/getting-started/compile-contract',
+  '/developers/cosmwasm-documentation/getting-started/unit-tests': '/developers/smart-contracts/testing',
 };
 
 export default defineNuxtRouteMiddleware(to => {
