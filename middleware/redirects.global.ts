@@ -6,6 +6,7 @@ const redirects: Record<string, string> = {
   '/community/wallet-setup/keplr-setup': '/community/wallet-setup/keplr/keplr-setup',
   '/community/airdrop-snapshots': '/community/dropcamp',
   '/developers/cosmwasm-documentation/getting-started/introduction': '/developers/getting-started/introduction',
+  '/developers/cosmwasm-documentation/getting-started/setting-up-environment': '/developers/getting-started/install',
 };
 
 export default defineNuxtRouteMiddleware(to => {
