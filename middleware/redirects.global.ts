@@ -7,6 +7,7 @@ const redirects: Record<string, string> = {
   '/community/airdrop-snapshots': '/community/dropcamp',
   '/developers/cosmwasm-documentation/getting-started/introduction': '/developers/getting-started/introduction',
   '/developers/cosmwasm-documentation/getting-started/setting-up-environment': '/developers/getting-started/install',
+  '/developers/cosmwasm-documentation/getting-started/compile-contract': '/developers/getting-started/compile-contract',
 };
 
 export default defineNuxtRouteMiddleware(to => {
