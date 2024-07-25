@@ -43,9 +43,9 @@ const redirects: Record<string, string> = {
   '/developers/cosmwasm-documentation/smart-contracts/cosmwasm-ibc': '/developers/smart-contracts/cosmwasm-ibc',
   
   '/developers/cosmwasm-documentation/tutorials/simple-option/testing': '/developers/smart-contracts/tutorials/simple-option/testing',
-  '/developers/cosmwasm-documentation/tutorials/storage/key-value-store': '/developers/smart-contracts/tutorials/storage/key-value-store',
-  '/developers/cosmwasm-documentation/tutorials/storage/indexes': '/developers/smart-contracts/tutorials/storage/indexes',
-  '/developers/cosmwasm-documentation/tutorials/storage/state-modeling': '/developers/smart-contracts/tutorials/storage/state-modeling',
+  '/developers/cosmwasm-documentation/tutorials/storage/key-value-store': '/developers/guides/storage/key-value-store',
+  '/developers/cosmwasm-documentation/tutorials/storage/indexes': '/developers/guides/storage/indexes',
+  '/developers/cosmwasm-documentation/tutorials/storage/state-modeling': '/developers/guides/storage/state-modeling',
   
   '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/math': '/developers/guides/cosmwasm-by-example/math',
   '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/instantiation': '/developers/guides/cosmwasm-by-example/instantiation',
