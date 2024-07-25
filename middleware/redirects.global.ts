@@ -47,15 +47,15 @@ const redirects: Record<string, string> = {
   '/developers/cosmwasm-documentation/tutorials/storage/indexes': '/developers/smart-contracts/tutorials/storage/indexes',
   '/developers/cosmwasm-documentation/tutorials/storage/state-modeling': '/developers/smart-contracts/tutorials/storage/state-modeling',
   
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/math': '/developers/smart-contracts/tutorials/cosmwasm-by-example/math',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/instantiation': '/developers/smart-contracts/tutorials/cosmwasm-by-example/instantiation',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/timelock': '/developers/smart-contracts/tutorials/cosmwasm-by-example/timelock',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/crowdfunding': '/developers/smart-contracts/tutorials/cosmwasm-by-example/crowdfunding',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/responses-attributes': '/developers/smart-contracts/tutorials/cosmwasm-by-example/responses-attributes',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/read-write-sate': '/developers/smart-contracts/tutorials/cosmwasm-by-example/read-write-sate',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/sending-tokens': '/developers/smart-contracts/tutorials/cosmwasm-by-example/sending-tokens',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/token-vault': '/developers/smart-contracts/tutorials/cosmwasm-by-example/token-vault',
-  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/amm-product': '/developers/smart-contracts/tutorials/cosmwasm-by-example/amm-product',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/math': '/developers/guides/cosmwasm-by-example/math',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/instantiation': '/developers/guides/cosmwasm-by-example/instantiation',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/timelock': '/developers/guides/cosmwasm-by-example/timelock',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/crowdfunding': '/developers/guides/cosmwasm-by-example/crowdfunding',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/responses-attributes': '/developers/guides/cosmwasm-by-example/responses-attributes',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/read-write-sate': '/developers/guides/cosmwasm-by-example/read-write-sate',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/sending-tokens': '/developers/guides/cosmwasm-by-example/sending-tokens',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/token-vault': '/developers/guides/cosmwasm-by-example/token-vault',
+  '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/amm-product': '/developers/guides/cosmwasm-by-example/amm-product',
 };
 
 export default defineNuxtRouteMiddleware(to => {
