@@ -42,7 +42,8 @@ const redirects: Record<string, string> = {
   '/developers/cosmwasm-documentation/smart-contracts/sudo-execution': '/developers/smart-contracts/sudo-execution',
   '/developers/cosmwasm-documentation/smart-contracts/cosmwasm-ibc': '/developers/smart-contracts/cosmwasm-ibc',
   
-  '/developers/cosmwasm-documentation/tutorials/simple-option/testing': '/developers/smart-contracts/tutorials/simple-option/testing',
+  '/developers/cosmwasm-documentation/tutorials/simple-option/testing': '/developers/guides/guides-overview',
+
   '/developers/cosmwasm-documentation/tutorials/storage/key-value-store': '/developers/guides/storage/key-value-store',
   '/developers/cosmwasm-documentation/tutorials/storage/indexes': '/developers/guides/storage/indexes',
   '/developers/cosmwasm-documentation/tutorials/storage/state-modeling': '/developers/guides/storage/state-modeling',
