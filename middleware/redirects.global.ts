@@ -57,6 +57,11 @@ const redirects: Record<string, string> = {
   '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/sending-tokens': '/developers/guides/cosmwasm-by-example/sending-tokens',
   '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/token-vault': '/developers/guides/cosmwasm-by-example/token-vault',
   '/developers/cosmwasm-documentation/tutorials/cosmwasm-by-example/amm-product': '/developers/guides/cosmwasm-by-example/amm-product',
+
+  '/developers/developer-tools/arch3js/tutorials/ibc-transaction': '/developers/guides/arch3js/ibc-transaction',
+  '/developers/developer-tools/arch3js/tutorials/store-instantiate-contract': '/developers/guides/arch3js/store-instantiate-contract',
+  '/developers/developer-tools/arch3js/tutorials/keplr-integration': '/developers/guides/arch3js/keplr-integration',
+  '/developers/developer-tools/arch3js/tutorials/websockets': '/developers/guides/arch3js/websockets',
 };
 
 export default defineNuxtRouteMiddleware(to => {
