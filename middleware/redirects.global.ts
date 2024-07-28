@@ -62,6 +62,8 @@ const redirects: Record<string, string> = {
   '/developers/developer-tools/arch3js/tutorials/store-instantiate-contract': '/developers/guides/arch3js/store-instantiate-contract',
   '/developers/developer-tools/arch3js/tutorials/keplr-integration': '/developers/guides/arch3js/keplr-integration',
   '/developers/developer-tools/arch3js/tutorials/websockets': '/developers/guides/arch3js/websockets',
+
+  '/developers/developer-tools/daemon': '/developers/developer-tools/archwayd',
 };
 
 export default defineNuxtRouteMiddleware(to => {
