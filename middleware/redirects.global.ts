@@ -64,6 +64,8 @@ const redirects: Record<string, string> = {
   '/developers/developer-tools/arch3js/tutorials/websockets': '/developers/guides/arch3js/websockets',
 
   '/developers/developer-tools/daemon': '/developers/developer-tools/archwayd',
+
+  '/developers/frameworks/sylvia': '/developers/resources/frameworks/sylvia',
 };
 
 export default defineNuxtRouteMiddleware(to => {
