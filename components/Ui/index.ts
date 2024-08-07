@@ -42,6 +42,7 @@ export { default as MenuCollapseIcon } from './Icons/MenuCollapseIcon.vue';
 export { default as MenuIcon } from './Icons/MenuIcon.vue';
 export { default as PeopleIcon } from './Icons/PeopleIcon.vue';
 export { default as QuestionIcon } from './Icons/QuestionIcon.vue';
+export { default as ScavengerHuntIcon } from './Icons/ScavengerHuntIcon.vue';
 export { default as SearchIcon } from './Icons/SearchIcon.vue';
 export { default as StarIcon } from './Icons/StarIcon.vue';
 export { default as WarningIcon } from './Icons/WarningIcon.vue';

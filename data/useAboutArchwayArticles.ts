@@ -12,7 +12,18 @@ export const useAboutArchwayArticles = async (): Promise<{
   );
 
   const articles = computed(() => {
-    return (data.value || []).map(item => Article.make(item));
+    const fetchedArticles = (data.value || []).map(item => Article.make(item));
+
+    // Scavenger hunt article information
+    const newArticle = Article.make({
+      id: 'scavenger-hunt',
+      title: 'Scavenger Hunt',
+      description: 'Congratulations on finding the third clue! Keyword #3 is “DEVELOPER REWARDS”. Click on this module to go to the fourth clue’s location!',
+      path: '/path-to-manual-article',
+      logo: 'ScavengerHuntIcon',
+    });
+
+    return [...fetchedArticles, newArticle];
   });
 
   return { articles, isLoading: computed(() => pending.value) };

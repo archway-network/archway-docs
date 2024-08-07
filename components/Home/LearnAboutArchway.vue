@@ -1,7 +1,7 @@
 <script lang="tsx" setup>
   import { Link, ArchwayLogo } from '@/components/Ui';
   import { useAboutArchwayArticles } from '@/data/useAboutArchwayArticles';
-  import { CardIcon, CogIcon, DictionaryIcon, GlobeIcon, HeartIcon, ListIcon, PeopleIcon, QuestionIcon } from '@/components/Ui';
+  import { CardIcon, CogIcon, DictionaryIcon, GlobeIcon, HeartIcon, ListIcon, PeopleIcon, QuestionIcon, ScavengerHuntIcon } from '@/components/Ui';
 
   const { articles } = await useAboutArchwayArticles();
 
@@ -25,6 +25,8 @@
         return PeopleIcon;
       case 'QuestionIcon':
         return QuestionIcon;
+      case 'ScavengerHuntIcon':
+        return ScavengerHuntIcon;
       default:
         return ArchwayLogo;
     }
