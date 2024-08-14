@@ -111,4 +111,10 @@ thead th {
 tbody tr:nth-child(even) {
   
 }
+
+/* Dark mode styles */
+.dark thead th {
+  background-color: #333; /* Dark mode background for table header */
+  color: white; /* Text color for dark mode */
+}
 </style>
