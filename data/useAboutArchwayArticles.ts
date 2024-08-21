@@ -19,7 +19,7 @@ export const useAboutArchwayArticles = async (): Promise<{
       _id: 'scavenger-hunt',
       title: 'Scavenger Hunt',
       description: 'Congratulations on finding the third clue! Keyword #3 is “DEVELOPER REWARDS”. Click on this module to go to the fourth clue\'s location!',
-      _path: 'https://archway.io/ecosystem',
+      _path: 'https://connect.archway.io/projects/scavengerhunt',
       logo: 'ScavengerHuntIcon',
     });
 
