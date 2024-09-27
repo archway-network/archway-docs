@@ -28,3 +28,9 @@
     </div>
   </Link>
 </template>
+
+<style scoped>
+.heading-3 {
+  font-size: 24px;
+}
+</style>
