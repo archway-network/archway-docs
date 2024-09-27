@@ -13,7 +13,7 @@
       <FeaturedSection
         title="Tools & Products"
         description="Dapp Developers"
-        url="/developers/cosmwasm-documentation/introduction"
+        url="/developers/developer-tools/introduction"
         label="Explore"
       >
         <img class="w-[115px]" src="@/assets/images/tools-products.png" />
