@@ -40,7 +40,7 @@
     ),
     new Tool(
       'Litmus',
-      '/',
+      '/developers/developer-tools/litmus',
       'Testing framework that facilitates integration and end-to-end testing of CosmWasm smart contracts',
       'Litmus',
       '/images/docs/tools//tools-litmus.png'
@@ -54,49 +54,49 @@
     ),
     new Tool(
       'Arch3.rs',
-      '/',
+      '/developers/developer-tools/arch3rs',
       'Rust library for interacting with the Archway Protocol',
       'Arch3.rs',
       '/images/docs/tools//tools-arch3rs.png'
     ),
     new Tool(
       'Relayer Exporter',
-      '/',
+      '/developers/developer-tools/relayer-exporter',
       'Monitor and export key metrics for IBC relayers on the Archway blockchain.',
       'Relayer Exporter',
       '/images/docs/tools//tools-relayer-exporter.png'
     ),
     new Tool(
       'Validator Exporter',
-      '/',
+      '/developers/developer-tools/validator-exporter',
       'Monitoring tool for Archway blockchain validators',
       'Validator Exporter',
       '/images/docs/tools//tools-validator-exporter.png'
     ),
     new Tool(
       'Network Registry',
-      '/',
+      '/developers/developer-tools/network-registry',
       'JavaScript library for interacting with the Archway Protocol',
       'Network Registry',
       '/images/docs/tools//tools-network-registry.png'
     ),
     new Tool(
       'Archway Multisig',
-      '/',
+      '/developers/guides/multisig/archway-multisig-hub',
       'The archwayd binary is the core implementation of the Archway protocol',
       'Archway Multisig',
       '/images/docs/tools//tools-archway-multisig.png'
     ),
     new Tool(
       'Keyring Go',
-      '/',
+      '/developers/developer-tools/keyring-go',
       'Go-based library designed to provide secure storage and handling of cryptographic keys',
       'Keyring Go',
       '/images/docs/tools//tools-keyring-go.png'
     ),
     new Tool(
       'Crates',
-      '/',
+      '/developers/developer-tools/crates',
       'Rust packages that offer reusable code to streamline the development of smart contracts',
       'Crates',
       '/images/docs/tools//tools-archway-crates.png'

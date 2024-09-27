@@ -40,7 +40,7 @@
     ),
     new Tool(
       'Litmus',
-      '/',
+      '/developers/developer-tools/litmus',
       'Testing framework that facilitates integration and end-to-end testing of CosmWasm smart contracts',
       'Litmus',
       '/images/docs/tools//tools-litmus.png'
