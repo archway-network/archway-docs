@@ -66,6 +66,8 @@ const redirects: Record<string, string> = {
   '/developers/developer-tools/daemon': '/developers/developer-tools/archwayd',
 
   '/developers/frameworks/sylvia': '/developers/resources/frameworks/sylvia',
+
+  '/developers/smart-contracts/testing': '/developers/smart-contracts/testing/testing',
 };
 
 export default defineNuxtRouteMiddleware(to => {
